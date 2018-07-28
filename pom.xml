@@ -25,5 +25,6 @@
         <module>teamcity-build-log-parser</module>
         <module>maven-build-log-parser</module>
         <module>maven-goal-log-parser</module>
+        <module>maven-goal-classifier</module>
     </modules>
 </project>
