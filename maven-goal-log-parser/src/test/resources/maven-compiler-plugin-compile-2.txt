@@ -1,0 +1,11 @@
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ bank_maven ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 4 source files to D:\bachelor-thesis\demo-bank-account\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/bachelor-thesis/demo-bank-account/src/main/java/com/example/bank/Main.java:[5,28] ';' expected
+[ERROR] /D:/bachelor-thesis/demo-bank-account/src/main/java/com/example/bank/Main.java:[16,11] 'catch' without 'try'
+[INFO] 2 errors
+[INFO] -------------------------------------------------------------

@@ -1,0 +1,9 @@
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ bank_maven ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 4 source files to C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] \TeamCity\buildAgent\work\dc680b5ed78c7e4e\src\main\java\com\example\bank\Main.java:[5,27] error: ';' expected
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
