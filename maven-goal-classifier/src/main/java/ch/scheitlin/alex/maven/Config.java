@@ -22,7 +22,7 @@ public class Config {
     public String[] support;
     public String[] dependency;
 
-    private static final String path = "config/config.yaml";
+    private static final String path = "config.yaml";
 
     public static Config readConfig() throws IOException, NullPointerException {
         // get the config class to later map the YAML's content to
