@@ -7,3 +7,4 @@
 - [Build Model](build-model/README.md)
 - [Error Model](error-model/README.md)
 - [TeamCity API](teamcity-api/README.md)
+- [Git API](git-api/README.md)
