@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ch.scheitlin.alex.build</groupId>
+        <artifactId>build-failure-resolution-assistant-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>ch.scheitlin.alex.build</groupId>
+    <artifactId>build-failure-resolution-assistant</artifactId>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- build-model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.build.model</groupId>
+            <artifactId>build-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- build-model -->
+
+        <!-- error-model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.build.model</groupId>
+            <artifactId>error-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- error-model -->
+
+        <!-- teamcity-api -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.teamcity.api</groupId>
+            <artifactId>teamcity-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- teamcity-api -->
+
+        <!-- git-api -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.git.api</groupId>
+            <artifactId>git-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- git-api -->
+
+        <!-- teamcity-build-log-parser -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.teamcity</groupId>
+            <artifactId>teamcity-build-log-parser</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- teamcity-build-log-parser -->
+
+        <!-- maven-build-log-parser -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.maven</groupId>
+            <artifactId>maven-build-log-parser</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- maven-build-log-parser -->
+
+        <!-- maven-goal-log-parser -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.maven</groupId>
+            <artifactId>maven-goal-log-parser</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- maven-goal-log-parser -->
+
+        <!-- maven-goal-classifier -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.maven</groupId>
+            <artifactId>maven-goal-classifier</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- maven-goal-classifier -->
+    </dependencies>
+</project>

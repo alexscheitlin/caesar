@@ -26,5 +26,6 @@
         <module>maven-build-log-parser</module>
         <module>maven-goal-log-parser</module>
         <module>maven-goal-classifier</module>
+        <module>build-failure-resolution-assistant</module>
     </modules>
 </project>
