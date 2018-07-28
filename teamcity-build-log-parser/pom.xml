@@ -27,7 +27,6 @@
     <build>
         <resources>
             <resource>
-                <targetPath>config</targetPath>
                 <directory>config</directory>
                 <includes>
                     <include>buildLogConfig.yaml</include>

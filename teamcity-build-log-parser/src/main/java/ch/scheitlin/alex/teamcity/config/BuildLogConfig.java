@@ -37,7 +37,7 @@ public class BuildLogConfig {
     /**
      * The location of the buildLogConfig.yaml file containing the regular expressions.
      */
-    private static final String path = "config/buildLogConfig.yaml";
+    private static final String path = "buildLogConfig.yaml";
 
     /**
      * Gets the regular expression and its name.
