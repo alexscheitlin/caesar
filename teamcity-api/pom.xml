@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>build-failure-resolution-assistant</artifactId>
+        <groupId>ch.scheitlin.alex.build</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>ch.scheitlin.alex.teamcity.api</groupId>
+    <artifactId>teamcity-api</artifactId>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- teamcity rest client -->
+        <dependency>
+            <groupId>org.jetbrains.teamcity.rest</groupId>
+            <artifactId>teamcity-rest-client</artifactId>
+            <version>SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/teamcity-rest-client-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.retrofit</groupId>
+            <artifactId>retrofit</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jakewharton.retrofit</groupId>
+            <artifactId>retrofit1-okhttp3-client</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>1.1.4-3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <!-- teamcity rest client -->
+
+        <!-- build model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.build.model</groupId>
+            <artifactId>build-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- build model -->
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
