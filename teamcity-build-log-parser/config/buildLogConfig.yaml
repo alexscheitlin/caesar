@@ -1,0 +1,132 @@
+# Escape the following metacharacters with a backslash '\':
+# . ^ $ * + ? { } [ ] \ | ( )
+
+# For all regular expressions that only serve as a template and particular values need to be inserted before applying it
+# append 'Templ' to the pattern's name. Use '%s' for every value (given as a String) that needs to be inserted.
+# Example:
+# - Example string to match:  Step [1/1]
+# - Pattern:                  stepTempl: "^\\[Step %s/\\d*\\]"
+# - Usage:
+#     String regexTempl = config.getRegex().get("stepTempl");
+#     String value = "1";
+#     String regex = String.format(regexTempl, value);
+
+# Build Log Header Example
+#
+# Build 'PROJECT :: BUILD-CONFIGURATION' #BUILD-NUMBER
+# Started yyyy-MM-dd HH:mm:ss on 'AGENT' by 'TRIGGER'
+# Finished yyyy-MM-dd HH:mm:ss with status STATUS 'Tests failed: 0, passed: 0'
+# VCS revisions: 'VCS-ROOT' (VCS): REVISION (branch 'BRANCH')
+# TeamCity URL http://host/viewLog.html?...
+# TeamCity server version is VERSION (build BUILD), server timezone: TIMEZONE (UTC+00:00)
+
+# regular expressions to parse build log lines and extract information
+regex:
+  # --------------------------------------------------------------------------------------------------------------------
+  # 1st log line (version 1)
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Build 'PROJECT :: BUILD-CONFIGURATION' #BUILD-NUMBER, branch 'BRANCH-NAME'
+  # regular expression:   ^Build '.* :: .*' #.*(?:, branch '.*')$
+  headerLine11:           "^Build '(.*) :: (.*)' #(.*)(?:, branch '(.*)')$"
+  # component 1:          project name
+  # component 2:          build configuration name
+  # component 3:          build number
+  # component 4:          branch name
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 1st log line (version 1)
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Build 'PROJECT :: BUILD-CONFIGURATION' #BUILD-NUMBER
+  # regular expression:   ^Build '.* :: .*' #.*$
+  headerLine12:           "^Build '(.*) :: (.*)' #(.*)$"
+  # component 1:          project name
+  # component 2:          build configuration name
+  # component 3:          build number
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 2nd log line
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Started yyyy-MM-dd HH:mm:ss on 'AGENT' by 'TRIGGER'
+  # regular expression:   ^Started d{4}-d{2}-d{2} d{2}:d{2}:d{2} on '.*' by '.*'$
+  headerLine2:            "^Started (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}) on '.*' by '.*'$"
+  # component 1:          start date and time
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 3rd log line
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Finished yyyy-MM-dd HH:mm:ss with status STATUS 'Tests failed: 0, passed: 0'
+  # regular expression:   ^Finished d{4}-d{2}-d{2} d{2}:d{2}:d{2} with status .* '.*'$
+  headerLine3:            "^Finished (\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}) with status (.*) '(.*)'$"
+  # component 1:          finish date and time
+  # component 2:          build status
+  # component 3:          build status text
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 4th log line
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       VCS revisions: 'VCS-ROOT' (VCS): REVISION (branch 'BRANCH')
+  # regular expression:   ^VCS revisions: '.*' \(.*\): .* \(branch '.*'\)$
+  headerLine4:            "^VCS revisions: '(.*)' \\(.*\\): (.*) \\(branch '.*'\\)$"
+  # component 1:          vcs root
+  # component 2:          vcs revision
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 5th log line
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       TeamCity URL http://host/viewLog.html?...
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # 6th log line
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       TeamCity server version is VERSION (build BUILD), server timezone: TIMEZONE (UTC+00:00)
+  # regular expression:   ^TeamCity server version is .* \(build .*\), server timezone: .* \(UTC[-|+]d{2}:d{2}\)$
+  headerLine6:            "^TeamCity server version is (.*) \\(build .*\\), server timezone: .*\\(UTC[-|+]\\d{2}:\\d{2}\\)$"
+  # component 1:          teamcity server version
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # log entry
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       [00:00:00]S:     MESSAGE
+  # regular expression:   ^[d{2}:d{2}:d{2}][ |w]:t* .*$
+  logEntry:               "^\\[(\\d{2}:\\d{2}:\\d{2})\\]([ |\\w]):(\\t*) (.*)$"
+  # component 1:          time
+  # component 2:          severity
+  # component 3:          level (number of tabs)
+  # component 4:          log message
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # build step 1
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Step 0/0: RUNNER-TYPE (0s)
+  # regular expression:   ^Step[ ]\d*\/\d*:[ ].*[ ]\(.*\)$
+  buildStep1:             "^Step[ ](\\d*)\\/\\d*:[ ](.*)[ ]\\((.*)\\)$"
+  # component 1:          step number
+  # component 2:          runner type
+  # component 3:          duration
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # build step 2
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       Step 0/0: BUILD-STEP-NAME (RUNNER-TYPE) (0s)
+  # regular expression:   ^Step[ ]\d*\/\d*:[ ].*[ ]\(.*\)[ ]\(.*\)$
+  buildStep2:             "^Step[ ](\\d*)\\/\\d*:[ ](.*)[ ]\\((.*)\\)[ ]\\((.*)\\)$"
+  # component 1:          step number
+  # component 2:          step name
+  # component 3:          runner type
+  # component 4:          duration
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # build step emtry
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       [Step 2/2] message
+  # regular expression:   ^\[Step \d*\/\d*\] (.*)$
+  buildStepEntry:         "^\\[Step \\d*\\/\\d*\\] (.*)$"
+  # component 1:          build step message without '[Step 0/0]'
+
+  # --------------------------------------------------------------------------------------------------------------------
+  # build step exit code (template)
+  # --------------------------------------------------------------------------------------------------------------------
+  # example string:       [Step 0/0] Process exited with code 0
+  # regular expression:   ^\[Step \d*\/\d*\] Process exited with code \d$
+  buildStepExitCodeTempl: "^\\[Step %s/\\d*\\] Process exited with code (\\d)$"
+  # component 1:          exit code

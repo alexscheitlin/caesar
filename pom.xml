@@ -22,5 +22,6 @@
         <module>error-model</module>
         <module>teamcity-api</module>
         <module>git-api</module>
+        <module>teamcity-build-log-parser</module>
     </modules>
 </project>

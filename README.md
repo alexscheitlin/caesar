@@ -8,3 +8,4 @@
 - [Error Model](error-model/README.md)
 - [TeamCity API](teamcity-api/README.md)
 - [Git API](git-api/README.md)
+- [TeamCity Build Log Parser](teamcity-build-log-parser/README.md)
