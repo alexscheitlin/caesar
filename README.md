@@ -9,3 +9,4 @@
 - [TeamCity API](teamcity-api/README.md)
 - [Git API](git-api/README.md)
 - [TeamCity Build Log Parser](teamcity-build-log-parser/README.md)
+- [Maven Build Log Parser](maven-build-log-parser/README.md)

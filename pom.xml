@@ -23,5 +23,6 @@
         <module>teamcity-api</module>
         <module>git-api</module>
         <module>teamcity-build-log-parser</module>
+        <module>maven-build-log-parser</module>
     </modules>
 </project>
