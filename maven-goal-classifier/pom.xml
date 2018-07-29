@@ -40,7 +40,7 @@
             <resource>
                 <directory>config</directory>
                 <includes>
-                    <include>buildLogConfig.yaml</include>
+                    <include>config.yaml</include>
                 </includes>
             </resource>
         </resources>
