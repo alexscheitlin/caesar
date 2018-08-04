@@ -13,5 +13,6 @@ public enum MavenGoalCategory {
     DOCUMENTATION,
     RELEASE_PREPARATION,
     SUPPORT,
-    DEPENDENCY
+    DEPENDENCY,
+    UNKNOWN,
 }

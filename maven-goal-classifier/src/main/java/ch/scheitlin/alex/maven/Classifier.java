@@ -19,8 +19,10 @@ public class Classifier {
     private List<String> dependencyGoals;
 
     public Classifier() throws Exception {
+        // read all goals from the configuration file
         Config config = Config.readConfig();
 
+        // list all goals
         this.cleanGoals = Arrays.asList(config.clean);
         this.validationGoals = Arrays.asList(config.validation);
         this.preProcessingGoals = Arrays.asList(config.preProcessing);
@@ -36,7 +38,60 @@ public class Classifier {
         this.dependencyGoals = Arrays.asList(config.dependency);
     }
 
+    public String[] getCleanGoals() {
+        return this.cleanGoals.toArray(new String[this.cleanGoals.size()]);
+    }
+
+    public String[] getValidationGoals() {
+        return this.validationGoals.toArray(new String[this.validationGoals.size()]);
+    }
+
+    public String[] getPreProcessingGoals() {
+        return this.preProcessingGoals.toArray(new String[0]);
+    }
+
+    public String[] getCompilationGoals() {
+        return this.compilationGoals.toArray(new String[this.compilationGoals.size()]);
+    }
+
+    public String[] getTestingGoals() {
+        return this.testingGoals.toArray(new String[0]);
+    }
+
+    public String[] getPackagingGoals() {
+        return this.packagingGoals.toArray(new String[0]);
+    }
+
+    public String[] getAnalysisGoals() {
+        return this.analysisGoals.toArray(new String[0]);
+    }
+
+    public String[] getDeploymentGoals() {
+        return this.deploymentGoals.toArray(new String[0]);
+    }
+
+    public String[] getExternalTasksGoals() {
+        return this.externalTasksGoals.toArray(new String[0]);
+    }
+
+    public String[] getDocumentationGoals() {
+        return this.documentationGoals.toArray(new String[0]);
+    }
+
+    public String[] getReleasePreparationGoals() {
+        return this.releasePreparationGoals.toArray(new String[0]);
+    }
+
+    public String[] getSupportGoals() {
+        return this.supportGoals.toArray(new String[0]);
+    }
+
+    public String[] getDependencyGoals() {
+        return this.dependencyGoals.toArray(new String[0]);
+    }
+
     public MavenGoalCategory classify(String goal) {
+        // return the category if the goal is part of any goal list
         if (this.cleanGoals.contains(goal)) {
             return MavenGoalCategory.CLEAN;
         } else if (this.validationGoals.contains(goal)) {
@@ -64,7 +119,7 @@ public class Classifier {
         } else if (this.dependencyGoals.contains(goal)) {
             return MavenGoalCategory.DEPENDENCY;
         } else {
-            return null;
+            return MavenGoalCategory.UNKNOWN;
         }
     }
 }
