@@ -70,6 +70,21 @@ public class MavenGoalLogParserTest {
         assertErrors(expectedErrors, actualErrors);
     }
 
+    @Test
+    public void parseGoalLog_UnknownGoal() {
+        String pluginName = "plugin";
+        String goalName = "goal";
+        String log = "log";
+        List<Error> expectedErrors = null;
+
+        // parse goal log
+        List<Error> actualErrors = MavenGoalLogParser.parseGoalLog(pluginName, goalName, log);
+
+        // assert
+        Assert.assertEquals(expectedErrors, actualErrors);
+
+    }
+
     private void assertErrors(List<Error> expectedErrors, List<Error> actualErrors) {
         Assert.assertEquals(expectedErrors.size(), actualErrors.size());
 
