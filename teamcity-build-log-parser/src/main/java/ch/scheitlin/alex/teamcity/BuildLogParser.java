@@ -1,12 +1,6 @@
 package ch.scheitlin.alex.teamcity;
 
 import ch.scheitlin.alex.teamcity.config.BuildLogConfig;
-import ch.scheitlin.alex.teamcity.constants.BuildLogEntrySeverity;
-import ch.scheitlin.alex.teamcity.constants.BuildStatus;
-import ch.scheitlin.alex.teamcity.constants.BuildStepRunnerType;
-import ch.scheitlin.alex.teamcity.entities.TeamCityBuild;
-import ch.scheitlin.alex.teamcity.entities.TeamCityBuildLogEntry;
-import ch.scheitlin.alex.teamcity.entities.TeamCityBuildStep;
 import ch.scheitlin.alex.utils.RegexMatcher;
 
 import java.text.ParseException;

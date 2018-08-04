@@ -1,4 +1,4 @@
-package ch.scheitlin.alex.teamcity.constants;
+package ch.scheitlin.alex.teamcity;
 
 // https://confluence.jetbrains.com/display/TCD10/REST+API#RESTAPI-BuildLocator
 public enum BuildStatus {

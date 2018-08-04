@@ -1,4 +1,4 @@
-package ch.scheitlin.alex.teamcity.entities;
+package ch.scheitlin.alex.teamcity;
 
 import org.junit.Assert;
 import org.junit.Test;

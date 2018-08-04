@@ -1,4 +1,4 @@
-package ch.scheitlin.alex.teamcity.constants;
+package ch.scheitlin.alex.teamcity;
 
 public enum BuildLogEntrySeverity {
     UNKNOWN(" "),

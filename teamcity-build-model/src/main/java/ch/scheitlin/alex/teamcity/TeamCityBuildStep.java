@@ -1,6 +1,4 @@
-package ch.scheitlin.alex.teamcity.entities;
-
-import ch.scheitlin.alex.teamcity.constants.BuildStepRunnerType;
+package ch.scheitlin.alex.teamcity;
 
 import java.util.ArrayList;
 import java.util.List;

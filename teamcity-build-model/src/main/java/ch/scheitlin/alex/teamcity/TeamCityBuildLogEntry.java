@@ -1,7 +1,5 @@
-package ch.scheitlin.alex.teamcity.entities;
+package ch.scheitlin.alex.teamcity;
 
-import ch.scheitlin.alex.teamcity.config.BuildLogConfig;
-import ch.scheitlin.alex.teamcity.constants.BuildLogEntrySeverity;
 import ch.scheitlin.alex.utils.RegexMatcher;
 
 public class TeamCityBuildLogEntry {
@@ -63,8 +61,7 @@ public class TeamCityBuildLogEntry {
 
     public String getStepEntryMessage() {
         try {
-            BuildLogConfig config = BuildLogConfig.readConfig();
-            RegexMatcher regexmatcher = new RegexMatcher(config.getRegex().get("buildStepEntry"));
+            RegexMatcher regexmatcher = new RegexMatcher("^\\[Step \\d*\\/\\d*\\] (.*)$");
             String[] components = regexmatcher.extractComponents(this.message);
 
             return components[0];

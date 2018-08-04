@@ -47,6 +47,14 @@
         </dependency>
         <!-- build-model -->
 
+        <!-- teamcity-build-model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.teamcity</groupId>
+            <artifactId>teamcity-build-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- teamcity-build-model -->
+
         <!-- maven-model -->
         <dependency>
             <groupId>ch.scheitlin.alex.maven</groupId>

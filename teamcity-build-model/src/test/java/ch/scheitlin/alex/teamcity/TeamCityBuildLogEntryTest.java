@@ -1,6 +1,5 @@
-package ch.scheitlin.alex.teamcity.entities;
+package ch.scheitlin.alex.teamcity;
 
-import ch.scheitlin.alex.teamcity.constants.BuildLogEntrySeverity;
 import org.junit.Assert;
 import org.junit.Test;
 

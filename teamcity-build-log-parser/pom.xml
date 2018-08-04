@@ -82,6 +82,14 @@
         </dependency>
         <!-- regex-matcher -->
 
+        <!-- teamcity-build-model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.teamcity</groupId>
+            <artifactId>teamcity-build-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- teamcity-build-model -->
+
         <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>

@@ -10,7 +10,7 @@ import ch.scheitlin.alex.maven.MavenGoalLogParser;
 import ch.scheitlin.alex.maven.MavenBuild;
 import ch.scheitlin.alex.teamcity.BuildLogParser;
 import ch.scheitlin.alex.teamcity.api.TeamcityApi;
-import ch.scheitlin.alex.teamcity.entities.TeamCityBuild;
+import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import javafx.util.Pair;
 import org.jetbrains.teamcity.rest.Project;
 

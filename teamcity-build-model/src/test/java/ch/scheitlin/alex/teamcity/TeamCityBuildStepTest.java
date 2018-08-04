@@ -1,6 +1,5 @@
-package ch.scheitlin.alex.teamcity.entities;
+package ch.scheitlin.alex.teamcity;
 
-import ch.scheitlin.alex.teamcity.constants.BuildStepRunnerType;
 import org.junit.Assert;
 import org.junit.Test;
 
