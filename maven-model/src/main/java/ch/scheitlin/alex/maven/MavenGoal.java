@@ -20,4 +20,13 @@ public class MavenGoal {
     public String toString() {
         return this.plugin + ":" + this.version + ":" + this.name + "(" + this.information + ") @ " + this.module;
     }
+
+    public String getLines() {
+        StringBuilder builder = new StringBuilder();
+        for (String line : this.lines) {
+            builder.append(line).append("\n");
+        }
+
+        return builder.toString();
+    }
 }
