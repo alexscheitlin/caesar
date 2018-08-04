@@ -1,4 +1,4 @@
-package ch.scheitlin.alex.maven.model;
+package ch.scheitlin.alex.maven;
 
 import java.util.ArrayList;
 import java.util.List;

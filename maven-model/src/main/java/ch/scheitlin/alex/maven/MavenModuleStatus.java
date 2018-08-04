@@ -1,4 +1,4 @@
-package ch.scheitlin.alex.maven.constants;
+package ch.scheitlin.alex.maven;
 
 public enum MavenModuleStatus {
     SKIPPED,

@@ -62,4 +62,4 @@ A maven log consists of 4 main sections:
  
 This project parses the maven log and maps it to the following model:
 
-![Model](assets/maven-build-log-parser.png)
+[Maven Model](../maven-model)

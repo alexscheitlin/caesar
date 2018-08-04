@@ -19,6 +19,7 @@
 
     <modules>
         <module>build-model</module>
+        <module>maven-model</module>
         <module>error-model</module>
         <module>teamcity-api</module>
         <module>git-api</module>

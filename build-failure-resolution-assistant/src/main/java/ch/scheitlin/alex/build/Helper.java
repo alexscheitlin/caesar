@@ -7,7 +7,7 @@ import ch.scheitlin.alex.git.api.GitApi;
 import ch.scheitlin.alex.maven.Classifier;
 import ch.scheitlin.alex.maven.MavenBuildLogParser;
 import ch.scheitlin.alex.maven.MavenGoalLogParser;
-import ch.scheitlin.alex.maven.model.MavenBuild;
+import ch.scheitlin.alex.maven.MavenBuild;
 import ch.scheitlin.alex.teamcity.BuildLogParser;
 import ch.scheitlin.alex.teamcity.api.TeamcityApi;
 import ch.scheitlin.alex.teamcity.entities.TeamCityBuild;

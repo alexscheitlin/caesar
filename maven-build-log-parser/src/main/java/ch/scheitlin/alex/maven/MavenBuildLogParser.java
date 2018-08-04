@@ -1,10 +1,5 @@
 package ch.scheitlin.alex.maven;
 
-import ch.scheitlin.alex.maven.constants.MavenBuildStatus;
-import ch.scheitlin.alex.maven.constants.MavenModuleStatus;
-import ch.scheitlin.alex.maven.model.MavenBuild;
-import ch.scheitlin.alex.maven.model.MavenGoal;
-import ch.scheitlin.alex.maven.model.MavenModule;
 import ch.scheitlin.alex.utils.RegexMatcher;
 
 import java.util.ArrayList;

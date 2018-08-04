@@ -55,5 +55,13 @@
             <version>v1.0.1</version>
         </dependency>
         <!-- regex-matcher -->
+
+        <!-- maven-model -->
+        <dependency>
+            <groupId>ch.scheitlin.alex.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- maven-model -->
     </dependencies>
 </project>

@@ -1,6 +1,4 @@
-package ch.scheitlin.alex.maven.model;
-
-import ch.scheitlin.alex.maven.constants.MavenBuildStatus;
+package ch.scheitlin.alex.maven;
 
 import java.util.List;
 

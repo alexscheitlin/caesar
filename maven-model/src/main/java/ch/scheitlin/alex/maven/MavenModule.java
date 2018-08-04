@@ -1,6 +1,4 @@
-package ch.scheitlin.alex.maven.model;
-
-import ch.scheitlin.alex.maven.constants.MavenModuleStatus;
+package ch.scheitlin.alex.maven;
 
 import java.util.ArrayList;
 import java.util.List;
