@@ -1,5 +1,5 @@
 # Build Model
 
-> _Represents the data from the build server._
+> _Represents the data of a build server._
 
 ![Build Model](assets/build-model.png)
