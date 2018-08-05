@@ -4,18 +4,18 @@ import ch.scheitlin.alex.build.model.Build;
 
 import java.util.Arrays;
 
-public abstract class HelperWithStages {
-    protected BuildFixHelperStage stage;
+public abstract class AssistantWithStages {
+    protected BuildFixAssistantStage stage;
 
-    public HelperWithStages() {
-        this.stage = BuildFixHelperStage.NONE;
+    public AssistantWithStages() {
+        this.stage = BuildFixAssistantStage.NONE;
     }
 
     public boolean connect(String host, String username, String password) {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.NONE,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.NONE,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.CONNECTED;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -36,10 +36,10 @@ public abstract class HelperWithStages {
     abstract boolean connectToBuildServer(String host, String username, String password);
 
     public boolean download(Build build) {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.CONNECTED,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.CONNECTED,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.DOWNLOADED;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.DOWNLOADED;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -60,10 +60,10 @@ public abstract class HelperWithStages {
     abstract boolean downloadBuildLog(Build build);
 
     public boolean process() {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.DOWNLOADED,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.DOWNLOADED,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.PROCESSED;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.PROCESSED;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -84,10 +84,10 @@ public abstract class HelperWithStages {
     abstract boolean processBuildLog();
 
     public boolean fix(String pathToLocalGitRepository) {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.PROCESSED,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.PROCESSED,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.FIXING;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.FIXING;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -108,10 +108,10 @@ public abstract class HelperWithStages {
     abstract boolean startFixingBrokenBuild(String pathToLocalGitRepository);
 
     public boolean finish() {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.FIXING,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.FIXING,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.CONNECTED;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -132,11 +132,11 @@ public abstract class HelperWithStages {
     abstract boolean stopFixingBrokenBuild();
 
     public boolean disconnect() {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.CONNECTED,
-                BuildFixHelperStage.FIXING,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.CONNECTED,
+                BuildFixAssistantStage.FIXING,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.NONE;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.NONE;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -157,12 +157,12 @@ public abstract class HelperWithStages {
     abstract boolean disconnectFromBuildServer();
 
     public boolean abort() {
-        BuildFixHelperStage[] requiredStages = {
-                BuildFixHelperStage.DOWNLOADED,
-                BuildFixHelperStage.PROCESSED,
-                BuildFixHelperStage.FIXING,
+        BuildFixAssistantStage[] requiredStages = {
+                BuildFixAssistantStage.DOWNLOADED,
+                BuildFixAssistantStage.PROCESSED,
+                BuildFixAssistantStage.FIXING,
         };
-        BuildFixHelperStage nextStage = BuildFixHelperStage.CONNECTED;
+        BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
         if (!stageCheck(requiredStages)) {
@@ -182,7 +182,7 @@ public abstract class HelperWithStages {
 
     abstract boolean abortStage();
 
-    private boolean stageCheck(BuildFixHelperStage[] stages) {
+    private boolean stageCheck(BuildFixAssistantStage[] stages) {
         return Arrays.asList(stages).contains(this.stage);
     }
 }

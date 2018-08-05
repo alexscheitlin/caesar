@@ -4,9 +4,9 @@
 
 ## Stages
 
-A helper instance is always in one of the following stages:
+A assistance instance is always in one of the following stages:
 
-- `NONE`: a new helper instance is created but no further action was taken
+- `NONE`: a new instance is created but no further action was taken
 - `CONNECTED`: connected to the build server
 - `DOWNLOADED`: a build log is downloaded but not processed
 - `PROCESSED`: the previously downloaded build log is parsed and summarized

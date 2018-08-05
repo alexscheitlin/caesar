@@ -1,7 +1,6 @@
 package ch.scheitlin.alex.build;
 
 import ch.scheitlin.alex.build.model.Build;
-import ch.scheitlin.alex.build.model.BuildConfiguration;
 import ch.scheitlin.alex.build.model.BuildServer;
 import ch.scheitlin.alex.build.model.Error;
 import ch.scheitlin.alex.git.api.GitApi;
@@ -15,10 +14,9 @@ import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import javafx.util.Pair;
 import org.jetbrains.teamcity.rest.Project;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Helper extends HelperWithStages {
+public class Assistant extends AssistantWithStages {
     private List<Project> projects;
 
 
@@ -271,23 +269,23 @@ public class Helper extends HelperWithStages {
     }
 
     public boolean isInNoStage() {
-        return super.stage == BuildFixHelperStage.NONE;
+        return super.stage == BuildFixAssistantStage.NONE;
     }
 
     public boolean isConnected() {
-        return super.stage == BuildFixHelperStage.CONNECTED;
+        return super.stage == BuildFixAssistantStage.CONNECTED;
     }
 
     public boolean hasDownloaded() {
-        return super.stage == BuildFixHelperStage.DOWNLOADED;
+        return super.stage == BuildFixAssistantStage.DOWNLOADED;
     }
 
     public boolean hasProcessed() {
-        return super.stage == BuildFixHelperStage.PROCESSED;
+        return super.stage == BuildFixAssistantStage.PROCESSED;
     }
 
     public boolean isFixing() {
-        return super.stage == BuildFixHelperStage.FIXING;
+        return super.stage == BuildFixAssistantStage.FIXING;
     }
 
     public String getGitRepositoryOriginUrl() {

@@ -1,4 +1,4 @@
-import ch.scheitlin.alex.build.Helper;
+import ch.scheitlin.alex.build.Assistant;
 import ch.scheitlin.alex.build.model.*;
 import ch.scheitlin.alex.build.model.Error;
 
@@ -13,15 +13,15 @@ public class Main {
         String projectPath = "C:\\Users\\alex\\IdeaProjects\\demo-bank-account";
 
         // login to teamcity
-        Helper helper = new Helper();
-        if (!helper.connect(host, username, password)) {
+        Assistant assistant = new Assistant();
+        if (!assistant.connect(host, username, password)) {
             System.out.println("Could not connect to the TeamCity server.");
             return;
         }
-        System.out.println("Status: " + (helper.isConnected() ? "logged in" : "logged out"));
+        System.out.println("Status: " + (assistant.isConnected() ? "logged in" : "logged out"));
 
         // get team city information about projects, build configurations, branches, and builds
-        BuildServer information = helper.getBuildServerInformation();
+        BuildServer information = assistant.getBuildServerInformation();
 
         // list all projects configured on teamcity
         List<String> projectNames = information.getProjectNames();
@@ -79,27 +79,27 @@ public class Main {
         }
 
         // download build log
-        if (!helper.download(selectedBuild)) {
+        if (!assistant.download(selectedBuild)) {
             System.out.println("Could not download the build log of the specified build!");
             return;
         }
 
         // process build log
-        if (!helper.process()) {
+        if (!assistant.process()) {
             System.out.println("Could not process the downloaded build log!");
             return;
         }
 
         // show build information to the user
-        System.out.println("Build Status:\t" + helper.mavenBuild.getStatus());
-        if (helper.mavenBuild.getFailedGoal() != null) {
-            System.out.println("Failed Goal:\t" + helper.mavenBuild.getFailedGoal());
+        System.out.println("Build Status:\t" + assistant.mavenBuild.getStatus());
+        if (assistant.mavenBuild.getFailedGoal() != null) {
+            System.out.println("Failed Goal:\t" + assistant.mavenBuild.getFailedGoal());
         } else {
             System.out.println("Failed Goal:\t" + "No failed goal detected!");
             return;
         }
-        System.out.println("Failure Category:\t" + helper.failureCategory);
-        List<Error> errors = helper.errors;
+        System.out.println("Failure Category:\t" + assistant.failureCategory);
+        List<Error> errors = assistant.errors;
         if (errors != null) {
             for (Error error : errors) {
                 System.out.println("Error:\t\t\t" + error.getMessage());
@@ -122,7 +122,7 @@ public class Main {
 
         // fix build
         if (answer == 1) {
-            if (!helper.fix(projectPath)) {
+            if (!assistant.fix(projectPath)) {
                 return;
             }
 
@@ -131,13 +131,13 @@ public class Main {
             System.out.println("If there are saved and uncommitted changes they will be applied automatically.");
             System.out.println("1");
 
-            helper.finish();
+            assistant.finish();
         }
 
 
         // logout from teamcity
-        helper.disconnect();
+        assistant.disconnect();
         System.out.println();
-        System.out.println("Status: " + (helper.isConnected() ? "logged in" : "logged out"));
+        System.out.println("Status: " + (assistant.isConnected() ? "logged in" : "logged out"));
     }
 }
