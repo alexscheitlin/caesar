@@ -7,6 +7,9 @@ import org.jetbrains.teamcity.rest.VcsRoot;
 
 import java.util.List;
 
+/**
+ * Provides methods to interact with the team city rest api client to get information about builds.
+ */
 class Builds {
     static String getStatusText(TeamCityInstance teamCity, BuildId buildId) {
         return teamCity.build(buildId).fetchStatusText();

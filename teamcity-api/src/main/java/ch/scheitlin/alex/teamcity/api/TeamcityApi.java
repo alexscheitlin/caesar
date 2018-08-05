@@ -1,15 +1,11 @@
 package ch.scheitlin.alex.teamcity.api;
 
-import org.jetbrains.teamcity.rest.Build;
+import ch.scheitlin.alex.build.model.BuildServer;
 import org.jetbrains.teamcity.rest.BuildId;
-import org.jetbrains.teamcity.rest.BuildConfiguration;
-import org.jetbrains.teamcity.rest.Project;
 import org.jetbrains.teamcity.rest.TeamCityInstance;
 import org.jetbrains.teamcity.rest.TeamCityInstanceFactory;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class TeamcityApi {
@@ -19,27 +15,8 @@ public class TeamcityApi {
         this.teamCity = TeamCityInstanceFactory.httpAuth(host, username, password);
     }
 
-    // get all projects configured in team city
-    public List<Project> getProjects() {
-        return Common.getProjects(this.teamCity);
-    }
-
-    public List<ch.scheitlin.alex.build.model.BuildConfiguration> getBuildConfigurationsToShow(Project project) {
-        List<BuildConfiguration> buildConfigurations = Common.getBuildConfigurationsOfProject(this.teamCity, project.getId());
-        ArrayList<ch.scheitlin.alex.build.model.BuildConfiguration> myBuildConfigurations = new ArrayList<ch.scheitlin.alex.build.model.BuildConfiguration>();
-
-        for (BuildConfiguration buildConfiguration : buildConfigurations) {
-            List<Build> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
-            ch.scheitlin.alex.build.model.BuildConfiguration myBuildConfiguration = Specific.getBuildsByBranches(
-                    this.teamCity,
-                    buildConfiguration.getName(),
-                    builds
-            );
-
-            myBuildConfigurations.add(myBuildConfiguration);
-        }
-
-        return myBuildConfigurations;
+    public BuildServer getBuildServerInformation() {
+        return Specific.getBuildServerModel(this.teamCity);
     }
 
     public static boolean testTeamCityConnection(String host, String username, String password) {

@@ -12,6 +12,9 @@ import org.jetbrains.teamcity.rest.VcsRootId;
 
 import java.util.List;
 
+/**
+ * Provides common methods to interact with the team city rest api client.
+ */
 class Common {
     // get all projects configured in team city
     static List<Project> getProjects(TeamCityInstance teamCity) {

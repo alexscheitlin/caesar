@@ -14,6 +14,12 @@ public class SpecificTest extends TestUtils {
     TeamCityInstance teamCity = TeamCityInstanceFactory.httpAuth(this.host, this.username, this.password);
 
     @Test
+    public void getBuildServerModel() {
+        // TODO: add test
+    }
+
+    /*
+    @Test
     public void getBuildsByBranches() {
         // get first project
         List<Project> projects = Common.getProjects(this.teamCity);
@@ -27,7 +33,7 @@ public class SpecificTest extends TestUtils {
         List<Build> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
 
         // get custom configuration representation
-        ch.scheitlin.alex.build.model.BuildConfiguration config = Specific.getBuildsByBranches(this.teamCity, buildConfiguration.getName(), builds);
+        ch.scheitlin.alex.build.model.BuildConfiguration config = Specific.get(this.teamCity, buildConfiguration.getName(), builds);
 
         System.out.println(config.getName());
         for (ch.scheitlin.alex.build.model.Branch branch : config.getBranches()) {
@@ -56,5 +62,5 @@ public class SpecificTest extends TestUtils {
         for (String branchName : branchNames) {
             System.out.println(branchName);
         }
-    }
+    }*/
 }

@@ -1,7 +1,5 @@
 import ch.scheitlin.alex.build.Helper;
-import ch.scheitlin.alex.build.model.Branch;
-import ch.scheitlin.alex.build.model.Build;
-import ch.scheitlin.alex.build.model.BuildConfiguration;
+import ch.scheitlin.alex.build.model.*;
 import ch.scheitlin.alex.build.model.Error;
 
 import java.util.List;
@@ -22,8 +20,11 @@ public class Main {
         }
         System.out.println("Status: " + (helper.isConnected() ? "logged in" : "logged out"));
 
+        // get team city information about projects, build configurations, branches, and builds
+        BuildServer information = helper.getBuildServerInformation();
+
         // list all projects configured on teamcity
-        List<String> projectNames = helper.getTeamCityProjectNames();
+        List<String> projectNames = information.getProjectNames();
         System.out.println("Projects:");
         for (int i = 0; i < projectNames.size(); i++) {
             System.out.println("\t" + "[" + (i + 1) + "] " + projectNames.get(i));
@@ -36,11 +37,11 @@ public class Main {
         String projectName = projectNames.get(projectNameIndex - 1);
 
         // list all builds
-        List<BuildConfiguration> configs = helper.getBuildConfigurationsToShow(projectName);
+        Project project = information.getProject(projectName);
         System.out.println();
         System.out.println(projectName);
         int counter = 0;
-        for (BuildConfiguration config : configs) {
+        for (BuildConfiguration config : project.getBuildConfigurations()) {
             System.out.println("\t" + config.getName());
 
             for (Branch branch : config.getBranches()) {
@@ -58,7 +59,7 @@ public class Main {
         System.out.println(buildIndex);
         Build selectedBuild = null;
         counter = 0;
-        for (BuildConfiguration config : configs) {
+        for (BuildConfiguration config : project.getBuildConfigurations()) {
             for (Branch branch : config.getBranches()) {
                 for (Build build : branch.getBuilds()) {
                     if (++counter == buildIndex) {

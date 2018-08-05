@@ -2,6 +2,7 @@ package ch.scheitlin.alex.build;
 
 import ch.scheitlin.alex.build.model.Build;
 import ch.scheitlin.alex.build.model.BuildConfiguration;
+import ch.scheitlin.alex.build.model.BuildServer;
 import ch.scheitlin.alex.build.model.Error;
 import ch.scheitlin.alex.git.api.GitApi;
 import ch.scheitlin.alex.maven.Classifier;
@@ -257,26 +258,8 @@ public class Helper extends HelperWithStages {
 
     // -------------------
 
-
-    public List<String> getTeamCityProjectNames() {
-        this.projects = this.teamCityApi.getProjects();
-
-        List<String> projectNames = new ArrayList<String>();
-        for (Project project : this.projects) {
-            projectNames.add(project.getName());
-        }
-
-        return projectNames;
-    }
-
-    public List<BuildConfiguration> getBuildConfigurationsToShow(String projectName) {
-        for (Project project : this.projects) {
-            if (project.getName().equals(projectName)) {
-                return this.teamCityApi.getBuildConfigurationsToShow(project);
-            }
-        }
-
-        return null;
+    public BuildServer getBuildServerInformation() {
+        return this.teamCityApi.getBuildServerInformation();
     }
 
     public boolean testTeamCityConnection(String host, String username, String password) {
