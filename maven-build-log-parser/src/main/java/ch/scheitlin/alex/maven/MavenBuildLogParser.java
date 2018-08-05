@@ -97,13 +97,13 @@ public class MavenBuildLogParser {
             MavenModule nameModule = modules.get(i);
             MavenModule buildModule = moduleBuilds.get(i);
 
-            if (nameModule.name.equals(buildModule.name)) {
-                nameModule.version = buildModule.version;
-                nameModule.goals = buildModule.goals;
+            if (nameModule.getName().equals(buildModule.getName())) {
+                nameModule.setVersion(buildModule.getVersion());
+                nameModule.setGoals(buildModule.getGoals());
             } else {
                 System.out.println("The module names do not match!");
-                System.out.println("\tModule found in 'reactor build order' section: " + nameModule.name);
-                System.out.println("\tModule found in 'module building' section: " + buildModule.name);
+                System.out.println("\tModule found in 'reactor build order' section: " + nameModule.getName());
+                System.out.println("\tModule found in 'module building' section: " + buildModule.getName());
             }
         }
 
@@ -129,13 +129,13 @@ public class MavenBuildLogParser {
                 MavenModule nameModule = modules.get(i);
                 MavenModule summaryModule = summaryModules.get(i);
 
-                if (nameModule.name.equals(summaryModule.name)) {
-                    nameModule.status = summaryModule.status;
-                    nameModule.duration = summaryModule.duration;
+                if (nameModule.getName().equals(summaryModule.getName())) {
+                    nameModule.setStatus(summaryModule.getStatus());
+                    nameModule.setDuration(summaryModule.getDuration());
                 } else {
                     System.out.println("The module names do not match!");
-                    System.out.println("\tModule found in 'reactor build order' section: " + nameModule.name);
-                    System.out.println("\tModule found in 'reactor summary' section: " + summaryModule.name);
+                    System.out.println("\tModule found in 'reactor build order' section: " + nameModule.getName());
+                    System.out.println("\tModule found in 'reactor summary' section: " + summaryModule.getName());
                 }
             }
         }
@@ -144,21 +144,22 @@ public class MavenBuildLogParser {
         MavenBuild build = parseBuildSummary(lines);
 
         // add all previously parsed module information to the maven build
-        build.modules = modules;
+        build.setModules(modules);
 
         // set module status equal to build status if this is a single module build
         if (modules.size() == 1) {
-            modules.get(0).status = MavenModuleStatus.valueOf(build.status.toString());
+            modules.get(0).setStatus(MavenModuleStatus.valueOf(build.getStatus().toString()));
         }
 
         // get lines of failed goal
-        if (build.failedGoal != null) {
-            for (MavenModule module : build.modules) {
-                for (MavenGoal goal : module.goals) {
-                    if (goal.plugin.equals(build.failedGoal.plugin) &&
-                            goal.version.equals(build.failedGoal.version) &&
-                            goal.name.equals(build.failedGoal.name)) {
-                        build.failedGoal.lines = goal.lines;
+        if (build.getFailedGoal() != null) {
+            for (MavenModule module : build.getModules()) {
+                for (MavenGoal goal : module.getGoals()) {
+                    MavenGoal failedGoal = build.getFailedGoal();
+                    if (goal.getPlugin().equals(failedGoal.getPlugin()) &&
+                            goal.getVersion().equals(failedGoal.getVersion()) &&
+                            goal.getName().equals(failedGoal.getName())) {
+                        build.getFailedGoal().setLines(goal.getLines());
                     }
                 }
             }
@@ -240,8 +241,7 @@ public class MavenBuildLogParser {
             } else {
                 // parse module names
                 if (moduleMatcher.matches(lines[i])) {
-                    MavenModule module = new MavenModule();
-                    module.name = moduleMatcher.extractComponentsSilently(lines[i])[0];
+                    MavenModule module = new MavenModule(moduleMatcher.extractComponentsSilently(lines[i])[0]);
                     modules.add(module);
                 } else {
                     if (!ignoreMatcher3.matches(lines[i])) {
@@ -306,9 +306,8 @@ public class MavenBuildLogParser {
             if (startMatcher.matches(lines[i])) {
                 if (beforeStartMatcher.matches(lines[i-1]) && afterStartMatcher.matches(lines[i+1])) {
                     String[] components = startMatcher.extractComponentsSilently(lines[i]);
-                    currentModule = new MavenModule();
-                    currentModule.name = components[0];
-                    currentModule.version = components[1];
+                    currentModule = new MavenModule(components[0]);
+                    currentModule.setVersion(components[1]);
                     modules.add(currentModule);
                     moduleLines.add(new ArrayList<String>());
                     moduleLines.get(moduleLines.size() - 1).add(lines[i - 1]);
@@ -338,19 +337,19 @@ public class MavenBuildLogParser {
             if (goalMatcher.matches(lines[i])) {
                 String[] components = goalMatcher.extractComponentsSilently(lines[i]);
                 currentGoal = new MavenGoal();
-                currentGoal.plugin = components[0];
-                currentGoal.version = components[1];
-                currentGoal.name = components[2];
-                currentGoal.information = components[3];
-                currentGoal.module = components[4];
-                currentModule.goals.add(currentGoal);
+                currentGoal.setPlugin(components[0]);
+                currentGoal.setVersion(components[1]);
+                currentGoal.setName(components[2]);
+                currentGoal.setInformation(components[3]);
+                currentGoal.setModule(components[4]);
+                currentModule.addGoal(currentGoal);
 
                 continue;
             }
 
             // store lines of a goal
             if (currentGoal != null) {
-                currentGoal.lines.add(lines[i]);
+                currentGoal.addLine(lines[i]);
             }
         }
 
@@ -371,7 +370,7 @@ public class MavenBuildLogParser {
                 System.out.println("\t\t" + modules.get(i).goals.get(k).toString());
 
                 // print goal lines
-                for (String line : modules.get(i).goals.get(k).lines) {
+                for (String line : modules.get(i).goals.get(k).getLines()) {
                     System.out.println("\t\t\t" + line);
                 }
             }
@@ -422,10 +421,9 @@ public class MavenBuildLogParser {
             // catch module statements
             if (moduleMatcher.matches(lines[i])) {
                 String[] components = moduleMatcher.extractComponentsSilently(lines[i]);
-                MavenModule module = new MavenModule();
-                module.name = components[0];
-                module.status = MavenModuleStatus.valueOf(components[1]);
-                module.duration = components[2];
+                MavenModule module = new MavenModule(components[0]);
+                module.setStatus(MavenModuleStatus.valueOf(components[1]));
+                module.setDuration(components[2]);
                 modules.add(module);
             } else {
                 if (!ignoreMatcher.matches(lines[i])) {
@@ -468,13 +466,14 @@ public class MavenBuildLogParser {
 
         // search "build summary" section
         // the section where maven indicates the build status, total time, finish date, used memory and possible errors
-        MavenBuild build = new MavenBuild();
+        MavenBuildStatus buildStatus = null;
+        MavenGoal failedGoal = null;
         boolean hasFoundStart = false;
         for (int i = this.currentLine; i < lines.length; i++) {
             // catch start
             if (!hasFoundStart) {
                 if (startMatcher.matches(lines[i])) {
-                    build.status = MavenBuildStatus.valueOf(startMatcher.extractComponentsSilently(lines[i])[0]);
+                    buildStatus = MavenBuildStatus.valueOf(startMatcher.extractComponentsSilently(lines[i])[0]);
                     hasFoundStart = true;
                 }
 
@@ -482,30 +481,30 @@ public class MavenBuildLogParser {
             }
 
             // catch failed goal
-            if (build.status == MavenBuildStatus.FAILURE) {
+            if (buildStatus == MavenBuildStatus.FAILURE) {
                 if (failedGoalMatcher.matches(lines[i])) {
                     String[] components = failedGoalMatcher.extractComponentsSilently(lines[i]);
-                    build.failedGoal = new MavenGoal();
-                    build.failedGoal.vendor = components[0];
-                    build.failedGoal.plugin = components[1];
-                    build.failedGoal.version = components[2];
-                    build.failedGoal.name = components[3];
-                    build.failedGoal.information = components[4];
-                    build.failedGoal.module = components[5];
-                    build.failedGoal.message = components[6];
+                    failedGoal = new MavenGoal();
+                    failedGoal.setVersion(components[0]);
+                    failedGoal.setPlugin(components[1]);
+                    failedGoal.setVersion(components[2]);
+                    failedGoal.setName(components[3]);
+                    failedGoal.setInformation(components[4]);
+                    failedGoal.setModule(components[5]);
+                    failedGoal.setMessage(components[6]);
 
                     /*
-                    System.out.println("\tVendor:\t\t\t" + build.failedGoal.vendor);
-                    System.out.println("\tPlugin:\t\t\t" + build.failedGoal.plugin);
-                    System.out.println("\tVersion:\t\t" + build.failedGoal.version);
-                    System.out.println("\tGoal:\t\t\t" + build.failedGoal.name);
-                    System.out.println("\tInformation:\t" + build.failedGoal.information);
-                    System.out.println("\tModule:\t\t\t" + build.failedGoal.module);
-                    System.out.println("\tMessage:\t\t" + build.failedGoal.message);
+                    System.out.println("\tVendor:\t\t\t" + failedGoal.getVendor());
+                    System.out.println("\tPlugin:\t\t\t" + failedGoal.getPlugin());
+                    System.out.println("\tVersion:\t\t" + failedGoal.getVersion());
+                    System.out.println("\tGoal:\t\t\t" + failedGoal.getName());
+                    System.out.println("\tInformation:\t" + failedGoal.getInformation());
+                    System.out.println("\tModule:\t\t\t" + failedGoal.getModule());
+                    System.out.println("\tMessage:\t\t" + failedGoal.getMessage());
                     */
                 }
             }
         }
-        return build;
+        return new MavenBuild(buildStatus, failedGoal);
     }
 }

@@ -91,9 +91,9 @@ public class Main {
         }
 
         // show build information to the user
-        System.out.println("Build Status:\t" + helper.mavenBuild.status);
-        if (helper.mavenBuild.failedGoal != null) {
-            System.out.println("Failed Goal:\t" + helper.mavenBuild.failedGoal);
+        System.out.println("Build Status:\t" + helper.mavenBuild.getStatus());
+        if (helper.mavenBuild.getFailedGoal() != null) {
+            System.out.println("Failed Goal:\t" + helper.mavenBuild.getFailedGoal());
         } else {
             System.out.println("Failed Goal:\t" + "No failed goal detected!");
             return;

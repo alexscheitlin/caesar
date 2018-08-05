@@ -96,8 +96,8 @@ public class Helper extends HelperWithStages {
         this.mavenBuild = MavenBuildLogParser.parse(this.rawMavenBuildLog);
 
         // classify failed maven goal
-        if (mavenBuild.failedGoal != null) {
-            String failedGoal = mavenBuild.failedGoal.plugin + ":" + mavenBuild.failedGoal.name;
+        if (mavenBuild.getFailedGoal() != null) {
+            String failedGoal = mavenBuild.getFailedGoal().getPlugin() + ":" + mavenBuild.getFailedGoal().getName();
             try {
                 Classifier classifier = new Classifier();
                 this.failureCategory = classifier.classify(failedGoal).toString();
@@ -107,13 +107,17 @@ public class Helper extends HelperWithStages {
             }
 
             // parse log of failed maven goal
-            List<String> failedGoalLogLines = mavenBuild.failedGoal.lines;
+            List<String> failedGoalLogLines = mavenBuild.getFailedGoal().getLines();
             String failedGoalLog = "";
             for (String line : failedGoalLogLines) {
                 failedGoalLog += (line + "\n");
             }
 
-            this.errors = MavenGoalLogParser.parseGoalLog(mavenBuild.failedGoal.plugin, mavenBuild.failedGoal.name, failedGoalLog);
+            this.errors = MavenGoalLogParser.parseGoalLog(
+                    mavenBuild.getFailedGoal().getPlugin(),
+                    mavenBuild.getFailedGoal().getName(),
+                    failedGoalLog
+            );
         }
 
         return true;
