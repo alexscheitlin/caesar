@@ -1,5 +1,6 @@
 package ch.scheitlin.alex.build.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Project {
@@ -17,5 +18,15 @@ public class Project {
 
     public List<BuildConfiguration> getBuildConfigurations() {
         return this.buildConfigurations;
+    }
+
+    public List<String> getBuildConfigurationNames() {
+        List<String> buildConfigurationNames = new ArrayList<String>();
+
+        for (BuildConfiguration buildConfiguration : this.buildConfigurations) {
+            buildConfigurationNames.add(buildConfiguration.getName());
+        }
+
+        return buildConfigurationNames;
     }
 }
