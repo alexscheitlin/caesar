@@ -8,7 +8,7 @@ public enum BuildStepRunnerType {
     CONTAINER_DEPLOYER("Container Deployer"),
     DOCKER_BUILD("Docker Build"),
     DOCKER_COMPOSE("Docker Compose"),
-    DUPLICATES_FINDER_JAVE("Duplicates finder (Java)"),
+    DUPLICATES_FINDER_JAVA("Duplicates finder (Java)"),
     DUPLICATES_FINDER_RESHARPER("Duplicates finder (ReSharper)"),
     FTP_UPLOAD("FTP Upload"),
     FXCOP("FxCop"),
