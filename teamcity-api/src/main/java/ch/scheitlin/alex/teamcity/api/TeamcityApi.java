@@ -40,13 +40,18 @@ public class TeamcityApi {
         File file = File.createTempFile("log", ".txt");
 
         // download build log to temp file
-        this.teamCity.build(new BuildId(buildId)).downloadBuildLog(file);
+        saveBuildLogTo(buildId, file);
 
         // read file to string
         String buildLog = readFile(file);
         file.delete();
 
         return buildLog;
+    }
+
+    public void saveBuildLogTo(String buildId, File file) throws Exception {
+        // download build log to temp file
+        this.teamCity.build(new BuildId(buildId)).downloadBuildLog(file);
     }
 
     private String readFile(File file) throws Exception {
