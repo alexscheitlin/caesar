@@ -91,13 +91,13 @@
         </dependency>
         <!-- teamcity rest client -->
 
-        <!-- build model -->
+        <!-- build-server-model -->
         <dependency>
             <groupId>ch.scheitlin.alex.build.model</groupId>
-            <artifactId>build-model</artifactId>
+            <artifactId>build-server-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- build model -->
+        <!-- build-server-model -->
         
         <dependency>
             <groupId>junit</groupId>

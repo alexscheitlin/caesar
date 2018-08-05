@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>ch.scheitlin.alex.build.model</groupId>
-    <artifactId>build-model</artifactId>
+    <artifactId>build-server-model</artifactId>
 
     <packaging>jar</packaging>
 

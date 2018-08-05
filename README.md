@@ -6,7 +6,7 @@
 
 This project contains the following modules:
 
-- [Build Model](build-model/README.md)
+- [Build Server Model](build-server-model/README.md)
 - [Team City Build Model](teamcity-build-model/README.md)
 - [Maven Model](maven-model/README.md)
 - [Error Model](error-model/README.md)

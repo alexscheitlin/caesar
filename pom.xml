@@ -18,7 +18,7 @@
     </developers>
 
     <modules>
-        <module>build-model</module>
+        <module>build-server-model</module>
         <module>teamcity-build-model</module>
         <module>maven-model</module>
         <module>error-model</module>
