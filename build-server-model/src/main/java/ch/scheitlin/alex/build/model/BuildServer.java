@@ -20,6 +20,16 @@ public class BuildServer {
         return this.projects;
     }
 
+    public Project getProject(String projectName) {
+        for (Project project : this.projects) {
+            if (project.getName().equals(projectName)) {
+                return project;
+            }
+        }
+
+        return null;
+    }
+
     public List<String> getProjectNames() {
         List<String> projectNames = new ArrayList<String>();
 

@@ -34,6 +34,32 @@ public class BuildServerTest {
         Assert.assertEquals(expectedProjects, actualProjects);
     }
 
+    @Test public void getProject_projectExists() {
+        Project expectedProject = new Project("Test", null);
+
+        List<Project> projects = new ArrayList<Project>();
+        projects.add(expectedProject);
+
+        BuildServer buildServer = new BuildServer(null, projects);
+
+        Project actualProject = buildServer.getProject(expectedProject.getName());
+
+        Assert.assertEquals(expectedProject, actualProject);
+    }
+
+    @Test public void getProject_projectDoesNotExists() {
+        Project project = new Project("Test", null);
+
+        List<Project> projects = new ArrayList<Project>();
+        projects.add(project);
+
+        BuildServer buildServer = new BuildServer(null, projects);
+
+        Project actualProject = buildServer.getProject("Test1");
+
+        Assert.assertEquals(null, actualProject);
+    }
+
     @Test
     public void getProjectNames() {
         String[] expectedProjectNames = { "Project1", "Project2" };
