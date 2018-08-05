@@ -1,5 +1,6 @@
 package ch.scheitlin.alex.build.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BuildServer {
@@ -17,5 +18,15 @@ public class BuildServer {
 
     public List<Project> getProjects() {
         return this.projects;
+    }
+
+    public List<String> getProjectNames() {
+        List<String> projectNames = new ArrayList<String>();
+
+        for (Project project : this.projects) {
+            projectNames.add(project.getName());
+        }
+
+        return projectNames;
     }
 }

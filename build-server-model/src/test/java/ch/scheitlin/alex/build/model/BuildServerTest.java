@@ -33,4 +33,25 @@ public class BuildServerTest {
 
         Assert.assertEquals(expectedProjects, actualProjects);
     }
+
+    @Test
+    public void getProjectNames() {
+        String[] expectedProjectNames = { "Project1", "Project2" };
+        Project project1 = new Project(expectedProjectNames[0], null);
+        Project project2 = new Project(expectedProjectNames[1], null);
+
+        List<Project> projects = new ArrayList<Project>();
+        projects.add(project1);
+        projects.add(project2);
+
+        BuildServer buildServer = new BuildServer(null, projects);
+
+        List<String> actualProjectNames = buildServer.getProjectNames();
+
+        Assert.assertEquals(expectedProjectNames.length, actualProjectNames.size());
+
+        for (int i = 0; i < expectedProjectNames.length; i++) {
+            Assert.assertEquals(expectedProjectNames[i], actualProjectNames.get(i));
+        }
+    }
 }
