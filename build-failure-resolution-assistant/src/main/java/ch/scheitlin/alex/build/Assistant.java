@@ -174,11 +174,15 @@ public class Assistant extends AssistantWithStages {
                 System.out.println();
 
                 // checkout to commit to fix
-                String branchName = "fix-" + buildNumber;
+                // branch name: fix-buildNumber (eg. fix-51)
+                // if branch already exists append version (eg. fix-51-v2)
+                String branchName = null;
                 int counter = 0;
-                while (counter++ < 10) {
+                while (counter++ < 100) {
+                    branchName = "fix-" + buildNumber;
+
                     if (counter != 1) {
-                        branchName += "-" + counter;
+                        branchName += "-v" + counter;
                     }
                     try {
                         this.gitApi.createBranchFromCommit(commitToFix, branchName);
