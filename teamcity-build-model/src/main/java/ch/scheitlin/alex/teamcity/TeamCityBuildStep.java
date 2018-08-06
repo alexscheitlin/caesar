@@ -63,11 +63,16 @@ public class TeamCityBuildStep {
     }
 
     public String getCleanLog() {
+        List<String> ignoreContaining = new ArrayList<String>();
+        ignoreContaining.add("[Maven Watcher]");
+        ignoreContaining.add("##teamcity[");
+        ignoreContaining.add("Surefire report watcher");
+
         StringBuilder builder = new StringBuilder();
         for (TeamCityBuildLogEntry entry : this.buildLogEntries) {
-            if (!entry.getStepOutput().contains("[Maven Watcher]") &&
-                    !entry.getStepOutput().contains("##teamcity[")) {
-                builder.append(entry.getStepOutput());
+            String stepOutput = entry.getStepOutput();
+            if (!ignoreContaining.stream().anyMatch(s -> stepOutput.contains(s))) {
+                builder.append(stepOutput);
                 builder.append("\n");
             }
         }
