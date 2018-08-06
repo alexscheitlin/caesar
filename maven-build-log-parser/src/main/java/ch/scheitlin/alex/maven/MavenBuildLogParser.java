@@ -343,8 +343,6 @@ public class MavenBuildLogParser {
                 currentGoal.setInformation(components[3]);
                 currentGoal.setModule(components[4]);
                 currentModule.addGoal(currentGoal);
-
-                continue;
             }
 
             // store lines of a goal
