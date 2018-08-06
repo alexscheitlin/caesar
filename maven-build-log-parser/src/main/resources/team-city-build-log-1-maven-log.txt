@@ -44,7 +44,7 @@ Surefire report watcher
 [INFO]
 [INFO] --- maven-surefire-plugin:2.10:test (default-test) @ bank_maven ---
 [INFO] Surefire report directory: C:\TeamCity\buildAgent\work\f8b235d5760cff4a\target\surefire-reports
-[Step 2/2]
+
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
@@ -207,18 +207,18 @@ com.example.bank.TableTest
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-[Step 2/2]
+
 Results :
-[Step 2/2]
+
 Failed tests:   getNumber(com.example.bank.BankAccountTest)
   getBalance(com.example.bank.BankAccountTest): expected:<1000000.0> but was:<1000001.0>
   dataToTable(com.example.bank.TableTest)
-[Step 2/2]
+
 Tests in error:
   getOwner(com.example.bank.BankAccountTest): Deposit amount less than zero
-[Step 2/2]
+
 Tests run: 13, Failures: 3, Errors: 1, Skipped: 0
-[Step 2/2]
+
 [Step 2/2] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.10:test (default-test) on project bank_maven: There are test failures.
 
 Please refer to C:\TeamCity\buildAgent\work\f8b235d5760cff4a\target\surefire-reports for the individual test results.

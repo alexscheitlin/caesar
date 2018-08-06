@@ -61,15 +61,20 @@ public class TeamCityBuildLogEntry {
 
     public String getStepEntryMessage() {
         try {
-            RegexMatcher regexmatcher = new RegexMatcher("^\\[Step \\d*\\/\\d*\\] (.*)$");
+            // handle lines with step indication but no entry message
+            RegexMatcher regexmatcher = new RegexMatcher("^\\[Step \\d*\\/\\d*\\]$");
+            if (regexmatcher.matches(this.message)) {
+                return "";
+            }
+
+            // handle lines with step indication and entry message
+            regexmatcher = new RegexMatcher("^\\[Step \\d*\\/\\d*\\] (.*)$");
             String[] components = regexmatcher.extractComponents(this.message);
 
             return components[0];
         } catch (Exception e) {
-
+            return this.message;
         }
-
-        return this.message;
     }
 
     public String getOutput() {
