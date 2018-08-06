@@ -104,11 +104,53 @@ public class TeamCityBuildStepTest {
 
     @Test
     public void getOutput() {
-        // TODO: add test
+        String line1 = "Line 1";
+        String line2 = "[Step 1/2]";
+        String line3 = "[Step 1/2] Message";
+        String expectedOutput = "Line 1" + "\n" + "" + "\n" + "Message" + "\n";
+
+        TeamCityBuildLogEntry buildLogEntry1 = new TeamCityBuildLogEntry(1, null, null, 1, line1);
+        TeamCityBuildLogEntry buildLogEntry2 = new TeamCityBuildLogEntry(2, null, null, 1, line2);
+        TeamCityBuildLogEntry buildLogEntry3 = new TeamCityBuildLogEntry(3, null, null, 1, line3);
+
+        TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, null, null);
+        buildStep.addBuildLogEntry(buildLogEntry1);
+        buildStep.addBuildLogEntry(buildLogEntry2);
+        buildStep.addBuildLogEntry(buildLogEntry3);
+
+        String actualOutput = buildStep.getOutput();
+
+        Assert.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
-    public void getCleanOutput() {
-        // TODO: add test
+    public void getCleanLog() {
+        String originalString = "[Step 1/1] [Maven Watcher] project started: bank_maven:bank_maven:jar:1.0-SNAPSHOT\n" +
+                "[Step 1/1] bank_maven:bank_maven (1s)\n" +
+                "[bank_maven:bank_maven] ##teamcity[importData tc:tags='tc:internal' ... logAsInternal='true']\n" +
+                "[Step 1/1] Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "[bank_maven:bank_maven] ##teamcity[importData ... logAsInternal='true']\n" +
+                "[Step 1/1] [Maven Watcher]\n" +
+                "[Step 1/1] ##teamcity[projectStarted tc:tags='tc:internal' ... testReportsDir1='C:/TeamCity/buildAgent/...']\n" +
+                "[Step 1/1] Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "[Step 1/1] Surefire report watcher\n" +
+                "[Surefire report watcher] Watching paths:\n" +
+                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml\n" +
+                "[Step 1/1] Surefire report watcher\n" +
+                "[Surefire report watcher] Watching paths:\n" +
+                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml";
+
+        String expectedOutput = "bank_maven:bank_maven (1s)\n" +
+                "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n";
+
+        TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, null, null);
+        for (String line : originalString.split("\n")) {
+            buildStep.addBuildLogEntry(new TeamCityBuildLogEntry(1, null, null, 1, line));
+        }
+
+        String actualOutput = buildStep.getCleanLog();
+
+        Assert.assertEquals(expectedOutput, actualOutput);
     }
 }

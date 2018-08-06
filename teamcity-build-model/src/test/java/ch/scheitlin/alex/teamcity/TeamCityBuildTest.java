@@ -3,145 +3,233 @@ package ch.scheitlin.alex.teamcity;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class TeamCityBuildTest {
 
     @Test
-    public void getProjectName() {
-        // TODO: add test
+    public void setAndGetProjectName() {
+        String expectedProjectName = "projectName";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setProjectName(expectedProjectName);
+
+        String actualProjectName = build.getProjectName();
+
+        Assert.assertEquals(expectedProjectName, actualProjectName);
     }
 
     @Test
-    public void setProjectName() {
-        // TODO: add test
+    public void setAndGetBuildConfigurationName() {
+        String expectedBuildConfigurationName = "buildConfigurationName";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setBuildConfigurationName(expectedBuildConfigurationName);
+
+        String actualBuildConfigurationName = build.getBuildConfigurationName();
+
+        Assert.assertEquals(expectedBuildConfigurationName, actualBuildConfigurationName);
     }
 
     @Test
-    public void getBuildConfigurationName() {
-        // TODO: add test
+    public void setAndGetBuildNumber() {
+        String expectedBuildNumber = "buildNumber";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setBuildNumber(expectedBuildNumber);
+
+        String actualBuildNumber = build.getBuildNumber();
+
+        Assert.assertEquals(expectedBuildNumber, actualBuildNumber);
+    }
+
+
+    @Test
+    public void setAndGetBranchName() {
+        String expectedBranchName = "branchName";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setBranchName(expectedBranchName);
+
+        String actualBranchName = build.getBranchName();
+
+        Assert.assertEquals(expectedBranchName, actualBranchName);
     }
 
     @Test
-    public void setBuildConfigurationName() {
-        // TODO: add test
+    public void setAndGetStartDate() {
+        long milliseconds = 1533567988151L;
+        Date expectedStartDate = new Date(milliseconds);
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setStartDate(expectedStartDate);
+
+        Date actualStartDate = build.getStartDate();
+
+        Assert.assertEquals(expectedStartDate, actualStartDate);
     }
 
     @Test
-    public void getBuildNumber() {
-        // TODO: add test
+    public void setAndGetFinishDate() {
+        long milliseconds = 1533567988151L;
+        Date expectedFinishDate = new Date(milliseconds);
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setStartDate(expectedFinishDate);
+
+        Date actualFinishDate = build.getStartDate();
+
+        Assert.assertEquals(expectedFinishDate, actualFinishDate);
     }
 
     @Test
-    public void setBuildNumber() {
-        // TODO: add test
+    public void setAndGetStatus() {
+        BuildStatus expectedBuildStatus = BuildStatus.SUCCESS;
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setStatus(expectedBuildStatus);
+
+        BuildStatus actualBuildStatus = build.getStatus();
+
+        Assert.assertEquals(expectedBuildStatus, actualBuildStatus);
     }
 
     @Test
-    public void getBranchName() {
-        // TODO: add test
+    public void setAndGetStatusText() {
+        String expectedStatusText = "statusText";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setStatusText(expectedStatusText);
+
+        String actualStatusText = build.getStatusText();
+
+        Assert.assertEquals(expectedStatusText, actualStatusText);
     }
 
     @Test
-    public void setBranchName() {
-        // TODO: add test
+    public void setAndGetVcsRootName() {
+        String expectedVcsRootName = "vcsRootName";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setVcsRootName(expectedVcsRootName);
+
+        String actualVcsRootName = build.getVcsRootName();
+
+        Assert.assertEquals(expectedVcsRootName, actualVcsRootName);
     }
 
     @Test
-    public void getStartDate() {
-        // TODO: add test
+    public void setAndGetCommitHash() {
+        String expectedCommitHash = "commitHash";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setCommitHash(expectedCommitHash);
+
+        String actualCommitHash = build.getCommitHash();
+
+        Assert.assertEquals(expectedCommitHash, actualCommitHash);
     }
 
     @Test
-    public void setStartDate() {
-        // TODO: add test
+    public void setAndGetTeamCityServerVersion() {
+        String expectedTeamCityServerVersion = "teamCityServerVersion";
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setTeamCityServerVersion(expectedTeamCityServerVersion);
+
+        String actualTeamCityServerVersion = build.getTeamCityServerVersion();
+
+        Assert.assertEquals(expectedTeamCityServerVersion, actualTeamCityServerVersion);
     }
 
     @Test
-    public void getFinishDate() {
-        // TODO: add test
-    }
+    public void getDefaultLogEntries() {
+        int expectedNumberOfLogEntries = 0;
 
-    @Test
-    public void setFinishDate() {
-        // TODO: add test
-    }
+        TeamCityBuild build = new TeamCityBuild();
 
-    @Test
-    public void getStatus() {
-        // TODO: add test
-    }
+        int actualNumberOfLogEntries = build.getLogEntries().size();
 
-    @Test
-    public void setStatus() {
-        // TODO: add test
-    }
-
-    @Test
-    public void getStatusText() {
-        // TODO: add test
-    }
-
-    @Test
-    public void setStatusText() {
-        // TODO: add test
-    }
-
-    @Test
-    public void getVcsRootName() {
-        // TODO: add test
-    }
-
-    @Test
-    public void setVcsRootName() {
-        // TODO: add test
-    }
-
-    @Test
-    public void getCommitHash() {
-        // TODO: add test
-    }
-
-    @Test
-    public void setCommitHash() {
-        // TODO: add test
-    }
-
-    @Test
-    public void getTeamCityServerVersion() {
-        // TODO: add test
-    }
-
-    @Test
-    public void setTeamCityServerVersion() {
-        // TODO: add test
-    }
-
-    @Test
-    public void getLogEntries() {
-        // TODO: add test
+        Assert.assertEquals(expectedNumberOfLogEntries, actualNumberOfLogEntries);
     }
 
     @Test
     public void setLogEntries() {
-        // TODO: add test
+        List<TeamCityBuildLogEntry> expectedLogEntries = new ArrayList<TeamCityBuildLogEntry>();
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setLogEntries(expectedLogEntries);
+
+        List<TeamCityBuildLogEntry> actualLogEntries = build.getLogEntries();
+
+        Assert.assertEquals(expectedLogEntries, actualLogEntries);
     }
 
     @Test
-    public void getTeamCityBuildSteps() {
-        // TODO: add test
-    }
+    public void setAndGetTeamCityBuildSteps() {
+        List<TeamCityBuildStep> expectedBuildSteps = new ArrayList<TeamCityBuildStep>();
 
-    @Test
-    public void setTeamCityBuildSteps() {
-        // TODO: add test
+        TeamCityBuild build = new TeamCityBuild();
+        build.setTeamCityBuildSteps(expectedBuildSteps);
+
+        List<TeamCityBuildStep> actualBuildSteps = build.getTeamCityBuildSteps();
+
+        Assert.assertEquals(expectedBuildSteps, actualBuildSteps);
     }
 
     @Test
     public void addLogEntry() {
-        // TODO: add test
+        int expectedNumberOfLogEntries = 1;
+        TeamCityBuildLogEntry expectedLogEntry = new TeamCityBuildLogEntry(0, null, null, 0, null);
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.addLogEntry(expectedLogEntry);
+
+        List<TeamCityBuildLogEntry> logEntries = build.getLogEntries();
+
+        int actualNumberOfLogEntries = logEntries.size();
+        TeamCityBuildLogEntry actualLogEntry = logEntries.get(0);
+
+        Assert.assertEquals(expectedNumberOfLogEntries, actualNumberOfLogEntries);
+        Assert.assertEquals(expectedLogEntry, actualLogEntry);
     }
 
     @Test
-    public void getMavenOutput() {
-        // TODO: add test
+    public void getMavenLog() {
+        String originalString = "[Step 1/1] [Maven Watcher] project started: bank_maven:bank_maven:jar:1.0-SNAPSHOT\n" +
+                "[Step 1/1] bank_maven:bank_maven (1s)\n" +
+                "[bank_maven:bank_maven] ##teamcity[importData tc:tags='tc:internal' ... logAsInternal='true']\n" +
+                "[Step 1/1] Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "[bank_maven:bank_maven] ##teamcity[importData ... logAsInternal='true']\n" +
+                "[Step 1/1] [Maven Watcher]\n" +
+                "[Step 1/1] ##teamcity[projectStarted tc:tags='tc:internal' ... testReportsDir1='C:/TeamCity/buildAgent/...']\n" +
+                "[Step 1/1] Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "[Step 1/1] Surefire report watcher\n" +
+                "[Surefire report watcher] Watching paths:\n" +
+                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml\n" +
+                "[Step 1/1] Surefire report watcher\n" +
+                "[Surefire report watcher] Watching paths:\n" +
+                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml";
+
+        String expectedMavenLog = "bank_maven:bank_maven (1s)\n" +
+                "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
+                "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n";
+
+        TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, BuildStepRunnerType.MAVEN, null);
+        for (String line : originalString.split("\n")) {
+            buildStep.addBuildLogEntry(new TeamCityBuildLogEntry(1, null, null, 1, line));
+        }
+
+        List<TeamCityBuildStep> buildSteps = new ArrayList<TeamCityBuildStep>();
+        buildSteps.add(buildStep);
+
+        TeamCityBuild build = new TeamCityBuild();
+        build.setTeamCityBuildSteps(buildSteps);
+
+        String actualMavenLog = build.getMavenLog();
+
+        Assert.assertEquals(expectedMavenLog, actualMavenLog);
     }
 }
