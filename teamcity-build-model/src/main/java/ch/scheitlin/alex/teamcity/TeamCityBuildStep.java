@@ -62,7 +62,7 @@ public class TeamCityBuildStep {
         return builder.toString();
     }
 
-    public String getCleanOutput() {
+    public String getCleanLog() {
         StringBuilder builder = new StringBuilder();
         for (TeamCityBuildLogEntry entry : this.buildLogEntries) {
             if (!entry.getStepOutput().contains("[Maven Watcher]") &&

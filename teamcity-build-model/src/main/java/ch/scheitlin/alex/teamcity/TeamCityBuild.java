@@ -131,10 +131,10 @@ public class TeamCityBuild {
         this.logEntries.add(logEntry);
     }
 
-    public String getMavenOutput() {
+    public String getMavenLog() {
         for (TeamCityBuildStep step : teamCityBuildSteps) {
             if (step.getRunnerType() == BuildStepRunnerType.MAVEN) {
-                return step.getCleanOutput();
+                return step.getCleanLog();
             }
         }
 

@@ -84,7 +84,7 @@ public class Assistant extends AssistantWithStages {
         }
 
         // extract maven log
-        this.rawMavenBuildLog = teamCityBuild.getMavenOutput();
+        this.rawMavenBuildLog = teamCityBuild.getMavenLog();
         if (this.rawMavenBuildLog == null) {
             //throw new Exception("No Maven build log found.");
             return false;

@@ -17,7 +17,7 @@ public class Main {
             return;
         }
 
-        String mavenLog = build.getMavenOutput();
+        String mavenLog = build.getMavenLog();
 
         File file = new File(path + logToParse +"-maven-log.txt");
 
