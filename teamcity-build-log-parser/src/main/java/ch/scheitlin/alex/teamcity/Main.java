@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String logToParse = "team-city-build-log-1";
+        String logToParse = "team-city-build-log-3";
         String path = "C:\\Users\\Alex\\Desktop\\";
 
         String log = readResourceFile(logToParse + ".log");
