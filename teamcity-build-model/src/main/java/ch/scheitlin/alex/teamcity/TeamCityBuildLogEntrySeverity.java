@@ -1,6 +1,6 @@
 package ch.scheitlin.alex.teamcity;
 
-public enum BuildLogEntrySeverity {
+public enum TeamCityBuildLogEntrySeverity {
     UNKNOWN(" "),
     INFORMATION("i"),
     WARNING("W"),
@@ -9,7 +9,7 @@ public enum BuildLogEntrySeverity {
 
     private String string;
 
-    BuildLogEntrySeverity(String string) {
+    TeamCityBuildLogEntrySeverity(String string) {
         this.string = string;
     }
 
@@ -17,8 +17,8 @@ public enum BuildLogEntrySeverity {
         return this.string;
     }
 
-    public static BuildLogEntrySeverity fromString(String string) {
-        for (BuildLogEntrySeverity severity : BuildLogEntrySeverity.values()) {
+    public static TeamCityBuildLogEntrySeverity fromString(String string) {
+        for (TeamCityBuildLogEntrySeverity severity : TeamCityBuildLogEntrySeverity.values()) {
             if (severity.string.equals(string)) {
                 return severity;
             }

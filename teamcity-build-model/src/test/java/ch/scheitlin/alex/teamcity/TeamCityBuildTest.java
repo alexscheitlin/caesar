@@ -34,15 +34,15 @@ public class TeamCityBuildTest {
     }
 
     @Test
-    public void setAndGetBuildNumber() {
-        String expectedBuildNumber = "buildNumber";
+    public void setAndGetNumber() {
+        String expectedNumber = "number";
 
         TeamCityBuild build = new TeamCityBuild();
-        build.setBuildNumber(expectedBuildNumber);
+        build.setNumber(expectedNumber);
 
-        String actualBuildNumber = build.getBuildNumber();
+        String actualNumber = build.getNumber();
 
-        Assert.assertEquals(expectedBuildNumber, actualBuildNumber);
+        Assert.assertEquals(expectedNumber, actualNumber);
     }
 
 
@@ -86,14 +86,14 @@ public class TeamCityBuildTest {
 
     @Test
     public void setAndGetStatus() {
-        BuildStatus expectedBuildStatus = BuildStatus.SUCCESS;
+        TeamCityBuildStatus expectedStatus = TeamCityBuildStatus.SUCCESS;
 
         TeamCityBuild build = new TeamCityBuild();
-        build.setStatus(expectedBuildStatus);
+        build.setStatus(expectedStatus);
 
-        BuildStatus actualBuildStatus = build.getStatus();
+        TeamCityBuildStatus actualStatus = build.getStatus();
 
-        Assert.assertEquals(expectedBuildStatus, actualBuildStatus);
+        Assert.assertEquals(expectedStatus, actualStatus);
     }
 
     @Test
@@ -145,55 +145,55 @@ public class TeamCityBuildTest {
     }
 
     @Test
-    public void getDefaultLogEntries() {
-        int expectedNumberOfLogEntries = 0;
+    public void getDefaultBuildLogEntries() {
+        int expectedNumberOfBuildLogEntries = 0;
 
         TeamCityBuild build = new TeamCityBuild();
 
-        int actualNumberOfLogEntries = build.getLogEntries().size();
+        int actualNumberOfBuildLogEntries = build.getBuildLogEntries().size();
 
-        Assert.assertEquals(expectedNumberOfLogEntries, actualNumberOfLogEntries);
+        Assert.assertEquals(expectedNumberOfBuildLogEntries, actualNumberOfBuildLogEntries);
     }
 
     @Test
-    public void setLogEntries() {
-        List<TeamCityBuildLogEntry> expectedLogEntries = new ArrayList<TeamCityBuildLogEntry>();
+    public void setBuildLogEntries() {
+        List<TeamCityBuildLogEntry> expectedBuildLogEntries = new ArrayList<TeamCityBuildLogEntry>();
 
         TeamCityBuild build = new TeamCityBuild();
-        build.setLogEntries(expectedLogEntries);
+        build.setBuildLogEntries(expectedBuildLogEntries);
 
-        List<TeamCityBuildLogEntry> actualLogEntries = build.getLogEntries();
+        List<TeamCityBuildLogEntry> actualBuildLogEntries = build.getBuildLogEntries();
 
-        Assert.assertEquals(expectedLogEntries, actualLogEntries);
+        Assert.assertEquals(expectedBuildLogEntries, actualBuildLogEntries);
     }
 
     @Test
-    public void setAndGetTeamCityBuildSteps() {
+    public void setAndGetBuildSteps() {
         List<TeamCityBuildStep> expectedBuildSteps = new ArrayList<TeamCityBuildStep>();
 
         TeamCityBuild build = new TeamCityBuild();
-        build.setTeamCityBuildSteps(expectedBuildSteps);
+        build.setBuildSteps(expectedBuildSteps);
 
-        List<TeamCityBuildStep> actualBuildSteps = build.getTeamCityBuildSteps();
+        List<TeamCityBuildStep> actualBuildSteps = build.getBuildSteps();
 
         Assert.assertEquals(expectedBuildSteps, actualBuildSteps);
     }
 
     @Test
-    public void addLogEntry() {
-        int expectedNumberOfLogEntries = 1;
-        TeamCityBuildLogEntry expectedLogEntry = new TeamCityBuildLogEntry(0, null, null, 0, null);
+    public void addBuildLogEntry() {
+        int expectedNumberOfBuildLogEntries = 1;
+        TeamCityBuildLogEntry expectedBuildLogEntry = new TeamCityBuildLogEntry(0, null, null, 0, null);
 
         TeamCityBuild build = new TeamCityBuild();
-        build.addLogEntry(expectedLogEntry);
+        build.addBuildLogEntry(expectedBuildLogEntry);
 
-        List<TeamCityBuildLogEntry> logEntries = build.getLogEntries();
+        List<TeamCityBuildLogEntry> buildLogEntries = build.getBuildLogEntries();
 
-        int actualNumberOfLogEntries = logEntries.size();
-        TeamCityBuildLogEntry actualLogEntry = logEntries.get(0);
+        int actualNumberOfBuildLogEntries = buildLogEntries.size();
+        TeamCityBuildLogEntry actualBuildLogEntry = buildLogEntries.get(0);
 
-        Assert.assertEquals(expectedNumberOfLogEntries, actualNumberOfLogEntries);
-        Assert.assertEquals(expectedLogEntry, actualLogEntry);
+        Assert.assertEquals(expectedNumberOfBuildLogEntries, actualNumberOfBuildLogEntries);
+        Assert.assertEquals(expectedBuildLogEntry, actualBuildLogEntry);
     }
 
     @Test
@@ -217,7 +217,7 @@ public class TeamCityBuildTest {
                 "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +
                 "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n";
 
-        TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, BuildStepRunnerType.MAVEN, null);
+        TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, TeamCityBuildStepRunnerType.MAVEN, null);
         for (String line : originalString.split("\n")) {
             buildStep.addBuildLogEntry(new TeamCityBuildLogEntry(1, null, null, 1, line));
         }
@@ -226,7 +226,7 @@ public class TeamCityBuildTest {
         buildSteps.add(buildStep);
 
         TeamCityBuild build = new TeamCityBuild();
-        build.setTeamCityBuildSteps(buildSteps);
+        build.setBuildSteps(buildSteps);
 
         String actualMavenLog = build.getMavenLog();
 

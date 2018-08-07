@@ -5,11 +5,11 @@ import ch.scheitlin.alex.utils.RegexMatcher;
 public class TeamCityBuildLogEntry {
     private int lineNumber;
     private String time;
-    private BuildLogEntrySeverity severity;
+    private TeamCityBuildLogEntrySeverity severity;
     private int level;
     private String message;
 
-    public TeamCityBuildLogEntry(int lineNumber, String time, BuildLogEntrySeverity severity, int level, String message) {
+    public TeamCityBuildLogEntry(int lineNumber, String time, TeamCityBuildLogEntrySeverity severity, int level, String message) {
         this.lineNumber = lineNumber;
         this.time = time;
         this.severity = severity;
@@ -25,7 +25,7 @@ public class TeamCityBuildLogEntry {
         return this.time;
     }
 
-    public BuildLogEntrySeverity getSeverity() {
+    public TeamCityBuildLogEntrySeverity getSeverity() {
         return this.severity;
     }
 
@@ -37,22 +37,22 @@ public class TeamCityBuildLogEntry {
         return this.message;
     }
 
-    public void appendMessage(String message) {
+    public void appendMessageLine(String line) {
         if (this.message == null) {
-            this.message = message;
+            this.message = line;
         } else {
-            this.message += "\n" + message;
+            this.message += "\n" + line;
         }
     }
 
-    public String getEntry() {
+    public String toString() {
         return String.format("%1$" + 3 + "s", this.lineNumber) + ": " +
                 this.time + " " +
                 toTabs(this.level) +
                 this.message;
     }
 
-    public String getOriginalEntry() {
+    public String toOriginalString() {
         return "[" + this.time + "]" +
                 this.severity.toString() + ": " +
                 toTabs(this.level) +
@@ -78,12 +78,12 @@ public class TeamCityBuildLogEntry {
     }
 
     public String getOutput() {
-        return toTabs(this.level-1) +
+        return toTabs(this.level - 1) +
                 this.message;
     }
 
     public String getStepOutput() {
-        return toTabs(this.level-1) +
+        return toTabs(this.level - 1) +
                 this.getStepEntryMessage();
     }
 

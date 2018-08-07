@@ -25,9 +25,9 @@ public class BuildLogParserTest {
         //Assert.assertEquals("2017.2.3", build.getTeamCityServerVersion());
         Assert.assertEquals("Demo Bank Account", build.getProjectName());
         Assert.assertEquals("Maven Clean Test", build.getBuildConfigurationName());
-        Assert.assertEquals("11", build.getBuildNumber());
+        Assert.assertEquals("11", build.getNumber());
         Assert.assertEquals("compile-error", build.getBranchName());
-        Assert.assertEquals(BuildStatus.FAILURE, build.getStatus());
+        Assert.assertEquals(TeamCityBuildStatus.FAILURE, build.getStatus());
         Assert.assertEquals("Compilation error: Compiler (new)", build.getStatusText());
         Assert.assertEquals("Sat Jun 23 16:31:53 CEST 2018", build.getStartDate().toString());
         Assert.assertEquals("Sat Jun 23 16:32:00 CEST 2018", build.getFinishDate().toString());

@@ -6,12 +6,12 @@ import java.util.List;
 public class TeamCityBuildStep {
     private int number;
     private String name;
-    private BuildStepRunnerType runnerType;
+    private TeamCityBuildStepRunnerType runnerType;
     private String duration;
     private int exitCode;
     private List<TeamCityBuildLogEntry> buildLogEntries;
 
-    public TeamCityBuildStep(int number, String name, BuildStepRunnerType runnerType, String duration) {
+    public TeamCityBuildStep(int number, String name, TeamCityBuildStepRunnerType runnerType, String duration) {
         this.number = number;
         this.name = name;
         this.runnerType = runnerType;
@@ -28,7 +28,7 @@ public class TeamCityBuildStep {
         return this.name;
     }
 
-    public BuildStepRunnerType getRunnerType() {
+    public TeamCityBuildStepRunnerType getRunnerType() {
         return this.runnerType;
     }
 
@@ -48,8 +48,8 @@ public class TeamCityBuildStep {
         return buildLogEntries;
     }
 
-    public void addBuildLogEntry(TeamCityBuildLogEntry buildLogEntry) {
-        this.buildLogEntries.add(buildLogEntry);
+    public void addBuildLogEntry(TeamCityBuildLogEntry entry) {
+        this.buildLogEntries.add(entry);
     }
 
     public String getOutput() {

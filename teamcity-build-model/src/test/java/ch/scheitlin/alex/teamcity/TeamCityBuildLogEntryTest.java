@@ -29,11 +29,11 @@ public class TeamCityBuildLogEntryTest {
 
     @Test
     public void getSeverity() {
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.INFORMATION;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.INFORMATION;
 
         TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(0, null, expectedSeverity, 0, null);
 
-        BuildLogEntrySeverity actualSeverity = entry.getSeverity();
+        TeamCityBuildLogEntrySeverity actualSeverity = entry.getSeverity();
 
         Assert.assertEquals(expectedSeverity, actualSeverity);
     }
@@ -61,12 +61,12 @@ public class TeamCityBuildLogEntryTest {
     }
 
     @Test
-    public void appendMessage() {
+    public void appendMessageLine() {
         String expectedMessage = "message";
 
         TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(0, null, null, 0, null);
 
-        entry.appendMessage(expectedMessage);
+        entry.appendMessageLine(expectedMessage);
 
         String[] messageLines = entry.getMessage().split("\n");
         String actualMessage = messageLines[messageLines.length - 1];
@@ -75,23 +75,23 @@ public class TeamCityBuildLogEntryTest {
     }
 
     @Test
-    public void getEntry() {
+    public void toStringTest() {
         String expectedEntry = "  3: 00:00:00 \t\tMessage";
 
-        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", BuildLogEntrySeverity.INFORMATION, 2, "Message");
+        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", TeamCityBuildLogEntrySeverity.INFORMATION, 2, "Message");
 
-        String actualEntry = entry.getEntry();
+        String actualEntry = entry.toString();
 
         Assert.assertEquals(expectedEntry, actualEntry);
     }
 
     @Test
-    public void getOriginalEntry() {
+    public void toOriginalString() {
         String expectedEntry = "[00:00:00]i: \t\tMessage";
 
-        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", BuildLogEntrySeverity.INFORMATION, 2, "Message");
+        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", TeamCityBuildLogEntrySeverity.INFORMATION, 2, "Message");
 
-        String actualEntry = entry.getOriginalEntry();
+        String actualEntry = entry.toOriginalString();
 
         Assert.assertEquals(expectedEntry, actualEntry);
     }
@@ -100,7 +100,7 @@ public class TeamCityBuildLogEntryTest {
     public void getStepEntryMessage() {
         String expectedEntry = "Message";
 
-        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", BuildLogEntrySeverity.INFORMATION, 2, "[Step 1/12] Message");
+        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", TeamCityBuildLogEntrySeverity.INFORMATION, 2, "[Step 1/12] Message");
 
         String actualEntry = entry.getStepEntryMessage();
 
@@ -111,7 +111,7 @@ public class TeamCityBuildLogEntryTest {
     public void getOutput() {
         String expectedEntry = "\tMessage";
 
-        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", BuildLogEntrySeverity.INFORMATION, 2, "Message");
+        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", TeamCityBuildLogEntrySeverity.INFORMATION, 2, "Message");
 
         String actualEntry = entry.getOutput();
 
@@ -122,7 +122,7 @@ public class TeamCityBuildLogEntryTest {
     public void getStepOutput() {
         String expectedEntry = "\tMessage";
 
-        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", BuildLogEntrySeverity.INFORMATION, 2, "[Step 1/12] Message");
+        TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(3, "00:00:00", TeamCityBuildLogEntrySeverity.INFORMATION, 2, "[Step 1/12] Message");
 
         String actualEntry = entry.getStepOutput();
 

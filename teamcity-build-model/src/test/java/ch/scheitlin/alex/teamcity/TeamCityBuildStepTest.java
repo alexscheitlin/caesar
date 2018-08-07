@@ -31,11 +31,11 @@ public class TeamCityBuildStepTest {
 
     @Test
     public void getRunnerType() {
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.MAVEN;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.MAVEN;
 
         TeamCityBuildStep buildStep = new TeamCityBuildStep(0, null, expectedRunnerType, null);
 
-        BuildStepRunnerType actualRunnerType = buildStep.getRunnerType();
+        TeamCityBuildStepRunnerType actualRunnerType = buildStep.getRunnerType();
 
         Assert.assertEquals(expectedRunnerType, actualRunnerType);
     }

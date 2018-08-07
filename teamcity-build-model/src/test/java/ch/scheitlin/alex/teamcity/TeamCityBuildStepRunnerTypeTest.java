@@ -3,11 +3,11 @@ package ch.scheitlin.alex.teamcity;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BuildStepRunnerTypeTest {
+public class TeamCityBuildStepRunnerTypeTest {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // test toString() method for all runner types
-    private void assertToString(BuildStepRunnerType runnerType, String expectedString) {
+    private void assertToString(TeamCityBuildStepRunnerType runnerType, String expectedString) {
         String actualString = runnerType.toString();
 
         Assert.assertEquals(expectedString, actualString);
@@ -15,7 +15,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DOT_NET_CLI() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DOT_NET_CLI;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DOT_NET_CLI;
         String expectedString = ".NET CLI (dotnet)";
 
         assertToString(runnerType, expectedString);
@@ -23,7 +23,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DOT_NET_PROCESS_RUNNER() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DOT_NET_PROCESS_RUNNER;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DOT_NET_PROCESS_RUNNER;
         String expectedString = ".NET Process Runner";
 
         assertToString(runnerType, expectedString);
@@ -31,7 +31,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_ANT() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.ANT;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.ANT;
         String expectedString = "Ant";
 
         assertToString(runnerType, expectedString);
@@ -39,7 +39,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_COMMAND_LINE() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.COMMAND_LINE;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.COMMAND_LINE;
         String expectedString = "Command Line";
 
         assertToString(runnerType, expectedString);
@@ -47,7 +47,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_CONTAINER_DEPLOYER() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.CONTAINER_DEPLOYER;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.CONTAINER_DEPLOYER;
         String expectedString = "Container Deployer";
 
         assertToString(runnerType, expectedString);
@@ -55,7 +55,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DOCKER_BUILD() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DOCKER_BUILD;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DOCKER_BUILD;
         String expectedString = "Docker Build";
 
         assertToString(runnerType, expectedString);
@@ -63,7 +63,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DOCKER_COMPOSE() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DOCKER_COMPOSE;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DOCKER_COMPOSE;
         String expectedString = "Docker Compose";
 
         assertToString(runnerType, expectedString);
@@ -71,7 +71,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DUPLICATES_FINDER_JAVA() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DUPLICATES_FINDER_JAVA;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DUPLICATES_FINDER_JAVA;
         String expectedString = "Duplicates finder (Java)";
 
         assertToString(runnerType, expectedString);
@@ -79,7 +79,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_DUPLICATES_FINDER_RESHARPER() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.DUPLICATES_FINDER_RESHARPER;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.DUPLICATES_FINDER_RESHARPER;
         String expectedString = "Duplicates finder (ReSharper)";
 
         assertToString(runnerType, expectedString);
@@ -87,7 +87,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_FTP_UPLOAD() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.FTP_UPLOAD;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.FTP_UPLOAD;
         String expectedString = "FTP Upload";
 
         assertToString(runnerType, expectedString);
@@ -95,7 +95,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_FXCOP() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.FXCOP;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.FXCOP;
         String expectedString = "FxCop";
 
         assertToString(runnerType, expectedString);
@@ -103,7 +103,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_GRADLE() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.GRADLE;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.GRADLE;
         String expectedString = "Gradle";
 
         assertToString(runnerType, expectedString);
@@ -111,7 +111,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_INSPECTIONS_INTELLIJ_IDEA() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.INSPECTIONS_INTELLIJ_IDEA;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.INSPECTIONS_INTELLIJ_IDEA;
         String expectedString = "Inspections (IntelliJ IDEA)";
 
         assertToString(runnerType, expectedString);
@@ -119,7 +119,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_INSPECTIONS_RESHARPER() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.INSPECTIONS_RESHARPER;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.INSPECTIONS_RESHARPER;
         String expectedString = "Inspections (ReSharper)";
 
         assertToString(runnerType, expectedString);
@@ -127,7 +127,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_INTELLIJ_IDEA_PROJECT() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.INTELLIJ_IDEA_PROJECT;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.INTELLIJ_IDEA_PROJECT;
         String expectedString = "IntelliJ IDEA Project";
 
         assertToString(runnerType, expectedString);
@@ -135,7 +135,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_MAVEN() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.MAVEN;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.MAVEN;
         String expectedString = "Maven";
 
         assertToString(runnerType, expectedString);
@@ -143,7 +143,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_MSBUILD() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.MSBUILD;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.MSBUILD;
         String expectedString = "MSBuild";
 
         assertToString(runnerType, expectedString);
@@ -151,7 +151,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_MSPEC() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.MSPEC;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.MSPEC;
         String expectedString = "MSpec";
 
         assertToString(runnerType, expectedString);
@@ -159,7 +159,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_NANT() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.NANT;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.NANT;
         String expectedString = "NAnt";
 
         assertToString(runnerType, expectedString);
@@ -167,7 +167,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_NUGET_INSTALLER() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.NUGET_INSTALLER;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.NUGET_INSTALLER;
         String expectedString = "NuGet Installer";
 
         assertToString(runnerType, expectedString);
@@ -175,7 +175,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_NUGET_PACK() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.NUGET_PACK;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.NUGET_PACK;
         String expectedString = "NuGet Pack";
 
         assertToString(runnerType, expectedString);
@@ -183,7 +183,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_NUGET_PUBLISH() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.NUGET_PUBLISH;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.NUGET_PUBLISH;
         String expectedString = "NuGet Publish";
 
         assertToString(runnerType, expectedString);
@@ -191,7 +191,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_NUNIT() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.NUNIT;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.NUNIT;
         String expectedString = "NUnit";
 
         assertToString(runnerType, expectedString);
@@ -199,7 +199,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_POWERSHELL() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.POWERSHELL;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.POWERSHELL;
         String expectedString = "PowerShell";
 
         assertToString(runnerType, expectedString);
@@ -207,7 +207,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_RAKE() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.RAKE;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.RAKE;
         String expectedString = "Rake";
 
         assertToString(runnerType, expectedString);
@@ -215,7 +215,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_SIMPLE_BUILD_TOOL_SCALA() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.SIMPLE_BUILD_TOOL_SCALA;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.SIMPLE_BUILD_TOOL_SCALA;
         String expectedString = "Simple Build Tool (Scala)";
 
         assertToString(runnerType, expectedString);
@@ -223,7 +223,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_SMB_UPLOAD() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.SMB_UPLOAD;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.SMB_UPLOAD;
         String expectedString = "SMB Upload";
 
         assertToString(runnerType, expectedString);
@@ -231,7 +231,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_SSH_EXEC() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.SSH_EXEC;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.SSH_EXEC;
         String expectedString = "SSH Exec";
 
         assertToString(runnerType, expectedString);
@@ -239,7 +239,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_SSH_UPLOAD() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.SSH_UPLOAD;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.SSH_UPLOAD;
         String expectedString = "SSH Upload";
 
         assertToString(runnerType, expectedString);
@@ -247,7 +247,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_VISUAL_STUDIO_SLN() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.VISUAL_STUDIO_SLN;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_SLN;
         String expectedString = "Visual Studio (sln)";
 
         assertToString(runnerType, expectedString);
@@ -255,7 +255,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_VISUAL_STUDIO_2003() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.VISUAL_STUDIO_2003;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_2003;
         String expectedString = "Visual Studio 2003";
 
         assertToString(runnerType, expectedString);
@@ -263,7 +263,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_VISUAL_STUDIO_TESTS() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.VISUAL_STUDIO_TESTS;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_TESTS;
         String expectedString = "Visual Studio Tests";
 
         assertToString(runnerType, expectedString);
@@ -271,7 +271,7 @@ public class BuildStepRunnerTypeTest {
 
     @Test
     public void toString_XCODE_PROJECT() {
-        BuildStepRunnerType runnerType = BuildStepRunnerType.XCODE_PROJECT;
+        TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.XCODE_PROJECT;
         String expectedString = "Xcode Project";
 
         assertToString(runnerType, expectedString);
@@ -282,8 +282,8 @@ public class BuildStepRunnerTypeTest {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // test fromString() method for all runner types
-    private void assertFromString(String string, BuildStepRunnerType expectedRunnerType) {
-        BuildStepRunnerType actualRunnerType = BuildStepRunnerType.fromString(string);
+    private void assertFromString(String string, TeamCityBuildStepRunnerType expectedRunnerType) {
+        TeamCityBuildStepRunnerType actualRunnerType = TeamCityBuildStepRunnerType.fromString(string);
 
         Assert.assertEquals(expectedRunnerType, actualRunnerType);
     }
@@ -291,7 +291,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DOT_NET_CLI() {
         String string = ".NET CLI (dotnet)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DOT_NET_CLI;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DOT_NET_CLI;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -299,7 +299,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DOT_NET_PROCESS_RUNNER() {
         String string = ".NET Process Runner";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DOT_NET_PROCESS_RUNNER;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DOT_NET_PROCESS_RUNNER;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -307,7 +307,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_ANT() {
         String string = "Ant";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.ANT;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.ANT;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -315,7 +315,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_COMMAND_LINE() {
         String string = "Command Line";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.COMMAND_LINE;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.COMMAND_LINE;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -323,7 +323,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_CONTAINER_DEPLOYER() {
         String string = "Container Deployer";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.CONTAINER_DEPLOYER;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.CONTAINER_DEPLOYER;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -331,7 +331,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DOCKER_BUILD() {
         String string = "Docker Build";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DOCKER_BUILD;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DOCKER_BUILD;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -339,7 +339,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DOCKER_COMPOSE() {
         String string = "Docker Compose";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DOCKER_COMPOSE;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DOCKER_COMPOSE;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -347,7 +347,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DUPLICATES_FINDER_JAVA() {
         String string = "Duplicates finder (Java)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DUPLICATES_FINDER_JAVA;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DUPLICATES_FINDER_JAVA;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -355,7 +355,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_DUPLICATES_FINDER_RESHARPER() {
         String string = "Duplicates finder (ReSharper)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.DUPLICATES_FINDER_RESHARPER;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.DUPLICATES_FINDER_RESHARPER;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -363,7 +363,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_FTP_UPLOAD() {
         String string = "FTP Upload";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.FTP_UPLOAD;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.FTP_UPLOAD;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -371,7 +371,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_FXCOP() {
         String string = "FxCop";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.FXCOP;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.FXCOP;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -379,7 +379,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_GRADLE() {
         String string = "Gradle";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.GRADLE;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.GRADLE;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -387,7 +387,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_INSPECTIONS_INTELLIJ_IDEA() {
         String string = "Inspections (IntelliJ IDEA)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.INSPECTIONS_INTELLIJ_IDEA;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.INSPECTIONS_INTELLIJ_IDEA;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -395,7 +395,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_INSPECTIONS_RESHARPER() {
         String string = "Inspections (ReSharper)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.INSPECTIONS_RESHARPER;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.INSPECTIONS_RESHARPER;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -403,7 +403,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_INTELLIJ_IDEA_PROJECT() {
         String string = "IntelliJ IDEA Project";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.INTELLIJ_IDEA_PROJECT;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.INTELLIJ_IDEA_PROJECT;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -411,7 +411,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_MAVEN() {
         String string = "Maven";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.MAVEN;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.MAVEN;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -419,7 +419,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_MSBUILD() {
         String string = "MSBuild";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.MSBUILD;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.MSBUILD;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -427,7 +427,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_MSPEC() {
         String string = "MSpec";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.MSPEC;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.MSPEC;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -435,7 +435,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_NANT() {
         String string = "NAnt";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.NANT;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.NANT;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -443,7 +443,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_NUGET_INSTALLER() {
         String string = "NuGet Installer";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.NUGET_INSTALLER;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.NUGET_INSTALLER;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -451,7 +451,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_NUGET_PACK() {
         String string = "NuGet Pack";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.NUGET_PACK;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.NUGET_PACK;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -459,7 +459,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_NUGET_PUBLISH() {
         String string = "NuGet Publish";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.NUGET_PUBLISH;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.NUGET_PUBLISH;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -467,7 +467,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_NUNIT() {
         String string = "NUnit";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.NUNIT;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.NUNIT;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -475,7 +475,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_POWERSHELL() {
         String string = "PowerShell";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.POWERSHELL;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.POWERSHELL;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -483,7 +483,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_RAKE() {
         String string = "Rake";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.RAKE;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.RAKE;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -491,7 +491,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_SIMPLE_BUILD_TOOL_SCALA() {
         String string = "Simple Build Tool (Scala)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.SIMPLE_BUILD_TOOL_SCALA;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.SIMPLE_BUILD_TOOL_SCALA;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -499,7 +499,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_SMB_UPLOAD() {
         String string = "SMB Upload";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.SMB_UPLOAD;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.SMB_UPLOAD;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -507,7 +507,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_SSH_EXEC() {
         String string = "SSH Exec";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.SSH_EXEC;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.SSH_EXEC;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -515,7 +515,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_SSH_UPLOAD() {
         String string = "SSH Upload";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.SSH_UPLOAD;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.SSH_UPLOAD;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -523,7 +523,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_VISUAL_STUDIO_SLN() {
         String string = "Visual Studio (sln)";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.VISUAL_STUDIO_SLN;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_SLN;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -531,7 +531,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_VISUAL_STUDIO_2003() {
         String string = "Visual Studio 2003";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.VISUAL_STUDIO_2003;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_2003;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -539,7 +539,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_VISUAL_STUDIO_TESTS() {
         String string = "Visual Studio Tests";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.VISUAL_STUDIO_TESTS;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.VISUAL_STUDIO_TESTS;
 
         assertFromString(string, expectedRunnerType);
     }
@@ -547,7 +547,7 @@ public class BuildStepRunnerTypeTest {
     @Test
     public void fromString_XCODE_PROJECT() {
         String string = "Xcode Project";
-        BuildStepRunnerType expectedRunnerType = BuildStepRunnerType.XCODE_PROJECT;
+        TeamCityBuildStepRunnerType expectedRunnerType = TeamCityBuildStepRunnerType.XCODE_PROJECT;
 
         assertFromString(string, expectedRunnerType);
     }

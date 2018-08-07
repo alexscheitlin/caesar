@@ -7,75 +7,75 @@ import java.util.List;
 public class TeamCityBuild {
     private String projectName;
     private String buildConfigurationName;
-    private String buildNumber;
+    private String number;
     private String branchName;
     private Date startDate;
     private Date finishDate;
-    private BuildStatus status;
+    private TeamCityBuildStatus status;
     private String statusText;
     private String vcsRootName;
     private String commitHash;
     private String teamCityServerVersion;
-    private List<TeamCityBuildLogEntry> logEntries;
-    private List<TeamCityBuildStep> teamCityBuildSteps;
+    private List<TeamCityBuildLogEntry> buildLogEntries;
+    private List<TeamCityBuildStep> buildSteps;
 
     public TeamCityBuild() {
-        this.logEntries = new ArrayList<TeamCityBuildLogEntry>();
+        this.buildLogEntries = new ArrayList<TeamCityBuildLogEntry>();
     }
 
     public String getProjectName() {
         return this.projectName;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setProjectName(String name) {
+        this.projectName = name;
     }
 
     public String getBuildConfigurationName() {
         return this.buildConfigurationName;
     }
 
-    public void setBuildConfigurationName(String buildConfigurationName) {
-        this.buildConfigurationName = buildConfigurationName;
+    public void setBuildConfigurationName(String name) {
+        this.buildConfigurationName = name;
     }
 
-    public String getBuildNumber() {
-        return this.buildNumber;
+    public String getNumber() {
+        return this.number;
     }
 
-    public void setBuildNumber(String buildNumber) {
-        this.buildNumber = buildNumber;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getBranchName() {
         return this.branchName;
     }
 
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
+    public void setBranchName(String name) {
+        this.branchName = name;
     }
 
     public Date getStartDate() {
         return this.startDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDate(Date date) {
+        this.startDate = date;
     }
 
     public Date getFinishDate() {
         return this.finishDate;
     }
 
-    public void setFinishDate(Date finishDate) {
-        this.finishDate = finishDate;
+    public void setFinishDate(Date date) {
+        this.finishDate = date;
     }
 
-    public BuildStatus getStatus() {
+    public TeamCityBuildStatus getStatus() {
         return this.status;
     }
 
-    public void setStatus(BuildStatus status) {
+    public void setStatus(TeamCityBuildStatus status) {
         this.status = status;
     }
 
@@ -83,57 +83,57 @@ public class TeamCityBuild {
         return this.statusText;
     }
 
-    public void setStatusText(String statusText) {
-        this.statusText = statusText;
+    public void setStatusText(String text) {
+        this.statusText = text;
     }
 
     public String getVcsRootName() {
         return this.vcsRootName;
     }
 
-    public void setVcsRootName(String vcsRootName) {
-        this.vcsRootName = vcsRootName;
+    public void setVcsRootName(String name) {
+        this.vcsRootName = name;
     }
 
     public String getCommitHash() {
         return this.commitHash;
     }
 
-    public void setCommitHash(String commitHash) {
-        this.commitHash = commitHash;
+    public void setCommitHash(String hash) {
+        this.commitHash = hash;
     }
 
     public String getTeamCityServerVersion() {
         return this.teamCityServerVersion;
     }
 
-    public void setTeamCityServerVersion(String teamCityServerVersion) {
-        this.teamCityServerVersion = teamCityServerVersion;
+    public void setTeamCityServerVersion(String version) {
+        this.teamCityServerVersion = version;
     }
 
-    public List<TeamCityBuildLogEntry> getLogEntries() {
-        return this.logEntries;
+    public List<TeamCityBuildLogEntry> getBuildLogEntries() {
+        return this.buildLogEntries;
     }
 
-    public void setLogEntries(List<TeamCityBuildLogEntry> logEntries) {
-        this.logEntries = logEntries;
+    public void setBuildLogEntries(List<TeamCityBuildLogEntry> entries) {
+        this.buildLogEntries = entries;
     }
 
-    public List<TeamCityBuildStep> getTeamCityBuildSteps() {
-        return this.teamCityBuildSteps;
+    public List<TeamCityBuildStep> getBuildSteps() {
+        return this.buildSteps;
     }
 
-    public void setTeamCityBuildSteps(List<TeamCityBuildStep> teamCityBuildSteps) {
-        this.teamCityBuildSteps = teamCityBuildSteps;
+    public void setBuildSteps(List<TeamCityBuildStep> steps) {
+        this.buildSteps = steps;
     }
 
-    public void addLogEntry(TeamCityBuildLogEntry logEntry) {
-        this.logEntries.add(logEntry);
+    public void addBuildLogEntry(TeamCityBuildLogEntry entry) {
+        this.buildLogEntries.add(entry);
     }
 
     public String getMavenLog() {
-        for (TeamCityBuildStep step : teamCityBuildSteps) {
-            if (step.getRunnerType() == BuildStepRunnerType.MAVEN) {
+        for (TeamCityBuildStep step : buildSteps) {
+            if (step.getRunnerType() == TeamCityBuildStepRunnerType.MAVEN) {
                 return step.getCleanLog();
             }
         }

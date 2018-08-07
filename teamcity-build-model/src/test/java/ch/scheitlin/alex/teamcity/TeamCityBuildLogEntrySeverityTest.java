@@ -3,11 +3,11 @@ package ch.scheitlin.alex.teamcity;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BuildLogEntrySeverityTest {
+public class TeamCityBuildLogEntrySeverityTest {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // test toString() method for all severities
-    private void assertToString(BuildLogEntrySeverity severity, String expectedString) {
+    private void assertToString(TeamCityBuildLogEntrySeverity severity, String expectedString) {
         String actualString = severity.toString();
 
         Assert.assertEquals(expectedString, actualString);
@@ -15,7 +15,7 @@ public class BuildLogEntrySeverityTest {
 
     @Test
     public void toString_UNKNOWN() {
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.UNKNOWN;
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.UNKNOWN;
         String expectedString = " ";
 
         assertToString(severity, expectedString);
@@ -23,7 +23,7 @@ public class BuildLogEntrySeverityTest {
 
     @Test
     public void toString_INFORMATION() {
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.INFORMATION;
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.INFORMATION;
         String expectedString = "i";
 
         assertToString(severity, expectedString);
@@ -31,7 +31,7 @@ public class BuildLogEntrySeverityTest {
 
     @Test
     public void toString_WARNING() {
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.WARNING;
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.WARNING;
         String expectedString = "W";
 
         assertToString(severity, expectedString);
@@ -39,7 +39,7 @@ public class BuildLogEntrySeverityTest {
 
     @Test
     public void toString_ERROR() {
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.ERROR;
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.ERROR;
         String expectedString = "E";
 
         assertToString(severity, expectedString);
@@ -47,7 +47,7 @@ public class BuildLogEntrySeverityTest {
 
     @Test
     public void toString_FAILURE() {
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.FAILURE;
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.FAILURE;
         String expectedString = "F";
 
         assertToString(severity, expectedString);
@@ -57,8 +57,8 @@ public class BuildLogEntrySeverityTest {
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // test fromString() method for all severities
-    private void assertFromString(String string, BuildLogEntrySeverity expectedSeverity) {
-        BuildLogEntrySeverity actualSeverity = BuildLogEntrySeverity.fromString(string);
+    private void assertFromString(String string, TeamCityBuildLogEntrySeverity expectedSeverity) {
+        TeamCityBuildLogEntrySeverity actualSeverity = TeamCityBuildLogEntrySeverity.fromString(string);
 
         Assert.assertEquals(expectedSeverity, actualSeverity);
     }
@@ -66,7 +66,7 @@ public class BuildLogEntrySeverityTest {
     @Test
     public void fromString_UNKNOWN() {
         String string = " ";
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.UNKNOWN;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.UNKNOWN;
 
         assertFromString(string, expectedSeverity);
     }
@@ -74,7 +74,7 @@ public class BuildLogEntrySeverityTest {
     @Test
     public void fromString_INFORMATION() {
         String string = "i";
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.INFORMATION;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.INFORMATION;
 
         assertFromString(string, expectedSeverity);
     }
@@ -82,7 +82,7 @@ public class BuildLogEntrySeverityTest {
     @Test
     public void fromString_WARNING() {
         String string = "W";
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.WARNING;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.WARNING;
 
         assertFromString(string, expectedSeverity);
     }
@@ -90,7 +90,7 @@ public class BuildLogEntrySeverityTest {
     @Test
     public void fromString_ERROR() {
         String string = "E";
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.ERROR;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.ERROR;
 
         assertFromString(string, expectedSeverity);
     }
@@ -98,7 +98,7 @@ public class BuildLogEntrySeverityTest {
     @Test
     public void fromString_FAILURE() {
         String string = "F";
-        BuildLogEntrySeverity expectedSeverity = BuildLogEntrySeverity.FAILURE;
+        TeamCityBuildLogEntrySeverity expectedSeverity = TeamCityBuildLogEntrySeverity.FAILURE;
 
         assertFromString(string, expectedSeverity);
     }

@@ -48,12 +48,12 @@ public class BuildLogParser {
 
                 int lineNumber = currentLine;
                 String time = (String) components[0];
-                BuildLogEntrySeverity severity = (BuildLogEntrySeverity) components[1];
+                TeamCityBuildLogEntrySeverity severity = (TeamCityBuildLogEntrySeverity) components[1];
                 int level = (Integer) components[2];
                 String message = (String) components[3];
 
                 TeamCityBuildLogEntry entry = new TeamCityBuildLogEntry(lineNumber, time, severity, level, message);
-                teamCityBuild.addLogEntry(entry);
+                teamCityBuild.addBuildLogEntry(entry);
 
                 // keep track of previous entry
                 previousEntry = entry;
@@ -63,7 +63,7 @@ public class BuildLogParser {
                 String[] components = BuildLogParser.parseHeaderLine1_1(headerLine1_1, line);
                 teamCityBuild.setProjectName(components[0]);
                 teamCityBuild.setBuildConfigurationName(components[1]);
-                teamCityBuild.setBuildNumber(components[2]);
+                teamCityBuild.setNumber(components[2]);
                 teamCityBuild.setBranchName(components[3]);
 
             } else if (headerLine1_2.matches(line)) {
@@ -71,7 +71,7 @@ public class BuildLogParser {
                 String[] components = BuildLogParser.parseHeaderLine1_2(headerLine1_2, line);
                 teamCityBuild.setProjectName(components[0]);
                 teamCityBuild.setBuildConfigurationName(components[1]);
-                teamCityBuild.setBuildNumber(components[2]);
+                teamCityBuild.setNumber(components[2]);
                 teamCityBuild.setBranchName("default");
 
             } else if (headerLine2.matches(line)) {
@@ -82,7 +82,7 @@ public class BuildLogParser {
                 // parse header line 3
                 Object[] components = BuildLogParser.parseHeaderLine3(headerLine3, line);
                 teamCityBuild.setFinishDate((Date) components[0]);
-                teamCityBuild.setStatus((BuildStatus) components[1]);
+                teamCityBuild.setStatus((TeamCityBuildStatus) components[1]);
                 teamCityBuild.setStatusText((String) components[2]);
 
             } else if (headerLine4.matches(line)) {
@@ -104,7 +104,7 @@ public class BuildLogParser {
                 // if it is not (case 1) this line can be omitted
                 if (previousEntry != null) {
                     // remove trailing white spaces
-                    previousEntry.appendMessage(line.replaceFirst("\\s++$", ""));
+                    previousEntry.appendMessageLine(line.replaceFirst("\\s++$", ""));
                 } else {
                     //System.out.println("Skipped a line: " + currentLine);
                     //System.out.println("\t" + line);
@@ -113,7 +113,7 @@ public class BuildLogParser {
         }
 
         // parse build steps
-        teamCityBuild.setTeamCityBuildSteps(BuildLogParser.extractBuildSteps(teamCityBuild.getLogEntries()));
+        teamCityBuild.setBuildSteps(BuildLogParser.extractBuildSteps(teamCityBuild.getBuildLogEntries()));
 
         return teamCityBuild;
     }
@@ -177,10 +177,10 @@ public class BuildLogParser {
         String[] components = regex.extractComponents(line);
 
         Date finishDate = convertStringToDate(components[0]);
-        BuildStatus buildStatus = BuildStatus.valueOf(components[1]);
+        TeamCityBuildStatus teamCityBuildStatus = TeamCityBuildStatus.valueOf(components[1]);
         String buildStatusText = components[2];
 
-        return new Object[]{finishDate, buildStatus, buildStatusText};
+        return new Object[]{finishDate, teamCityBuildStatus, buildStatusText};
     }
 
     /**
@@ -228,7 +228,7 @@ public class BuildLogParser {
 
         String time = components[0];
 
-        BuildLogEntrySeverity severity = BuildLogEntrySeverity.fromString(components[1]);
+        TeamCityBuildLogEntrySeverity severity = TeamCityBuildLogEntrySeverity.fromString(components[1]);
 
         int level = components[2].length();
 
@@ -285,7 +285,7 @@ public class BuildLogParser {
 
                     int number = Integer.valueOf(components[0]);
                     String name = components[1];
-                    BuildStepRunnerType runnerType = BuildStepRunnerType.fromString(components[2]);
+                    TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.fromString(components[2]);
                     String duration = components[3];
 
                     teamCityBuildStep = new TeamCityBuildStep(number, name, runnerType, duration);
@@ -295,7 +295,7 @@ public class BuildLogParser {
 
                     int number = Integer.valueOf(components[0]);
                     String name = components[1];
-                    BuildStepRunnerType runnerType = BuildStepRunnerType.fromString(components[1]);
+                    TeamCityBuildStepRunnerType runnerType = TeamCityBuildStepRunnerType.fromString(components[1]);
                     String duration = components[2];
                     teamCityBuildStep = new TeamCityBuildStep(number, name, runnerType, duration);
                 }

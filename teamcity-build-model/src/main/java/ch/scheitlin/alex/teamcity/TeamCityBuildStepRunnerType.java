@@ -1,6 +1,6 @@
 package ch.scheitlin.alex.teamcity;
 
-public enum BuildStepRunnerType {
+public enum TeamCityBuildStepRunnerType {
     DOT_NET_CLI(".NET CLI (dotnet)"),
     DOT_NET_PROCESS_RUNNER(".NET Process Runner"),
     ANT("Ant"),
@@ -37,7 +37,7 @@ public enum BuildStepRunnerType {
 
     private String string;
 
-    BuildStepRunnerType(String string) {
+    TeamCityBuildStepRunnerType(String string) {
         this.string = string;
     }
 
@@ -45,8 +45,8 @@ public enum BuildStepRunnerType {
         return this.string;
     }
 
-    public static BuildStepRunnerType fromString(String string) {
-        for (BuildStepRunnerType type : BuildStepRunnerType.values()) {
+    public static TeamCityBuildStepRunnerType fromString(String string) {
+        for (TeamCityBuildStepRunnerType type : TeamCityBuildStepRunnerType.values()) {
             if (type.string.equals(string)) {
                 return type;
             }
