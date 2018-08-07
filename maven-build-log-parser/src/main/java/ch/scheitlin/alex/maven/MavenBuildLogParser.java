@@ -19,7 +19,7 @@ public class MavenBuildLogParser {
     private static final String PROJECT_SCAN_REACTOR =
             "^\\[INFO\\] Reactor Build Order:$";
     public static final String PROJECT_SCAN_IGNORE_3 =
-            "^\\[INFO\\]$";
+            "^\\[INFO\\]\\s*$";
     private static final String PROJECT_SCAN_MODULE =
             "^\\[INFO\\] ([\\S| ]*)$";
     private static final String PROJECT_SCAN_END =
@@ -239,6 +239,10 @@ public class MavenBuildLogParser {
                     continue;
                 }
             } else {
+                if (ignoreMatcher3.matches(lines[i])) {
+                    continue;
+                }
+
                 // parse module names
                 if (moduleMatcher.matches(lines[i])) {
                     MavenModule module = new MavenModule(moduleMatcher.extractComponentsSilently(lines[i])[0]);
