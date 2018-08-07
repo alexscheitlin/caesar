@@ -1,6 +1,6 @@
 # Maven Goal Classifier
 
-> _Classifies a maven goal into one of 13 categories._
+> _Classifies a Maven goal into one of 13 categories._
 
 The 13 categories with total 170 goals originate from a research paper analyzing 34,182 failing builds (out of 349 open source projects and 418 projects of ING Nederland.) The paper can be found [here](ref/paper.pdf) and the taxonomy containing the categories [here](ref/taxonomy.pdf).
 

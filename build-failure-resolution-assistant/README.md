@@ -1,10 +1,10 @@
 # Build Failure Resolution Assistant
 
-> _Helps fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, let the user fix the error, and reapplies previously stashed changes._
+> _Assists in fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, and let the user fix the error._
 
 ## Stages
 
-A assistance instance is always in one of the following stages:
+An assistance instance is always in one of the following stages:
 
 - `NONE`: a new instance is created but no further action was taken
 - `CONNECTED`: connected to the build server
