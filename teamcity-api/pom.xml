@@ -41,48 +41,18 @@
     <dependencies>
         <!-- teamcity rest client -->
         <dependency>
-            <groupId>org.jetbrains.teamcity.rest</groupId>
+            <groupId>org.jetbrains.teamcity</groupId>
             <artifactId>teamcity-rest-client</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/teamcity-rest-client-SNAPSHOT.jar</systemPath>
+            <version>1.0.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.squareup.retrofit</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>1.9.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jakewharton.retrofit</groupId>
-            <artifactId>retrofit1-okhttp3-client</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
-            <version>1.1.4-3</version>
-        </dependency>
-
+        <!--
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.12</version>
         </dependency>
+        -->
 
         <dependency>
             <groupId>org.slf4j</groupId>
