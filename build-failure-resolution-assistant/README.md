@@ -25,3 +25,7 @@ For entering one of the stages, the following methods are used:
 Note: The stages may only be executed in the given order and no stage may be left out.
 
 ![Stages](assets/stages.png)
+
+## Data Flow and Data Processing
+
+![Data](assets/data.png)
