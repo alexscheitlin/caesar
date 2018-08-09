@@ -10,33 +10,40 @@ public class ProjectTest {
 
     @Test
     public void getName() {
+        // assign variables with test data
         String expectedName = "projectName";
-        List<BuildConfiguration> buildConfigurations = null;
 
-        Project project = new Project(expectedName, buildConfigurations);
+        // allocate test objects
+        Project project = new Project(expectedName, null);
 
+        // execute method to be tested
         String actualName = project.getName();
 
+        // assert result
         Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
     public void getBuildConfigurations() {
-        BuildConfiguration buildConfiguration = new BuildConfiguration(null, null);
-
+        // assign variables with test data
         List<BuildConfiguration> expectedBuildConfigurations = new ArrayList<BuildConfiguration>();
-        expectedBuildConfigurations.add(buildConfiguration);
 
+        // allocate test objects
         Project project = new Project(null, expectedBuildConfigurations);
 
+        // execute method to be tested
         List<BuildConfiguration> actualBuildConfigurations = project.getBuildConfigurations();
 
+        // assert result
         Assert.assertEquals(expectedBuildConfigurations, actualBuildConfigurations);
     }
 
     @Test
     public void getBuildConfigurationNames() {
+        // assign variables with test data
         String[] expectedBuildConfigurationNames = { "BuildConfiguration", "BuildConfiguration2" };
+
+        // allocate test objects
         BuildConfiguration buildConfiguration1 = new BuildConfiguration(expectedBuildConfigurationNames[0], null);
         BuildConfiguration buildConfiguration2 = new BuildConfiguration(expectedBuildConfigurationNames[1], null);
 
@@ -46,12 +53,14 @@ public class ProjectTest {
 
         Project project = new Project(null, buildConfigurations);
 
-        List<String> actualBuildConfiguratioNames = project.getBuildConfigurationNames();
+        // execute method to be tested
+        List<String> actualBuildConfigurationNames = project.getBuildConfigurationNames();
 
-        Assert.assertEquals(expectedBuildConfigurationNames.length, actualBuildConfiguratioNames.size());
+        // assert result
+        Assert.assertEquals(expectedBuildConfigurationNames.length, actualBuildConfigurationNames.size());
 
         for (int i = 0; i < expectedBuildConfigurationNames.length; i++) {
-            Assert.assertEquals(expectedBuildConfigurationNames[i], actualBuildConfiguratioNames.get(i));
+            Assert.assertEquals(expectedBuildConfigurationNames[i], actualBuildConfigurationNames.get(i));
         }
     }
 }

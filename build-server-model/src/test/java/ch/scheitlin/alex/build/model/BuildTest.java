@@ -4,85 +4,109 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BuildTest {
-    private String expectedId = "1";
-    private String expectedNumber = "2";
-    private boolean expectedStatus = true;
-    private String expectedStatusText = "Successful";
-    private String expectedRepository = "https://github.com/alexscheitlin/repository";
-    private String expectedBranch = "master";
-    private String expectedCommit = "1h89sg";
 
     @Test
     public void getId() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedId = "1";
 
+        // allocate test objects
+        Build build = new Build(expectedId, null, false, null, null, null, null);
+
+        // execute method to be tested
         String actualId = build.getId();
 
-        Assert.assertEquals(this.expectedId, actualId);
+        // assert result
+        Assert.assertEquals(expectedId, actualId);
     }
 
     @Test
     public void getNumber() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedNumber = "2";
 
+        // allocate test objects
+        Build build = new Build(null, expectedNumber, false, null, null, null, null);
+
+        // execute method to be tested
         String actualNumber = build.getNumber();
 
-        Assert.assertEquals(this.expectedNumber, actualNumber);
+        // assert result
+        Assert.assertEquals(expectedNumber, actualNumber);
     }
 
     @Test
     public void getStatus() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        boolean expectedStatus = true;
 
+        // allocate test objects
+        Build build = new Build(null, null, expectedStatus, null, null, null, null);
+
+        // execute method to be tested
         boolean actualStatus = build.getStatus();
 
-        Assert.assertEquals(this.expectedStatus, actualStatus);
+        // assert result
+        Assert.assertEquals(expectedStatus, actualStatus);
     }
 
     @Test
     public void getStatusText() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedStatusText = "Successful";
 
+        // allocate test objects
+        Build build = new Build(null, null, false, expectedStatusText, null, null, null);
+
+        // execute method to be tested
         String actualStatusText = build.getStatusText();
 
-        Assert.assertEquals(this.expectedStatusText, actualStatusText);
+        // assert result
+        Assert.assertEquals(expectedStatusText, actualStatusText);
     }
 
     @Test
     public void getRepository() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedRepository = "https://github.com/alexscheitlin/repository";
 
+        // allocate test objects
+        Build build = new Build(null, null, false, null, expectedRepository, null, null);
+
+        // execute method to be tested
         String actualRepository = build.getRepository();
 
-        Assert.assertEquals(this.expectedRepository, actualRepository);
+        // assert result
+        Assert.assertEquals(expectedRepository, actualRepository);
     }
 
     @Test
     public void getBranch() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedBranch = "master";
 
+        // allocate test objects
+        Build build = new Build(null, null, false, null, null, expectedBranch, null);
+
+        // execute method to be tested
         String actualBranch = build.getBranch();
 
-        Assert.assertEquals(this.expectedBranch, actualBranch);
+        // assert result
+        Assert.assertEquals(expectedBranch, actualBranch);
     }
 
     @Test
     public void getCommit() {
-        Build build = getDummyBuild();
+        // assign variables with test data
+        String expectedCommit = "1h89sg";
 
+        // allocate test objects
+        Build build = new Build(null, null, false, null, null, null, expectedCommit);
+
+        // execute method to be tested
         String actualCommit = build.getCommit();
 
-        Assert.assertEquals(this.expectedCommit, actualCommit);
-    }
-
-    private Build getDummyBuild() {
-        return new Build(
-                this.expectedId,
-                this.expectedNumber,
-                this.expectedStatus,
-                this.expectedStatusText,
-                this.expectedRepository,
-                this.expectedBranch,
-                this.expectedCommit);
+        // assert result
+        Assert.assertEquals(expectedCommit, actualCommit);
     }
 }

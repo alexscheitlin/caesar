@@ -10,27 +10,31 @@ public class BranchTest {
 
     @Test
     public void getName() {
+        // assign variables with test data
         String expectedName = "branchName";
-        List<Build> builds = null;
 
-        Branch branch = new Branch(expectedName, builds);
+        // allocate test objects
+        Branch branch = new Branch(expectedName, null);
 
+        // execute method to be tested
         String actualName = branch.getName();
 
+        // assert result
         Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
     public void getBuilds() {
-        Build build = new Build(null, null, false, null, null, null, null);
-
+        // assign variables with test data
         List<Build> expectedBuilds = new ArrayList<Build>();
-        expectedBuilds.add(build);
 
+        // allocate test objects
         Branch branch = new Branch(null, expectedBuilds);
 
+        // execute method to be tested
         List<Build> actualBuilds = branch.getBuilds();
 
+        // assert result
         Assert.assertEquals(expectedBuilds, actualBuilds);
     }
 }

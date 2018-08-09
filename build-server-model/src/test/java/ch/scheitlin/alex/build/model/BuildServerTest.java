@@ -10,44 +10,53 @@ public class BuildServerTest {
 
     @Test
     public void getName() {
+        // assign variables with test data
         BuildServerName expectedName = BuildServerName.TEAM_CITY;
-        List<Project> projects = null;
 
-        BuildServer buildServer = new BuildServer(expectedName, projects);
+        // allocate test objects
+        BuildServer buildServer = new BuildServer(expectedName, null);
 
+        // execute method to be tested
         BuildServerName actualName = buildServer.getName();
 
+        // assert result
         Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
     public void getProjects() {
-        Project project = new Project(null, null);
-
+        // assign variables with test data
         List<Project> expectedProjects = new ArrayList<Project>();
-        expectedProjects.add(project);
 
+        // allocate test objects
         BuildServer buildServer = new BuildServer(null, expectedProjects);
 
+        // execute method to be tested
         List<Project> actualProjects = buildServer.getProjects();
 
+        // assert result
         Assert.assertEquals(expectedProjects, actualProjects);
     }
 
     @Test public void getProject_projectExists() {
+        // assign variables with test data
         Project expectedProject = new Project("Test", null);
 
+        // allocate test objects
         List<Project> projects = new ArrayList<Project>();
         projects.add(expectedProject);
 
         BuildServer buildServer = new BuildServer(null, projects);
 
+        // execute method to be tested
         Project actualProject = buildServer.getProject(expectedProject.getName());
 
+        // assert result
         Assert.assertEquals(expectedProject, actualProject);
     }
 
     @Test public void getProject_projectDoesNotExists() {
+        // allocate test objects
         Project project = new Project("Test", null);
 
         List<Project> projects = new ArrayList<Project>();
@@ -55,14 +64,19 @@ public class BuildServerTest {
 
         BuildServer buildServer = new BuildServer(null, projects);
 
+        // execute method to be tested
         Project actualProject = buildServer.getProject("Test1");
 
-        Assert.assertEquals(null, actualProject);
+        // assert result
+        Assert.assertNull(actualProject);
     }
 
     @Test
     public void getProjectNames() {
+        // assign variables with test data
         String[] expectedProjectNames = { "Project1", "Project2" };
+
+        // allocate test objects
         Project project1 = new Project(expectedProjectNames[0], null);
         Project project2 = new Project(expectedProjectNames[1], null);
 
@@ -72,8 +86,10 @@ public class BuildServerTest {
 
         BuildServer buildServer = new BuildServer(null, projects);
 
+        // execute method to be tested
         List<String> actualProjectNames = buildServer.getProjectNames();
 
+        // assert results
         Assert.assertEquals(expectedProjectNames.length, actualProjectNames.size());
 
         for (int i = 0; i < expectedProjectNames.length; i++) {
