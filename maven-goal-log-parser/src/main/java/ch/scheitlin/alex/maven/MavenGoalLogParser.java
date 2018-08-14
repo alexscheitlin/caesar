@@ -16,6 +16,7 @@ public class MavenGoalLogParser {
 
         // add a new instance of every goalParser to this list
         this.goalParserList.add(new MavencompilerCompile());
+        this.goalParserList.add(new CouldNotResolveDependencies());
     }
 
     /**

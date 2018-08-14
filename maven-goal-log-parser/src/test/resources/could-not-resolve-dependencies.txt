@@ -1,0 +1,14 @@
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.407s
+[INFO] Finished at: Tue Aug 14 14:11:50 CEST 2018
+[INFO] Final Memory: 8M/240M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project bank_maven: Could not resolve dependencies for project bank_maven:bank_maven:jar:1.0-SNAPSHOT: Could not find artifact junit:junit:jar:5.12 in central (http://repo.maven.apache.org/maven2) -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

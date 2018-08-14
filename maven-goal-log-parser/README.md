@@ -2,9 +2,10 @@
 
 > _Parses the log of a Maven goal execution to get information about errors and in which file and on which line and column they happened._
 
-The parser currently supports the following Maven goals:
+The parser currently supports the following Maven goals and errors:
 
 - maven-compiler-plugin-compile
+- Could not resolve dependencies
 
 To add a parser for additional Maven goal logs, do the following:
 

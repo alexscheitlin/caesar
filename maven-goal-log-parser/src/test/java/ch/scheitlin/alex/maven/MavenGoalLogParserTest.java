@@ -71,6 +71,31 @@ public class MavenGoalLogParserTest {
     }
 
     @Test
+    public void parseGoalLog_CouldNotResolveDependencies() {
+        String errorMessage = "Could not resolve dependencies";
+
+        // read goal log form test resources
+        String log = readResourceFile("could-not-resolve-dependencies.txt");
+
+        // define expected errors
+        List<Error> expectedErrors = new ArrayList<Error>();
+        String path = null;
+        String file = "pom.xml";
+        int line = 0;
+        int column = 0;
+        String message = "Could not resolve dependencies" + "\n" +
+                "Could not find artifact junit:junit:jar:5.12 in central (http://repo.maven.apache.org/maven2) -> [Help 1]";
+        Error expectedError1 = new Error(path, file, line, column, message);
+        expectedErrors.add(expectedError1);
+
+        // parse goal log
+        List<Error> actualErrors = MavenGoalLogParser.parseErrorLog(errorMessage, log);
+
+        // assert
+        assertErrors(expectedErrors, actualErrors);
+    }
+
+    @Test
     public void parseGoalLog_UnknownGoal() {
         String pluginName = "plugin";
         String goalName = "goal";
