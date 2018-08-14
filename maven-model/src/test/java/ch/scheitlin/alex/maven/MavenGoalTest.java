@@ -10,104 +10,138 @@ public class MavenGoalTest {
 
     @Test
     public void setAndGetVendor() {
+        // assign variables with test data
         String expectedVendor = "Vendor";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setVendor(expectedVendor);
 
+        // execute method to be tested
+        goal.setVendor(expectedVendor);
         String actualVendor = goal.getVendor();
 
+        // assert result
         Assert.assertEquals(expectedVendor, actualVendor);
     }
 
     @Test
     public void setAndGetPlugin() {
+        // assign variables with test data
         String expectedPlugin = "Plugin";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setPlugin(expectedPlugin);
 
+        // execute method to be tested
+        goal.setPlugin(expectedPlugin);
         String actualPlugin = goal.getPlugin();
 
+        // assert result
         Assert.assertEquals(expectedPlugin, actualPlugin);
     }
 
     @Test
     public void setAndGetVersion() {
+        // assign variables with test data
         String expectedVersion = "Version";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setVersion(expectedVersion);
 
+        // execute method to be tested
+        goal.setVersion(expectedVersion);
         String actualVersion = goal.getVersion();
 
+        // assert result
         Assert.assertEquals(expectedVersion, actualVersion);
     }
 
     @Test
     public void setAndGetName() {
+        // assign variables with test data
         String expectedName = "Name";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setName(expectedName);
 
+        // execute method to be tested
+        goal.setName(expectedName);
         String actualName = goal.getName();
 
+        // assert result
         Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
     public void setAndGetInformation() {
+        // assign variables with test data
         String expectedInformation = "Information";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setInformation(expectedInformation);
 
+        // execute method to be tested
+        goal.setInformation(expectedInformation);
         String actualInformation = goal.getInformation();
 
+        // assert result
         Assert.assertEquals(expectedInformation, actualInformation);
     }
 
     @Test
     public void setAndGetModule() {
+        // assign variables with test data
         String expectedModule = "Module";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setModule(expectedModule);
 
+        // execute method to be tested
+        goal.setModule(expectedModule);
         String actualModule = goal.getModule();
 
+        // assert result
         Assert.assertEquals(expectedModule, actualModule);
     }
 
     @Test
     public void setAndGetMessage() {
+        // assign variables with test data
         String expectedMessage = "Message";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setMessage(expectedMessage);
 
+        // execute method to be tested
+        goal.setMessage(expectedMessage);
         String actualMessage = goal.getMessage();
 
+        // assert result
         Assert.assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
     public void setAndGetLines() {
+        // assign variables with test data
         List<String> expectedLines = new ArrayList<String>();
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setLines(expectedLines);
 
+        // execute method to be tested
+        goal.setLines(expectedLines);
         List<String> actualLines = goal.getLines();
 
+        // assert result
         Assert.assertEquals(expectedLines, actualLines);
     }
 
     @Test
     public void toStringTest() {
+        // assign variables with test data
         String expectedString = "plugin:version:name (information) @ module";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
         goal.setPlugin("plugin");
         goal.setVersion("version");
@@ -115,23 +149,29 @@ public class MavenGoalTest {
         goal.setInformation("information");
         goal.setModule("module");
 
+        // execute method to be tested
         String actualString = goal.toString();
 
+        // assert result
         Assert.assertEquals(expectedString, actualString);
     }
 
     @Test
     public void addLineAndGetLinesAsMultiLineString() {
+        // assign variables with test data
         String line1 = "1: First Line";
         String line2 = "2: Second Line";
         String expectedString = line1 + "\n" + line2 + "\n";
 
+        // allocate test objects
         MavenGoal goal = new MavenGoal();
+
+        // execute method to be tested
         goal.addLine(line1);
         goal.addLine(line2);
-
         String actualString = goal.getLinesAsMultiLineString();
 
+        // assert result
         Assert.assertEquals(expectedString, actualString);
     }
 }
