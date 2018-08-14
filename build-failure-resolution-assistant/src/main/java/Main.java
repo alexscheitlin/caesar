@@ -96,7 +96,11 @@ public class Main {
             System.out.println("Failed Goal:\t" + assistant.mavenBuild.getFailedGoal());
         } else {
             System.out.println("Failed Goal:\t" + "No failed goal detected!");
-            return;
+        }
+        if (assistant.mavenBuild.getErrorMessage() != null) {
+            System.out.println("Error Message:\t" + assistant.mavenBuild.getErrorMessage());
+        } else {
+            System.out.println("Error Message:\t" + "No error message detected!");
         }
         System.out.println("Failure Category:\t" + assistant.failureCategory);
         List<Error> errors = assistant.errors;

@@ -93,8 +93,27 @@ public class Assistant extends AssistantWithStages {
         // parse maven log
         this.mavenBuild = MavenBuildLogParser.parse(this.rawMavenBuildLog);
 
-        // classify failed maven goal
-        if (mavenBuild.getFailedGoal() != null) {
+        // classify error message or failed maven goal
+        if (mavenBuild.getErrorMessage() != null) {
+            String errorMessage = mavenBuild.getErrorMessage();
+
+            try {
+                Classifier classifier = new Classifier();
+                this.failureCategory = classifier.classify(errorMessage).toString();
+            } catch (Exception e) {
+                return false;
+            }
+
+            // parse log of error message (from the build summary)
+            List<String> errorMessageLogLines = mavenBuild.getBuildSummary();
+            String errorMessageLog = "";
+            for (String line : errorMessageLogLines) {
+                errorMessageLog += (line + "\n");
+            }
+
+            this.errors = MavenGoalLogParser.parseErrorLog(errorMessage, errorMessageLog);
+
+        } else if (mavenBuild.getFailedGoal() != null) {
             String failedGoal = mavenBuild.getFailedGoal().getPlugin() + ":" + mavenBuild.getFailedGoal().getName();
             try {
                 Classifier classifier = new Classifier();
