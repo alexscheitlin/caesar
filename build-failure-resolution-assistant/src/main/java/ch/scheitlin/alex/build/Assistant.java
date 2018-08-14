@@ -295,4 +295,9 @@ public class Assistant extends AssistantWithStages {
     public String getGitRepositoryOriginUrl() {
         return this.gitRepositoryOriginUrl;
     }
+
+    // download
+    public String getRawTeamCityBuildLog() {
+        return this.rawTeamCityBuildLog;
+    }
 }
