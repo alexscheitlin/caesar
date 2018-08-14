@@ -49,6 +49,7 @@ public class MavenBuildLogParser {
     // regular expressions for build information
     private static final String BUILD_INFORMATION_START = "^\\[INFO\\] BUILD (SUCCESS|FAILURE)$";
     private static final String BUILD_INFORMATION_FAILED_GOAL = "^\\[ERROR\\] Failed to execute goal (.*):(.*):(.*):(.*) \\((.*)\\) on project (.*): (.*)$";
+    private static final String BUILD_INFORMATION_DEPENDENCY_ERROR = "\\[ERROR\\] Failed to execute goal on project .*: (Could not resolve dependencies) .*$";
 
     private int currentLine;
 
@@ -465,11 +466,13 @@ public class MavenBuildLogParser {
         // prepare patterns
         RegexMatcher startMatcher = new RegexMatcher(BUILD_INFORMATION_START);
         RegexMatcher failedGoalMatcher = new RegexMatcher(BUILD_INFORMATION_FAILED_GOAL);
+        RegexMatcher dependencyErrorMatcher = new RegexMatcher(BUILD_INFORMATION_DEPENDENCY_ERROR);
 
         // search "build summary" section
         // the section where maven indicates the build status, total time, finish date, used memory and possible errors
         MavenBuildStatus buildStatus = null;
         MavenGoal failedGoal = null;
+        String errorMessage = null;
         boolean hasFoundStart = false;
         List<String> buildSummaryLines = new ArrayList<String>();
         for (int i = this.currentLine; i < lines.length; i++) {
@@ -488,8 +491,8 @@ public class MavenBuildLogParser {
             // add every line after start was found
             buildSummaryLines.add(lines[i]);
 
-            // catch failed goal
             if (buildStatus == MavenBuildStatus.FAILURE) {
+                // catch failed goal
                 if (failedGoalMatcher.matches(lines[i])) {
                     String[] components = failedGoalMatcher.extractComponentsSilently(lines[i]);
                     failedGoal = new MavenGoal();
@@ -511,8 +514,15 @@ public class MavenBuildLogParser {
                     System.out.println("\tMessage:\t\t" + failedGoal.getMessage());
                     */
                 }
+
+                // catch error message
+                if (dependencyErrorMatcher.matches(lines[i])) {
+                    String[] components = dependencyErrorMatcher.extractComponentsSilently(lines[i]);
+
+                    errorMessage = components[0];
+                }
             }
         }
-        return new MavenBuild(buildStatus, failedGoal, buildSummaryLines);
+        return new MavenBuild(buildStatus, failedGoal, errorMessage, buildSummaryLines);
     }
 }
