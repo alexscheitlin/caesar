@@ -1,5 +1,10 @@
 package ch.scheitlin.alex.teamcity;
 
+/**
+ * <p>Represents a runner type of a team city build step.</p>
+ *
+ * <p>Reference: https://confluence.jetbrains.com/display/TCD18/Build+Runner</p>
+ */
 public enum TeamCityBuildStepRunnerType {
     DOT_NET_CLI(".NET CLI (dotnet)"),
     DOT_NET_PROCESS_RUNNER(".NET Process Runner"),
@@ -35,16 +40,36 @@ public enum TeamCityBuildStepRunnerType {
     VISUAL_STUDIO_TESTS("Visual Studio Tests"),
     XCODE_PROJECT("Xcode Project");
 
+    /**
+     * The {@code String} representation of a team city build step runner type.
+     */
     private String string;
 
+    /**
+     * Creates a new instance of a team city build step runner type.
+     *
+     * @param string the {@code String} representation of a team city build step runner type
+     */
     TeamCityBuildStepRunnerType(String string) {
         this.string = string;
     }
 
+    /**
+     * Returns the team city build step runner type as a {@code String}.
+     *
+     * @return the {@code String} representation of a team city build step runner type
+     */
     public String toString() {
         return this.string;
     }
 
+    /**
+     * Converts a {@code String} to the corresponding team city build step runner type.
+     *
+     * @param string the {@code String} to convert to the corresponding team city build step runner type
+     * @return the team city build step runner type or {@code null} if no corresponding team city build step runner type
+     * exists
+     */
     public static TeamCityBuildStepRunnerType fromString(String string) {
         for (TeamCityBuildStepRunnerType type : TeamCityBuildStepRunnerType.values()) {
             if (type.string.equals(string)) {
