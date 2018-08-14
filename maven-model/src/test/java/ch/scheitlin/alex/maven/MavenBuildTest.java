@@ -14,7 +14,7 @@ public class MavenBuildTest {
         MavenBuildStatus expectedStatus = MavenBuildStatus.SUCCESS;
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(expectedStatus, null, null);
+        MavenBuild mavenBuild = new MavenBuild(expectedStatus, null, null,null);
 
         // execute method to be tested
         MavenBuildStatus actualStatus = mavenBuild.getStatus();
@@ -29,7 +29,7 @@ public class MavenBuildTest {
         MavenGoal expectedFailedGoal = new MavenGoal();
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(null, expectedFailedGoal, null);
+        MavenBuild mavenBuild = new MavenBuild(null, expectedFailedGoal, null, null);
 
         // execute method to be tested
         MavenGoal actualFailedGoal = mavenBuild.getFailedGoal();
@@ -39,12 +39,28 @@ public class MavenBuildTest {
     }
 
     @Test
+    public void getErrorMessage() {
+        // assign variables with test data
+        String expectedErrorMessage = "Error Message";
+
+        // allocate test objects
+        MavenBuild mavenBuild = new MavenBuild(null, null, expectedErrorMessage, null);
+
+        // execute method to be tested
+        String actualErrorMessage = mavenBuild.getErrorMessage();
+
+        // assert result
+        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
+
+    }
+
+    @Test
     public void setAndGetModules() {
         // assign variables with test data
         List<MavenModule> expectedModules = new ArrayList<MavenModule>();
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(null, null, null);
+        MavenBuild mavenBuild = new MavenBuild(null, null, null, null);
         mavenBuild.setModules(expectedModules);
 
         // execute method to be tested
@@ -63,7 +79,7 @@ public class MavenBuildTest {
         expectedBuildSummary.add(line2);
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(null, null, expectedBuildSummary);
+        MavenBuild mavenBuild = new MavenBuild(null, null, null, expectedBuildSummary);
 
         // execute method to be tested
         List<String> actualBuildSummary = mavenBuild.getBuildSummary();
