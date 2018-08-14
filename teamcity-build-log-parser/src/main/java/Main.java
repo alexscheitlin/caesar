@@ -1,4 +1,5 @@
-package ch.scheitlin.alex.teamcity;
+import ch.scheitlin.alex.teamcity.BuildLogParser;
+import ch.scheitlin.alex.teamcity.TeamCityBuild;
 
 import java.io.*;
 import java.util.Scanner;
