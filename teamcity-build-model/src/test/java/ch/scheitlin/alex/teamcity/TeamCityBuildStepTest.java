@@ -176,7 +176,11 @@ public class TeamCityBuildStepTest {
                 "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml\n" +
                 "[Step 1/1] Surefire report watcher\n" +
                 "[Surefire report watcher] Watching paths:\n" +
-                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml";
+                "[Surefire report watcher] C:\\TeamCity\\buildAgent\\...\\TEST-*.xml" +
+                "Publishing artifacts\n" +
+                        "\t[Publishing artifacts] Collecting files to publish: [C:\\TeamCity\\...\\maven-build-info.xml.gz => .teamcity]\n" +
+                        "\t[Publishing artifacts] Publishing 1 file using [WebPublisher]: C:/TeamCity/.../maven-build-info.xml.gz => .teamcity\n" +
+                        "\t[Publishing artifacts] Publishing 1 file using [ArtifactsCachePublisher]: C:/TeamCity/.../maven-build-info.xml.gz => .teamcity";
 
         String expectedOutput = "bank_maven:bank_maven (1s)\n" +
                 "Importing data from 'C:/TeamCity/buildAgent/.../TEST-*.xml' (not existing file) with 'surefire' processor\n" +

@@ -152,6 +152,7 @@ public class TeamCityBuildStep {
         ignoreContaining.add("[Maven Watcher]");
         ignoreContaining.add("##teamcity[");
         ignoreContaining.add("Surefire report watcher");
+        ignoreContaining.add("Publishing artifacts");
 
         StringBuilder builder = new StringBuilder();
         for (TeamCityBuildLogEntry entry : this.buildLogEntries) {
