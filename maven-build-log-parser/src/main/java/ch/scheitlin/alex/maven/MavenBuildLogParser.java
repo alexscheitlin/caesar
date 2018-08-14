@@ -471,16 +471,22 @@ public class MavenBuildLogParser {
         MavenBuildStatus buildStatus = null;
         MavenGoal failedGoal = null;
         boolean hasFoundStart = false;
+        List<String> buildSummaryLines = new ArrayList<String>();
         for (int i = this.currentLine; i < lines.length; i++) {
             // catch start
             if (!hasFoundStart) {
                 if (startMatcher.matches(lines[i])) {
                     buildStatus = MavenBuildStatus.valueOf(startMatcher.extractComponentsSilently(lines[i])[0]);
+                    buildSummaryLines.add(lines[i - 1]);
+                    buildSummaryLines.add(lines[i]);
                     hasFoundStart = true;
                 }
 
                 continue;
             }
+
+            // add every line after start was found
+            buildSummaryLines.add(lines[i]);
 
             // catch failed goal
             if (buildStatus == MavenBuildStatus.FAILURE) {
@@ -507,6 +513,6 @@ public class MavenBuildLogParser {
                 }
             }
         }
-        return new MavenBuild(buildStatus, failedGoal);
+        return new MavenBuild(buildStatus, failedGoal, buildSummaryLines);
     }
 }

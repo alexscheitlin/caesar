@@ -57,6 +57,8 @@ public class Main {
             System.out.println("\t" + ++goalCounter + ": " + goal.getPlugin() + ":" + goal.getName());
         }
 
+        System.out.println(++goalCounter + ": build summary");
+
         // select goal
         int goalNumber = -1;
         if (selectedModule.getGoals().size() != 1) {
@@ -81,6 +83,15 @@ public class Main {
                 System.out.println();
                 System.out.println("Goal: " + goal.getPlugin() + ":" + goal.getName());
             }
+        }
+        if (goalNumber == selectedModule.getGoals().size() + 1) {
+            System.out.println("Build Summary");
+
+            for (String line : mavenBuild.getBuildSummary()) {
+                System.out.println(line);
+            }
+
+            return;
         }
         if (selectedGoal == null) {
             System.out.println("Goal with number " + goalNumber + " not found!");
