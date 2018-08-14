@@ -22,14 +22,21 @@ public class MavenBuild {
     private List<MavenModule> modules;
 
     /**
+     * The build summary section at the end of the maven build log.
+     */
+    private List<String> buildSummary;
+
+    /**
      * Creates a new instance of a maven build.
      *
-     * @param status     the build status of the maven build
-     * @param failedGoal the failed goal of the maven build if the build failed (else {@code null}
+     * @param status       the build status of the maven build
+     * @param failedGoal   the failed goal of the maven build if the build failed (else {@code null}
+     * @param buildSummary the build summary section at the end of the maven build log
      */
-    public MavenBuild(MavenBuildStatus status, MavenGoal failedGoal) {
+    public MavenBuild(MavenBuildStatus status, MavenGoal failedGoal, List<String> buildSummary) {
         this.status = status;
         this.failedGoal = failedGoal;
+        this.buildSummary = buildSummary;
     }
 
     /**
@@ -66,5 +73,14 @@ public class MavenBuild {
      */
     public void setModules(List<MavenModule> modules) {
         this.modules = modules;
+    }
+
+    /**
+     * Gets the build summary section at the end of the maven build log.
+     *
+     * @return the build summary section at the end of the maven build log
+     */
+    public List<String> getBuildSummary() {
+        return this.buildSummary;
     }
 }

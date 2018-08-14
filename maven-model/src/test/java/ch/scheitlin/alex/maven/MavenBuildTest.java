@@ -14,7 +14,7 @@ public class MavenBuildTest {
         MavenBuildStatus expectedStatus = MavenBuildStatus.SUCCESS;
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(expectedStatus, null);
+        MavenBuild mavenBuild = new MavenBuild(expectedStatus, null, null);
 
         // execute method to be tested
         MavenBuildStatus actualStatus = mavenBuild.getStatus();
@@ -29,7 +29,7 @@ public class MavenBuildTest {
         MavenGoal expectedFailedGoal = new MavenGoal();
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(null, expectedFailedGoal);
+        MavenBuild mavenBuild = new MavenBuild(null, expectedFailedGoal, null);
 
         // execute method to be tested
         MavenGoal actualFailedGoal = mavenBuild.getFailedGoal();
@@ -44,7 +44,7 @@ public class MavenBuildTest {
         List<MavenModule> expectedModules = new ArrayList<MavenModule>();
 
         // allocate test objects
-        MavenBuild mavenBuild = new MavenBuild(null, null);
+        MavenBuild mavenBuild = new MavenBuild(null, null, null);
         mavenBuild.setModules(expectedModules);
 
         // execute method to be tested
@@ -52,5 +52,24 @@ public class MavenBuildTest {
 
         // assert result
         Assert.assertEquals(expectedModules, actualModules);
+    }
+
+    @Test public void getBuildSummary() {
+        // assign variables with test data
+        String line1 = "Build";
+        String line2 = "Summary";
+        List<String> expectedBuildSummary = new ArrayList<String>();
+        expectedBuildSummary.add(line1);
+        expectedBuildSummary.add(line2);
+
+        // allocate test objects
+        MavenBuild mavenBuild = new MavenBuild(null, null, expectedBuildSummary);
+
+        // execute method to be tested
+        List<String> actualBuildSummary = mavenBuild.getBuildSummary();
+
+        // assert result
+        Assert.assertEquals(expectedBuildSummary, actualBuildSummary);
+
     }
 }
