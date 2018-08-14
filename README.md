@@ -1,6 +1,14 @@
+<div align="center">
+
+![Icon](assets/icon.png)
+
+**Command Line Interface**
+
 # Build Failure Resolution Assistant
 
-> _Helps fixing broken builds by downloading and summarizing build logs._
+_Helps fixing broken builds by downloading and summarizing build logs._
+
+</div>
 
 ## Modules
 
