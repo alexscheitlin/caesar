@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String logToParse = "team-city-build-log-3-maven-log";
+        String logToParse = "team-city-build-log-4-maven-log";
         String path = "C:\\Users\\Alex\\Desktop\\";
 
         String log = readResourceFile(logToParse + ".txt");
