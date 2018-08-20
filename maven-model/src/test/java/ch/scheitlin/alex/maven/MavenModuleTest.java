@@ -43,14 +43,14 @@ public class MavenModuleTest {
     @Test
     public void setAndGetStatus() {
         // assign variables with test data
-        MavenModuleStatus expectedStatus = MavenModuleStatus.SUCCESS;
+        MavenModuleBuildStatus expectedStatus = MavenModuleBuildStatus.SUCCESS;
 
         // allocate test objects
         MavenModule module = new MavenModule(null);
 
         // execute method to be tested
         module.setStatus(expectedStatus);
-        MavenModuleStatus actualStatus = module.getStatus();
+        MavenModuleBuildStatus actualStatus = module.getStatus();
 
         // assert result
         Assert.assertEquals(expectedStatus, actualStatus);

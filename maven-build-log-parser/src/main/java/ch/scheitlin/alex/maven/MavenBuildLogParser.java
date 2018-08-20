@@ -149,7 +149,7 @@ public class MavenBuildLogParser {
 
         // set module status equal to build status if this is a single module build
         if (modules.size() == 1) {
-            modules.get(0).setStatus(MavenModuleStatus.valueOf(build.getStatus().toString()));
+            modules.get(0).setStatus(MavenModuleBuildStatus.valueOf(build.getStatus().toString()));
         }
 
         // get lines of failed goal
@@ -425,7 +425,7 @@ public class MavenBuildLogParser {
             if (moduleMatcher.matches(lines[i])) {
                 String[] components = moduleMatcher.extractComponentsSilently(lines[i]);
                 MavenModule module = new MavenModule(components[0]);
-                module.setStatus(MavenModuleStatus.valueOf(components[1]));
+                module.setStatus(MavenModuleBuildStatus.valueOf(components[1]));
                 module.setDuration(components[2]);
                 modules.add(module);
             } else {

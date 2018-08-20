@@ -20,7 +20,7 @@ public class MavenModule {
     /**
      * The build status of the maven module.
      */
-    private MavenModuleStatus status;
+    private MavenModuleBuildStatus status;
 
     /**
      * The duration of the build of the maven module.
@@ -74,7 +74,7 @@ public class MavenModule {
      *
      * @return the build status of the maven module
      */
-    public MavenModuleStatus getStatus() {
+    public MavenModuleBuildStatus getStatus() {
         return this.status;
     }
 
@@ -83,7 +83,7 @@ public class MavenModule {
      *
      * @param status the build status of the maven module
      */
-    public void setStatus(MavenModuleStatus status) {
+    public void setStatus(MavenModuleBuildStatus status) {
         this.status = status;
     }
 
