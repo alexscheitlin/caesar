@@ -18,6 +18,8 @@ Currently the Build Failure Resolution Assistant supports projects developed wit
 
 _To better understand how the Build Failure Resolution Assistant is built, take a look at the modules table and the architecture image below and explore the different modules in the order they are listed in the table below._
 
+_Built on top of this project there is a [IntelliJ Plugin](https://github.com/alexscheitlin/build-failure-resolution-assistant-intellij-plugin)._
+
 ## Modules
 
 This project contains the following modules:
