@@ -9,18 +9,18 @@ import java.util.List;
 public class BuildServerTest {
 
     @Test
-    public void getName() {
+    public void getType() {
         // assign variables with test data
-        BuildServerName expectedName = BuildServerName.TEAM_CITY;
+        BuildServerType expectedType = BuildServerType.TEAM_CITY;
 
         // allocate test objects
-        BuildServer buildServer = new BuildServer(expectedName, null);
+        BuildServer buildServer = new BuildServer(expectedType, null);
 
         // execute method to be tested
-        BuildServerName actualName = buildServer.getName();
+        BuildServerType actualType = buildServer.getType();
 
         // assert result
-        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedType, actualType);
     }
 
     @Test

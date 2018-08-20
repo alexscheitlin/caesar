@@ -14,10 +14,9 @@ import java.util.List;
  */
 public class BuildServer {
     /**
-     * The name of the build server.
-     * May be seen as a type of a build server (eg. TeamCity, Travis CI, GitLab).
+     * The type of the build server.
      */
-    private BuildServerName name;
+    private BuildServerType type;
 
     /**
      * The projects configured on the build server.
@@ -27,21 +26,21 @@ public class BuildServer {
     /**
      * Creates a new instance of a build server.
      *
-     * @param name     the name of the build server
+     * @param type     the type of the build server
      * @param projects the projects configured on the build server
      */
-    public BuildServer(BuildServerName name, List<Project> projects) {
-        this.name = name;
+    public BuildServer(BuildServerType type, List<Project> projects) {
+        this.type = type;
         this.projects = projects;
     }
 
     /**
-     * Gets the name of the build server.
+     * Gets the type of the build server.
      *
-     * @return the name of the build server.
+     * @return the type of the build server.
      */
-    public BuildServerName getName() {
-        return this.name;
+    public BuildServerType getType() {
+        return this.type;
     }
 
     /**

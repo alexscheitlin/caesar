@@ -19,6 +19,7 @@ Currently the BFRA supports projects developed with Git and Maven using TeamCity
 
 This project contains the following modules:
 
+- [Build Server Type](build-server-type)
 - [Build Server Model](build-server-model)
 - [Team City Build Model](teamcity-build-model)
 - [Maven Model](maven-model)

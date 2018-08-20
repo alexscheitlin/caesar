@@ -11,24 +11,7 @@
     </parent>
 
     <groupId>ch.scheitlin.alex.build.model</groupId>
-    <artifactId>build-server-model</artifactId>
+    <artifactId>build-server-type</artifactId>
 
     <packaging>jar</packaging>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- build-server-type -->
-        <dependency>
-            <groupId>ch.scheitlin.alex.build.model</groupId>
-            <artifactId>build-server-type</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!-- build-server-type -->
-    </dependencies>
 </project>
