@@ -1,5 +1,7 @@
 package ch.scheitlin.alex.teamcity;
 
+import ch.scheitlin.alex.build.model.Build;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 /**
  * Represents a team city build that may be derived from a team city build log.
  */
-public class TeamCityBuild {
+public class TeamCityBuild extends Build {
     /**
      * The name of the project the build belongs to.
      */

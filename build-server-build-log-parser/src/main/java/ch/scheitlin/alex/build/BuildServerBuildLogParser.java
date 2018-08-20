@@ -1,5 +1,6 @@
 package ch.scheitlin.alex.build;
 
+import ch.scheitlin.alex.build.model.Build;
 import ch.scheitlin.alex.build.model.BuildServerType;
 import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import ch.scheitlin.alex.teamcity.TeamCityBuildLogParser;
@@ -26,7 +27,7 @@ public class BuildServerBuildLogParser {
         }
     }
 
-    public TeamCityBuild parseBuildLog(String log) throws Exception {
+    public Build parseBuildLog(String log) throws Exception {
         return this.parser.parseBuildLog(log);
     }
 }

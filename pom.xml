@@ -20,7 +20,7 @@
     <modules>
         <module>build-server-type</module>
         <module>build-server-model</module>
-        <module>teamcity-build-model</module>
+        <module>build-model</module>
         <module>maven-model</module>
         <module>error-model</module>
         <module>build-server-api</module>

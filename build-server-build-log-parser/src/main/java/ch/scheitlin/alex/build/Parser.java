@@ -1,7 +1,7 @@
 package ch.scheitlin.alex.build;
 
+import ch.scheitlin.alex.build.model.Build;
 import ch.scheitlin.alex.build.model.BuildServerType;
-import ch.scheitlin.alex.teamcity.TeamCityBuild;
 
 public abstract class Parser {
     private BuildServerType buildServerType;
@@ -18,5 +18,5 @@ public abstract class Parser {
         return buildServerType == this.buildServerType;
     }
 
-    public abstract TeamCityBuild parseBuildLog(String log) throws Exception;
+    public abstract Build parseBuildLog(String log) throws Exception;
 }

@@ -21,7 +21,7 @@ This project contains the following modules:
 
 - [Build Server Type](build-server-type)
 - [Build Server Model](build-server-model)
-- [Team City Build Model](teamcity-build-model)
+- [Build Model](build-model)
 - [Maven Model](maven-model)
 - [Error Model](error-model)
 - [Build Server API](build-server-api)

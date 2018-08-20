@@ -47,13 +47,13 @@
         </dependency>
         <!-- build-server-model -->
 
-        <!-- teamcity-build-model -->
+        <!-- build-model -->
         <dependency>
-            <groupId>ch.scheitlin.alex.teamcity</groupId>
-            <artifactId>teamcity-build-model</artifactId>
+            <groupId>ch.scheitlin.alex.build.model</groupId>
+            <artifactId>build-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- teamcity-build-model -->
+        <!-- build-model -->
 
         <!-- maven-model -->
         <dependency>
@@ -87,13 +87,13 @@
         </dependency>
         <!-- git-api -->
 
-        <!-- teamcity-build-log-parser -->
+        <!-- build-server-build-log-parser -->
         <dependency>
-            <groupId>ch.scheitlin.alex.teamcity</groupId>
-            <artifactId>teamcity-build-log-parser</artifactId>
+            <groupId>ch.scheitlin.alex.build</groupId>
+            <artifactId>build-server-build-log-parser</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- teamcity-build-log-parser -->
+        <!-- build-server-build-log-parser -->
 
         <!-- maven-build-log-parser -->
         <dependency>

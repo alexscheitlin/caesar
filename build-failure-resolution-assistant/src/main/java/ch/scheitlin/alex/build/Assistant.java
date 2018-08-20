@@ -1,8 +1,6 @@
 package ch.scheitlin.alex.build;
 
-import ch.scheitlin.alex.build.model.BuildServerBuild;
-import ch.scheitlin.alex.build.model.BuildServer;
-import ch.scheitlin.alex.build.model.BuildServerType;
+import ch.scheitlin.alex.build.model.*;
 import ch.scheitlin.alex.build.model.Error;
 import ch.scheitlin.alex.git.api.GitApi;
 import ch.scheitlin.alex.maven.Classifier;
@@ -10,7 +8,6 @@ import ch.scheitlin.alex.maven.MavenBuildLogParser;
 import ch.scheitlin.alex.maven.MavenGoalLogParser;
 import ch.scheitlin.alex.maven.MavenBuild;
 import ch.scheitlin.alex.teamcity.api.TeamcityApi;
-import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import javafx.util.Pair;
 
 import java.util.List;
@@ -25,11 +22,11 @@ public class Assistant extends AssistantWithStages {
     private BuildServerApi buildServerApi;
 
     // download
-    private BuildServerBuild build;
+    private BuildServerBuild buildServerBuild;
     private String rawTeamCityBuildLog;
 
     // process
-    private TeamCityBuild teamCityBuild;
+    private Build build;
     private String rawMavenBuildLog;
     public MavenBuild mavenBuild;
     public String failureCategory;
@@ -62,10 +59,10 @@ public class Assistant extends AssistantWithStages {
     }
 
     public boolean downloadBuildLog(BuildServerBuild build) {
-        this.build = build;
+        this.buildServerBuild = build;
 
         try {
-            this.rawTeamCityBuildLog = this.buildServerApi.downloadBuildLog(this.build.getId());
+            this.rawTeamCityBuildLog = this.buildServerApi.downloadBuildLog(this.buildServerBuild.getId());
         } catch (Exception ex) {
             //throw new Exception("Build log could not be downloaded.");
             return false;
@@ -81,17 +78,17 @@ public class Assistant extends AssistantWithStages {
 
     public boolean processBuildLog() {
         // parse build server build log
-        this.teamCityBuild = null;
+        this.build = null;
         try {
             BuildServerBuildLogParser buildLogParser = new BuildServerBuildLogParser(this.buildServerType);
-            this.teamCityBuild = buildLogParser.parseBuildLog(this.rawTeamCityBuildLog);
+            this.build = buildLogParser.parseBuildLog(this.rawTeamCityBuildLog);
         } catch (Exception ex) {
             //throw new Exception("TeamCity build log could not be parsed.");
             return false;
         }
 
         // extract maven log
-        this.rawMavenBuildLog = teamCityBuild.getMavenLog();
+        this.rawMavenBuildLog = build.getMavenLog();
         if (this.rawMavenBuildLog == null) {
             //throw new Exception("No Maven build log found.");
             return false;
@@ -148,9 +145,9 @@ public class Assistant extends AssistantWithStages {
     }
 
     public boolean startFixingBrokenBuild(String pathToLocalGitRepository) {
-        String urlToRemoteGitRepository = this.build.getRepository();
-        String commitId = this.build.getCommit();
-        String buildNumber = this.build.getNumber();
+        String urlToRemoteGitRepository = this.buildServerBuild.getRepository();
+        String commitId = this.buildServerBuild.getCommit();
+        String buildNumber = this.buildServerBuild.getNumber();
 
         // connect to git and get git origin remote url
         try {
@@ -269,11 +266,11 @@ public class Assistant extends AssistantWithStages {
         // clean variables
 
         // download
-        this.build = null;
+        this.buildServerBuild = null;
         this.rawTeamCityBuildLog = null;
 
         // process
-        this.teamCityBuild = null;
+        this.build = null;
         this.rawMavenBuildLog = null;
         this.mavenBuild = null;
         this.failureCategory = null;

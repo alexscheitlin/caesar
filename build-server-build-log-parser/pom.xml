@@ -90,13 +90,13 @@
         </dependency>
         <!-- build-server-type -->
 
-        <!-- teamcity-build-model -->
+        <!-- build-model -->
         <dependency>
-            <groupId>ch.scheitlin.alex.teamcity</groupId>
-            <artifactId>teamcity-build-model</artifactId>
+            <groupId>ch.scheitlin.alex.build.model</groupId>
+            <artifactId>build-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- teamcity-build-model -->
+        <!-- build-model -->
 
         <!-- JUnit -->
         <dependency>
