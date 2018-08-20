@@ -1,5 +1,5 @@
+import ch.scheitlin.alex.build.BuildServerApi;
 import ch.scheitlin.alex.build.model.*;
-import ch.scheitlin.alex.teamcity.api.TeamcityApi;
 
 import java.io.File;
 import java.util.Scanner;
@@ -11,9 +11,11 @@ public class Main {
         String password = "scheitlin";
         String path = "C:\\Users\\Alex\\Desktop\\";
 
-        TeamcityApi api = new TeamcityApi(host, username, password);
+        BuildServerType type = BuildServerType.TEAM_CITY;
+        BuildServerApi api = new BuildServerApi(type);
+        api.login(host, username, password);
 
-        BuildServer information = api.getBuildServerInformation();
+        BuildServer information = api.toBuildServerModel();
 
         int counter = 0;
         for (Project project : information.getProjects()) {

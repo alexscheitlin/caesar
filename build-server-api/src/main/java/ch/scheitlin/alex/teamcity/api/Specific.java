@@ -1,7 +1,7 @@
 package ch.scheitlin.alex.teamcity.api;
 
 import ch.scheitlin.alex.build.model.BuildServer;
-import ch.scheitlin.alex.build.model.BuildServerName;
+import ch.scheitlin.alex.build.model.BuildServerType;
 import org.jetbrains.teamcity.rest.Build;
 import org.jetbrains.teamcity.rest.BuildConfiguration;
 import org.jetbrains.teamcity.rest.Project;
@@ -21,10 +21,10 @@ class Specific {
      * @return a build server model
      */
     static BuildServer getBuildServerModel(TeamCityInstance teamCity) {
-        BuildServerName name = BuildServerName.TEAM_CITY;
+        BuildServerType type = BuildServerType.TEAM_CITY;
         List<ch.scheitlin.alex.build.model.Project> projects = Specific.getProjects(teamCity);
 
-        return new BuildServer(name, projects);
+        return new BuildServer(type, projects);
     }
 
     /**

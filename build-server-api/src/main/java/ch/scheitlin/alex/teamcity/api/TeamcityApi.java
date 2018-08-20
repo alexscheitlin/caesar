@@ -1,25 +1,23 @@
 package ch.scheitlin.alex.teamcity.api;
 
+import ch.scheitlin.alex.build.Api;
 import ch.scheitlin.alex.build.model.BuildServer;
+import ch.scheitlin.alex.build.model.BuildServerType;
 import org.jetbrains.teamcity.rest.BuildId;
 import org.jetbrains.teamcity.rest.TeamCityInstance;
 import org.jetbrains.teamcity.rest.TeamCityInstanceFactory;
 
 import java.io.File;
-import java.util.Scanner;
 
-public class TeamcityApi {
+public class TeamcityApi extends Api {
     private TeamCityInstance teamCity;
 
-    public TeamcityApi(String host, String username, String password) {
-        this.teamCity = TeamCityInstanceFactory.httpAuth(host, username, password);
+    public TeamcityApi() {
+        // set build server type
+        super(BuildServerType.TEAM_CITY);
     }
 
-    public BuildServer getBuildServerInformation() {
-        return Specific.getBuildServerModel(this.teamCity);
-    }
-
-    public static boolean testTeamCityConnection(String host, String username, String password) {
+    public boolean testConnection(String host, String username, String password) {
         if (host == null || username == null || password == null) {
             return false;
         }
@@ -35,7 +33,15 @@ public class TeamcityApi {
         }
     }
 
-    public String getBuildLog(String buildId) throws Exception {
+    public void login(String host, String username, String password) {
+        this.teamCity = TeamCityInstanceFactory.httpAuth(host, username, password);
+    }
+
+    public BuildServer toBuildServerModel() {
+        return Specific.getBuildServerModel(this.teamCity);
+    }
+
+    public String downloadBuildLog(String buildId) throws Exception {
         // create temp file
         File file = File.createTempFile("log", ".txt");
 
@@ -54,14 +60,7 @@ public class TeamcityApi {
         this.teamCity.build(new BuildId(buildId)).downloadBuildLog(file);
     }
 
-    private String readFile(File file) throws Exception {
-        StringBuilder result = new StringBuilder();
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNextLine()) {
-            result.append(scanner.nextLine()).append("\n");
-        }
-        scanner.close();
-
-        return result.toString();
+    public void logout() {
+        this.teamCity = null;
     }
 }

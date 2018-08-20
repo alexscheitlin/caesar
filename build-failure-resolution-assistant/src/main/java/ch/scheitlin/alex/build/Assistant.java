@@ -2,6 +2,7 @@ package ch.scheitlin.alex.build;
 
 import ch.scheitlin.alex.build.model.Build;
 import ch.scheitlin.alex.build.model.BuildServer;
+import ch.scheitlin.alex.build.model.BuildServerType;
 import ch.scheitlin.alex.build.model.Error;
 import ch.scheitlin.alex.git.api.GitApi;
 import ch.scheitlin.alex.maven.Classifier;
@@ -12,19 +13,17 @@ import ch.scheitlin.alex.teamcity.BuildLogParser;
 import ch.scheitlin.alex.teamcity.api.TeamcityApi;
 import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import javafx.util.Pair;
-import org.jetbrains.teamcity.rest.Project;
 
 import java.util.List;
 
 public class Assistant extends AssistantWithStages {
-    private List<Project> projects;
-
+    private BuildServerType buildServerType;
 
     // -----------------------------------------------------
     // variables to set in stages
     // -----------------------------------------------------
     // connect
-    private TeamcityApi teamCityApi;
+    private BuildServerApi buildServerApi;
 
     // download
     private Build build;
@@ -43,14 +42,22 @@ public class Assistant extends AssistantWithStages {
     private String previousBranch;
     private String stashedChanges;
 
+    public Assistant(BuildServerType buildServerType) {
+        this.buildServerType = buildServerType;
+    }
+
+    // -------------------
+    // Stages
+
     public boolean connectToBuildServer(String host, String username, String password) {
         // return false if connection test fails
         if (!this.testTeamCityConnection(host, username, password)) {
             return false;
         }
 
-        // store team city instance
-        this.teamCityApi = new TeamcityApi(host, username, password);
+        // login to api
+        this.buildServerApi = new BuildServerApi(this.buildServerType);
+        this.buildServerApi.login(host, username, password);
 
         return true;
     }
@@ -59,14 +66,14 @@ public class Assistant extends AssistantWithStages {
         this.build = build;
 
         try {
-            this.rawTeamCityBuildLog = this.teamCityApi.getBuildLog(this.build.getId());
+            this.rawTeamCityBuildLog = this.buildServerApi.downloadBuildLog(this.build.getId());
         } catch (Exception ex) {
-            //throw new Exception("TeamCity build log could not be downloaded.");
+            //throw new Exception("Build log could not be downloaded.");
             return false;
         }
 
         if (this.rawTeamCityBuildLog == null || this.rawTeamCityBuildLog.equals("")) {
-            //throw new Exception("TeamCity build log could not be processed.");
+            //throw new Exception("Build log could not be processed.");
             return false;
         }
 
@@ -253,7 +260,7 @@ public class Assistant extends AssistantWithStages {
 
     public boolean disconnectFromBuildServer() {
         // clean variables
-        this.teamCityApi = null;
+        this.buildServerApi = null;
 
         return true;
     }
@@ -284,11 +291,11 @@ public class Assistant extends AssistantWithStages {
     // -------------------
 
     public BuildServer getBuildServerInformation() {
-        return this.teamCityApi.getBuildServerInformation();
+        return this.buildServerApi.toBuildServerModel();
     }
 
     public boolean testTeamCityConnection(String host, String username, String password) {
-        return TeamcityApi.testTeamCityConnection(host, username, password);
+        return new TeamcityApi().testConnection(host, username, password);
     }
 
     public boolean isInNoStage() {

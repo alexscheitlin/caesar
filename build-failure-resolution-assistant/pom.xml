@@ -71,13 +71,13 @@
         </dependency>
         <!-- error-model -->
 
-        <!-- teamcity-api -->
+        <!-- build-server-api -->
         <dependency>
-            <groupId>ch.scheitlin.alex.teamcity.api</groupId>
-            <artifactId>teamcity-api</artifactId>
+            <groupId>ch.scheitlin.alex.build</groupId>
+            <artifactId>build-server-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- teamcity-api -->
+        <!-- build-server-api -->
 
         <!-- git-api -->
         <dependency>

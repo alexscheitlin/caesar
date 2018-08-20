@@ -12,8 +12,9 @@ public class Main {
         //String projectPath = "C:\\Users\\Alex\\IdeaProjects\\demo-bank-account";
         String projectPath = "C:\\Users\\alex\\IdeaProjects\\demo-bank-account";
 
-        // login to teamcity
-        Assistant assistant = new Assistant();
+        // login to build server
+        BuildServerType type = BuildServerType.TEAM_CITY;
+        Assistant assistant = new Assistant(type);
         if (!assistant.connect(host, username, password)) {
             System.out.println("Could not connect to the TeamCity server.");
             return;

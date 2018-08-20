@@ -23,7 +23,7 @@
         <module>teamcity-build-model</module>
         <module>maven-model</module>
         <module>error-model</module>
-        <module>teamcity-api</module>
+        <module>build-server-api</module>
         <module>git-api</module>
         <module>teamcity-build-log-parser</module>
         <module>maven-build-log-parser</module>

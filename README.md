@@ -24,7 +24,7 @@ This project contains the following modules:
 - [Team City Build Model](teamcity-build-model)
 - [Maven Model](maven-model)
 - [Error Model](error-model)
-- [TeamCity API](teamcity-api)
+- [Build Server API](build-server-api)
 - [Git API](git-api)
 - [TeamCity Build Log Parser](teamcity-build-log-parser)
 - [Maven Build Log Parser](maven-build-log-parser)
