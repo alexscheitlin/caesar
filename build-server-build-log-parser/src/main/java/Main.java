@@ -1,4 +1,4 @@
-import ch.scheitlin.alex.teamcity.BuildLogParser;
+import ch.scheitlin.alex.teamcity.TeamCityBuildLogParser;
 import ch.scheitlin.alex.teamcity.TeamCityBuild;
 
 import java.io.*;
@@ -13,7 +13,7 @@ public class Main {
 
         TeamCityBuild build = null;
         try {
-            build = BuildLogParser.parseBuildLog(log);
+            build = new TeamCityBuildLogParser().parseBuildLog(log);
         } catch (Exception ex) {
             return;
         }

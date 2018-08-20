@@ -1,5 +1,7 @@
 package ch.scheitlin.alex.teamcity;
 
+import ch.scheitlin.alex.build.Parser;
+import ch.scheitlin.alex.build.model.BuildServerType;
 import ch.scheitlin.alex.teamcity.config.BuildLogConfig;
 import ch.scheitlin.alex.utils.RegexMatcher;
 
@@ -9,7 +11,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BuildLogParser {
+public class TeamCityBuildLogParser extends Parser {
+
+    public TeamCityBuildLogParser() {
+        // set build server type
+        super(BuildServerType.TEAM_CITY);
+    }
+
     /**
      * Parse a build log line by line.
      *
@@ -17,7 +25,7 @@ public class BuildLogParser {
      * @return a build log with the original log and all extracted information
      * @throws Exception if the log can not be parsed
      */
-    public static TeamCityBuild parseBuildLog(String log) throws Exception {
+    public TeamCityBuild parseBuildLog(String log) throws Exception {
         // read regular expressions from the configuration file for parsing the log lines
         BuildLogConfig config = BuildLogConfig.readConfig();
         RegexMatcher headerLine1_1 = new RegexMatcher(config.getRegex().get("headerLine11"));
@@ -44,7 +52,7 @@ public class BuildLogParser {
                 // treat the current line as a log entry
 
                 // parse all log entry values
-                Object[] components = BuildLogParser.parseLogEntry(logEntry, line);
+                Object[] components = TeamCityBuildLogParser.parseLogEntry(logEntry, line);
 
                 int lineNumber = currentLine;
                 String time = (String) components[0];
@@ -60,7 +68,7 @@ public class BuildLogParser {
 
             } else if (headerLine1_1.matches(line)) {
                 // parse header line 1
-                String[] components = BuildLogParser.parseHeaderLine1_1(headerLine1_1, line);
+                String[] components = TeamCityBuildLogParser.parseHeaderLine1_1(headerLine1_1, line);
                 teamCityBuild.setProjectName(components[0]);
                 teamCityBuild.setBuildConfigurationName(components[1]);
                 teamCityBuild.setNumber(components[2]);
@@ -68,7 +76,7 @@ public class BuildLogParser {
 
             } else if (headerLine1_2.matches(line)) {
                 // parse header line 1
-                String[] components = BuildLogParser.parseHeaderLine1_2(headerLine1_2, line);
+                String[] components = TeamCityBuildLogParser.parseHeaderLine1_2(headerLine1_2, line);
                 teamCityBuild.setProjectName(components[0]);
                 teamCityBuild.setBuildConfigurationName(components[1]);
                 teamCityBuild.setNumber(components[2]);
@@ -76,24 +84,24 @@ public class BuildLogParser {
 
             } else if (headerLine2.matches(line)) {
                 // parse header line 2
-                teamCityBuild.setStartDate(BuildLogParser.parseHeaderLine2(headerLine2, line));
+                teamCityBuild.setStartDate(TeamCityBuildLogParser.parseHeaderLine2(headerLine2, line));
 
             } else if (headerLine3.matches(line)) {
                 // parse header line 3
-                Object[] components = BuildLogParser.parseHeaderLine3(headerLine3, line);
+                Object[] components = TeamCityBuildLogParser.parseHeaderLine3(headerLine3, line);
                 teamCityBuild.setFinishDate((Date) components[0]);
                 teamCityBuild.setStatus((TeamCityBuildStatus) components[1]);
                 teamCityBuild.setStatusText((String) components[2]);
 
             } else if (headerLine4.matches(line)) {
                 // parse header line 4
-                String[] components = BuildLogParser.parseHeaderLine4(headerLine4, line);
+                String[] components = TeamCityBuildLogParser.parseHeaderLine4(headerLine4, line);
                 teamCityBuild.setVcsRootName(components[0]);
                 teamCityBuild.setCommitHash(components[1]);
 
             } else if (headerLine6.matches(line)) {
                 // parse header line 6
-                teamCityBuild.setTeamCityServerVersion(BuildLogParser.parseHeaderLine6(headerLine6, line));
+                teamCityBuild.setTeamCityServerVersion(TeamCityBuildLogParser.parseHeaderLine6(headerLine6, line));
 
             } else {
                 // if the loop reaches this line, one of the following two cases happened:
@@ -113,7 +121,7 @@ public class BuildLogParser {
         }
 
         // parse build steps
-        teamCityBuild.setBuildSteps(BuildLogParser.extractBuildSteps(teamCityBuild.getBuildLogEntries()));
+        teamCityBuild.setBuildSteps(TeamCityBuildLogParser.extractBuildSteps(teamCityBuild.getBuildLogEntries()));
 
         return teamCityBuild;
     }

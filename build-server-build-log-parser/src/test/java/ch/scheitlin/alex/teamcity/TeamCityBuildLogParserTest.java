@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.util.Scanner;
 
-public class BuildLogParserTest {
+public class TeamCityBuildLogParserTest {
 
     @Test
     public void parseBuildLog() {
@@ -17,7 +17,7 @@ public class BuildLogParserTest {
 
         TeamCityBuild build = null;
         try {
-            build = BuildLogParser.parseBuildLog(log);
+            build = new TeamCityBuildLogParser().parseBuildLog(log);
         } catch (Exception ex) {
             fail("Could not parse build log.");
         }

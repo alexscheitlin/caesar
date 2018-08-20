@@ -25,7 +25,7 @@
         <module>error-model</module>
         <module>build-server-api</module>
         <module>git-api</module>
-        <module>teamcity-build-log-parser</module>
+        <module>build-server-build-log-parser</module>
         <module>maven-build-log-parser</module>
         <module>maven-goal-log-parser</module>
         <module>maven-goal-classifier</module>

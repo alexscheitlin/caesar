@@ -9,7 +9,6 @@ import ch.scheitlin.alex.maven.Classifier;
 import ch.scheitlin.alex.maven.MavenBuildLogParser;
 import ch.scheitlin.alex.maven.MavenGoalLogParser;
 import ch.scheitlin.alex.maven.MavenBuild;
-import ch.scheitlin.alex.teamcity.BuildLogParser;
 import ch.scheitlin.alex.teamcity.api.TeamcityApi;
 import ch.scheitlin.alex.teamcity.TeamCityBuild;
 import javafx.util.Pair;
@@ -81,10 +80,11 @@ public class Assistant extends AssistantWithStages {
     }
 
     public boolean processBuildLog() {
-        // parse teamcity build log
+        // parse build server build log
         this.teamCityBuild = null;
         try {
-            teamCityBuild = BuildLogParser.parseBuildLog(this.rawTeamCityBuildLog);
+            BuildServerBuildLogParser buildLogParser = new BuildServerBuildLogParser(this.buildServerType);
+            this.teamCityBuild = buildLogParser.parseBuildLog(this.rawTeamCityBuildLog);
         } catch (Exception ex) {
             //throw new Exception("TeamCity build log could not be parsed.");
             return false;

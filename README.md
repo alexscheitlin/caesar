@@ -26,7 +26,7 @@ This project contains the following modules:
 - [Error Model](error-model)
 - [Build Server API](build-server-api)
 - [Git API](git-api)
-- [TeamCity Build Log Parser](teamcity-build-log-parser)
+- [Build Server Build Log Parser](build-server-build-log-parser)
 - [Maven Build Log Parser](maven-build-log-parser)
 - [Maven Goal Log Parser](maven-goal-log-parser)
 - [Maven Goal Classifier](maven-goal-classifier)
