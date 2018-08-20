@@ -1,11 +1,11 @@
 # Build Server API
 
-> _Maps data from the build server to the [build-server-model](../build-server-model/README.md) and downloads build logs._
+> _Maps data from the build server to the [build-server-model](../build-server-model) and downloads build logs._
 
 ## Features
 
 - get a list of all projects configured on the build server
-- map all builds of a build configuration to the [build-server-model](../build-server-model/README.md)
+- map all builds of a build configuration to the [build-server-model](../build-server-model)
 - test credentials for a specific build server instance
 - download a build log
 

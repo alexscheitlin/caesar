@@ -1,6 +1,6 @@
 # Maven Build Log Parser
 
-> _Parses a Maven build log and maps the data to the [maven-model](../maven-model/README.md)._
+> _Parses a Maven build log and maps the data to the [maven-model](../maven-model)._
 
 A maven build log consists of 4 main sections:
  - the "Reactor Build Order" where maven lists all modules

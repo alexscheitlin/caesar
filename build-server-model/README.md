@@ -1,6 +1,6 @@
 # Build Server Model
 
-> _Represents the data of a build server._
+> _Represents the data of a build server. This includes information about projects, build configurations, and executed builds._
 
 A `BuildServer` has a `BuildServerType` (currently only TeamCity is supported) and multiple `Project`s.
 Every `Project` has multiple `BuildConfiguration`s that execute `Build`s which may be grouped by the branch of the version control system.

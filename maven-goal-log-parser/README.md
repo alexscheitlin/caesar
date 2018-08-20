@@ -1,6 +1,6 @@
 # Maven Goal Log Parser
 
-> _Parses the log of a Maven goal execution to get information about errors and in which file and on which line and column they happened._
+> _Parses the log of a Maven goal execution and maps information about errors and in which file and on which line and column they happened to the [error-model](../error-model)._
 
 The parser currently supports the following Maven goals and errors:
 
