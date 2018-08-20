@@ -52,7 +52,8 @@
         <dependency>
             <groupId>com.github.alexscheitlin</groupId>
             <artifactId>regex-matcher</artifactId>
-            <version>v1.0.1</version>
+            <version>v1.0.1</version>            <scope>compile</scope>
+
         </dependency>
         <!-- regex-matcher -->
 
@@ -60,7 +61,8 @@
         <dependency>
             <groupId>ch.scheitlin.alex.build.model</groupId>
             <artifactId>error-model</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0-SNAPSHOT</version>            <scope>compile</scope>
+
         </dependency>
         <!-- error-model -->
 

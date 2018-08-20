@@ -13,6 +13,8 @@
     <groupId>ch.scheitlin.alex.build.model</groupId>
     <artifactId>build-model</artifactId>
 
+    <packaging>jar</packaging>
+
     <build>
         <plugins>
             <plugin>
@@ -42,6 +44,7 @@
             <groupId>com.github.alexscheitlin</groupId>
             <artifactId>regex-matcher</artifactId>
             <version>v1.0.1</version>
+            <scope>compile</scope>
         </dependency>
         <!-- regex-matcher -->
 
