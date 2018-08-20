@@ -3,7 +3,7 @@ package ch.scheitlin.alex.build.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BuildTest {
+public class BuildServerBuildTest {
 
     @Test
     public void getId() {
@@ -11,7 +11,7 @@ public class BuildTest {
         String expectedId = "1";
 
         // allocate test objects
-        Build build = new Build(expectedId, null, false, null, null, null, null);
+        BuildServerBuild build = new BuildServerBuild(expectedId, null, false, null, null, null, null);
 
         // execute method to be tested
         String actualId = build.getId();
@@ -26,7 +26,7 @@ public class BuildTest {
         String expectedNumber = "2";
 
         // allocate test objects
-        Build build = new Build(null, expectedNumber, false, null, null, null, null);
+        BuildServerBuild build = new BuildServerBuild(null, expectedNumber, false, null, null, null, null);
 
         // execute method to be tested
         String actualNumber = build.getNumber();
@@ -41,7 +41,7 @@ public class BuildTest {
         boolean expectedStatus = true;
 
         // allocate test objects
-        Build build = new Build(null, null, expectedStatus, null, null, null, null);
+        BuildServerBuild build = new BuildServerBuild(null, null, expectedStatus, null, null, null, null);
 
         // execute method to be tested
         boolean actualStatus = build.getStatus();
@@ -56,7 +56,7 @@ public class BuildTest {
         String expectedStatusText = "Successful";
 
         // allocate test objects
-        Build build = new Build(null, null, false, expectedStatusText, null, null, null);
+        BuildServerBuild build = new BuildServerBuild(null, null, false, expectedStatusText, null, null, null);
 
         // execute method to be tested
         String actualStatusText = build.getStatusText();
@@ -71,7 +71,7 @@ public class BuildTest {
         String expectedRepository = "https://github.com/alexscheitlin/repository";
 
         // allocate test objects
-        Build build = new Build(null, null, false, null, expectedRepository, null, null);
+        BuildServerBuild build = new BuildServerBuild(null, null, false, null, expectedRepository, null, null);
 
         // execute method to be tested
         String actualRepository = build.getRepository();
@@ -86,7 +86,7 @@ public class BuildTest {
         String expectedBranch = "master";
 
         // allocate test objects
-        Build build = new Build(null, null, false, null, null, expectedBranch, null);
+        BuildServerBuild build = new BuildServerBuild(null, null, false, null, null, expectedBranch, null);
 
         // execute method to be tested
         String actualBranch = build.getBranch();
@@ -101,7 +101,7 @@ public class BuildTest {
         String expectedCommit = "1h89sg";
 
         // allocate test objects
-        Build build = new Build(null, null, false, null, null, null, expectedCommit);
+        BuildServerBuild build = new BuildServerBuild(null, null, false, null, null, null, expectedCommit);
 
         // execute method to be tested
         String actualCommit = build.getCommit();

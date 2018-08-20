@@ -11,7 +11,7 @@ import java.util.List;
  *     <li>builds that contain information about executed builds</li>
  * </ul>
  */
-public class Project {
+public class BuildServerProject {
     /**
      * The name of the project.
      */
@@ -20,7 +20,7 @@ public class Project {
     /**
      * The build configurations of the project.
      */
-    private List<BuildConfiguration> buildConfigurations;
+    private List<BuildServerBuildConfiguration> buildConfigurations;
 
     /**
      * Creates a new instance of a project.
@@ -28,7 +28,7 @@ public class Project {
      * @param name                the name of the project
      * @param buildConfigurations the build configurations of the project
      */
-    public Project(String name, List<BuildConfiguration> buildConfigurations) {
+    public BuildServerProject(String name, List<BuildServerBuildConfiguration> buildConfigurations) {
         this.name = name;
         this.buildConfigurations = buildConfigurations;
     }
@@ -47,7 +47,7 @@ public class Project {
      *
      * @return the build configurations of the project
      */
-    public List<BuildConfiguration> getBuildConfigurations() {
+    public List<BuildServerBuildConfiguration> getBuildConfigurations() {
         return this.buildConfigurations;
     }
 
@@ -59,7 +59,7 @@ public class Project {
     public List<String> getBuildConfigurationNames() {
         List<String> buildConfigurationNames = new ArrayList<String>();
 
-        for (BuildConfiguration buildConfiguration : this.buildConfigurations) {
+        for (BuildServerBuildConfiguration buildConfiguration : this.buildConfigurations) {
             buildConfigurationNames.add(buildConfiguration.getName());
         }
 

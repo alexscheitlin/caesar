@@ -18,16 +18,16 @@ public class Main {
         BuildServer information = api.toBuildServerModel();
 
         int counter = 0;
-        for (Project project : information.getProjects()) {
+        for (BuildServerProject project : information.getProjects()) {
             System.out.println(project.getName());
 
-            for (BuildConfiguration buildConfiguration : project.getBuildConfigurations()) {
+            for (BuildServerBuildConfiguration buildConfiguration : project.getBuildConfigurations()) {
                 System.out.println("\t" + buildConfiguration.getName());
 
-                for (Branch branch : buildConfiguration.getBranches()) {
+                for (BuildServerBranch branch : buildConfiguration.getBranches()) {
                     System.out.println("\t\t" + branch.getName());
 
-                    for (Build build : branch.getBuilds()) {
+                    for (BuildServerBuild build : branch.getBuilds()) {
                         System.out.println("\t\t\t" + "(" + ++counter + ") " + build.getStatus());
                     }
                 }
@@ -49,10 +49,10 @@ public class Main {
         System.out.println("Download: " + number);
 
         counter = 0;
-        for (Project project : information.getProjects()) {
-            for (BuildConfiguration buildConfiguration : project.getBuildConfigurations()) {
-                for (Branch branch : buildConfiguration.getBranches()) {
-                    for (Build build : branch.getBuilds()) {
+        for (BuildServerProject project : information.getProjects()) {
+            for (BuildServerBuildConfiguration buildConfiguration : project.getBuildConfigurations()) {
+                for (BuildServerBranch branch : buildConfiguration.getBranches()) {
+                    for (BuildServerBuild build : branch.getBuilds()) {
                         if (++counter == number) {
                             try {
                                 File file = new File(path + build.getId() + ".txt");

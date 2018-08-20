@@ -6,35 +6,35 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuildConfigurationTest {
+public class BuildServerBranchTest {
 
     @Test
     public void getName() {
         // assign variables with test data
-        String expectedName = "configurationName";
+        String expectedName = "branchName";
 
         // allocate test objects
-        BuildConfiguration config = new BuildConfiguration(expectedName, null);
+        BuildServerBranch branch = new BuildServerBranch(expectedName, null);
 
         // execute method to be tested
-        String actualName = config.getName();
+        String actualName = branch.getName();
 
         // assert result
         Assert.assertEquals(expectedName, actualName);
     }
 
     @Test
-    public void getBranches() {
+    public void getBuilds() {
         // assign variables with test data
-        List<Branch> expectedBranches = new ArrayList<Branch>();
+        List<BuildServerBuild> expectedBuilds = new ArrayList<BuildServerBuild>();
 
         // allocate test objects
-        BuildConfiguration config = new BuildConfiguration(null, expectedBranches);
+        BuildServerBranch branch = new BuildServerBranch(null, expectedBuilds);
 
         // execute method to be tested
-        List<Branch> actualBranches = config.getBranches();
+        List<BuildServerBuild> actualBuilds = branch.getBuilds();
 
         // assert result
-        Assert.assertEquals(expectedBranches, actualBranches);
+        Assert.assertEquals(expectedBuilds, actualBuilds);
     }
 }

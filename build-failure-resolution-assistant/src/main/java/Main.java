@@ -38,17 +38,17 @@ public class Main {
         String projectName = projectNames.get(projectNameIndex - 1);
 
         // list all builds
-        Project project = information.getProject(projectName);
+        BuildServerProject project = information.getProject(projectName);
         System.out.println();
         System.out.println(projectName);
         int counter = 0;
-        for (BuildConfiguration config : project.getBuildConfigurations()) {
+        for (BuildServerBuildConfiguration config : project.getBuildConfigurations()) {
             System.out.println("\t" + config.getName());
 
-            for (Branch branch : config.getBranches()) {
+            for (BuildServerBranch branch : config.getBranches()) {
                 System.out.println("\t\t" + (branch.getName() == null ? "default" : branch.getName()));
 
-                for (Build build : branch.getBuilds()) {
+                for (BuildServerBuild build : branch.getBuilds()) {
                     System.out.println("\t\t\t" + "[" + ++counter + "] " + build.getNumber() + " - " + (build.getStatus() ? "success" : "failure"));
                 }
             }
@@ -58,21 +58,21 @@ public class Main {
         System.out.print("Select a build by entering the corresponding number: ");
         int buildIndex = 1;
         System.out.println(buildIndex);
-        Build selectedBuild = null;
+        BuildServerBuild selectedBuild = null;
         counter = 0;
-        for (BuildConfiguration config : project.getBuildConfigurations()) {
-            for (Branch branch : config.getBranches()) {
-                for (Build build : branch.getBuilds()) {
+        for (BuildServerBuildConfiguration config : project.getBuildConfigurations()) {
+            for (BuildServerBranch branch : config.getBranches()) {
+                for (BuildServerBuild build : branch.getBuilds()) {
                     if (++counter == buildIndex) {
                         selectedBuild = build;
 
                         System.out.println();
-                        System.out.println("Build id:\t\t\t" + selectedBuild.getId());
-                        System.out.println("Build number:\t\t" + selectedBuild.getNumber());
-                        System.out.println("Build status:\t\t" + (selectedBuild.getStatus()?"success":"failure"));
-                        System.out.println("Build status text:\t" + selectedBuild.getStatusText());
+                        System.out.println("BuildServerBuild id:\t\t\t" + selectedBuild.getId());
+                        System.out.println("BuildServerBuild number:\t\t" + selectedBuild.getNumber());
+                        System.out.println("BuildServerBuild status:\t\t" + (selectedBuild.getStatus()?"success":"failure"));
+                        System.out.println("BuildServerBuild status text:\t" + selectedBuild.getStatusText());
                         System.out.println("Repository:\t\t\t" + selectedBuild.getRepository());
-                        System.out.println("Branch:\t\t\t\t" + selectedBuild.getBranch());
+                        System.out.println("BuildServerBranch:\t\t\t\t" + selectedBuild.getBranch());
                         System.out.println("Commit:\t\t\t\t" + selectedBuild.getCommit());
                     }
                 }
@@ -92,7 +92,7 @@ public class Main {
         }
 
         // show build information to the user
-        System.out.println("Build Status:\t" + assistant.mavenBuild.getStatus());
+        System.out.println("BuildServerBuild Status:\t" + assistant.mavenBuild.getStatus());
         if (assistant.mavenBuild.getFailedGoal() != null) {
             System.out.println("Failed Goal:\t" + assistant.mavenBuild.getFailedGoal());
         } else {

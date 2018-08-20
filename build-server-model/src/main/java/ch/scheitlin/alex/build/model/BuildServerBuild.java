@@ -3,7 +3,7 @@ package ch.scheitlin.alex.build.model;
 /**
  * Represents a build of a build server.
  */
-public class Build {
+public class BuildServerBuild {
     /**
      * The id of the build on a build server.
      */
@@ -46,7 +46,7 @@ public class Build {
      * @param status     the status of the build (whether it was successful or not)
      * @param statusText the status text of the build
      */
-    public Build(String number, boolean status, String statusText) {
+    public BuildServerBuild(String number, boolean status, String statusText) {
         this.number = number;
         this.status = status;
         this.statusText = statusText;
@@ -63,7 +63,7 @@ public class Build {
      * @param branch     the name of the branch of the version control system of the code of the build
      * @param commit     the commit id of the commit in the version control system of the code of the build
      */
-    public Build(String id, String number, boolean status, String statusText, String repository, String branch, String commit) {
+    public BuildServerBuild(String id, String number, boolean status, String statusText, String repository, String branch, String commit) {
         this.id = id;
         this.number = number;
         this.status = status;

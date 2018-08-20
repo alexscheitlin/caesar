@@ -21,7 +21,7 @@ public class BuildServer {
     /**
      * The projects configured on the build server.
      */
-    private List<Project> projects;
+    private List<BuildServerProject> projects;
 
     /**
      * Creates a new instance of a build server.
@@ -29,7 +29,7 @@ public class BuildServer {
      * @param type     the type of the build server
      * @param projects the projects configured on the build server
      */
-    public BuildServer(BuildServerType type, List<Project> projects) {
+    public BuildServer(BuildServerType type, List<BuildServerProject> projects) {
         this.type = type;
         this.projects = projects;
     }
@@ -48,7 +48,7 @@ public class BuildServer {
      *
      * @return the projects of the build server
      */
-    public List<Project> getProjects() {
+    public List<BuildServerProject> getProjects() {
         return this.projects;
     }
 
@@ -58,8 +58,8 @@ public class BuildServer {
      * @param projectName the name of the project to retrieve
      * @return the specified project of the build server or {@code null} if no project matches the provided name
      */
-    public Project getProject(String projectName) {
-        for (Project project : this.projects) {
+    public BuildServerProject getProject(String projectName) {
+        for (BuildServerProject project : this.projects) {
             if (project.getName().equals(projectName)) {
                 return project;
             }
@@ -76,7 +76,7 @@ public class BuildServer {
     public List<String> getProjectNames() {
         List<String> projectNames = new ArrayList<String>();
 
-        for (Project project : this.projects) {
+        for (BuildServerProject project : this.projects) {
             projectNames.add(project.getName());
         }
 

@@ -1,6 +1,6 @@
 package ch.scheitlin.alex.build;
 
-import ch.scheitlin.alex.build.model.Build;
+import ch.scheitlin.alex.build.model.BuildServerBuild;
 import ch.scheitlin.alex.build.model.BuildServer;
 import ch.scheitlin.alex.build.model.BuildServerType;
 import ch.scheitlin.alex.build.model.Error;
@@ -25,7 +25,7 @@ public class Assistant extends AssistantWithStages {
     private BuildServerApi buildServerApi;
 
     // download
-    private Build build;
+    private BuildServerBuild build;
     private String rawTeamCityBuildLog;
 
     // process
@@ -61,7 +61,7 @@ public class Assistant extends AssistantWithStages {
         return true;
     }
 
-    public boolean downloadBuildLog(Build build) {
+    public boolean downloadBuildLog(BuildServerBuild build) {
         this.build = build;
 
         try {

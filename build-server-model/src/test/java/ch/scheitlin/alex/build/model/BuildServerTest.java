@@ -26,13 +26,13 @@ public class BuildServerTest {
     @Test
     public void getProjects() {
         // assign variables with test data
-        List<Project> expectedProjects = new ArrayList<Project>();
+        List<BuildServerProject> expectedProjects = new ArrayList<BuildServerProject>();
 
         // allocate test objects
         BuildServer buildServer = new BuildServer(null, expectedProjects);
 
         // execute method to be tested
-        List<Project> actualProjects = buildServer.getProjects();
+        List<BuildServerProject> actualProjects = buildServer.getProjects();
 
         // assert result
         Assert.assertEquals(expectedProjects, actualProjects);
@@ -40,16 +40,16 @@ public class BuildServerTest {
 
     @Test public void getProject_projectExists() {
         // assign variables with test data
-        Project expectedProject = new Project("Test", null);
+        BuildServerProject expectedProject = new BuildServerProject("Test", null);
 
         // allocate test objects
-        List<Project> projects = new ArrayList<Project>();
+        List<BuildServerProject> projects = new ArrayList<BuildServerProject>();
         projects.add(expectedProject);
 
         BuildServer buildServer = new BuildServer(null, projects);
 
         // execute method to be tested
-        Project actualProject = buildServer.getProject(expectedProject.getName());
+        BuildServerProject actualProject = buildServer.getProject(expectedProject.getName());
 
         // assert result
         Assert.assertEquals(expectedProject, actualProject);
@@ -57,15 +57,15 @@ public class BuildServerTest {
 
     @Test public void getProject_projectDoesNotExists() {
         // allocate test objects
-        Project project = new Project("Test", null);
+        BuildServerProject project = new BuildServerProject("Test", null);
 
-        List<Project> projects = new ArrayList<Project>();
+        List<BuildServerProject> projects = new ArrayList<BuildServerProject>();
         projects.add(project);
 
         BuildServer buildServer = new BuildServer(null, projects);
 
         // execute method to be tested
-        Project actualProject = buildServer.getProject("Test1");
+        BuildServerProject actualProject = buildServer.getProject("Test1");
 
         // assert result
         Assert.assertNull(actualProject);
@@ -77,10 +77,10 @@ public class BuildServerTest {
         String[] expectedProjectNames = { "Project1", "Project2" };
 
         // allocate test objects
-        Project project1 = new Project(expectedProjectNames[0], null);
-        Project project2 = new Project(expectedProjectNames[1], null);
+        BuildServerProject project1 = new BuildServerProject(expectedProjectNames[0], null);
+        BuildServerProject project2 = new BuildServerProject(expectedProjectNames[1], null);
 
-        List<Project> projects = new ArrayList<Project>();
+        List<BuildServerProject> projects = new ArrayList<BuildServerProject>();
         projects.add(project1);
         projects.add(project2);
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectTest {
+public class BuildServerProjectTest {
 
     @Test
     public void getName() {
@@ -14,7 +14,7 @@ public class ProjectTest {
         String expectedName = "projectName";
 
         // allocate test objects
-        Project project = new Project(expectedName, null);
+        BuildServerProject project = new BuildServerProject(expectedName, null);
 
         // execute method to be tested
         String actualName = project.getName();
@@ -26,13 +26,13 @@ public class ProjectTest {
     @Test
     public void getBuildConfigurations() {
         // assign variables with test data
-        List<BuildConfiguration> expectedBuildConfigurations = new ArrayList<BuildConfiguration>();
+        List<BuildServerBuildConfiguration> expectedBuildConfigurations = new ArrayList<BuildServerBuildConfiguration>();
 
         // allocate test objects
-        Project project = new Project(null, expectedBuildConfigurations);
+        BuildServerProject project = new BuildServerProject(null, expectedBuildConfigurations);
 
         // execute method to be tested
-        List<BuildConfiguration> actualBuildConfigurations = project.getBuildConfigurations();
+        List<BuildServerBuildConfiguration> actualBuildConfigurations = project.getBuildConfigurations();
 
         // assert result
         Assert.assertEquals(expectedBuildConfigurations, actualBuildConfigurations);
@@ -41,17 +41,17 @@ public class ProjectTest {
     @Test
     public void getBuildConfigurationNames() {
         // assign variables with test data
-        String[] expectedBuildConfigurationNames = { "BuildConfiguration", "BuildConfiguration2" };
+        String[] expectedBuildConfigurationNames = { "BuildServerBuildConfiguration", "BuildConfiguration2" };
 
         // allocate test objects
-        BuildConfiguration buildConfiguration1 = new BuildConfiguration(expectedBuildConfigurationNames[0], null);
-        BuildConfiguration buildConfiguration2 = new BuildConfiguration(expectedBuildConfigurationNames[1], null);
+        BuildServerBuildConfiguration buildConfiguration1 = new BuildServerBuildConfiguration(expectedBuildConfigurationNames[0], null);
+        BuildServerBuildConfiguration buildConfiguration2 = new BuildServerBuildConfiguration(expectedBuildConfigurationNames[1], null);
 
-        List<BuildConfiguration> buildConfigurations = new ArrayList<BuildConfiguration>();
+        List<BuildServerBuildConfiguration> buildConfigurations = new ArrayList<BuildServerBuildConfiguration>();
         buildConfigurations.add(buildConfiguration1);
         buildConfigurations.add(buildConfiguration2);
 
-        Project project = new Project(null, buildConfigurations);
+        BuildServerProject project = new BuildServerProject(null, buildConfigurations);
 
         // execute method to be tested
         List<String> actualBuildConfigurationNames = project.getBuildConfigurationNames();

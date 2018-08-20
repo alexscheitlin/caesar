@@ -1,6 +1,6 @@
 package ch.scheitlin.alex.build;
 
-import ch.scheitlin.alex.build.model.Build;
+import ch.scheitlin.alex.build.model.BuildServerBuild;
 
 import java.util.Arrays;
 
@@ -35,7 +35,7 @@ public abstract class AssistantWithStages {
 
     abstract boolean connectToBuildServer(String host, String username, String password);
 
-    public boolean download(Build build) {
+    public boolean download(BuildServerBuild build) {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.CONNECTED,
         };
@@ -57,7 +57,7 @@ public abstract class AssistantWithStages {
         return true;
     }
 
-    abstract boolean downloadBuildLog(Build build);
+    abstract boolean downloadBuildLog(BuildServerBuild build);
 
     public boolean process() {
         BuildFixAssistantStage[] requiredStages = {

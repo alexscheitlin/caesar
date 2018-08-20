@@ -1,7 +1,6 @@
 package ch.scheitlin.alex.teamcity.api;
 
-import ch.scheitlin.alex.build.model.BuildServer;
-import ch.scheitlin.alex.build.model.BuildServerType;
+import ch.scheitlin.alex.build.model.*;
 import org.jetbrains.teamcity.rest.Build;
 import org.jetbrains.teamcity.rest.BuildConfiguration;
 import org.jetbrains.teamcity.rest.Project;
@@ -22,7 +21,7 @@ class Specific {
      */
     static BuildServer getBuildServerModel(TeamCityInstance teamCity) {
         BuildServerType type = BuildServerType.TEAM_CITY;
-        List<ch.scheitlin.alex.build.model.Project> projects = Specific.getProjects(teamCity);
+        List<BuildServerProject> projects = Specific.getProjects(teamCity);
 
         return new BuildServer(type, projects);
     }
@@ -33,19 +32,19 @@ class Specific {
      * @param teamCity the team city instance to access the team city rest api client
      * @return a list of projects of the project model
      */
-    private static List<ch.scheitlin.alex.build.model.Project> getProjects(TeamCityInstance teamCity) {
+    private static List<BuildServerProject> getProjects(TeamCityInstance teamCity) {
         // fetch projects form team city
         List<Project> teamCityProjects = Common.getProjects(teamCity);
 
         // map all team city projects to the project model
-        List<ch.scheitlin.alex.build.model.Project> projects = new ArrayList<ch.scheitlin.alex.build.model.Project>();
+        List<BuildServerProject> projects = new ArrayList<BuildServerProject>();
         for (Project teamCityProject : teamCityProjects) {
             // get all components for the project model
             String name = teamCityProject.getName();
-            List<ch.scheitlin.alex.build.model.BuildConfiguration> buildConfigurations = getBuildConfigurations(teamCity, teamCityProject);
+            List<BuildServerBuildConfiguration> buildConfigurations = getBuildConfigurations(teamCity, teamCityProject);
 
             // create the project model
-            ch.scheitlin.alex.build.model.Project project = new ch.scheitlin.alex.build.model.Project(
+            BuildServerProject project = new BuildServerProject(
                     name,
                     buildConfigurations
             );
@@ -63,19 +62,19 @@ class Specific {
      * @param project  the project to map its build configurations to the build configuration model
      * @return a list of build configurations of the build configuration model
      */
-    private static List<ch.scheitlin.alex.build.model.BuildConfiguration> getBuildConfigurations(TeamCityInstance teamCity, Project project) {
+    private static List<BuildServerBuildConfiguration> getBuildConfigurations(TeamCityInstance teamCity, Project project) {
         // fetch build configurations from team city
         List<BuildConfiguration> teamCityBuildConfigurations = Common.getBuildConfigurationsOfProject(teamCity, project.getId());
 
         // map all team city build configurations to the build configuration model
-        List<ch.scheitlin.alex.build.model.BuildConfiguration> buildConfigurations = new ArrayList<ch.scheitlin.alex.build.model.BuildConfiguration>();
+        List<BuildServerBuildConfiguration> buildConfigurations = new ArrayList<BuildServerBuildConfiguration>();
         for (BuildConfiguration teamCityBuildConfiguration : teamCityBuildConfigurations) {
             // get all components for the build configuration model
             String name = teamCityBuildConfiguration.getName();
-            List<ch.scheitlin.alex.build.model.Branch> branches = getBranches(teamCity, teamCityBuildConfiguration);
+            List<BuildServerBranch> branches = getBranches(teamCity, teamCityBuildConfiguration);
 
             // create the build configuration model
-            ch.scheitlin.alex.build.model.BuildConfiguration buildConfiguration = new ch.scheitlin.alex.build.model.BuildConfiguration(
+            BuildServerBuildConfiguration buildConfiguration = new BuildServerBuildConfiguration(
                     name,
                     branches
             );
@@ -93,7 +92,7 @@ class Specific {
      * @param buildConfiguration the build configuration to map its branches and builds to the branch and build model
      * @return a list of branches of the branch model
      */
-    private static List<ch.scheitlin.alex.build.model.Branch> getBranches(TeamCityInstance teamCity, BuildConfiguration buildConfiguration) {
+    private static List<BuildServerBranch> getBranches(TeamCityInstance teamCity, BuildConfiguration buildConfiguration) {
         // fetch builds from team city
         List<Build> builds = Common.getBuildsOfBuildConfiguration(teamCity, buildConfiguration.getId());
 
@@ -101,9 +100,9 @@ class Specific {
         List<String> branchNames = getDistinctBranchNames(builds);
 
         // group the builds by branch
-        List<ch.scheitlin.alex.build.model.Branch> buildsByBranches = new ArrayList<ch.scheitlin.alex.build.model.Branch>(branchNames.size());
+        List<BuildServerBranch> buildsByBranches = new ArrayList<BuildServerBranch>(branchNames.size());
         for (int i = 0; i < branchNames.size(); i++) {
-            List<ch.scheitlin.alex.build.model.Build> buildsOfThisBranch = new ArrayList<ch.scheitlin.alex.build.model.Build>();
+            List<BuildServerBuild> buildsOfThisBranch = new ArrayList<BuildServerBuild>();
 
             String branch = branchNames.get(i);
             for (Build build : builds) {
@@ -116,7 +115,7 @@ class Specific {
                 }
             }
 
-            buildsByBranches.add(i, new ch.scheitlin.alex.build.model.Branch(branch, buildsOfThisBranch));
+            buildsByBranches.add(i, new BuildServerBranch(branch, buildsOfThisBranch));
         }
 
         return buildsByBranches;
@@ -129,7 +128,7 @@ class Specific {
      * @param teamcityBuild the teamcity built to map to the build model
      * @return a build model
      */
-    private static ch.scheitlin.alex.build.model.Build mapTeamcityBuildToBuildModel(TeamCityInstance teamCity, Build teamcityBuild) {
+    private static BuildServerBuild mapTeamcityBuildToBuildModel(TeamCityInstance teamCity, Build teamcityBuild) {
         String buildId = teamcityBuild.getId().getStringId();
         String buildNumber = teamcityBuild.getBuildNumber();
         boolean status = teamcityBuild.getStatus().toString().toLowerCase().equals("success");
@@ -137,7 +136,7 @@ class Specific {
         String repository = Builds.getVscRootUrl(teamCity, teamcityBuild.getId());
         String buildBranch = Builds.getBranchName(teamCity, teamcityBuild.getId());
         String commit = Builds.getCommitHash(teamCity, teamcityBuild.getId());
-        return new ch.scheitlin.alex.build.model.Build(
+        return new BuildServerBuild(
                 buildId,
                 buildNumber,
                 status,

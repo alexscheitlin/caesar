@@ -9,7 +9,7 @@ import java.util.List;
  * <li>builds that contain information about executed builds</li>
  * </ul>
  */
-public class BuildConfiguration {
+public class BuildServerBuildConfiguration {
     /**
      * The name of the build configuration.
      */
@@ -18,7 +18,7 @@ public class BuildConfiguration {
     /**
      * The builds executed with the build configuration grouped by their version control system branch.
      */
-    private List<Branch> branches;
+    private List<BuildServerBranch> branches;
 
     /**
      * Creates a new instance of a build configuration.
@@ -26,7 +26,7 @@ public class BuildConfiguration {
      * @param name     the name of the build configuration
      * @param branches builds executed with the build configuration grouped by their version control system branch
      */
-    public BuildConfiguration(String name, List<Branch> branches) {
+    public BuildServerBuildConfiguration(String name, List<BuildServerBranch> branches) {
         this.name = name;
         this.branches = branches;
     }
@@ -45,7 +45,7 @@ public class BuildConfiguration {
      *
      * @return the branches with the builds of the build configuration
      */
-    public List<Branch> getBranches() {
+    public List<BuildServerBranch> getBranches() {
         return this.branches;
     }
 }

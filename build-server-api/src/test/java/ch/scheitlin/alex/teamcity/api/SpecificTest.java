@@ -22,23 +22,23 @@ public class SpecificTest extends TestUtils {
     @Test
     public void getBuildsByBranches() {
         // get first project
-        List<Project> projects = Common.getProjects(this.teamCity);
-        Project project = projects.get(0);
+        List<BuildServerProject> projects = Common.getProjects(this.teamCity);
+        BuildServerProject project = projects.get(0);
 
         // git first build configuration
-        List<BuildConfiguration> buildConfigurations = Common.getBuildConfigurationsOfProject(this.teamCity, project.getId());
-        BuildConfiguration buildConfiguration = buildConfigurations.get(0);
+        List<BuildServerBuildConfiguration> buildConfigurations = Common.getBuildConfigurationsOfProject(this.teamCity, project.getId());
+        BuildServerBuildConfiguration buildConfiguration = buildConfigurations.get(0);
 
         // get builds
-        List<Build> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
+        List<BuildServerBuild> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
 
         // get custom configuration representation
-        ch.scheitlin.alex.build.model.BuildConfiguration config = Specific.get(this.teamCity, buildConfiguration.getName(), builds);
+        ch.scheitlin.alex.build.model.BuildServerBuildConfiguration config = Specific.get(this.teamCity, buildConfiguration.getName(), builds);
 
         System.out.println(config.getName());
-        for (ch.scheitlin.alex.build.model.Branch branch : config.getBranches()) {
+        for (ch.scheitlin.alex.build.model.BuildServerBranch branch : config.getBranches()) {
             System.out.println("\t" + branch.getName());
-            for (ch.scheitlin.alex.build.model.Build build : branch.getBuilds()) {
+            for (ch.scheitlin.alex.build.model.BuildServerBuild build : branch.getBuilds()) {
                 System.out.println("\t\t" + build.getStatusText());
             }
         }
@@ -47,15 +47,15 @@ public class SpecificTest extends TestUtils {
     @Test
     public void getDistinctBranchNames() {
         // get first project
-        List<Project> projects = Common.getProjects(this.teamCity);
-        Project project = projects.get(0);
+        List<BuildServerProject> projects = Common.getProjects(this.teamCity);
+        BuildServerProject project = projects.get(0);
 
         // git first build configuration
-        List<BuildConfiguration> buildConfigurations = Common.getBuildConfigurationsOfProject(this.teamCity, project.getId());
-        BuildConfiguration buildConfiguration = buildConfigurations.get(0);
+        List<BuildServerBuildConfiguration> buildConfigurations = Common.getBuildConfigurationsOfProject(this.teamCity, project.getId());
+        BuildServerBuildConfiguration buildConfiguration = buildConfigurations.get(0);
 
         // get builds
-        List<Build> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
+        List<BuildServerBuild> builds = Common.getBuildsOfBuildConfiguration(this.teamCity, buildConfiguration.getId());
 
         List<String> branchNames = Specific.getDistinctBranchNames(builds);
 

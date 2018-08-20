@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Represents builds of a build server having the same branch of the version control system.
  */
-public class Branch {
+public class BuildServerBranch {
     /**
      * The name of the branch.
      */
@@ -14,7 +14,7 @@ public class Branch {
     /**
      * The builds of the branch.
      */
-    private List<Build> builds;
+    private List<BuildServerBuild> builds;
 
     /**
      * Creates a new instance of a branch.
@@ -22,7 +22,7 @@ public class Branch {
      * @param name   the name of the branch
      * @param builds the builds of the branch
      */
-    public Branch(String name, List<Build> builds) {
+    public BuildServerBranch(String name, List<BuildServerBuild> builds) {
         this.name = name;
         this.builds = builds;
     }
@@ -41,7 +41,7 @@ public class Branch {
      *
      * @return the builds of the branch
      */
-    public List<Build> getBuilds() {
+    public List<BuildServerBuild> getBuilds() {
         return this.builds;
     }
 }
