@@ -158,7 +158,7 @@ public class MavenBuildLogParser {
                 for (MavenGoal goal : module.getGoals()) {
                     MavenGoal failedGoal = build.getFailedGoal();
                     if (goal.getPlugin().equals(failedGoal.getPlugin()) &&
-                            goal.getVersion().equals(failedGoal.getVersion()) &&
+                            goal.getPlugin().getVersion().equals(failedGoal.getPlugin().getVersion()) &&
                             goal.getName().equals(failedGoal.getName())) {
                         build.getFailedGoal().setLines(goal.getLines());
                     }
@@ -342,8 +342,7 @@ public class MavenBuildLogParser {
             if (goalMatcher.matches(lines[i])) {
                 String[] components = goalMatcher.extractComponentsSilently(lines[i]);
                 currentGoal = new MavenGoal();
-                currentGoal.setPlugin(components[0]);
-                currentGoal.setVersion(components[1]);
+                currentGoal.setPlugin(new MavenPlugin(components[0], null, components[1]));
                 currentGoal.setName(components[2]);
                 currentGoal.setInformation(components[3]);
                 currentGoal.setModule(components[4]);
@@ -496,9 +495,7 @@ public class MavenBuildLogParser {
                 if (failedGoalMatcher.matches(lines[i])) {
                     String[] components = failedGoalMatcher.extractComponentsSilently(lines[i]);
                     failedGoal = new MavenGoal();
-                    failedGoal.setVersion(components[0]);
-                    failedGoal.setPlugin(components[1]);
-                    failedGoal.setVersion(components[2]);
+                    failedGoal.setPlugin(new MavenPlugin(components[1], components[0], components[2]));
                     failedGoal.setName(components[3]);
                     failedGoal.setInformation(components[4]);
                     failedGoal.setModule(components[5]);

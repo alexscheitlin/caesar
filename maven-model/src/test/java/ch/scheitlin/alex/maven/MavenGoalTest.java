@@ -9,51 +9,19 @@ import java.util.List;
 public class MavenGoalTest {
 
     @Test
-    public void setAndGetVendor() {
-        // assign variables with test data
-        String expectedVendor = "Vendor";
-
-        // allocate test objects
-        MavenGoal goal = new MavenGoal();
-
-        // execute method to be tested
-        goal.setVendor(expectedVendor);
-        String actualVendor = goal.getVendor();
-
-        // assert result
-        Assert.assertEquals(expectedVendor, actualVendor);
-    }
-
-    @Test
     public void setAndGetPlugin() {
         // assign variables with test data
-        String expectedPlugin = "Plugin";
+        MavenPlugin expectedPlugin = new MavenPlugin(null, null, null);
 
         // allocate test objects
         MavenGoal goal = new MavenGoal();
 
         // execute method to be tested
         goal.setPlugin(expectedPlugin);
-        String actualPlugin = goal.getPlugin();
+        MavenPlugin actualPlugin = goal.getPlugin();
 
         // assert result
         Assert.assertEquals(expectedPlugin, actualPlugin);
-    }
-
-    @Test
-    public void setAndGetVersion() {
-        // assign variables with test data
-        String expectedVersion = "Version";
-
-        // allocate test objects
-        MavenGoal goal = new MavenGoal();
-
-        // execute method to be tested
-        goal.setVersion(expectedVersion);
-        String actualVersion = goal.getVersion();
-
-        // assert result
-        Assert.assertEquals(expectedVersion, actualVersion);
     }
 
     @Test
@@ -143,8 +111,7 @@ public class MavenGoalTest {
 
         // allocate test objects
         MavenGoal goal = new MavenGoal();
-        goal.setPlugin("plugin");
-        goal.setVersion("version");
+        goal.setPlugin(new MavenPlugin("plugin", "vendor", "version"));
         goal.setName("name");
         goal.setInformation("information");
         goal.setModule("module");

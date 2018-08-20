@@ -8,19 +8,9 @@ import java.util.List;
  */
 public class MavenGoal {
     /**
-     * The name of the vendor of the plugin containing the maven goal.
+     * The plugin (name, vendor, version) of the maven goal.
      */
-    private String vendor;
-
-    /**
-     * The name of the plugin containing the maven goal.
-     */
-    private String plugin;
-
-    /**
-     * The version of the plugin containing the maven goal.
-     */
-    private String version;
+    private MavenPlugin plugin;
 
     /**
      * The name of the maven goal.
@@ -55,57 +45,21 @@ public class MavenGoal {
     }
 
     /**
-     * Gets the name of the vendor of the plugin containing the maven goal.
+     * Gets the plugin (name, vendor, version) of the maven goal.
      *
-     * @return the name of the vendor of the plugin containing the maven goal
+     * @return the plugin (name, vendor, version) of the maven goal
      */
-    public String getVendor() {
-        return this.vendor;
-    }
-
-    /**
-     * Sets the name of the vendor of the plugin containing the maven goal.
-     *
-     * @param vendor the name of the vendor of the plugin containing the maven goal
-     */
-    public void setVendor(String vendor) {
-        this.vendor = vendor;
-    }
-
-    /**
-     * Gets the name of the plugin containing the maven goal.
-     *
-     * @return the name of the plugin containing the maven goal
-     */
-    public String getPlugin() {
+    public MavenPlugin getPlugin() {
         return this.plugin;
     }
 
     /**
-     * Sets the name of the plugin containing the maven goal.
+     * Sets the plugin (name, vendor, version) of the maven goal.
      *
-     * @param plugin the name of the plugin containing the maven goal
+     * @param plugin the plugin (name, vendor, version) of the maven goal
      */
-    public void setPlugin(String plugin) {
+    public void setPlugin(MavenPlugin plugin) {
         this.plugin = plugin;
-    }
-
-    /**
-     * Gets the version of the plugin containing the maven goal.
-     *
-     * @return the version of the plugin containing the maven goal
-     */
-    public String getVersion() {
-        return this.version;
-    }
-
-    /**
-     * Sets the version of the plugin containing the maven goal.
-     *
-     * @param version the version of the plugin containing the maven goal
-     */
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     /**
@@ -213,7 +167,7 @@ public class MavenGoal {
      * @return the string representation of the maven goal
      */
     public String toString() {
-        return this.plugin + ":" + this.version + ":" + this.name + " (" + this.information + ") @ " + this.module;
+        return this.plugin.getName() + ":" + this.plugin.getVersion() + ":" + this.name + " (" + this.information + ") @ " + this.module;
     }
 
     /**

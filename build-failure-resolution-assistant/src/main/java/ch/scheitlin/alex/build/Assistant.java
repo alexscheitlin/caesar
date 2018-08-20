@@ -135,7 +135,7 @@ public class Assistant extends AssistantWithStages {
             }
 
             this.errors = MavenGoalLogParser.parseGoalLog(
-                    mavenBuild.getFailedGoal().getPlugin(),
+                    mavenBuild.getFailedGoal().getPlugin().getName(),
                     mavenBuild.getFailedGoal().getName(),
                     failedGoalLog
             );
