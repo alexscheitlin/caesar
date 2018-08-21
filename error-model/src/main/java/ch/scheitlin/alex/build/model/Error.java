@@ -74,12 +74,30 @@ public class Error {
     }
 
     /**
+     * Sets the line within the file where the error occurred.
+     *
+     * @param line the line within the file where the error occurred
+     */
+    public void setLine(int line) {
+        this.line = line;
+    }
+
+    /**
      * Gets the column within the file where the error occurred.
      *
      * @return the column within the file where the error occurred
      */
     public int getColumn() {
         return this.column;
+    }
+
+    /**
+     * Sets the column within the file where the error occurred.
+     *
+     * @param column the column within the file where the error occurred
+     */
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     /**

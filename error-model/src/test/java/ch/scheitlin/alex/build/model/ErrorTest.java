@@ -36,12 +36,13 @@ public class ErrorTest {
     }
 
     @Test
-    public void getLine() {
+    public void setAndGetLine() {
         // assign variables with test data
         int expectedLine = 1;
 
         // allocate test objects
-        Error error = new Error(null, null, expectedLine, 0, null);
+        Error error = new Error(null, null, 0, 0, null);
+        error.setLine(expectedLine);
 
         // execute method to be tested
         int actualLine = error.getLine();
@@ -51,12 +52,13 @@ public class ErrorTest {
     }
 
     @Test
-    public void getColumn() {
+    public void setAndGetColumn() {
         // assign variables with test data
         int expectedColumn = 1;
 
         // allocate test objects
-        Error error = new Error(null, null, 0, expectedColumn, null);
+        Error error = new Error(null, null, 0, 0, null);
+        error.setColumn(expectedColumn);
 
         // execute method to be tested
         int actualColumn = error.getColumn();
