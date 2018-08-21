@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String logToParse = "team-city-build-log-4-maven-log";
+        String logToParse = "team-city-build-log-5-maven-log";
         String path = "C:\\Users\\Alex\\Desktop\\";
 
         String log = readResourceFile(logToParse + ".txt");
@@ -54,7 +54,7 @@ public class Main {
         // print goals of module
         int goalCounter = 0;
         for (MavenGoal goal : selectedModule.getGoals()) {
-            System.out.println("\t" + ++goalCounter + ": " + goal.getPlugin() + ":" + goal.getName());
+            System.out.println("\t" + ++goalCounter + ": " + goal.getPlugin().getName() + ":" + goal.getName());
         }
 
         System.out.println(++goalCounter + ": build summary");
@@ -81,7 +81,7 @@ public class Main {
             if (++goalCounter == goalNumber) {
                 selectedGoal = goal;
                 System.out.println();
-                System.out.println("Goal: " + goal.getPlugin() + ":" + goal.getName());
+                System.out.println("Goal: " + goal.getPlugin().getName() + ":" + goal.getName());
             }
         }
         if (goalNumber == selectedModule.getGoals().size() + 1) {
@@ -103,7 +103,7 @@ public class Main {
         System.out.println(goalLog);
 
         // save goal log to file
-        File file = new File(path + selectedGoal.getPlugin() + "_" + selectedGoal.getName() + ".txt");
+        File file = new File(path + selectedGoal.getPlugin().getName() + "_" + selectedGoal.getName() + ".txt");
 
         FileOutputStream stream = null;
         try {
