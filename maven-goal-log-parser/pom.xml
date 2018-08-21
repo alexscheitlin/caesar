@@ -39,12 +39,12 @@
     </build>
 
     <repositories>
-        <!-- regex-matcher -->
+        <!-- regex-matcher and java-stack-trace-parser -->
         <repository>
             <id>jitpack.io</id>
             <url>https://www.jitpack.io</url>
         </repository>
-        <!-- regex-matcher -->
+        <!-- regex-matcher and java-stack-trace-parser -->
     </repositories>
 
     <dependencies>
@@ -52,17 +52,26 @@
         <dependency>
             <groupId>com.github.alexscheitlin</groupId>
             <artifactId>regex-matcher</artifactId>
-            <version>v1.0.1</version>            <scope>compile</scope>
-
+            <version>v1.0.1</version>
+            <scope>compile</scope>
         </dependency>
         <!-- regex-matcher -->
+
+        <!-- java-stack-trace-parser -->
+        <dependency>
+            <groupId>com.github.alexscheitlin</groupId>
+            <artifactId>java-stack-trace-parser</artifactId>
+            <version>v1.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- java-stack-trace-parser -->
 
         <!-- error-model -->
         <dependency>
             <groupId>ch.scheitlin.alex.build.model</groupId>
             <artifactId>error-model</artifactId>
-            <version>1.0-SNAPSHOT</version>            <scope>compile</scope>
-
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <!-- error-model -->
 

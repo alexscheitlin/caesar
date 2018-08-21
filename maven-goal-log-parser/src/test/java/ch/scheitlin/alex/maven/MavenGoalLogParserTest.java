@@ -1,5 +1,7 @@
 package ch.scheitlin.alex.maven;
 
+import static org.junit.Assert.fail;
+
 import ch.scheitlin.alex.build.model.Error;
 import org.junit.Assert;
 import org.junit.Test;
@@ -108,30 +110,30 @@ public class MavenGoalLogParserTest {
         List<Error> expectedErrors = new ArrayList<Error>();
         String path1 = null;
         String file1 = "src/com/example/bank/BankAccountTest.java";
-        int line1 = 0;
+        int line1 = 21;
         int column1 = 0;
-        String message1 = "";
+        String message1 = "java.lang.AssertionError";
         Error expectedError1 = new Error(path1, file1, line1, column1, message1);
         expectedErrors.add(expectedError1);
         String path2 = null;
         String file2 = "src/com/example/bank/BankAccountTest.java";
-        int line2 = 0;
+        int line2 = 49;
         int column2 = 0;
-        String message2 = "expected:<1000000.0> but was:<1000001.0>";
+        String message2 = "java.lang.AssertionError: expected:<1000000.0> but was:<1000001.0>";
         Error expectedError2 = new Error(path2, file2, line2, column2, message2);
         expectedErrors.add(expectedError2);
         String path3 = null;
         String file3 = "src/com/example/bank/TableTest.java";
-        int line3 = 0;
+        int line3 = 26;
         int column3 = 0;
-        String message3 = "";
+        String message3 = "java.lang.AssertionError";
         Error expectedError3 = new Error(path3, file3, line3, column3, message3);
         expectedErrors.add(expectedError3);
         String path4 = null;
         String file4 = "src/com/example/bank/BankAccountTest.java";
-        int line4 = 0;
+        int line4 = 29;
         int column4 = 0;
-        String message4 = "Deposit amount less than zero";
+        String message4 = "java.lang.IllegalArgumentException: Deposit amount less than zero";
         Error expectedError4 = new Error(path4, file4, line4, column4, message4);
         expectedErrors.add(expectedError4);
 
@@ -161,7 +163,12 @@ public class MavenGoalLogParserTest {
         Assert.assertEquals(expectedErrors.size(), actualErrors.size());
 
         for (int i = 0; i < expectedErrors.size(); i++) {
-            Assert.assertEquals(expectedErrors.get(i).getPath(), actualErrors.get(i).getPath());
+            if (expectedErrors.get(i).getPath() != null && actualErrors.get(i).getPath() != null) {
+                Assert.assertEquals(expectedErrors.get(i).getPath(), actualErrors.get(i).getPath());
+            } else if (expectedErrors.get(i).getPath() == null && actualErrors.get(i).getPath() != null ||
+                    expectedErrors.get(i).getPath() != null && actualErrors.get(i).getPath() == null) {
+                fail();
+            }
             Assert.assertEquals(expectedErrors.get(i).getFile(), actualErrors.get(i).getFile());
             Assert.assertEquals(expectedErrors.get(i).getLine(), actualErrors.get(i).getLine());
             Assert.assertEquals(expectedErrors.get(i).getColumn(), actualErrors.get(i).getColumn());
