@@ -55,6 +55,14 @@ public class GitApi {
         }
     }
 
+    public void fetchFromRemoteRepository(String username, String password) throws Exception {
+        try {
+            GitRepository.fetchFromRemoteRepository(this.git, username, password);
+        } catch (Exception ex) {
+            throw new Exception("Could not stash tracked and staged files.");
+        }
+    }
+
     public void createBranchFromCommit(String commitHash, String branchName) throws Exception {
         try {
             GitBranch.createFromCommit(this.git, commitHash, branchName);

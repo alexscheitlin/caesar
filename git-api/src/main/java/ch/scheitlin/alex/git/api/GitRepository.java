@@ -2,6 +2,8 @@ package ch.scheitlin.alex.git.api;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.transport.FetchResult;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
 class GitRepository {
     /**
@@ -14,5 +16,23 @@ class GitRepository {
      */
     static boolean isClean(Git git) throws GitAPIException {
         return git.status().call().isClean();
+    }
+
+    /**
+     * Fetch branches and/or tags from the remote repository.
+     *
+     * @param git      the git object
+     * @param username the username to authenticate to the remote repository
+     * @param password the password to authenticate to the remote repository
+     * @return the fetch result
+     * @throws GitAPIException
+     */
+    static FetchResult fetchFromRemoteRepository(Git git, String username, String password) throws GitAPIException {
+        UsernamePasswordCredentialsProvider credentials = new UsernamePasswordCredentialsProvider(username, password);
+
+        return git.fetch()
+                .setCredentialsProvider(credentials)
+                .setCheckFetchedObjects(true)
+                .call();
     }
 }

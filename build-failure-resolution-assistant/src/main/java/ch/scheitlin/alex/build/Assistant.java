@@ -196,12 +196,22 @@ public class Assistant extends AssistantWithStages {
                 }
                 System.out.println();
 
+                // fetch from remote repository
+                final String USERNAME = "jgit-workflow";
+                final String PASSWORD = "220d90c85130348b8e2844a2bacaab7f5f95fc56";
+                try {
+                    this.gitApi.fetchFromRemoteRepository(USERNAME, PASSWORD);
+                } catch (Exception ex) {
+                    return false;
+                }
+
                 // checkout to commit to fix
                 // branch name: fix-buildNumber (eg. fix-51)
                 // if branch already exists append version (eg. fix-51-v2)
                 String branchName = null;
                 int counter = 0;
-                while (counter++ < 100) {
+                int maxTries = 100;
+                while (counter++ < maxTries) {
                     branchName = "fix-" + buildNumber;
 
                     if (counter != 1) {
@@ -211,10 +221,17 @@ public class Assistant extends AssistantWithStages {
                         this.gitApi.createBranchFromCommit(commitToFix, branchName);
                         break;
                     } catch (Exception e) {
+                        if (counter == maxTries) {
+                            System.out.println("Could not create new branch!");
+                            return false;
+                        }
                         continue;
                     }
                 }
+
                 System.out.println("Created new branch '" + branchName + "' starting at commit '" + commitToFix + "'.");
+                System.out.println("On branch: " + this.gitApi.getCurrentBranch());
+                System.out.println();
 
                 this.previousBranch = previousBranch;
                 this.stashedChanges = stashedChanges;
