@@ -1,0 +1,243 @@
+Initial M2_HOME not set
+Current M2_HOME = C:\TeamCity\buildAgent\tools\maven3
+PATH = C:\TeamCity\buildAgent\tools\maven3\bin;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Ruby22-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files\Java\jre1.8.0_101\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\wamp64\bin\php\php5.6.25;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps
+Using watcher: C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher\maven-watcher-agent.jar
+Initial MAVEN_OPTS not set
+Current MAVEN_OPTS not set
+Starting: "C:\Program Files\Java\jdk1.8.0_101\bin\java.exe" -Dagent.home.dir=C:\TeamCity\buildAgent -Dagent.name=W541 -Dagent.ownPort=9090 -Dagent.work.dir=C:\TeamCity\buildAgent\work -Dbuild.number=3 -Dbuild.vcs.number=23b7be3087be640c344d60e0ca803b912cf3a757 -Dbuild.vcs.number.1=23b7be3087be640c344d60e0ca803b912cf3a757 -Dbuild.vcs.number.DemoBankAccount_HttpsGithubComAlexscheitlinDemoBankAccountRefsHeadsMaster=23b7be3087be640c344d60e0ca803b912cf3a757 -Dclassworlds.conf=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.m2.conf -Dcom.jetbrains.maven.watcher.report.file=C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml -Djava.io.tmpdir=C:\TeamCity\buildAgent\temp\buildTmp -Dmaven.home=C:\TeamCity\buildAgent\tools\maven3 -Dmaven.multiModuleProjectDirectory=C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e -Dmaven.repo.local=C:/WINDOWS/system32/config/systemprofile/.m2/repository -Dteamcity.agent.cpuBenchmark=683 -Dteamcity.agent.dotnet.agent_url=http://localhost:9090/RPC2 -Dteamcity.agent.dotnet.build_id=3 -Dteamcity.auth.password=******* -Dteamcity.auth.userId=TeamCityBuildId=3 -Dteamcity.build.changedFiles.file=C:\TeamCity\buildAgent\temp\buildTmp\changedFiles7919144982298066377.txt -Dteamcity.build.checkoutDir=C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e -Dteamcity.build.id=3 -Dteamcity.build.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.build5847309116547943621.properties -Dteamcity.build.tempDir=C:\TeamCity\buildAgent\temp\buildTmp -Dteamcity.build.workingDir=C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e "-Dteamcity.buildConfName=Maven Clean Test" -Dteamcity.buildType.id=DemoBankAccount_MavenCleanBuild -Dteamcity.configuration.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.config3622570748621784603.properties -Dteamcity.dotnet.nunitaddin=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.NUnitAddin-NUnit -Dteamcity.dotnet.nunitlauncher=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher.exe -Dteamcity.dotnet.nunitlauncher.msbuild.task=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.MSBuildLoggers.dll -Dteamcity.dotnet.nunitlauncher1.1=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher1.1.exe -Dteamcity.dotnet.nunitlauncher2.0=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.exe -Dteamcity.dotnet.nunitlauncher2.0.vsts=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.VSTS.exe -Dteamcity.dotnet.platform=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.PlatformProcessRunner.1.1.exe -Dteamcity.maven.watcher.home=C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher "-Dteamcity.projectName=Demo Bank Account" -Dteamcity.runner.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.runner7936355451329420687.properties -Dteamcity.tests.recentlyFailedTests.file=C:\TeamCity\buildAgent\temp\buildTmp\testsToRunFirst6911866189219728275.txt "-Dteamcity.version=2017.2.4 (build 51228)" -classpath C:\TeamCity\buildAgent\tools\maven3\boot\plexus-classworlds-2.4.jar; org.codehaus.plexus.classworlds.launcher.Launcher -f C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\pom.xml -B clean test
+in directory: C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building bank_maven 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+bank_maven:bank_maven (2s)
+Importing data from 'C:/TeamCity/buildAgent/work/dc680b5ed78c7e4e/target/surefire-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+Importing data from 'C:/TeamCity/buildAgent/work/dc680b5ed78c7e4e/target/failsafe-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ bank_maven ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ bank_maven ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ bank_maven ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 4 source files to C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ bank_maven ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ bank_maven ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 3 source files to C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ bank_maven ---
+[INFO] Surefire report directory: C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.example.bank.BankAccountTest
+Tests run: 9, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.091 sec <<< FAILURE!
+Running com.example.bank.TableTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE!
+Running com.example.bank.TransactionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+
+Results :
+
+Failed tests:   getNumber(com.example.bank.BankAccountTest)
+  getBalance(com.example.bank.BankAccountTest): expected:<1000000.0> but was:<1000001.0>
+  dataToTable(com.example.bank.TableTest)
+
+Tests in error: 
+  getOwner(com.example.bank.BankAccountTest): Deposit amount less than zero
+
+Tests run: 13, Failures: 3, Errors: 1, Skipped: 0
+
+[Step 1/1] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.10:test (default-test) on project bank_maven: There are test failures.
+
+Please refer to C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\surefire-reports for the individual test results.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.449s
+[INFO] Finished at: Mon Jun 04 15:18:30 CEST 2018
+[INFO] Final Memory: 18M/208M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.10:test (default-test) on project bank_maven: There are test failures.
+[ERROR] 
+[ERROR] Please refer to C:\TeamCity\buildAgent\work\dc680b5ed78c7e4e\target\surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+com.example.bank.BankAccountTest
+Process exited with code 1
+	[com.example.bank.BankAccountTest] makeDeposit_WithValidAmount_UpdateBalance
+	[com.example.bank.BankAccountTest] makeWithdrawal_WithValidAmount_UpdateBalance
+	[com.example.bank.BankAccountTest] makeWithdrawal_WithInvalidAmount_SmallerThanZero
+	[com.example.bank.BankAccountTest] makeDeposit_WithInvalidAmount_SmallerThanZero
+	[com.example.bank.BankAccountTest] getNumber
+		[getNumber] java.lang.AssertionError
+		[getNumber] java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.example.bank.BankAccountTest.getNumber(BankAccountTest.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Failed tests detected
+	[com.example.bank.BankAccountTest] getBalance
+		[getBalance] java.lang.AssertionError: expected:<1000000.0> but was:<1000001.0>
+		[getBalance] java.lang.AssertionError: expected:<1000000.0> but was:<1000001.0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:553)
+	at org.junit.Assert.assertEquals(Assert.java:683)
+	at com.example.bank.BankAccountTest.getBalance(BankAccountTest.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+	[com.example.bank.BankAccountTest] makeWithdrawal_WithInvalidAmount_LargerThanBalance
+	[com.example.bank.BankAccountTest] getAccountHistory
+	[com.example.bank.BankAccountTest] getOwner
+		[getOwner] java.lang.IllegalArgumentException: Deposit amount less than zero
+		[getOwner] java.lang.IllegalArgumentException: Deposit amount less than zero
+	at com.example.bank.BankAccount.makeDeposit(BankAccount.java:127)
+	at com.example.bank.BankAccount.<init>(BankAccount.java:56)
+	at com.example.bank.BankAccountTest.getOwner(BankAccountTest.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+com.example.bank.TableTest
+	[com.example.bank.TableTest] dataToTable
+		[dataToTable] java.lang.AssertionError
+		[dataToTable] java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.example.bank.TableTest.dataToTable(TableTest.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+com.example.bank.TransactionTest
+	[com.example.bank.TransactionTest] getDate
+	[com.example.bank.TransactionTest] getAmount
+	[com.example.bank.TransactionTest] getNotes
+Process exited with code 1
+Waiting for 2 service processes to complete
+		[Successfully parsed] 3 reports
+Step Maven failed
