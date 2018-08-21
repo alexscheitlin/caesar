@@ -6,21 +6,28 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String logToParse = "team-city-build-log-4";
+        String logToParse = "team-city-build-log-5";
         String path = "C:\\Users\\Alex\\Desktop\\";
 
-        String log = readResourceFile(logToParse + ".txt");
+        String log = null;
+        try {
+            log = readResourceFile(logToParse + ".txt");
+        } catch (Exception ex) {
+            System.out.println("Team City build log could not be read!");
+            return;
+        }
 
         TeamCityBuild build = null;
         try {
             build = new TeamCityBuildLogParser().parseBuildLog(log);
         } catch (Exception ex) {
+            System.out.println("Team City build log could not be parsed!");
             return;
         }
 
         String mavenLog = build.getMavenLog();
 
-        File file = new File(path + logToParse +"-maven-log.txt");
+        File file = new File(path + logToParse + "-maven-log.txt");
 
         FileOutputStream stream = null;
         try {
@@ -45,16 +52,18 @@ public class Main {
         } catch (Exception ex) {
             return;
         }
+
+        System.out.println("Maven log saved to: " + file.getAbsolutePath());
     }
 
-    private static String readResourceFile(String fileName) {
+    private static String readResourceFile(String fileName) throws Exception {
         StringBuilder result = new StringBuilder();
         InputStream in = Main.class.getResourceAsStream("/" + fileName);
         Scanner scanner;
         try {
             scanner = new Scanner(in);
         } catch (Exception ext) {
-            return null;
+            throw new Exception(ext.getMessage());
         }
 
         while (scanner.hasNextLine()) {
