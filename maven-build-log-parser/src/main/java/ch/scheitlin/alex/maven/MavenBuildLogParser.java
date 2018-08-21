@@ -157,7 +157,7 @@ public class MavenBuildLogParser {
             for (MavenModule module : build.getModules()) {
                 for (MavenGoal goal : module.getGoals()) {
                     MavenGoal failedGoal = build.getFailedGoal();
-                    if (goal.getPlugin().equals(failedGoal.getPlugin()) &&
+                    if (goal.getPlugin().getName().equals(failedGoal.getPlugin().getName()) &&
                             goal.getPlugin().getVersion().equals(failedGoal.getPlugin().getVersion()) &&
                             goal.getName().equals(failedGoal.getName())) {
                         build.getFailedGoal().setLines(goal.getLines());

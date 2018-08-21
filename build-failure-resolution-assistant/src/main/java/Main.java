@@ -56,7 +56,7 @@ public class Main {
 
         // choose a build
         System.out.print("Select a build by entering the corresponding number: ");
-        int buildIndex = 1;
+        int buildIndex = 11;
         System.out.println(buildIndex);
         BuildServerBuild selectedBuild = null;
         counter = 0;
@@ -107,7 +107,7 @@ public class Main {
         List<Error> errors = assistant.errors;
         if (errors != null) {
             for (Error error : errors) {
-                System.out.println("Error:\t\t\t" + error.getMessage());
+                System.out.println("Error:\t\t\t\t" + error.getMessage());
                 System.out.println("\tPath:\t\t\t" + error.getPath());
                 System.out.println("\tFile:\t\t\t" + error.getFile());
                 System.out.println("\tLine:\t\t\t" + error.getLine());
