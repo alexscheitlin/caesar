@@ -108,4 +108,13 @@ public class Error {
     public String getMessage() {
         return this.message;
     }
+
+    /**
+     * Sets the error message describing the error.
+     *
+     * @param message the error message describing the error
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

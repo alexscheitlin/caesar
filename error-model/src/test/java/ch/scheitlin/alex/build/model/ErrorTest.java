@@ -68,12 +68,13 @@ public class ErrorTest {
     }
 
     @Test
-    public void getMessage() {
+    public void setAndGetMessage() {
         // assign variables with test data
         String expectedMessage = "message";
 
         // allocate test objects
-        Error error = new Error(null, null, 0, 0, expectedMessage);
+        Error error = new Error(null, null, 0, 0, null);
+        error.setMessage(expectedMessage);
 
         // execute method to be tested
         String actualMessage = error.getMessage();
