@@ -6,6 +6,9 @@ import ch.scheitlin.alex.utils.RegexMatcher;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Requires to parse the log of the executed goal of the maven build log.
+ */
 public class MavencompilerCompile extends GoalParser {
     private final String START = "^\\[ERROR\\] COMPILATION ERROR :.*$";
     private final String ERROR = "^\\[ERROR\\] (.*)(?:\\\\|\\/)(.*\\.java):\\[(\\d+),(\\d+)\\] (?:error: |)(.*)$";

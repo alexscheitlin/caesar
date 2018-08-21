@@ -8,6 +8,8 @@ The parser currently supports the following Maven goals and errors:
 - Could not resolve dependencies
 - maven-surefire-plugin-test
 
+Some parsers require to either parse the log of the executed goal, the build summary at the end of the maven build log, or both thos logs.
+
 To add a parser for additional Maven goal logs, do the following:
 
 - Create a new class extending the `GoalParser`. Adhere to the following naming convention: The class name consists of the plugin and goal name (e.g _maven-compiler-plugin:compile_ becomes to `MavencompilerCompile`, omit the trailing _plugin_ of the plugin name).

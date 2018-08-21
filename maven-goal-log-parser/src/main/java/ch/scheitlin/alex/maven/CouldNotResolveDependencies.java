@@ -6,6 +6,9 @@ import ch.scheitlin.alex.utils.RegexMatcher;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Requires to parse the build summary section of the maven build log.
+ */
 public class CouldNotResolveDependencies extends GoalParser {
     private final String REGEX = "^\\[ERROR\\] Failed to execute goal on project .*: (Could not resolve dependencies) for project .*: (.*)$";
 

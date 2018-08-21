@@ -6,6 +6,9 @@ import ch.scheitlin.alex.utils.RegexMatcher;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Requires to parse the log of the executed goal of the maven build log.
+ */
 public class MavensurefireTest extends GoalParser {
     private final String START_1 = "^-------------------------------------------------------$";
     private final String START_2 = "^ T E S T S$";
