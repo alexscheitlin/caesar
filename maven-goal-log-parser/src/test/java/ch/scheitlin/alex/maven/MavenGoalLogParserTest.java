@@ -17,7 +17,7 @@ public class MavenGoalLogParserTest {
         String pluginName = "maven-compiler-plugin";
         String goalName = "compile";
 
-        // read goal log form test resources
+        // read goal log from test resources
         String log = readResourceFile(pluginName + "-" + goalName + "-1.txt");
 
         // define expected errors
@@ -43,7 +43,7 @@ public class MavenGoalLogParserTest {
         String pluginName = "maven-compiler-plugin";
         String goalName = "compile";
 
-        // read goal log form test resources
+        // read goal log from test resources
         String log = readResourceFile(pluginName + "-" + goalName + "-2.txt");
 
         // define expected errors
@@ -74,7 +74,7 @@ public class MavenGoalLogParserTest {
     public void parseGoalLog_CouldNotResolveDependencies() {
         String errorMessage = "Could not resolve dependencies";
 
-        // read goal log form test resources
+        // read goal log from test resources
         String log = readResourceFile("could-not-resolve-dependencies.txt");
 
         // define expected errors
@@ -90,6 +90,53 @@ public class MavenGoalLogParserTest {
 
         // parse goal log
         List<Error> actualErrors = MavenGoalLogParser.parseErrorLog(errorMessage, log);
+
+        // assert
+        assertErrors(expectedErrors, actualErrors);
+    }
+
+    @Test
+    public void parseGoalLog_MavensurefireTest() {
+        // define plugin and goal
+        String pluginName = "maven-surefire-plugin";
+        String goalName = "test";
+
+        // read goal log from test resources
+        String log = readResourceFile(pluginName + "-" + goalName + ".txt");
+
+        // define expected errors
+        List<Error> expectedErrors = new ArrayList<Error>();
+        String path1 = null;
+        String file1 = "src/com/example/bank/BankAccountTest.java";
+        int line1 = 0;
+        int column1 = 0;
+        String message1 = "";
+        Error expectedError1 = new Error(path1, file1, line1, column1, message1);
+        expectedErrors.add(expectedError1);
+        String path2 = null;
+        String file2 = "src/com/example/bank/BankAccountTest.java";
+        int line2 = 0;
+        int column2 = 0;
+        String message2 = "expected:<1000000.0> but was:<1000001.0>";
+        Error expectedError2 = new Error(path2, file2, line2, column2, message2);
+        expectedErrors.add(expectedError2);
+        String path3 = null;
+        String file3 = "src/com/example/bank/TableTest.java";
+        int line3 = 0;
+        int column3 = 0;
+        String message3 = "";
+        Error expectedError3 = new Error(path3, file3, line3, column3, message3);
+        expectedErrors.add(expectedError3);
+        String path4 = null;
+        String file4 = "src/com/example/bank/BankAccountTest.java";
+        int line4 = 0;
+        int column4 = 0;
+        String message4 = "Deposit amount less than zero";
+        Error expectedError4 = new Error(path4, file4, line4, column4, message4);
+        expectedErrors.add(expectedError4);
+
+        // parse goal log
+        List<Error> actualErrors = MavenGoalLogParser.parseGoalLog(pluginName, goalName, log);
 
         // assert
         assertErrors(expectedErrors, actualErrors);

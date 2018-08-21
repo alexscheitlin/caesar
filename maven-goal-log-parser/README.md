@@ -6,6 +6,7 @@ The parser currently supports the following Maven goals and errors:
 
 - maven-compiler-plugin-compile
 - Could not resolve dependencies
+- maven-surefire-plugin-test
 
 To add a parser for additional Maven goal logs, do the following:
 
