@@ -129,6 +129,7 @@ public class Assistant extends AssistantWithStages {
 
             // parse log of failed maven goal
             List<String> failedGoalLogLines = mavenBuild.getFailedGoal().getLines();
+            failedGoalLogLines.addAll(mavenBuild.getBuildSummary());
             String failedGoalLog = "";
             for (String line : failedGoalLogLines) {
                 failedGoalLog += (line + "\n");

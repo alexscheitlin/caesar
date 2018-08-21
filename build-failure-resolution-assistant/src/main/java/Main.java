@@ -71,9 +71,9 @@ public class Main {
                         System.out.println("BuildServerBuild number:\t\t" + selectedBuild.getNumber());
                         System.out.println("BuildServerBuild status:\t\t" + (selectedBuild.getStatus()?"success":"failure"));
                         System.out.println("BuildServerBuild status text:\t" + selectedBuild.getStatusText());
-                        System.out.println("Repository:\t\t\t" + selectedBuild.getRepository());
+                        System.out.println("Repository:\t\t\t\t\t\t" + selectedBuild.getRepository());
                         System.out.println("BuildServerBranch:\t\t\t\t" + selectedBuild.getBranch());
-                        System.out.println("Commit:\t\t\t\t" + selectedBuild.getCommit());
+                        System.out.println("Commit:\t\t\t\t\t\t\t" + selectedBuild.getCommit());
                     }
                 }
             }
@@ -94,16 +94,16 @@ public class Main {
         // show build information to the user
         System.out.println("BuildServerBuild Status:\t" + assistant.mavenBuild.getStatus());
         if (assistant.mavenBuild.getFailedGoal() != null) {
-            System.out.println("Failed Goal:\t" + assistant.mavenBuild.getFailedGoal());
+            System.out.println("Failed Goal:\t\t\t\t" + assistant.mavenBuild.getFailedGoal());
         } else {
-            System.out.println("Failed Goal:\t" + "No failed goal detected!");
+            System.out.println("Failed Goal:\t\t\t\t" + "No failed goal detected!");
         }
         if (assistant.mavenBuild.getErrorMessage() != null) {
-            System.out.println("Error Message:\t" + assistant.mavenBuild.getErrorMessage());
+            System.out.println("Error Message:\t\t\t\t" + assistant.mavenBuild.getErrorMessage());
         } else {
-            System.out.println("Error Message:\t" + "No error message detected!");
+            System.out.println("Error Message:\t\t\t\t" + "No error message detected!");
         }
-        System.out.println("Failure Category:\t" + assistant.failureCategory);
+        System.out.println("Failure Category:\t\t\t\t\"" + assistant.failureCategory);
         List<Error> errors = assistant.errors;
         if (errors != null) {
             for (Error error : errors) {
