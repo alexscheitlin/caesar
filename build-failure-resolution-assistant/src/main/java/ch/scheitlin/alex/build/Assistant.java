@@ -20,6 +20,7 @@ public class Assistant extends AssistantWithStages {
     // -----------------------------------------------------
     // connect
     private BuildServerApi buildServerApi;
+    private BuildServer buildServerModel;
 
     // download
     private BuildServerBuild buildServerBuild;
@@ -276,6 +277,7 @@ public class Assistant extends AssistantWithStages {
     public boolean disconnectFromBuildServer() {
         // clean variables
         this.buildServerApi = null;
+        this.buildServerModel = null;
 
         return true;
     }
@@ -306,7 +308,16 @@ public class Assistant extends AssistantWithStages {
     // -------------------
 
     public BuildServer getBuildServerInformation() {
-        return this.buildServerApi.toBuildServerModel();
+        if (this.buildServerModel == null) {
+            fetchBuildServerInformation();
+        }
+
+        return this.buildServerModel;
+    }
+
+    public BuildServer fetchBuildServerInformation() {
+        this.buildServerModel = this.buildServerApi.toBuildServerModel();
+        return this.buildServerModel;
     }
 
     public boolean testTeamCityConnection(String host, String username, String password) {
