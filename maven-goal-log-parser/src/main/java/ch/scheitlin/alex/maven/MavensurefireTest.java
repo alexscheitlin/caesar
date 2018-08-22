@@ -278,7 +278,7 @@ public class MavensurefireTest extends GoalParser {
     }
 
     private String testClassToPath(String testClass) {
-        return "src/" + testClass.replaceAll("\\.", "/") + ".java";
+        return "src/test/java/" + testClass.replaceAll("\\.", "/") + ".java";
     }
 
 }
