@@ -16,9 +16,15 @@ The Build Failure Resolution Assistant connects to a build server and shows all 
 Currently the Build Failure Resolution Assistant supports projects developed with Git and Maven using TeamCity as a build server. Although the classification of build failures works for numerous types of errors, the error detection and localization is only implemented for basic errors concerning dependency issues, compilation errors, and failing tests.
 
 
-_To better understand how the Build Failure Resolution Assistant is built, take a look at the modules table and the architecture image below and explore the different modules in the order they are listed in the table below._
+_To better understand how the Build Failure Resolution Assistant is built, take a look at the architecture image and the modules table below and explore the different modules in the order they are listed in the table._
 
 _Built on top of this project there is a [IntelliJ Plugin](https://github.com/alexscheitlin/build-failure-resolution-assistant-intellij-plugin)._
+
+## Architecture
+
+The following visualization shows how the different modules of this project and externally provided sources interact. A more detailed overview on how the Build Failure Resolution Assistant operates is given [here](build-failure-resolution-assistant).
+
+![Architecture](assets/architecture.png)
 
 ## Modules
 
@@ -39,8 +45,13 @@ This project contains the following modules:
 | [Maven Goal Classifier](maven-goal-classifier) | Classifies a maven goal into one of 13 categories. |
 | [Build Failure Resolution Assistant](build-failure-resolution-assistant) | Assists in fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, and let the user fix the error. |
 
-## Architecture
+## Other Sources
 
-The following visualization shows how the different modules interact. A more detailed overview on how the Build Failure Resolution Assistant operates is given [here](build-failure-resolution-assistant).
+This projects contains the following projects either developed by others or just managed in a separate repository:
 
-![Architecture](assets/architecture.png)
+| Project | Purpose |
+| --- | --- |
+| [RegEx Matcher](https://github.com/alexscheitlin/regex-matcher) | Used to check whether a `String` matches a regular expression and to extract defined components of the `String`. |
+| [Java Stack Trace Parser](https://github.com/alexscheitlin/java-stack-trace-parser) | Used to parse a java stack trace and map every line to a `java.lang.StackTraceElement` to access information about where a error happened (e.g. method name and line number).|
+| [JGit](https://github.com/eclipse/jgit) | Used to access and modify git repositories. |
+| [TeamCity Rest Client](https://github.com/JetBrains/teamcity-rest-client) | Used to retrieve data from a TeamCity build server.|
