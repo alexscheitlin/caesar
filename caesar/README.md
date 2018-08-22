@@ -1,4 +1,4 @@
-# Build Failure Resolution Assistant
+# CAESAR
 
 > _Assists in fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, and let the user fix the error._
 

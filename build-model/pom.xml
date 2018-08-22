@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>ch.scheitlin.alex.build</groupId>
-        <artifactId>build-failure-resolution-assistant-parent</artifactId>
+        <artifactId>caesar-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

@@ -3,26 +3,28 @@
 ![Icon](assets/icon.png)
 
 **Command Line Interface** |
-_[IntelliJ Plugin](https://github.com/alexscheitlin/build-failure-resolution-assistant-intellij-plugin)_
+_[IntelliJ Plugin](https://github.com/alexscheitlin/caesar-intellij-plugin)_
 
-# Build Failure Resolution Assistant
+# CAESAR
+
+**Ci Assistant for Efficient (Build) Summarization And Resolution**
 
 _Helps fixing broken builds by downloading and summarizing build logs._
 
 </div>
 
-The Build Failure Resolution Assistant connects to a build server and shows all executed builds to the user. By selecting one of the builds the corresponding build log is downloaded, parsed, and summarized. The user then gets a summary of the build's execution like information about it's status (successful or not) or possible errors. Every failed build gets classified (e.g. dependency, compilation, or test issues) and occurred errors are listed with information about their location (file and line/column). If the user decides to fix the build failure, uncommitted changes get saved automatically and the code base causing the build failure is downloaded and checked out. The user may now debug and fix the errors, merge the applied changes to whatever branch he wants, push the changes to the remote repository the build server monitors, reapply the previously saved changes, and continue working where he stopped.
+CAESAR connects to a build server and shows all executed builds to the user. By selecting one of the builds the corresponding build log is downloaded, parsed, and summarized. The user then gets a summary of the build's execution like information about it's status (successful or not) or possible errors. Every failed build gets classified (e.g. dependency, compilation, or test issues) and occurred errors are listed with information about their location (file and line/column). If the user decides to fix the build failure, uncommitted changes get saved automatically and the code base causing the build failure is downloaded and checked out. The user may now debug and fix the errors, merge the applied changes to whatever branch he wants, push the changes to the remote repository the build server monitors, reapply the previously saved changes, and continue working where he stopped.
 
-Currently the Build Failure Resolution Assistant supports projects developed with Git and Maven using TeamCity as a build server. Although the classification of build failures works for numerous types of errors, the error detection and localization is only implemented for basic errors concerning dependency issues, compilation errors, and failing tests.
+Currently CAESAR supports projects developed with Git and Maven using TeamCity as a build server. Although the classification of build failures works for numerous types of errors, the error detection and localization is only implemented for basic errors concerning dependency issues, compilation errors, and failing tests.
 
 
-_To better understand how the Build Failure Resolution Assistant is built, take a look at the architecture image and the modules table below and explore the different modules in the order they are listed in the table._
+_To better understand how CAESAR is built, take a look at the architecture image and the modules table below and explore the different modules in the order they are listed in the table._
 
-_Built on top of this project there is a [IntelliJ Plugin](https://github.com/alexscheitlin/build-failure-resolution-assistant-intellij-plugin)._
+_Built on top of this project there is a [IntelliJ Plugin](https://github.com/alexscheitlin/caesar-intellij-plugin)._
 
 ## Architecture
 
-The following visualization shows how the different modules of this project and externally provided sources interact. A more detailed overview on how the Build Failure Resolution Assistant operates is given [here](build-failure-resolution-assistant).
+The following visualization shows how the different modules of this project and externally provided sources interact. A more detailed overview on how CAESAR operates is given [here](caesar).
 
 ![Architecture](assets/architecture.png)
 
@@ -43,7 +45,7 @@ This project contains the following modules:
 | [Maven Build Log Parser](maven-build-log-parser) | Parses a maven build log and maps the data to the [Maven Model](maven-model). |
 | [Maven Goal Log Parser](maven-goal-log-parser) | Parses the log of a Maven goal execution and maps information about errors and in which file and on which line and column they happened to the [error-model](error-model). |
 | [Maven Goal Classifier](maven-goal-classifier) | Classifies a maven goal into one of 13 categories. |
-| [Build Failure Resolution Assistant](build-failure-resolution-assistant) | Assists in fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, and let the user fix the error. |
+| [CAESAR](caesar) | Assists in fixing build failures by downloading a build log, parsing and summarizing it, reporting its status and possible errors, stashing open local changes, checking out the failed version, providing hints on where possible errors happened, and let the user fix the error. |
 
 ## Other Sources
 
