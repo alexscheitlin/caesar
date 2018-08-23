@@ -11,6 +11,8 @@ _[IntelliJ Plugin](https://github.com/alexscheitlin/caesar-intellij-plugin)_
 
 _Helps fixing broken builds by downloading and summarizing build logs._
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 </div>
 
 CAESAR connects to a build server and shows all executed builds to the user. By selecting one of the builds the corresponding build log is downloaded, parsed, and summarized. The user then gets a summary of the build's execution like information about it's status (successful or not) or possible errors. Every failed build gets classified (e.g. dependency, compilation, or test issues) and occurred errors are listed with information about their location (file and line/column). If the user decides to fix the build failure, uncommitted changes get saved automatically and the code base causing the build failure is downloaded and checked out. The user may now debug and fix the errors, merge the applied changes to whatever branch he wants, push the changes to the remote repository the build server monitors, reapply the previously saved changes, and continue working where he stopped.
@@ -57,3 +59,7 @@ This projects contains the following projects either developed by others or just
 | [Java Stack Trace Parser](https://github.com/alexscheitlin/java-stack-trace-parser) | Used to parse a java stack trace and map every line to a `java.lang.StackTraceElement` to access information about where a error happened (e.g. method name and line number).|
 | [JGit](https://github.com/eclipse/jgit) | Used to access and modify git repositories. |
 | [TeamCity Rest Client](https://github.com/JetBrains/teamcity-rest-client) | Used to retrieve data from a TeamCity build server.|
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
