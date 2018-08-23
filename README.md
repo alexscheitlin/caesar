@@ -60,6 +60,10 @@ This projects contains the following projects either developed by others or just
 | [JGit](https://github.com/eclipse/jgit) | Used to access and modify git repositories. |
 | [TeamCity Rest Client](https://github.com/JetBrains/teamcity-rest-client) | Used to retrieve data from a TeamCity build server.|
 
+## Authors
+
+- **Alex Scheitlin** - *Initial work* - [alexscheitlin](https://github.com/alexscheitlin)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
