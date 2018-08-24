@@ -56,6 +56,9 @@ public class Caesar extends CaesarStages {
         this.buildServerApi = new BuildServerApi(this.buildServerType);
         this.buildServerApi.login(host, username, password);
 
+        // get build server model
+        this.fetchBuildServerInformation();
+
         return true;
     }
 
@@ -294,16 +297,12 @@ public class Caesar extends CaesarStages {
 
     // -------------------
 
-    public BuildServer getBuildServerInformation() {
-        if (this.buildServerModel == null) {
-            fetchBuildServerInformation();
-        }
-
+    public BuildServer fetchBuildServerInformation() {
+        this.buildServerModel = this.buildServerApi.toBuildServerModel();
         return this.buildServerModel;
     }
 
-    public BuildServer fetchBuildServerInformation() {
-        this.buildServerModel = this.buildServerApi.toBuildServerModel();
+    public BuildServer getBuildServerInformation() {
         return this.buildServerModel;
     }
 
