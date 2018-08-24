@@ -14,41 +14,23 @@ import java.util.List;
 public class Caesar extends CaesarStages {
     private BuildServerType buildServerType;
 
-    // -----------------------------------------------------
-    // variables to set in stages
-    // -----------------------------------------------------
-    // connect
-    private BuildServerApi buildServerApi;
-    private BuildServer buildServerModel;
-
-    // download
-    private BuildServerBuild buildServerBuild;
-    private String buildServerBuildLog;
-
-    // process
-    private Build build;
-    private String rawMavenBuildLog;
-    public MavenBuild mavenBuild;
-    public String failureCategory;
-    public List<Error> errors;
-
-    // fix
-    private GitApi gitApi;
-    private String gitRepositoryOriginUrl;
-    private String previousBranch;
-    private String stashedChanges;
-    private String newBranch;
-
     public Caesar(BuildServerType buildServerType) {
         this.buildServerType = buildServerType;
     }
 
-    // -------------------
-    // Stages
+    public static boolean testBuildServerConnection(BuildServerType buildServerType, String host, String username, String password) {
+        return new BuildServerApi(buildServerType).testConnection(host, username, password);
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // connect
+    // -----------------------------------------------------------------------------------------------------------------
+    private BuildServerApi buildServerApi;
+    private BuildServer buildServerModel;
 
     public boolean connectToBuildServer(String host, String username, String password) {
         // return false if connection test fails
-        if (!this.testBuildServerConnection(this.buildServerType, host, username, password)) {
+        if (!testBuildServerConnection(this.buildServerType, host, username, password)) {
             return false;
         }
 
@@ -62,47 +44,71 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
+    public BuildServer fetchBuildServerInformation() {
+        this.buildServerModel = this.buildServerApi.toBuildServerModel();
+        return this.buildServerModel;
+    }
+
+    public BuildServer getBuildServerInformation() {
+        return this.buildServerModel;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // download
+    // -----------------------------------------------------------------------------------------------------------------
+    private BuildServerBuild buildServerBuild;
+    private String buildServerBuildLog;
+
     public boolean downloadBuildLog(BuildServerBuild build) {
         this.buildServerBuild = build;
 
         try {
             this.buildServerBuildLog = this.buildServerApi.downloadBuildLog(this.buildServerBuild.getId());
         } catch (Exception ex) {
-            //throw new Exception("Build log could not be downloaded.");
             return false;
         }
 
         if (this.buildServerBuildLog == null || this.buildServerBuildLog.equals("")) {
-            //throw new Exception("Build log could not be processed.");
             return false;
         }
 
         return true;
     }
 
+    public String getBuildServerBuildLog() {
+        return this.buildServerBuildLog;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // process
+    // -----------------------------------------------------------------------------------------------------------------
+    private String mavenBuildLog;
+    public MavenBuild mavenBuild;
+    public String failureCategory;
+    public List<Error> errors;
+
     public boolean processBuildLog() {
         // parse build server build log
-        this.build = null;
+        Build build = null;
         try {
             BuildServerBuildLogParser buildLogParser = new BuildServerBuildLogParser(this.buildServerType);
-            this.build = buildLogParser.parseBuildLog(this.buildServerBuildLog);
+            build = buildLogParser.parseBuildLog(this.buildServerBuildLog);
         } catch (Exception ex) {
-            //throw new Exception("Build server build log could not be parsed.");
             return false;
         }
 
         // extract maven log
-        this.rawMavenBuildLog = build.getMavenLog();
-        if (this.rawMavenBuildLog == null) {
-            //throw new Exception("No Maven build log found.");
+        this.mavenBuildLog = build.getMavenLog();
+        if (this.mavenBuildLog == null) {
             return false;
         }
 
         // parse maven log
-        this.mavenBuild = MavenBuildLogParser.parse(this.rawMavenBuildLog);
+        this.mavenBuild = MavenBuildLogParser.parse(this.mavenBuildLog);
 
         // classify error message or failed maven goal
         if (mavenBuild.getErrorMessage() != null) {
+            // classify error message
             String errorMessage = mavenBuild.getErrorMessage();
 
             try {
@@ -122,12 +128,12 @@ public class Caesar extends CaesarStages {
             this.errors = MavenGoalLogParser.parseErrorLog(errorMessage, errorMessageLog);
 
         } else if (mavenBuild.getFailedGoal() != null) {
+            // classify failed goal
             String failedGoal = mavenBuild.getFailedGoal().getPlugin().getName() + ":" + mavenBuild.getFailedGoal().getName();
             try {
                 Classifier classifier = new Classifier();
                 this.failureCategory = classifier.classify(failedGoal).toString();
             } catch (Exception e) {
-                //throw new Exception("Could not read goals from configuration.");
                 return false;
             }
 
@@ -148,6 +154,15 @@ public class Caesar extends CaesarStages {
 
         return true;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // fix
+    // -----------------------------------------------------------------------------------------------------------------
+    private GitApi gitApi;
+    private String gitRepositoryOriginUrl;
+    private String previousBranch;
+    private String stashedChanges;
+    private String newBranch;
 
     public boolean startFixingBrokenBuild(String pathToLocalGitRepository) {
         String urlToRemoteGitRepository = this.buildServerBuild.getRepository();
@@ -236,6 +251,10 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // finish
+    // -----------------------------------------------------------------------------------------------------------------
+
     public boolean stopFixingBrokenBuild() {
         try {
             // checkout branch
@@ -263,29 +282,36 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // disconnect
+    // -----------------------------------------------------------------------------------------------------------------
+
     public boolean disconnectFromBuildServer() {
-        // clean variables
+        // clean connect variables
         this.buildServerApi = null;
         this.buildServerModel = null;
+
+        this.abortStage();
 
         return true;
     }
 
-    public boolean abortStage() {
-        // clean variables
+    // -----------------------------------------------------------------------------------------------------------------
+    // abort
+    // -----------------------------------------------------------------------------------------------------------------
 
-        // download
+    public boolean abortStage() {
+        // clean download variables
         this.buildServerBuild = null;
         this.buildServerBuildLog = null;
 
-        // process
-        this.build = null;
-        this.rawMavenBuildLog = null;
+        // clean process variables
+        this.mavenBuildLog = null;
         this.mavenBuild = null;
         this.failureCategory = null;
         this.errors = null;
 
-        // fix
+        // clean fix variables
         this.gitApi = null;
         this.gitRepositoryOriginUrl = null;
         this.previousBranch = null;
@@ -295,20 +321,7 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
-    // -------------------
-
-    public BuildServer fetchBuildServerInformation() {
-        this.buildServerModel = this.buildServerApi.toBuildServerModel();
-        return this.buildServerModel;
-    }
-
-    public BuildServer getBuildServerInformation() {
-        return this.buildServerModel;
-    }
-
-    public static boolean testBuildServerConnection(BuildServerType buildServerType, String host, String username, String password) {
-        return new BuildServerApi(buildServerType).testConnection(host, username, password);
-    }
+    // -----------------------------------------------------------------------------------------------------------------
 
     public boolean isInNoStage() {
         return super.stage == BuildFixAssistantStage.NONE;
@@ -332,10 +345,5 @@ public class Caesar extends CaesarStages {
 
     public String getGitRepositoryOriginUrl() {
         return this.gitRepositoryOriginUrl;
-    }
-
-    // download
-    public String getBuildServerBuildLog() {
-        return this.buildServerBuildLog;
     }
 }
