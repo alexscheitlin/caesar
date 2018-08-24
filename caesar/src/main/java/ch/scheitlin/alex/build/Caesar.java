@@ -25,7 +25,11 @@ public class Caesar extends CaesarStages {
     // -----------------------------------------------------------------------------------------------------------------
     // connect
     // -----------------------------------------------------------------------------------------------------------------
+
+    // internal concern
     private BuildServerApi buildServerApi;
+
+    // internal and external concern
     private BuildServer buildServerModel;
 
     public boolean connectToBuildServer(String host, String username, String password) {
@@ -56,7 +60,11 @@ public class Caesar extends CaesarStages {
     // -----------------------------------------------------------------------------------------------------------------
     // download
     // -----------------------------------------------------------------------------------------------------------------
+
+    // internal concern
     private BuildServerBuild buildServerBuild;
+
+    // internal and external concern
     private String buildServerBuildLog;
 
     public boolean downloadBuildLog(BuildServerBuild build) {
@@ -82,10 +90,12 @@ public class Caesar extends CaesarStages {
     // -----------------------------------------------------------------------------------------------------------------
     // process
     // -----------------------------------------------------------------------------------------------------------------
+
+    // internal and external concern
     private String mavenBuildLog;
-    public MavenBuild mavenBuild;
-    public String failureCategory;
-    public List<Error> errors;
+    private MavenBuild mavenBuild;
+    private String failureCategory;
+    private List<Error> errors;
 
     public boolean processBuildLog() {
         // parse build server build log
@@ -155,12 +165,32 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
+    public String getMavenBuildLog() {
+        return this.mavenBuildLog;
+    }
+
+    public MavenBuild getMavenBuild() {
+        return this.mavenBuild;
+    }
+
+    public String getFailureCategory() {
+        return this.failureCategory;
+    }
+
+    public List<Error> getErrors() {
+        return this.errors;
+    }
+
     // -----------------------------------------------------------------------------------------------------------------
     // fix
     // -----------------------------------------------------------------------------------------------------------------
+
+    // internal concern
     private GitApi gitApi;
-    private String gitRepositoryOriginUrl;
     private String previousBranch;
+
+    // internal and external concern
+    private String gitRepositoryOriginUrl;
     private String stashedChanges;
     private String newBranch;
 
@@ -249,6 +279,18 @@ public class Caesar extends CaesarStages {
         }
 
         return true;
+    }
+
+    public String getGitRepositoryOriginUrl() {
+        return this.gitRepositoryOriginUrl;
+    }
+
+    public String getStashedChanges() {
+        return this.stashedChanges;
+    }
+
+    public String getNewBranch() {
+        return this.newBranch;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -341,9 +383,5 @@ public class Caesar extends CaesarStages {
 
     public boolean isFixing() {
         return super.stage == BuildFixAssistantStage.FIXING;
-    }
-
-    public String getGitRepositoryOriginUrl() {
-        return this.gitRepositoryOriginUrl;
     }
 }
