@@ -85,8 +85,8 @@ public class MavenGoalLogParserTest {
         String file = "pom.xml";
         int line = 0;
         int column = 0;
-        String message = "Could not resolve dependencies" + "\n" +
-                "Could not find artifact junit:junit:jar:5.12 in central (http://repo.maven.apache.org/maven2) -> [Help 1]";
+        String message = "Could not find artifact: junit:junit:5.12 (version '5.12' is locally not available)\n" +
+                "Please check why this version can not be found in any of the defined repositories in the pom.xml file or if the <version> really exists.";
         Error expectedError1 = new Error(path, file, line, column, message);
         expectedErrors.add(expectedError1);
 

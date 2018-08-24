@@ -93,6 +93,14 @@ public class MavensurefireTest extends GoalParser {
                 } else if (resultsMatcher.matches(line)) {
                     // finish test counting and start test catching
                     hasCountedBrokenTests = true;
+
+                    if (failedTestsCounter == 0) {
+                        hasCaughtFailedTests = true;
+                    }
+
+                    if (errorTestsCounter == 0) {
+                        hasCaughtErrorTests = true;
+                    }
                 }
                 continue;
             }
@@ -112,8 +120,9 @@ public class MavensurefireTest extends GoalParser {
                     String[] components = testIndicatorMatcher.extractComponentsSilently(line.trim());
                     errors.add(createError(components));
                     continue;
-                } else if (errorTestsMatcher.matches(line)) {
-                    // finish catching failed tests and start catching error tests
+                } else if (errorTestsMatcher.matches(line) || testRunSummaryMatcher.matches(line)) {
+                    // finish catching failed tests and start catching error tests or read test run summary if no test
+                    // errors occurred
                     hasCaughtFailedTests = true;
                 } else {
                     continue;
