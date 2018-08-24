@@ -7,7 +7,6 @@ import ch.scheitlin.alex.maven.Classifier;
 import ch.scheitlin.alex.maven.MavenBuildLogParser;
 import ch.scheitlin.alex.maven.MavenGoalLogParser;
 import ch.scheitlin.alex.maven.MavenBuild;
-import ch.scheitlin.alex.teamcity.api.TeamcityApi;
 import javafx.util.Pair;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class Caesar extends CaesarStages {
 
     // download
     private BuildServerBuild buildServerBuild;
-    private String rawTeamCityBuildLog;
+    private String buildServerBuildLog;
 
     // process
     private Build build;
@@ -49,7 +48,7 @@ public class Caesar extends CaesarStages {
 
     public boolean connectToBuildServer(String host, String username, String password) {
         // return false if connection test fails
-        if (!this.testTeamCityConnection(host, username, password)) {
+        if (!this.testBuildServerConnection(this.buildServerType, host, username, password)) {
             return false;
         }
 
@@ -64,13 +63,13 @@ public class Caesar extends CaesarStages {
         this.buildServerBuild = build;
 
         try {
-            this.rawTeamCityBuildLog = this.buildServerApi.downloadBuildLog(this.buildServerBuild.getId());
+            this.buildServerBuildLog = this.buildServerApi.downloadBuildLog(this.buildServerBuild.getId());
         } catch (Exception ex) {
             //throw new Exception("Build log could not be downloaded.");
             return false;
         }
 
-        if (this.rawTeamCityBuildLog == null || this.rawTeamCityBuildLog.equals("")) {
+        if (this.buildServerBuildLog == null || this.buildServerBuildLog.equals("")) {
             //throw new Exception("Build log could not be processed.");
             return false;
         }
@@ -83,9 +82,9 @@ public class Caesar extends CaesarStages {
         this.build = null;
         try {
             BuildServerBuildLogParser buildLogParser = new BuildServerBuildLogParser(this.buildServerType);
-            this.build = buildLogParser.parseBuildLog(this.rawTeamCityBuildLog);
+            this.build = buildLogParser.parseBuildLog(this.buildServerBuildLog);
         } catch (Exception ex) {
-            //throw new Exception("TeamCity build log could not be parsed.");
+            //throw new Exception("Build server build log could not be parsed.");
             return false;
         }
 
@@ -274,7 +273,7 @@ public class Caesar extends CaesarStages {
 
         // download
         this.buildServerBuild = null;
-        this.rawTeamCityBuildLog = null;
+        this.buildServerBuildLog = null;
 
         // process
         this.build = null;
@@ -308,8 +307,8 @@ public class Caesar extends CaesarStages {
         return this.buildServerModel;
     }
 
-    public boolean testTeamCityConnection(String host, String username, String password) {
-        return new TeamcityApi().testConnection(host, username, password);
+    public static boolean testBuildServerConnection(BuildServerType buildServerType, String host, String username, String password) {
+        return new BuildServerApi(buildServerType).testConnection(host, username, password);
     }
 
     public boolean isInNoStage() {
@@ -337,7 +336,7 @@ public class Caesar extends CaesarStages {
     }
 
     // download
-    public String getRawTeamCityBuildLog() {
-        return this.rawTeamCityBuildLog;
+    public String getBuildServerBuildLog() {
+        return this.buildServerBuildLog;
     }
 }
