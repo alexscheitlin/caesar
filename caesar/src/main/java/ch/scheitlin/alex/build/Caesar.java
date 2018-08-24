@@ -38,6 +38,7 @@ public class Caesar extends CaesarStages {
     private String gitRepositoryOriginUrl;
     private String previousBranch;
     private String stashedChanges;
+    private String newBranch;
 
     public Caesar(BuildServerType buildServerType) {
         this.buildServerType = buildServerType;
@@ -151,7 +152,8 @@ public class Caesar extends CaesarStages {
         String commitId = this.buildServerBuild.getCommit();
         String buildNumber = this.buildServerBuild.getNumber();
 
-        // connect to git and get git origin remote url
+        // connect to git and get git origin remote url to verify that this is the same repository as the one used on
+        // the build server
         try {
             // connect to git repository
             this.gitApi = new GitApi(pathToLocalGitRepository);
@@ -163,12 +165,15 @@ public class Caesar extends CaesarStages {
                     this.gitRepositoryOriginUrl = remote.getValue();
                 }
             }
+
+            this.previousBranch = this.gitApi.getCurrentBranch();
         } catch (Exception ex) {
             System.out.print(ex.getMessage());
             return false;
         }
 
-        // check whether the local git repository and the teamcity build have the same repository as origin
+        // check whether the local git repository and the one used on the build server have the same remote repository
+        // set as origin
         if (!this.gitRepositoryOriginUrl.equals(urlToRemoteGitRepository)) {
             /*
             throw new Exception("Different repository origin detected:\n" +
@@ -178,73 +183,52 @@ public class Caesar extends CaesarStages {
             return false;
         }
 
+        // stash uncommitted changes if there are any
         try {
-            // ***********************
-            // git workflow
+            if (!this.gitApi.isRepositoryClean()) {
+                this.gitApi.stageAllFiles();
+                this.stashedChanges = this.gitApi.stashTrackedAndStagedFiles();
+            }
+        } catch (Exception ex) {
+            System.out.print(ex.getMessage());
+            return false;
+        }
+
+        // fetch latest changes from remote repository
+        // disabled as currently not needed
+        // username and password should not be set within CAESAR
+        /*
+        final String USERNAME = "jgit-workflow";
+        final String PASSWORD = "220d90c85130348b8e2844a2bacaab7f5f95fc56";
+        try {
+            this.gitApi.fetchFromRemoteRepository(USERNAME, PASSWORD);
+        } catch (Exception ex) {
+            System.out.print(ex.getMessage());
+            return false;
+        }
+        */
+
+        // checkout to the specified commit
+        // the branch name is named as follows: fix-buildNumber (eg. fix-51)
+        // if the branch already exists append version (eg. fix-51-v2)
+        String branchName = null;
+        int counter = 0;
+        int maxTries = 100;
+        while (counter++ < maxTries) {
+            branchName = "fix-" + buildNumber;
+
+            if (counter != 1) {
+                branchName += "-v" + counter;
+            }
             try {
-                String commitToFix = commitId;
-                String previousBranch = this.gitApi.getCurrentBranch();
-                String stashedChanges = null;
-
-                System.out.println("On branch: " + previousBranch);
-
-                // stash uncommitted changes if there are any
-                if (!this.gitApi.isRepositoryClean()) {
-                    this.gitApi.stageAllFiles();
-                    stashedChanges = this.gitApi.stashTrackedAndStagedFiles();
-                    System.out.println("Open changes are stashed!");
-                } else {
-                    System.out.println("No open changes detected.");
-                }
-                System.out.println();
-
-                // fetch from remote repository
-                final String USERNAME = "jgit-workflow";
-                final String PASSWORD = "220d90c85130348b8e2844a2bacaab7f5f95fc56";
-                try {
-                    this.gitApi.fetchFromRemoteRepository(USERNAME, PASSWORD);
-                } catch (Exception ex) {
+                this.gitApi.createBranchFromCommit(commitId, branchName);
+                this.newBranch = branchName;
+                break;
+            } catch (Exception e) {
+                if (counter == maxTries) {
                     return false;
                 }
-
-                // checkout to commit to fix
-                // branch name: fix-buildNumber (eg. fix-51)
-                // if branch already exists append version (eg. fix-51-v2)
-                String branchName = null;
-                int counter = 0;
-                int maxTries = 100;
-                while (counter++ < maxTries) {
-                    branchName = "fix-" + buildNumber;
-
-                    if (counter != 1) {
-                        branchName += "-v" + counter;
-                    }
-                    try {
-                        this.gitApi.createBranchFromCommit(commitToFix, branchName);
-                        break;
-                    } catch (Exception e) {
-                        if (counter == maxTries) {
-                            System.out.println("Could not create new branch!");
-                            return false;
-                        }
-                        continue;
-                    }
-                }
-
-                System.out.println("Created new branch '" + branchName + "' starting at commit '" + commitToFix + "'.");
-                System.out.println("On branch: " + this.gitApi.getCurrentBranch());
-                System.out.println();
-
-                this.previousBranch = previousBranch;
-                this.stashedChanges = stashedChanges;
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-                return false;
             }
-
-        } catch (Exception e) {
-            System.out.println(e.toString());
-            return false;
         }
 
         return true;
@@ -268,8 +252,11 @@ public class Caesar extends CaesarStages {
             System.out.println(ex.getMessage());
         }
 
+        this.gitApi = null;
+        this.gitRepositoryOriginUrl = null;
         this.previousBranch = null;
         this.stashedChanges = null;
+        this.newBranch = null;
 
         return true;
     }
@@ -301,6 +288,7 @@ public class Caesar extends CaesarStages {
         this.gitRepositoryOriginUrl = null;
         this.previousBranch = null;
         this.stashedChanges = null;
+        this.newBranch = null;
 
         return true;
     }
