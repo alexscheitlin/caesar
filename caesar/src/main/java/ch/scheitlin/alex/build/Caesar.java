@@ -12,7 +12,7 @@ import javafx.util.Pair;
 
 import java.util.List;
 
-public class Assistant extends AssistantWithStages {
+public class Caesar extends CaesarStages {
     private BuildServerType buildServerType;
 
     // -----------------------------------------------------
@@ -39,7 +39,7 @@ public class Assistant extends AssistantWithStages {
     private String previousBranch;
     private String stashedChanges;
 
-    public Assistant(BuildServerType buildServerType) {
+    public Caesar(BuildServerType buildServerType) {
         this.buildServerType = buildServerType;
     }
 

@@ -4,10 +4,10 @@ import ch.scheitlin.alex.build.model.BuildServerBuild;
 
 import java.util.Arrays;
 
-public abstract class AssistantWithStages {
+public abstract class CaesarStages {
     protected BuildFixAssistantStage stage;
 
-    public AssistantWithStages() {
+    public CaesarStages() {
         this.stage = BuildFixAssistantStage.NONE;
     }
 
