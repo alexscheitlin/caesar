@@ -3,9 +3,7 @@ package ch.scheitlin.alex.teamcity.api;
 import ch.scheitlin.alex.build.Api;
 import ch.scheitlin.alex.build.model.BuildServer;
 import ch.scheitlin.alex.build.model.BuildServerType;
-import org.jetbrains.teamcity.rest.BuildId;
-import org.jetbrains.teamcity.rest.TeamCityInstance;
-import org.jetbrains.teamcity.rest.TeamCityInstanceFactory;
+import org.jetbrains.teamcity.rest.*;
 
 import java.io.File;
 
@@ -25,12 +23,12 @@ public class TeamcityApi extends Api {
         TeamCityInstance teamCity;
         try {
             teamCity = TeamCityInstanceFactory.httpAuth(host, username, password);
-            teamCity.rootProject();
-
-            return true;
+            teamCity.rootProject().getName();
         } catch (Exception ex) {
             return false;
         }
+
+        return true;
     }
 
     public void login(String host, String username, String password) {
