@@ -4,7 +4,7 @@
 
 ## Stages
 
-An assistance instance is always in one of the following stages:
+A CAESAR instance is always in one of the following stages:
 
 - `NONE`: a new instance is created but no further action was taken
 - `CONNECTED`: connected to the build server
@@ -14,18 +14,29 @@ An assistance instance is always in one of the following stages:
 
 For entering one of the stages, the following methods are used:
 
-- `connect()` -> `CONNECTED`
-- `download()` -> `DOWNLOADED`
-- `process()` -> `PROCESSED`
-- `fix()` -> `FIXING`
-- `finish()` -> `CONNECTED`
-- `disconnect()` -> `NONE`
-- `abort()` -> `CONNECTED`
-
-Note: The stages may only be executed in the given order and no stage may be left out.
-
 ![Stages](assets/stages.png)
 
+When trying to enter a new stage CAESAR starts doing the respective work and only enters the new stage if the work could be finished successfully. Once a new stage is entered CAESAR provides access to the computed results. The following list shows which data is computed before entering the respective stage:
+
+- **CONNECTED**
+  - build server model ([BuildServerModel](../build-server-model)): contains all the data about configured projects, build configurations, and executed builds on the build server
+- **DOWNLOADED**
+  - build server build log: the unprocessed build log as a `String`
+- **PROCESSED**
+  - maven build log: the maven log extracted from the build server build log as a `String`
+  - maven build ([MavenModel](../maven-model)): contains all the data from the maven build log to explore it
+  - failure category: one of the [13 failure categories](../maven-goal-classifier) if the build failed
+  - errors: a list of occurred errors that caused a possible build failure
+- **FIXING**
+  - git repository origin url: the url specified as remote repository origin in the local git repository
+  - stashed changes: the name of the stash if any changes were stashed before checking out the code base that caused the build failure
+  - new branch: the name of the new branch (at the commit that caused the build failure)
+
+_The data is only available when going to the next stage in the workflow. If `finish()`, `abort()`, or `disconnect()` are called, the data gets erased._
+
+
 ## Data Flow and Data Processing
+
+The following visualization illustrates how data is passed between the different components of CAESAR and which component is responsible for which computations.
 
 ![Data](assets/data.png)
