@@ -1,6 +1,7 @@
 import ch.scheitlin.alex.build.Caesar;
 import ch.scheitlin.alex.build.model.*;
 import ch.scheitlin.alex.build.model.Error;
+import ch.scheitlin.alex.maven.MavenBuild;
 import ch.scheitlin.alex.maven.MavenBuildStatus;
 
 import java.util.List;
@@ -149,31 +150,32 @@ public class Main {
         System.out.println("\tprocessed");
 
         // show build information to the user
+        MavenBuild mavenBuild = caesar.getMavenBuild();
         System.out.println();
-        System.out.println("Build Status:\t\t\t\t" + caesar.mavenBuild.getStatus());
+        System.out.println("Build Status:\t\t\t\t" + mavenBuild.getStatus());
 
-        if (caesar.mavenBuild.getStatus() == MavenBuildStatus.SUCCESS) {
+        if (mavenBuild.getStatus() == MavenBuildStatus.SUCCESS) {
             exit();
             return;
         }
 
         System.out.print("Failed Goal:\t\t\t\t");
-        if (caesar.mavenBuild.getFailedGoal() != null) {
-            System.out.println(caesar.mavenBuild.getFailedGoal());
+        if (mavenBuild.getFailedGoal() != null) {
+            System.out.println(mavenBuild.getFailedGoal());
         } else {
             System.out.println("No failed goal detected!");
         }
         System.out.print("Error Message:\t\t\t\t");
-        if (caesar.mavenBuild.getErrorMessage() != null) {
-            System.out.println(caesar.mavenBuild.getErrorMessage());
+        if (mavenBuild.getErrorMessage() != null) {
+            System.out.println(mavenBuild.getErrorMessage());
         } else {
             System.out.println("No error message detected!");
         }
-        System.out.println("Failure Category:\t\t\t" + caesar.failureCategory);
+        System.out.println("Failure Category:\t\t\t" + caesar.getFailureCategory());
 
         // show errors to the user
         System.out.println();
-        List<Error> errors = caesar.errors;
+        List<Error> errors = caesar.getErrors();
         if (errors != null) {
             for (Error error : errors) {
                 System.out.println("Error:\t\t" + error.getMessage());
@@ -223,7 +225,12 @@ public class Main {
             exit();
             return;
         }
-        System.out.println("\tloaded");
+        System.out.println("\tloaded to new branch: " + caesar.getNewBranch());
+        System.out.println("\tchecked out to new branch");
+        if (caesar.getStashedChanges() != null) {
+            System.out.println("\topen changes stashed: " + caesar.getStashedChanges());
+        }
+
 
         System.out.println();
         System.out.print("Please press enter after you are finished fixing the code.");
