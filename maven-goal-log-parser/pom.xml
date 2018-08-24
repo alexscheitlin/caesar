@@ -66,6 +66,15 @@
         </dependency>
         <!-- java-stack-trace-parser -->
 
+        <!-- local-maven-repository-reader -->
+        <dependency>
+            <groupId>com.github.alexscheitlin</groupId>
+            <artifactId>local-maven-repository-reader</artifactId>
+            <version>v1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- local-maven-repository-reader -->
+
         <!-- error-model -->
         <dependency>
             <groupId>ch.scheitlin.alex.build.model</groupId>
