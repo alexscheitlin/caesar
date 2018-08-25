@@ -6,6 +6,7 @@ import ch.scheitlin.alex.java.StackTraceParser;
 import ch.scheitlin.alex.utils.RegexMatcher;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -197,7 +198,7 @@ public class MavensurefireTest extends GoalParser {
                     stackTraceCounter++;
 
                     for (Error error : errors) {
-                        if (error.getFile().equals(testClassToPath(currentClassInBuildSummary)) &&
+                        if (error.getFullPath().equals(testClassToFullPath(currentClassInBuildSummary)) &&
                                 error.getMessage().equals(currentMethodInBuildSummary)) {
                             // parse stack trace
                             StackTrace stackTrace = null;
@@ -275,8 +276,8 @@ public class MavensurefireTest extends GoalParser {
         String testMethod = components[0];
         String testClass = components[1];
 
-        String path = null;
-        String file = testClassToPath(testClass);
+        String path = getPathFromTestClass(testClass);
+        String file = getFileFromTestClass(testClass);
         int line = 0;
         int column = 0;
         String message = testMethod;
@@ -286,8 +287,21 @@ public class MavensurefireTest extends GoalParser {
         return new Error(path, file, line, column, message);
     }
 
-    private String testClassToPath(String testClass) {
+    static String testClassToFullPath(String testClass) {
         return "src/test/java/" + testClass.replaceAll("\\.", "/") + ".java";
     }
 
+    static String getPathFromTestClass(String testClass) {
+        String fullPath = testClassToFullPath(testClass);
+        String[] pathParts = fullPath.split("/");
+        String result = fullPath.replaceAll(pathParts[pathParts.length - 1], "");
+
+        return result.substring(0, result.length() - 1);
+    }
+
+    static String getFileFromTestClass(String testClass) {
+        String[] pathParts = testClassToFullPath(testClass).split("/");
+
+        return pathParts[pathParts.length - 1];
+    }
 }
