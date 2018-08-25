@@ -117,4 +117,29 @@ public class Error {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    /**
+     * Gets the full path (directory, file name, and file ending) of the file where the error occurred.
+     *
+     * @return the full path (directory, file name, and file ending) of the file where the error occurred (no leading or
+     * trailing '/')
+     */
+    public String getFullPath() {
+        String fullPath = "";
+
+        // ignore path if it is null
+        if (this.path != null) {
+            fullPath += this.path;
+        }
+
+        // ignore file if it is null
+        if (this.file != null) {
+            if (fullPath != "") {
+                fullPath += "/";
+            }
+            fullPath += this.file;
+        }
+
+        return fullPath;
+    }
 }

@@ -82,4 +82,72 @@ public class ErrorTest {
         // assert result
         Assert.assertEquals(expectedMessage, actualMessage);
     }
+
+    @Test
+    public void getFullPath() {
+        // assign variables with test data
+        String path = "path";
+        String file = "file";
+        String expectedFullPath = "path/file";
+
+        // allocate test objects
+        Error error = new Error(path, file, 0, 0, null);
+
+        // execute method to be tested
+        String actualFullPath = error.getFullPath();
+
+        // assert result
+        Assert.assertEquals(expectedFullPath, actualFullPath);
+    }
+
+    @Test
+    public void getFullPath_pathNull() {
+        // assign variables with test data
+        String path = null;
+        String file = "file";
+        String expectedFullPath = "file";
+
+        // allocate test objects
+        Error error = new Error(path, file, 0, 0, null);
+
+        // execute method to be tested
+        String actualFullPath = error.getFullPath();
+
+        // assert result
+        Assert.assertEquals(expectedFullPath, actualFullPath);
+    }
+
+    @Test
+    public void getFullPath_fileNull() {
+        // assign variables with test data
+        String path = "path";
+        String file = null;
+        String expectedFullPath = "path";
+
+        // allocate test objects
+        Error error = new Error(path, file, 0, 0, null);
+
+        // execute method to be tested
+        String actualFullPath = error.getFullPath();
+
+        // assert result
+        Assert.assertEquals(expectedFullPath, actualFullPath);
+    }
+
+    @Test
+    public void getFullPath_pathAndFileNull() {
+        // assign variables with test data
+        String path = null;
+        String file = null;
+        String expectedFullPath = "";
+
+        // allocate test objects
+        Error error = new Error(path, file, 0, 0, null);
+
+        // execute method to be tested
+        String actualFullPath = error.getFullPath();
+
+        // assert result
+        Assert.assertEquals(expectedFullPath, actualFullPath);
+    }
 }
