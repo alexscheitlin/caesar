@@ -298,6 +298,8 @@ public class Caesar extends CaesarStages {
     // -----------------------------------------------------------------------------------------------------------------
 
     public boolean stopFixingBrokenBuild() {
+        // let the user go back to the previous branch
+        /*
         try {
             // checkout branch
             this.gitApi.checkoutBranch(this.previousBranch);
@@ -313,13 +315,11 @@ public class Caesar extends CaesarStages {
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+            return false;
         }
+        */
 
-        this.gitApi = null;
-        this.gitRepositoryOriginUrl = null;
-        this.previousBranch = null;
-        this.stashedChanges = null;
-        this.newBranch = null;
+        this.abortStage();
 
         return true;
     }
@@ -363,6 +363,8 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // stages
     // -----------------------------------------------------------------------------------------------------------------
 
     public boolean isInNoStage() {
