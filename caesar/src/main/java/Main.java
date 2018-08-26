@@ -17,9 +17,9 @@ public class Main {
     private static final String PATH_TO_PROJECT = "C:\\Users\\alex\\IdeaProjects\\demo-bank-account";
 
     // to run through the script without interacting with it
-    private static final boolean AUTO_RUN = false;
+    private static final boolean AUTO_RUN = true;
     private static final int AUTO_RUN_PROJECT_INDEX = 1;
-    private static final int AUTO_RUN_BUILD_INDEX = 12;
+    private static final int AUTO_RUN_BUILD_INDEX = 2;
 
     public static void main(String[] args) {
         System.out.println(getCaesarTitle());
@@ -208,11 +208,9 @@ public class Main {
                 exit();
                 return;
             }
-        } else {
-            exit();
-            return;
         }
-        if (choice != 1) {
+
+        if (!AUTO_RUN && choice != 1) {
             exit();
             return;
         }
@@ -240,6 +238,16 @@ public class Main {
         } catch (Exception ex) {
             System.out.println("\tCould not read your input!");
         }
+
+        // finish fixing
+        System.out.println("Finish fixing broken code...");
+        if (!caesar.finish()) {
+            System.out.println("\t failed");
+            exit();
+            return;
+        }
+
+        System.out.println("The branch created for fixing may still exist!");
 
         // logout from the build server
         caesar.disconnect();
