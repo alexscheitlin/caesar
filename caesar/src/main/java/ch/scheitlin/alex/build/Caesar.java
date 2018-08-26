@@ -190,7 +190,7 @@ public class Caesar extends CaesarStages {
     private String previousBranch;
 
     // internal and external concern
-    private String gitRepositoryOriginUrl;
+    private String gitRepositoryUrl;
     private String stashedChanges;
     private String newBranch;
 
@@ -199,19 +199,10 @@ public class Caesar extends CaesarStages {
         String commitId = this.buildServerBuild.getCommit();
         String buildNumber = this.buildServerBuild.getNumber();
 
-        // connect to git and get git origin remote url to verify that this is the same repository as the one used on
-        // the build server
+        // connect to git repository
         try {
             // connect to git repository
             this.gitApi = new GitApi(pathToLocalGitRepository);
-
-            // get repository origin url
-            List<Pair<String, String>> remotes = this.gitApi.getRemoteUrls();
-            for (Pair<String, String> remote : remotes) {
-                if (remote.getKey().equals("origin")) {
-                    this.gitRepositoryOriginUrl = remote.getValue();
-                }
-            }
 
             this.previousBranch = this.gitApi.getCurrentBranch();
         } catch (Exception ex) {
@@ -219,14 +210,19 @@ public class Caesar extends CaesarStages {
             return false;
         }
 
+        // get repository urls
+        List<Pair<String, String>> remotes = this.gitApi.getRemoteUrls();
+        if (remotes == null || remotes.size() == 0) {
+            return false;
+        }
+
         // check whether the local git repository and the one used on the build server have the same remote repository
-        // set as origin
-        if (!this.gitRepositoryOriginUrl.equals(urlToRemoteGitRepository)) {
-            /*
-            throw new Exception("Different repository origin detected:\n" +
-                    "\tLocal Repository: " + this.gitRepositoryOriginUrl + "\n" +
-                    "\tBuild Repository: " + urlToRemoteGitRepository
-            );*/
+        for (Pair<String, String> remote : remotes) {
+            if (remote.getValue().equals(urlToRemoteGitRepository)) {
+                this.gitRepositoryUrl = remote.getValue();
+            }
+        }
+        if (this.gitRepositoryUrl == null) {
             return false;
         }
 
@@ -281,8 +277,8 @@ public class Caesar extends CaesarStages {
         return true;
     }
 
-    public String getGitRepositoryOriginUrl() {
-        return this.gitRepositoryOriginUrl;
+    public String getGitRepositoryUrl() {
+        return this.gitRepositoryUrl;
     }
 
     public String getStashedChanges() {
@@ -355,7 +351,7 @@ public class Caesar extends CaesarStages {
 
         // clean fix variables
         this.gitApi = null;
-        this.gitRepositoryOriginUrl = null;
+        this.gitRepositoryUrl = null;
         this.previousBranch = null;
         this.stashedChanges = null;
         this.newBranch = null;

@@ -28,7 +28,7 @@ When trying to enter a new stage CAESAR starts doing the respective work and onl
   - failure category: one of the [13 failure categories](../maven-goal-classifier) if the build failed
   - errors: a list of occurred errors that caused a possible build failure
 - **FIXING**
-  - git repository origin url: the url specified as remote repository origin in the local git repository
+  - git repository url: the url specified as remote repository in the local git repository
   - stashed changes: the name of the stash if any changes were stashed before checking out the code base that caused the build failure
   - new branch: the name of the new branch (at the commit that caused the build failure)
 
