@@ -229,14 +229,16 @@ public class Main {
             System.out.println("\topen changes stashed: " + caesar.getStashedChanges());
         }
 
-
         System.out.println();
         System.out.print("Please press enter after you are finished fixing the code.");
 
-        try {
-            new Scanner(System.in).nextLine();
-        } catch (Exception ex) {
-            System.out.println("\tCould not read your input!");
+
+        if (!AUTO_RUN) {
+            try {
+                new Scanner(System.in).nextLine();
+            } catch (Exception ex) {
+                System.out.println("\tCould not read your input!");
+            }
         }
 
         // finish fixing

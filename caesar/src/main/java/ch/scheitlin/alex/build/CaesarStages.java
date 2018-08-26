@@ -23,7 +23,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.connectToBuildServer(host, username, password)) {
+        if (!this.connectImpl(host, username, password)) {
             return false;
         }
 
@@ -33,7 +33,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean connectToBuildServer(String host, String username, String password);
+    abstract boolean connectImpl(String host, String username, String password);
 
     public boolean download(BuildServerBuild build) {
         BuildFixAssistantStage[] requiredStages = {
@@ -47,7 +47,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.downloadBuildLog(build)) {
+        if (!this.downloadImpl(build)) {
             return false;
         }
 
@@ -57,7 +57,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean downloadBuildLog(BuildServerBuild build);
+    abstract boolean downloadImpl(BuildServerBuild build);
 
     public boolean process() {
         BuildFixAssistantStage[] requiredStages = {
@@ -71,7 +71,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.processBuildLog()) {
+        if (!this.processImpl()) {
             return false;
         }
 
@@ -81,7 +81,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean processBuildLog();
+    abstract boolean processImpl();
 
     public boolean fix(String pathToLocalGitRepository) {
         BuildFixAssistantStage[] requiredStages = {
@@ -95,7 +95,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.startFixingBrokenBuild(pathToLocalGitRepository)) {
+        if (!this.fixImpl(pathToLocalGitRepository)) {
             return false;
         }
 
@@ -105,7 +105,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean startFixingBrokenBuild(String pathToLocalGitRepository);
+    abstract boolean fixImpl(String pathToLocalGitRepository);
 
     public boolean finish() {
         BuildFixAssistantStage[] requiredStages = {
@@ -119,7 +119,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.stopFixingBrokenBuild()) {
+        if (!this.finishImpl()) {
             return false;
         }
 
@@ -129,7 +129,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean stopFixingBrokenBuild();
+    abstract boolean finishImpl();
 
     public boolean disconnect() {
         BuildFixAssistantStage[] requiredStages = {
@@ -144,7 +144,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.disconnectFromBuildServer()) {
+        if (!this.disconnectImpl()) {
             return false;
         }
 
@@ -154,7 +154,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean disconnectFromBuildServer();
+    abstract boolean disconnectImpl();
 
     public boolean abort() {
         BuildFixAssistantStage[] requiredStages = {
@@ -170,7 +170,7 @@ public abstract class CaesarStages {
         }
 
         // try to enter next stage
-        if (!this.abortStage()) {
+        if (!this.abortImpl()) {
             return false;
         }
 
@@ -180,7 +180,7 @@ public abstract class CaesarStages {
         return true;
     }
 
-    abstract boolean abortStage();
+    abstract boolean abortImpl();
 
     private boolean stageCheck(BuildFixAssistantStage[] stages) {
         return Arrays.asList(stages).contains(this.stage);
