@@ -32,7 +32,7 @@ public class Caesar extends CaesarStages {
     // internal and external concern
     private BuildServer buildServerModel;
 
-    public boolean connectImpl(String host, String username, String password) {
+    boolean connectImpl(String host, String username, String password) {
         // return false if connection test fails
         if (!testBuildServerConnection(this.buildServerType, host, username, password)) {
             return false;
@@ -67,7 +67,7 @@ public class Caesar extends CaesarStages {
     // internal and external concern
     private String buildServerBuildLog;
 
-    public boolean downloadImpl(BuildServerBuild build) {
+    boolean downloadImpl(BuildServerBuild build) {
         this.buildServerBuild = build;
 
         try {
@@ -97,7 +97,7 @@ public class Caesar extends CaesarStages {
     private String failureCategory;
     private List<Error> errors;
 
-    public boolean processImpl() {
+    boolean processImpl() {
         // parse build server build log
         Build build = null;
         try {
@@ -194,7 +194,7 @@ public class Caesar extends CaesarStages {
     private String stashedChanges;
     private String newBranch;
 
-    public boolean fixImpl(String pathToLocalGitRepository) {
+    boolean fixImpl(String pathToLocalGitRepository) {
         String urlToRemoteGitRepository = this.buildServerBuild.getRepository();
         String commitId = this.buildServerBuild.getCommit();
         String buildNumber = this.buildServerBuild.getNumber();
@@ -293,7 +293,7 @@ public class Caesar extends CaesarStages {
     // finish
     // -----------------------------------------------------------------------------------------------------------------
 
-    public boolean finishImpl() {
+    boolean finishImpl() {
         // let the user go back to the previous branch
         /*
         try {
@@ -324,7 +324,7 @@ public class Caesar extends CaesarStages {
     // disconnect
     // -----------------------------------------------------------------------------------------------------------------
 
-    public boolean disconnectImpl() {
+    boolean disconnectImpl() {
         // clean connect variables
         this.buildServerApi = null;
         this.buildServerModel = null;
@@ -338,7 +338,7 @@ public class Caesar extends CaesarStages {
     // abort
     // -----------------------------------------------------------------------------------------------------------------
 
-    public boolean abortImpl() {
+    boolean abortImpl() {
         // clean download variables
         this.buildServerBuild = null;
         this.buildServerBuildLog = null;
