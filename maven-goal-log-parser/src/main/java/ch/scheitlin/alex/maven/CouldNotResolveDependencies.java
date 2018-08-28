@@ -67,20 +67,43 @@ public class CouldNotResolveDependencies extends GoalParser {
                         } else {
                             boolean doesArtifactExist = LocalMavenRepositoryReader.doesArtifactExist(groupId, artifactId);
                             if (!doesArtifactExist) {
+                                String[] artifacts = LocalMavenRepositoryReader.getArtifactsOfGroup(groupId);
+                                String artifactText = "";
+                                if (artifacts.length != 0) {
+                                    artifactText = "Locally, only the following artifacts are available: ";
+                                    for (String a : artifacts) {
+                                        artifactText += a + ", ";
+                                    }
+                                    artifactText = artifactText.substring(0, artifactText.length() - 2);
+                                    artifactText += "\n";
+                                }
                                 errorMessage += " (artifact '" + artifactId + "' is locally not available)";
                                 errorMessage += "\nPlease check why this artifact can not be found on maven central or in any of the defined" +
                                         " repositories in the pom.xml file. Does the the <artifactId> really exist?\n" +
+                                        artifactText +
                                         "Check all available artifacts of this group on maven central: " +
                                         "https://mvnrepository.com/artifact/" + groupId;
 
                             } else {
                                 boolean doesVersionExist = LocalMavenRepositoryReader.doesVersionExist(groupId, artifactId, version);
                                 if (!doesVersionExist) {
+                                    String[] versions = LocalMavenRepositoryReader.getArtifactVersions(groupId, artifactId);
+                                    String versionText = "";
+                                    if (versions.length != 0) {
+                                        versionText = "Locally, only the following versions are available: ";
+                                        for (String v : versions) {
+                                            versionText += v + ", ";
+                                        }
+                                        versionText = versionText.substring(0, versionText.length() - 2);
+                                        versionText += "\n";
+                                    }
                                     errorMessage += " (version '" + version + "' is locally not available)";
                                     errorMessage += "\nPlease check why this version can not be found on maven central or in any of the defined" +
                                             " repositories in the pom.xml file. Does the <version> really exist?\n" +
+                                            versionText +
                                             "Check all available versions of this artifact on maven central: " +
                                             "https://mvnrepository.com/artifact/" + groupId + "/" + artifactId;
+
                                 } else {
                                     errorMessage += "\nEven though the artifact is available locally the build server could not find it.";
                                     errorMessage += "\nPlease check if this version of the artifact really is available in one of the" +

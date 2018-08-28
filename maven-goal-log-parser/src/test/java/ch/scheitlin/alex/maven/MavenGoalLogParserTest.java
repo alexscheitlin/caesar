@@ -87,6 +87,7 @@ public class MavenGoalLogParserTest {
         int column = 0;
         String message = "Could not find artifact: junit:junit:5.12 (version '5.12' is locally not available)\n" +
                 "Please check why this version can not be found on maven central or in any of the defined repositories in the pom.xml file. Does the <version> really exist?\n" +
+                "Locally, only the following versions are available: 3.8.1, 3.8.2, 4.11, 4.12, 4.8.2\n" +
                 "Check all available versions of this artifact on maven central: https://mvnrepository.com/artifact/junit/junit";
         Error expectedError1 = new Error(path, file, line, column, message);
         expectedErrors.add(expectedError1);
