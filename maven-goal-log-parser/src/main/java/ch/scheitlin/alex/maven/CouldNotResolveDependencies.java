@@ -52,33 +52,35 @@ public class CouldNotResolveDependencies extends GoalParser {
                         // check whether the the artifact exists in the local maven repository
                         boolean doesGroupExist = LocalMavenRepositoryReader.doesGroupExist(groupId);
                         if (!doesGroupExist) {
-                            System.out.println("Group: " + groupId + " does not exists");
                             String nonExistingSubGroup = LocalMavenRepositoryReader.getNonExistingSubGroup(groupId);
 
                             if (nonExistingSubGroup == null) {
                                 // folder for group exists but there is no version
-                                errorMessage += " (group is locally not available)";
+                                errorMessage += " (group "+ groupId + " is locally not available)";
                             } else {
                                 // folder for group does not exist
                                 errorMessage += " (sub group '" + nonExistingSubGroup + "' is locally not available)";
                             }
-                            errorMessage += "\nPlease check why this group can not be found in any of the defined" +
-                                    " repositories in the pom.xml file or if the <groupId> really exists.";
+                            errorMessage += "\nPlease check why this group can not be found on maven central or in any of the defined" +
+                                    " repositories in the pom.xml file. Does the <groupId> really exist?";
 
                         } else {
-                            System.out.println("Group: " + groupId + " exists");
                             boolean doesArtifactExist = LocalMavenRepositoryReader.doesArtifactExist(groupId, artifactId);
                             if (!doesArtifactExist) {
                                 errorMessage += " (artifact '" + artifactId + "' is locally not available)";
-                                errorMessage += "\nPlease check why this artifact can not be found in any of the defined" +
-                                        " repositories in the pom.xml file or if the <artifactId> really exists.";
+                                errorMessage += "\nPlease check why this artifact can not be found on maven central or in any of the defined" +
+                                        " repositories in the pom.xml file. Does the the <artifactId> really exist?\n" +
+                                        "Check all available artifacts of this group on maven central: " +
+                                        "https://mvnrepository.com/artifact/" + groupId;
 
                             } else {
                                 boolean doesVersionExist = LocalMavenRepositoryReader.doesVersionExist(groupId, artifactId, version);
                                 if (!doesVersionExist) {
                                     errorMessage += " (version '" + version + "' is locally not available)";
-                                    errorMessage += "\nPlease check why this version can not be found in any of the defined" +
-                                            " repositories in the pom.xml file or if the <version> really exists.";
+                                    errorMessage += "\nPlease check why this version can not be found on maven central or in any of the defined" +
+                                            " repositories in the pom.xml file. Does the <version> really exist?\n" +
+                                            "Check all available versions of this artifact on maven central: " +
+                                            "https://mvnrepository.com/artifact/" + groupId + "/" + artifactId;
                                 } else {
                                     errorMessage += "\nEven though the artifact is available locally the build server could not find it.";
                                     errorMessage += "\nPlease check if this version of the artifact really is available in one of the" +
