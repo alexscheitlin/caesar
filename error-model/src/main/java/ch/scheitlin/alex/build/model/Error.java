@@ -56,6 +56,15 @@ public class Error {
     }
 
     /**
+     * Sets the path (directory) of the file where the error occurred.
+     *
+     * @param path the path (directory) of the file where the error occurred
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
      * Gets the name (and file ending) of the file where the error occurred.
      *
      * @return the name (and file ending) of the file where the error occurred

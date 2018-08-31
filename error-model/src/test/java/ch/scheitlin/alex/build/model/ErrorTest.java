@@ -6,12 +6,13 @@ import org.junit.Test;
 public class ErrorTest {
 
     @Test
-    public void getPath() {
+    public void setAndGetPath() {
         // assign variables with test data
         String expectedPath = "D:/some/path";
 
         // allocate test objects
-        Error error = new Error(expectedPath, null, 0, 0, null);
+        Error error = new Error(null, null, 0, 0, null);
+        error.setPath(expectedPath);
 
         // execute method to be tested
         String actualPath = error.getPath();
