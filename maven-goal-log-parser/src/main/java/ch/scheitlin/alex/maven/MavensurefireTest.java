@@ -19,7 +19,8 @@ public class MavensurefireTest extends GoalParser {
     private final String START_3 = "^-------------------------------------------------------$";
     private final String TEST_RUN = "^Tests run: \\d+, Failures: (\\d+), Errors: (\\d+), Skipped: \\d+, Time elapsed: .* sec.*$";
     private final String RESULTS = "^Results :$";
-    private final String TEST_INDICATOR = "^(.*)\\((.*)\\)[:]?[ ]?(.*)?$";
+    private final String TEST_INDICATOR_1 = "^(.*)\\((.*)\\)[:]?[ ]?(.*)?$";
+    private final String TEST_INDICATOR_2 = "^(.*)\\.(.*):([0-9]+)[ ](.*)$";
     private final String FAILED_TESTS = "^Failed tests:(.*)$";
     private final String ERROR_TESTS = "^Tests in error:(.*)$";
     private final String TEST_RUN_SUMMARY = "^Tests run: \\d+, Failures: (\\d+), Errors: (\\d+), Skipped: \\d+$";
@@ -45,7 +46,8 @@ public class MavensurefireTest extends GoalParser {
         RegexMatcher startMatcher3 = new RegexMatcher(START_3);
         RegexMatcher testRunMatcher = new RegexMatcher(TEST_RUN);
         RegexMatcher resultsMatcher = new RegexMatcher(RESULTS);
-        RegexMatcher testIndicatorMatcher = new RegexMatcher(TEST_INDICATOR);
+        RegexMatcher testIndicatorMatcher1 = new RegexMatcher(TEST_INDICATOR_1);
+        RegexMatcher testIndicatorMatcher2 = new RegexMatcher(TEST_INDICATOR_2);
         RegexMatcher failedTestsMatcher = new RegexMatcher(FAILED_TESTS);
         RegexMatcher errorTestsMatcher = new RegexMatcher(ERROR_TESTS);
         RegexMatcher testRunSummaryMatcher = new RegexMatcher(TEST_RUN_SUMMARY);
@@ -111,15 +113,24 @@ public class MavensurefireTest extends GoalParser {
                 if (failedTestsMatcher.matches(line)) {
                     // catch failed test mentioned on same line indicating the "Failed test" section
                     String possibleTest = failedTestsMatcher.extractComponentsSilently(line)[0];
-                    if (testIndicatorMatcher.matches(possibleTest.trim())) {
-                        String[] components = testIndicatorMatcher.extractComponentsSilently(possibleTest.trim());
-                        errors.add(createError(components));
+                    if (testIndicatorMatcher1.matches(possibleTest.trim())) {
+                        String[] components = testIndicatorMatcher1.extractComponentsSilently(possibleTest.trim());
+                        errors.add(createError1(components));
+                        continue;
+                    } else if (testIndicatorMatcher2.matches(possibleTest.trim())) {
+                        String[] components = testIndicatorMatcher2.extractComponentsSilently(possibleTest.trim());
+                        errors.add(createError2(components));
                         continue;
                     }
-                } else if (testIndicatorMatcher.matches(line.trim())) {
+                } else if (testIndicatorMatcher1.matches(line.trim())) {
                     // catch failed test mentioned on separate line
-                    String[] components = testIndicatorMatcher.extractComponentsSilently(line.trim());
-                    errors.add(createError(components));
+                    String[] components = testIndicatorMatcher1.extractComponentsSilently(line.trim());
+                    errors.add(createError1(components));
+                    continue;
+                } else if (testIndicatorMatcher2.matches(line.trim())) {
+                    // catch failed test mentioned on separate line
+                    String[] components = testIndicatorMatcher2.extractComponentsSilently(line.trim());
+                    errors.add(createError2(components));
                     continue;
                 } else if (errorTestsMatcher.matches(line) || testRunSummaryMatcher.matches(line)) {
                     // finish catching failed tests and start catching error tests or read test run summary if no test
@@ -135,15 +146,23 @@ public class MavensurefireTest extends GoalParser {
                 if (errorTestsMatcher.matches(line)) {
                     // catch error test mentioned on same line indicating the "Tests in error" section
                     String possibleTest = errorTestsMatcher.extractComponentsSilently(line)[0];
-                    if (testIndicatorMatcher.matches(possibleTest.trim())) {
-                        String[] components = testIndicatorMatcher.extractComponentsSilently(line.trim());
-                        errors.add(createError(components));
+                    if (testIndicatorMatcher1.matches(possibleTest.trim())) {
+                        String[] components = testIndicatorMatcher1.extractComponentsSilently(line.trim());
+                        errors.add(createError1(components));
+                    } else if (testIndicatorMatcher2.matches(possibleTest.trim())) {
+                        String[] components = testIndicatorMatcher2.extractComponentsSilently(line.trim());
+                        errors.add(createError2(components));
                     }
                     continue;
-                } else if (testIndicatorMatcher.matches(line.trim())) {
+                } else if (testIndicatorMatcher1.matches(line.trim())) {
                     // catch error test mentioned on separate line
-                    String[] components = testIndicatorMatcher.extractComponentsSilently(line.trim());
-                    errors.add(createError(components));
+                    String[] components = testIndicatorMatcher1.extractComponentsSilently(line.trim());
+                    errors.add(createError1(components));
+                    continue;
+                } else if (testIndicatorMatcher2.matches(line.trim())) {
+                    // catch error test mentioned on separate line
+                    String[] components = testIndicatorMatcher2.extractComponentsSilently(line.trim());
+                    errors.add(createError2(components));
                     continue;
                 } else if (testRunSummaryMatcher.matches(line)) {
                     // finish catching error tests and catch test run summary
@@ -198,6 +217,7 @@ public class MavensurefireTest extends GoalParser {
                     stackTraceCounter++;
 
                     for (Error error : errors) {
+                        // case 1: TEST_INDICATOR_1
                         if (error.getFullPath().equals(testClassToFullPath(currentClassInBuildSummary)) &&
                                 error.getMessage().equals(currentMethodInBuildSummary)) {
                             // parse stack trace
@@ -216,15 +236,21 @@ public class MavensurefireTest extends GoalParser {
 
                             // set message
                             error.setMessage(currentErrorInBuildSummary);
+                        } else if (error.getFile().equals(getFileFromTestClass(currentClassInBuildSummary)) &&
+                                error.getMessage().equals(currentMethodInBuildSummary)) {
+                            // case 1: TEST_INDICATOR_2
+
+                            error.setPath(getPathFromTestClass(currentClassInBuildSummary));
+                            error.setMessage(currentErrorInBuildSummary);
                         }
                     }
 
                     // reset variables needed to catch stack trace
                     currentMethodInBuildSummary = null;
-                    currentErrorInBuildSummary = null;
-                    currentStackTraceInBuildSummary = new ArrayList<String>();
-                    lastLineWasStackTrace = false;
                 }
+                currentErrorInBuildSummary = null;
+                currentStackTraceInBuildSummary = new ArrayList<String>();
+                lastLineWasStackTrace = false;
             }
 
             // catch test class
@@ -272,13 +298,28 @@ public class MavensurefireTest extends GoalParser {
         return errors;
     }
 
-    private Error createError(String[] components) {
+    private Error createError1(String[] components) {
         String testMethod = components[0];
         String testClass = components[1];
 
         String path = getPathFromTestClass(testClass);
         String file = getFileFromTestClass(testClass);
         int line = 0;
+        int column = 0;
+        String message = testMethod;
+        // set method as message to later (during stack trace parsing and adding line to this error) knowing the method
+        // to find the right error and not only having the class
+
+        return new Error(path, file, line, column, message);
+    }
+
+    private Error createError2(String[] components) {
+        String testClass = components[0]; // only class name, no package
+        String testMethod = components[1];
+        int line = Integer.valueOf(components[2]);
+
+        String path = null;
+        String file = getFileFromTestClass(testClass);
         int column = 0;
         String message = testMethod;
         // set method as message to later (during stack trace parsing and adding line to this error) knowing the method

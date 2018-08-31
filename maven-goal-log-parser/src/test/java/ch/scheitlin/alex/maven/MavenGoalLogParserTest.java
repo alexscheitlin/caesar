@@ -100,13 +100,13 @@ public class MavenGoalLogParserTest {
     }
 
     @Test
-    public void parseGoalLog_MavensurefireTest() {
+    public void parseGoalLog_MavensurefireTest_1() {
         // define plugin and goal
         String pluginName = "maven-surefire-plugin";
         String goalName = "test";
 
         // read goal log from test resources
-        String log = readResourceFile(pluginName + "-" + goalName + ".txt");
+        String log = readResourceFile(pluginName + "-" + goalName + "-1.txt");
 
         // define expected errors
         List<Error> expectedErrors = new ArrayList<Error>();
@@ -138,6 +138,32 @@ public class MavenGoalLogParserTest {
         String message4 = "java.lang.IllegalArgumentException: Deposit amount less than zero";
         Error expectedError4 = new Error(path4, file4, line4, column4, message4);
         expectedErrors.add(expectedError4);
+
+        // parse goal log
+        List<Error> actualErrors = MavenGoalLogParser.parseGoalLog(pluginName, goalName, log);
+
+        // assert
+        assertErrors(expectedErrors, actualErrors);
+    }
+
+    @Test
+    public void parseGoalLog_MavensurefireTest_2() {
+        // define plugin and goal
+        String pluginName = "maven-surefire-plugin";
+        String goalName = "test";
+
+        // read goal log from test resources
+        String log = readResourceFile(pluginName + "-" + goalName + "-2.txt");
+
+        // define expected errors
+        List<Error> expectedErrors = new ArrayList<Error>();
+        String path1 = "src/test/java/org/apache/commons/cli";
+        String file1 = "UtilTest.java";
+        int line1 = 31;
+        int column1 = 0;
+        String message1 = "org.junit.ComparisonFailure: expected:<[]foo> but was:<[-]foo>";
+        Error expectedError1 = new Error(path1, file1, line1, column1, message1);
+        expectedErrors.add(expectedError1);
 
         // parse goal log
         List<Error> actualErrors = MavenGoalLogParser.parseGoalLog(pluginName, goalName, log);
