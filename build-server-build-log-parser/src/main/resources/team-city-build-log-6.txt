@@ -1,0 +1,761 @@
+Build 'Commons Cli :: Build' #8, branch 'test-failure'
+Started 2018-08-31 17:13:45 on 'W541' by 'Git'
+Finished 2018-08-31 17:14:03 with status FAILURE 'Tests failed: 1, passed: 354, ignored: 54'
+VCS revisions: 'https://github.com/alexscheitlin/commons-cli#refs/heads/master' (Git): 6c01c17496b639234c883386918ebef22481c1be (branch 'refs/heads/test-failure')
+TeamCity URL http://localhost/viewLog.html?buildId=106&buildTypeId=CommonsCli_Build 
+TeamCity server version is 2017.2.4 (build 51228), server timezone: MESZ (UTC+02:00)
+
+[17:13:42]E: bt15 (20s)
+[17:13:42]i: TeamCity server version is 2017.2.4 (build 51228)
+[17:13:42] : The build is removed from the queue to be prepared for the start
+[17:13:42] : Collecting changes in 1 VCS root (1s)
+[17:13:42] :	 [Collecting changes in 1 VCS root] VCS Root details
+[17:13:42] :		 [VCS Root details] "https://github.com/alexscheitlin/commons-cli#refs/heads/master" {instance id=17, parent internal id=14, parent id=CommonsCli_HttpsGithubComAlexscheitlinCommonsCliRefsHeadsMaster, description: "https://github.com/alexscheitlin/commons-cli#refs/heads/master"}
+[17:13:43]i:	 [Collecting changes in 1 VCS root] Detecting changes in VCS root 'https://github.com/alexscheitlin/commons-cli#refs/heads/master' (used in 'Build')
+[17:13:43]i:	 [Collecting changes in 1 VCS root] Will collect changes for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master' starting from revision 2396a2084debc233554328af7d18409c30da5df8
+[17:13:43] :	 [Collecting changes in 1 VCS root] Compute revision for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master'
+[17:13:43] :		 [Compute revision for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master'] Upper limit revision: 6c01c17496b639234c883386918ebef22481c1be
+[17:13:43]i:		 [Compute revision for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master'] MaxModId = 70
+[17:13:43] :		 [Compute revision for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master'] Latest commit attached to build configuration: 6c01c17496b639234c883386918ebef22481c1be
+[17:13:43] :		 [Compute revision for 'https://github.com/alexscheitlin/commons-cli#refs/heads/master'] Computed revision: 6c01c17496b639234c883386918ebef22481c1be
+[17:13:43] : Starting the build on the agent W541
+[17:13:45]i: Agent time zone: Europe/Berlin
+[17:13:45]i: Agent is running under JRE: 1.8.0_161-b12
+[17:13:45] : Clearing temporary directory: C:\TeamCity\buildAgent\temp\buildTmp
+[17:13:45] : Publishing internal artifacts (2s)
+[17:13:47] :	 [Publishing internal artifacts] Publishing 1 file using [ArtifactsCachePublisher]
+[17:13:47] :	 [Publishing internal artifacts] Publishing 1 file using [WebPublisher]
+[17:13:45] : Using vcs information from agent file: 121c41e214b5b6a1.xml
+[17:13:45] : Checkout directory: C:\TeamCity\buildAgent\work\121c41e214b5b6a1
+[17:13:45] : Updating sources: auto checkout (on agent) (3s)
+[17:13:45] :	 [Updating sources] Will use agent side checkout
+[17:13:45] :	 [Updating sources] VCS Root: https://github.com/alexscheitlin/commons-cli#refs/heads/master (3s)
+[17:13:45] :		 [VCS Root: https://github.com/alexscheitlin/commons-cli#refs/heads/master] revision: 6c01c17496b639234c883386918ebef22481c1be
+[17:13:45] :		 [VCS Root: https://github.com/alexscheitlin/commons-cli#refs/heads/master] Git version: 2.16.2.0
+[17:13:45] :		 [VCS Root: https://github.com/alexscheitlin/commons-cli#refs/heads/master] Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git) (2s)
+[17:13:45] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" show-ref
+[17:13:45] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass2205715882506643341.bat -c credential.helper= ls-remote origin
+[17:13:46] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" show-ref refs/remotes/origin/test-failure
+[17:13:46] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" show-ref refs/heads/test-failure
+[17:13:46] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure (1s)
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure] remote: Counting objects: 10, done.        
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure] remote: Compressing objects: 100% (1/1)           
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure] remote: Compressing objects: 100% (1/1), done.        
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure] remote: Total 10 (delta 4), reused 10 (delta 4), pack-reused 0        
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure] From https://github.com/alexscheitlin/commons-cli
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure]  * [new branch]      test-failure -> test-failure
+[17:13:48]i:				 ["C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass5018508087598007256.bat -c credential.helper= fetch --progress origin +refs/heads/test-failure:refs/heads/test-failure]  * [new branch]      test-failure -> origin/test-failure
+[17:13:48] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" log -n1 --pretty=format:%H%x20%s 6c01c17496b639234c883386918ebef22481c1be --
+[17:13:48] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-C5F49402.git)] "C:\Program Files\Git\bin\git.exe" pack-refs --all
+[17:13:48] :		 [VCS Root: https://github.com/alexscheitlin/commons-cli#refs/heads/master] Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" config lfs.storage C:\TeamCity\buildAgent\system\git\git-C5F49402.git\lfs
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" config core.sparseCheckout true
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" show-ref
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" show-ref refs/remotes/origin/test-failure
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" log -n1 --pretty=format:%H%x20%s 6c01c17496b639234c883386918ebef22481c1be --
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" branch
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" update-ref refs/heads/test-failure 6c01c17496b639234c883386918ebef22481c1be
+[17:13:48] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" -c core.askpass=C:\TeamCity\buildAgent\temp\buildTmp\pass7304155333824370355.bat -c credential.helper= -c credential.helper=C:/TeamCity/buildAgent/temp/buildTmp/credHelper6741773150067431093.bat checkout -q -f test-failure
+[17:13:49] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" branch --set-upstream-to=refs/remotes/origin/test-failure
+[17:13:49] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] Cleaning https://github.com/alexscheitlin/commons-cli#refs/heads/master in C:\TeamCity\buildAgent\work\121c41e214b5b6a1 the file set ALL_UNTRACKED
+[17:13:49] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\121c41e214b5b6a1)] "C:\Program Files\Git\bin\git.exe" clean -f -d -x
+[17:13:49] : Build preparation done
+[17:13:49]E: Step 1/1: Maven (13s)
+[17:13:49] :	 [Step 1/1] Initial M2_HOME not set
+[17:13:49] :	 [Step 1/1] Current M2_HOME = C:\TeamCity\buildAgent\tools\maven3
+[17:13:49] :	 [Step 1/1] PATH = C:\TeamCity\buildAgent\tools\maven3\bin;C:\RailsInstaller\Ruby2.3.3\bin;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Ruby22-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files\Java\jre1.8.0_101\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\wamp64\bin\php\php5.6.25;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\TortoiseSVN\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps
+[17:13:49] :	 [Step 1/1] Using watcher: C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher\maven-watcher-agent.jar
+[17:13:49] :	 [Step 1/1] Initial MAVEN_OPTS not set
+[17:13:49] :	 [Step 1/1] Current MAVEN_OPTS not set
+[17:13:49] :	 [Step 1/1] Starting: "C:\Program Files\Java\jdk1.8.0_101\bin\java.exe" -Dagent.home.dir=C:\TeamCity\buildAgent -Dagent.name=W541 -Dagent.ownPort=9090 -Dagent.work.dir=C:\TeamCity\buildAgent\work -Dbuild.number=8 -Dbuild.vcs.number=6c01c17496b639234c883386918ebef22481c1be -Dbuild.vcs.number.1=6c01c17496b639234c883386918ebef22481c1be -Dbuild.vcs.number.CommonsCli_HttpsGithubComAlexscheitlinCommonsCliRefsHeadsMaster=6c01c17496b639234c883386918ebef22481c1be -Dclassworlds.conf=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.m2.conf -Dcom.jetbrains.maven.watcher.report.file=C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml -Djava.io.tmpdir=C:\TeamCity\buildAgent\temp\buildTmp -Dmaven.home=C:\TeamCity\buildAgent\tools\maven3 -Dmaven.multiModuleProjectDirectory=C:\TeamCity\buildAgent\work\121c41e214b5b6a1 -Dmaven.repo.local=C:/WINDOWS/system32/config/systemprofile/.m2/repository -Dteamcity.agent.cpuBenchmark=621 -Dteamcity.agent.dotnet.agent_url=http://localhost:9090/RPC2 -Dteamcity.agent.dotnet.build_id=106 -Dteamcity.auth.password=******* -Dteamcity.auth.userId=TeamCityBuildId=106 -Dteamcity.build.changedFiles.file=C:\TeamCity\buildAgent\temp\buildTmp\changedFiles6518763042896227759.txt -Dteamcity.build.checkoutDir=C:\TeamCity\buildAgent\work\121c41e214b5b6a1 -Dteamcity.build.id=106 -Dteamcity.build.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.build1718483666236421441.properties -Dteamcity.build.tempDir=C:\TeamCity\buildAgent\temp\buildTmp -Dteamcity.build.workingDir=C:\TeamCity\buildAgent\work\121c41e214b5b6a1 -Dteamcity.buildConfName=Build -Dteamcity.buildType.id=CommonsCli_Build -Dteamcity.configuration.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.config1031395556333256407.properties -Dteamcity.dotnet.nunitaddin=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.NUnitAddin-NUnit -Dteamcity.dotnet.nunitlauncher=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher.exe -Dteamcity.dotnet.nunitlauncher.msbuild.task=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.MSBuildLoggers.dll -Dteamcity.dotnet.nunitlauncher1.1=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher1.1.exe -Dteamcity.dotnet.nunitlauncher2.0=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.exe -Dteamcity.dotnet.nunitlauncher2.0.vsts=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.VSTS.exe -Dteamcity.dotnet.platform=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.PlatformProcessRunner.1.1.exe -Dteamcity.maven.watcher.home=C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher "-Dteamcity.projectName=Commons Cli" -Dteamcity.runner.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.runner1684673962174620751.properties -Dteamcity.tests.recentlyFailedTests.file=C:\TeamCity\buildAgent\temp\buildTmp\testsToRunFirst6597116144821896192.txt "-Dteamcity.version=2017.2.4 (build 51228)" -classpath C:\TeamCity\buildAgent\tools\maven3\boot\plexus-classworlds-2.4.jar; org.codehaus.plexus.classworlds.launcher.Launcher -f C:\TeamCity\buildAgent\work\121c41e214b5b6a1\pom.xml -B clean test
+[17:13:49] :	 [Step 1/1] in directory: C:\TeamCity\buildAgent\work\121c41e214b5b6a1
+[17:13:51] :	 [Step 1/1] [INFO] Scanning for projects...
+[17:13:51] :	 [Step 1/1] [INFO]                                                                         
+[17:13:51] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[17:13:51] :	 [Step 1/1] [INFO] Building Apache Commons CLI 1.5-SNAPSHOT
+[17:13:51] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[17:13:51] :	 [Step 1/1] [Maven Watcher] project started: commons-cli:commons-cli:jar:1.5-SNAPSHOT
+[17:13:51]W:	 [Step 1/1] commons-cli:commons-cli (10s)
+[17:13:51]i:		 [commons-cli:commons-cli] ##teamcity[importData tc:tags='tc:internal' type='surefire' path='C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/surefire-reports/TEST-*.xml' whenNoDataPublished='nothing' logAsInternal='true']
+[17:13:51]i:		 [commons-cli:commons-cli] ##teamcity[importData tc:tags='tc:internal' type='surefire' path='C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/failsafe-reports/TEST-*.xml' whenNoDataPublished='nothing' logAsInternal='true']
+[17:13:51] :	 [Step 1/1] [Maven Watcher] 
+[17:13:51]i:	 [Step 1/1] ##teamcity[projectStarted tc:tags='tc:internal' projectId='commons-cli:commons-cli:jar:1.5-SNAPSHOT' groupId='commons-cli' artifactId='commons-cli' testReportsDir0='C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/surefire-reports' testReportsDir1='C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/failsafe-reports']
+[17:13:51] :	 [Step 1/1] Importing data from 'C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/surefire-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[17:13:51] :	 [Step 1/1] Importing data from 'C:/TeamCity/buildAgent/work/121c41e214b5b6a1/target/failsafe-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[17:13:51] :	 [Step 1/1] Surefire report watcher
+[17:13:51] :		 [Surefire report watcher] Watching paths:
+[17:13:51] :		 [Surefire report watcher] C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\surefire-reports\TEST-*.xml
+[17:13:52] :	 [Step 1/1] Surefire report watcher
+[17:13:52] :		 [Surefire report watcher] Watching paths:
+[17:13:52] :		 [Surefire report watcher] C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\failsafe-reports\TEST-*.xml
+[17:13:52] :	 [Step 1/1] [INFO] 
+[17:13:52] :	 [Step 1/1] [INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-cli ---
+[17:13:52] :	 [Step 1/1] [INFO] 
+[17:13:52] :	 [Step 1/1] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-3) @ commons-cli ---
+[17:13:53] :	 [Step 1/1] [INFO] 
+[17:13:53] :	 [Step 1/1] [INFO] --- build-helper-maven-plugin:1.10:parse-version (parse-version) @ commons-cli ---
+[17:13:53] :	 [Step 1/1] [INFO] 
+[17:13:53] :	 [Step 1/1] [INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-cli ---
+[17:13:54] :	 [Step 1/1] [INFO] Executing tasks
+[17:13:54] :	 [Step 1/1] 
+[17:13:54] :	 [Step 1/1] main:
+[17:13:54] :	 [Step 1/1]      [copy] Copying 2 files to C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\apidocs\META-INF
+[17:13:54] :	 [Step 1/1] [INFO] Executed tasks
+[17:13:54] :	 [Step 1/1] [INFO] 
+[17:13:54] :	 [Step 1/1] [INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-cli ---
+[17:13:54] :	 [Step 1/1] [INFO] 
+[17:13:54] :	 [Step 1/1] [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-cli ---
+[17:13:54] :	 [Step 1/1] [INFO] Executing: cmd.exe /X /C "git rev-parse --verify HEAD"
+[17:13:54] :	 [Step 1/1] [INFO] Working directory: C:\TeamCity\buildAgent\work\121c41e214b5b6a1
+[17:13:54] :	 [Step 1/1] [INFO] Storing buildNumber: 6c01c17496b639234c883386918ebef22481c1be at timestamp: 1535728434768
+[17:13:54] :	 [Step 1/1] [INFO] Storing buildScmBranch: test-failure
+[17:13:54] :	 [Step 1/1] [INFO] 
+[17:13:54] :	 [Step 1/1] [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-cli ---
+[17:13:55] :	 [Step 1/1] [INFO] Using 'utf-8' encoding to copy filtered resources.
+[17:13:55] :	 [Step 1/1] [INFO] skip non existing resourceDirectory C:\TeamCity\buildAgent\work\121c41e214b5b6a1\src\main\resources
+[17:13:55] :	 [Step 1/1] [INFO] Copying 2 resources to META-INF
+[17:13:55] :	 [Step 1/1] [INFO] 
+[17:13:55] :	 [Step 1/1] [INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ commons-cli ---
+[17:13:55] :	 [Step 1/1] [INFO] Changes detected - recompiling the module!
+[17:13:55] :	 [Step 1/1] [INFO] Compiling 23 source files to C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\classes
+[17:13:56] :	 [Step 1/1] [INFO] /C:/TeamCity/buildAgent/work/121c41e214b5b6a1/src/main/java/org/apache/commons/cli/Parser.java: Some input files use unchecked or unsafe operations.
+[17:13:56] :	 [Step 1/1] [INFO] /C:/TeamCity/buildAgent/work/121c41e214b5b6a1/src/main/java/org/apache/commons/cli/Parser.java: Recompile with -Xlint:unchecked for details.
+[17:13:56] :	 [Step 1/1] [INFO] 
+[17:13:56] :	 [Step 1/1] [INFO] --- maven-bundle-plugin:3.0.1:manifest (bundle-manifest) @ commons-cli ---
+[17:13:58] :	 [Step 1/1] [INFO] 
+[17:13:58] :	 [Step 1/1] [INFO] --- animal-sniffer-maven-plugin:1.15:check (checkAPIcompatibility) @ commons-cli ---
+[17:13:58] :	 [Step 1/1] [INFO] Checking unresolved references to org.codehaus.mojo.signature:java15:1.0
+[17:13:59] :	 [Step 1/1] [INFO] 
+[17:13:59] :	 [Step 1/1] [INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-cli ---
+[17:13:59] :	 [Step 1/1] [INFO] Using 'utf-8' encoding to copy filtered resources.
+[17:13:59] :	 [Step 1/1] [INFO] Copying 1 resource
+[17:13:59] :	 [Step 1/1] [INFO] Copying 2 resources to META-INF
+[17:13:59] :	 [Step 1/1] [INFO] 
+[17:13:59] :	 [Step 1/1] [INFO] --- maven-compiler-plugin:3.6.0:testCompile (default-testCompile) @ commons-cli ---
+[17:13:59] :	 [Step 1/1] [INFO] Changes detected - recompiling the module!
+[17:13:59] :	 [Step 1/1] [INFO] Compiling 29 source files to C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\test-classes
+[17:14:00] :	 [Step 1/1] [INFO] /C:/TeamCity/buildAgent/work/121c41e214b5b6a1/src/test/java/org/apache/commons/cli/ParserTestCase.java: Some input files use or override a deprecated API.
+[17:14:00] :	 [Step 1/1] [INFO] /C:/TeamCity/buildAgent/work/121c41e214b5b6a1/src/test/java/org/apache/commons/cli/ParserTestCase.java: Recompile with -Xlint:deprecation for details.
+[17:14:00] :	 [Step 1/1] [INFO] 
+[17:14:00] :	 [Step 1/1] [INFO] --- jacoco-maven-plugin:0.7.7.201606060606:prepare-agent (prepare-agent) @ commons-cli ---
+[17:14:00] :	 [Step 1/1] [INFO] argLine set to -javaagent:C:\\WINDOWS\\system32\\config\\systemprofile\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.7.7.201606060606\\org.jacoco.agent-0.7.7.201606060606-runtime.jar=destfile=C:\\TeamCity\\buildAgent\\work\\121c41e214b5b6a1\\target\\jacoco.exec
+[17:14:00] :	 [Step 1/1] [INFO] 
+[17:14:00] :	 [Step 1/1] [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-cli ---
+[17:14:00] :	 [Step 1/1] 
+[17:14:00] :	 [Step 1/1] -------------------------------------------------------
+[17:14:00] :	 [Step 1/1]  T E S T S
+[17:14:00] :	 [Step 1/1] -------------------------------------------------------
+[17:14:01] :	 [Step 1/1] Running org.apache.commons.cli.ApplicationTest
+[17:14:01] :	 [Step 1/1] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.302 sec - in org.apache.commons.cli.ApplicationTest
+[17:14:01] :	 [Step 1/1] Running org.apache.commons.cli.ArgumentIsOptionTest
+[17:14:02] :	 [Step 1/1] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.ArgumentIsOptionTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.BasicParserTest
+[17:14:02] :	 [Step 1/1] Tests run: 58, Failures: 0, Errors: 0, Skipped: 24, Time elapsed: 0.003 sec - in org.apache.commons.cli.BasicParserTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI133Test
+[17:14:02] :	 [Step 1/1] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI133Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI13Test
+[17:14:02] :	 [Step 1/1] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI13Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI148Test
+[17:14:02] :	 [Step 1/1] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI148Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI162Test
+[17:14:02] :	 [Step 1/1] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI162Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI18Test
+[17:14:02] :	 [Step 1/1] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI18Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI252Test
+[17:14:02] :	 [Step 1/1] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI252Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI265Test
+[17:14:02] :	 [Step 1/1] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.bug.BugCLI265Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI266Test
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.ApplicationTest
+[17:14:02]i:		 [org.apache.commons.cli.ApplicationTest] testAnt
+[17:14:02]i:		 [org.apache.commons.cli.ApplicationTest] testMan
+[17:14:02]i:		 [org.apache.commons.cli.ApplicationTest] testNLT
+[17:14:02]i:		 [org.apache.commons.cli.ApplicationTest] testLs
+[17:14:02]i:		 [org.apache.commons.cli.ApplicationTest] testGroovy
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.ArgumentIsOptionTest
+[17:14:02]i:		 [org.apache.commons.cli.ArgumentIsOptionTest] testOptionWithArgument
+[17:14:02]i:		 [org.apache.commons.cli.ArgumentIsOptionTest] testOptionAndOptionWithArgument
+[17:14:02]i:		 [org.apache.commons.cli.ArgumentIsOptionTest] testOption
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.BasicParserTest
+[17:14:02] :	 [Step 1/1] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI266Test
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugCLI71Test
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopBursting2
+[17:14:02]i:			 [testStopBursting2] Test ignored: org.apache.commons.cli.BasicParserTest.testStopBursting2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testShortWithoutEqual
+[17:14:02]i:			 [testShortWithoutEqual] Test ignored: org.apache.commons.cli.BasicParserTest.testShortWithoutEqual
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:			 [testAmbiguousLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.BasicParserTest.testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMissingArgWithBursting
+[17:14:02]i:			 [testMissingArgWithBursting] Test ignored: org.apache.commons.cli.BasicParserTest.testMissingArgWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopBursting
+[17:14:02]i:			 [testStopBursting] Test ignored: org.apache.commons.cli.BasicParserTest.testStopBursting
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPartialLongOptionSingleDash
+[17:14:02]i:			 [testPartialLongOptionSingleDash] Test ignored: org.apache.commons.cli.BasicParserTest.testPartialLongOptionSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithoutEqualSingleDash
+[17:14:02]i:			 [testLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.BasicParserTest.testLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnrecognizedOptionWithBursting
+[17:14:02]i:			 [testUnrecognizedOptionWithBursting] Test ignored: org.apache.commons.cli.BasicParserTest.testUnrecognizedOptionWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testBursting
+[17:14:02]i:			 [testBursting] Test ignored: org.apache.commons.cli.BasicParserTest.testBursting
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testAmbiguousPartialLongOption1
+[17:14:02]i:			 [testAmbiguousPartialLongOption1] Test ignored: org.apache.commons.cli.BasicParserTest.testAmbiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testAmbiguousPartialLongOption2
+[17:14:02]i:			 [testAmbiguousPartialLongOption2] Test ignored: org.apache.commons.cli.BasicParserTest.testAmbiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testAmbiguousPartialLongOption3
+[17:14:02]i:			 [testAmbiguousPartialLongOption3] Test ignored: org.apache.commons.cli.BasicParserTest.testAmbiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testAmbiguousPartialLongOption4
+[17:14:02]i:			 [testAmbiguousPartialLongOption4] Test ignored: org.apache.commons.cli.BasicParserTest.testAmbiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testShortWithEqual
+[17:14:02]i:			 [testShortWithEqual] Test ignored: org.apache.commons.cli.BasicParserTest.testShortWithEqual
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testNegativeOption
+[17:14:02]i:			 [testNegativeOption] Test ignored: org.apache.commons.cli.BasicParserTest.testNegativeOption
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithEqualDoubleDash
+[17:14:02]i:			 [testLongWithEqualDoubleDash] Test ignored: org.apache.commons.cli.BasicParserTest.testLongWithEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithEqualSingleDash
+[17:14:02]i:			 [testLongWithEqualSingleDash] Test ignored: org.apache.commons.cli.BasicParserTest.testLongWithEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnambiguousPartialLongOption1
+[17:14:02]i:			 [testUnambiguousPartialLongOption1] Test ignored: org.apache.commons.cli.BasicParserTest.testUnambiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnambiguousPartialLongOption2
+[17:14:02]i:			 [testUnambiguousPartialLongOption2] Test ignored: org.apache.commons.cli.BasicParserTest.testUnambiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnambiguousPartialLongOption3
+[17:14:02]i:			 [testUnambiguousPartialLongOption3] Test ignored: org.apache.commons.cli.BasicParserTest.testUnambiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnambiguousPartialLongOption4
+[17:14:02]i:			 [testUnambiguousPartialLongOption4] Test ignored: org.apache.commons.cli.BasicParserTest.testUnambiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertiesOption1
+[17:14:02]i:			 [testPropertiesOption1] Test ignored: org.apache.commons.cli.BasicParserTest.testPropertiesOption1
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertiesOption2
+[17:14:02]i:			 [testPropertiesOption2] Test ignored: org.apache.commons.cli.BasicParserTest.testPropertiesOption2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testDoubleDash2
+[17:14:02]i:			 [testDoubleDash2] Test ignored: org.apache.commons.cli.BasicParserTest.testDoubleDash2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testSimpleLong
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testSimpleShort
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMissingRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testReuseOptionsTwice
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMissingRequiredGroup
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testOptionGroupLong
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMissingRequiredOptions
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testShortWithUnexpectedArgument
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOverrideValues
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopAtNonOptionLong
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testNegativeArgument
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopAtUnexpectedArg
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithoutEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionSingularValue
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionMultipleValues
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMissingArg
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionFlags
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMultipleWithLong
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnrecognizedOption
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionUnexpected
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testWithRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testUnlimitedArgs
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testPropertyOptionRequired
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testOptionAndRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithUnexpectedArgument1
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testLongWithUnexpectedArgument2
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopAtNonOptionShort
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testMultiple
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testArgumentStartingWithHyphen
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testDoubleDash1
+[17:14:02]i:		 [org.apache.commons.cli.BasicParserTest] testStopAtExpectedArg
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI133Test
+[17:14:02] :	 [Step 1/1] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI71Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI133Test] testOrder
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.bug.BugsTest
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI13Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI13Test] testCLI13
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI148Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI148Test] testWorkaround1
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI148Test] testWorkaround2
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI162Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI162Test] testInfiniteLoop
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI162Test] testLongLineChunkingIndentIgnored
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI162Test] testLongLineChunking
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI162Test] testPrintHelpLongLines
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI18Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI18Test] testCLI18
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI252Test
+[17:14:02] :	 [Step 1/1] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugsTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.CommandLineTest
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI252Test] testAmbiquousOptionName
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI252Test] testExactOptionNameMatch
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI265Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI265Test] shouldParseShortOptionWithValue
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI265Test] shouldParseShortOptionWithoutValue
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI265Test] shouldParseConcatenatedShortOptions
+[17:14:02] :	 [Step 1/1] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.CommandLineTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.DefaultParserTest
+[17:14:02] :	 [Step 1/1] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.cli.DefaultParserTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.DisablePartialMatchingTest
+[17:14:02] :	 [Step 1/1] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.DisablePartialMatchingTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.GnuParserTest
+[17:14:02] :	 [Step 1/1] Tests run: 58, Failures: 0, Errors: 0, Skipped: 21, Time elapsed: 0.001 sec - in org.apache.commons.cli.GnuParserTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.HelpFormatterTest
+[17:14:02] :	 [Step 1/1] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.HelpFormatterTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.OptionBuilderTest
+[17:14:02] :	 [Step 1/1] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.OptionBuilderTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.OptionGroupTest
+[17:14:02] :	 [Step 1/1] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.OptionGroupTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.OptionsTest
+[17:14:02] :	 [Step 1/1] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.OptionsTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.OptionTest
+[17:14:02] :	 [Step 1/1] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.OptionTest
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting v to desired type: Unable to parse the URL: foo://commons.apache.org
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.PatternOptionBuilderTest
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting d to desired type: Unable to find the class: System.DateTime
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting f to desired type: Unable to find file: non-existing.file
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting x to desired type: For input string: "3,5"
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting i to desired type: java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+[17:14:02]W:		 [commons-cli:commons-cli] Exception found converting n to desired type: Unable to find the class: System.DateTime
+[17:14:02] :	 [Step 1/1] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.PatternOptionBuilderTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.PosixParserTest
+[17:14:02] :	 [Step 1/1] Tests run: 58, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0.001 sec - in org.apache.commons.cli.PosixParserTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.TypeHandlerTest
+[17:14:02] :	 [Step 1/1] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.TypeHandlerTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.UtilTest
+[17:14:02] :	 [Step 1/1] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in org.apache.commons.cli.UtilTest
+[17:14:02] :	 [Step 1/1] testStripLeadingHyphens(org.apache.commons.cli.UtilTest)  Time elapsed: 0 sec  <<< FAILURE!
+[17:14:02] :	 [Step 1/1] org.junit.ComparisonFailure: expected:<[]foo> but was:<[-]foo>
+[17:14:02] :	 [Step 1/1] 	at org.apache.commons.cli.UtilTest.testStripLeadingHyphens(UtilTest.java:31)
+[17:14:02] :	 [Step 1/1] 
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.ValuesTest
+[17:14:02] :	 [Step 1/1] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.ValuesTest
+[17:14:02] :	 [Step 1/1] Running org.apache.commons.cli.ValueTest
+[17:14:02] :	 [Step 1/1] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.ValueTest
+[17:14:02] :	 [Step 1/1] 
+[17:14:02] :	 [Step 1/1] Results :
+[17:14:02] :	 [Step 1/1] 
+[17:14:02] :	 [Step 1/1] Failed tests: 
+[17:14:02] :	 [Step 1/1]   UtilTest.testStripLeadingHyphens:31 expected:<[]foo> but was:<[-]foo>
+[17:14:02] :	 [Step 1/1] 
+[17:14:02] :	 [Step 1/1] Tests run: 409, Failures: 1, Errors: 0, Skipped: 54
+[17:14:02] :	 [Step 1/1] 
+[17:14:02] :	 [Step 1/1] [Maven Watcher] 
+[17:14:02]E:	 [Step 1/1] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project commons-cli: There are test failures.
+
+Please refer to C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\surefire-reports for the individual test results.
+[17:14:02] :	 [Step 1/1] [Maven Watcher] 
+[17:14:02]i:	 [Step 1/1] ##teamcity[projectFinished tc:tags='tc:internal' projectId='commons-cli:commons-cli:jar:1.5-SNAPSHOT']
+[17:14:02] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[17:14:02] :	 [Step 1/1] [INFO] BUILD FAILURE
+[17:14:02] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[17:14:02] :	 [Step 1/1] [INFO] Total time: 11.265s
+[17:14:02] :	 [Step 1/1] [INFO] Finished at: Fri Aug 31 17:14:02 CEST 2018
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI266Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI266Test] testOptionComparatorInsertedOrder
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI266Test] testOptionComparatorDefaultOrder
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugCLI71Test
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI71Test] testBasic
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI71Test] testLackOfError
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI71Test] testMistakenArgument
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugCLI71Test] testGetsDefaultIfOptional
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.bug.BugsTest
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test11456
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test11457
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test11458
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test11680
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test12210
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test13425
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test13666
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test13935
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test14786
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test15046
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test15648
+[17:14:02]i:		 [org.apache.commons.cli.bug.BugsTest] test31148
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.CommandLineTest
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetParsedOptionValue
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetParsedOptionValueWithOption
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetOptions
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testNullhOption
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testBuilder
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetOptionProperties
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetOptionPropertiesWithOption
+[17:14:02]i:		 [org.apache.commons.cli.CommandLineTest] testGetParsedOptionValueWithChar
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.DefaultParserTest
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testSimpleLong
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testSimpleShort
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopBursting2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMissingRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testShortWithoutEqual
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testReuseOptionsTwice
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMissingRequiredGroup
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testOptionGroupLong
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMissingArgWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMissingRequiredOptions
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testShortWithUnexpectedArgument
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOverrideValues
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopAtNonOptionLong
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testNegativeArgument
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopBursting
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopAtUnexpectedArg
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPartialLongOptionSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithoutEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionSingularValue
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionMultipleValues
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMissingArg
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionFlags
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnrecognizedOptionWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMultipleWithLong
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnrecognizedOption
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testBursting
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testAmbiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testAmbiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testAmbiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testAmbiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionUnexpected
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testShortWithEqual
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testWithRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnlimitedArgs
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testNegativeOption
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertyOptionRequired
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testOptionAndRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithUnexpectedArgument1
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithUnexpectedArgument2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopAtNonOptionShort
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testLongWithEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnambiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnambiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnambiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testUnambiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testMultiple
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testArgumentStartingWithHyphen
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertiesOption1
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testPropertiesOption2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testDoubleDash1
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testDoubleDash2
+[17:14:02]i:		 [org.apache.commons.cli.DefaultParserTest] testStopAtExpectedArg
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.DisablePartialMatchingTest
+[17:14:02]i:		 [org.apache.commons.cli.DisablePartialMatchingTest] testDisablePartialMatching
+[17:14:02]i:		 [org.apache.commons.cli.DisablePartialMatchingTest] testRegularPartialMatching
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.GnuParserTest
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopBursting2
+[17:14:02]i:			 [testStopBursting2] Test ignored: org.apache.commons.cli.GnuParserTest.testStopBursting2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:			 [testAmbiguousLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.GnuParserTest.testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMissingArgWithBursting
+[17:14:02]i:			 [testMissingArgWithBursting] Test ignored: org.apache.commons.cli.GnuParserTest.testMissingArgWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testShortWithUnexpectedArgument
+[17:14:02]i:			 [testShortWithUnexpectedArgument] Test ignored: org.apache.commons.cli.GnuParserTest.testShortWithUnexpectedArgument
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopBursting
+[17:14:02]i:			 [testStopBursting] Test ignored: org.apache.commons.cli.GnuParserTest.testStopBursting
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPartialLongOptionSingleDash
+[17:14:02]i:			 [testPartialLongOptionSingleDash] Test ignored: org.apache.commons.cli.GnuParserTest.testPartialLongOptionSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithoutEqualSingleDash
+[17:14:02]i:			 [testLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.GnuParserTest.testLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnrecognizedOptionWithBursting
+[17:14:02]i:			 [testUnrecognizedOptionWithBursting] Test ignored: org.apache.commons.cli.GnuParserTest.testUnrecognizedOptionWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testBursting
+[17:14:02]i:			 [testBursting] Test ignored: org.apache.commons.cli.GnuParserTest.testBursting
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testAmbiguousPartialLongOption1
+[17:14:02]i:			 [testAmbiguousPartialLongOption1] Test ignored: org.apache.commons.cli.GnuParserTest.testAmbiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testAmbiguousPartialLongOption2
+[17:14:02]i:			 [testAmbiguousPartialLongOption2] Test ignored: org.apache.commons.cli.GnuParserTest.testAmbiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testAmbiguousPartialLongOption3
+[17:14:02]i:			 [testAmbiguousPartialLongOption3] Test ignored: org.apache.commons.cli.GnuParserTest.testAmbiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testAmbiguousPartialLongOption4
+[17:14:02]i:			 [testAmbiguousPartialLongOption4] Test ignored: org.apache.commons.cli.GnuParserTest.testAmbiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testNegativeOption
+[17:14:02]i:			 [testNegativeOption] Test ignored: org.apache.commons.cli.GnuParserTest.testNegativeOption
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithUnexpectedArgument1
+[17:14:02]i:			 [testLongWithUnexpectedArgument1] Test ignored: org.apache.commons.cli.GnuParserTest.testLongWithUnexpectedArgument1
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithUnexpectedArgument2
+[17:14:02]i:			 [testLongWithUnexpectedArgument2] Test ignored: org.apache.commons.cli.GnuParserTest.testLongWithUnexpectedArgument2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnambiguousPartialLongOption1
+[17:14:02]i:			 [testUnambiguousPartialLongOption1] Test ignored: org.apache.commons.cli.GnuParserTest.testUnambiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnambiguousPartialLongOption2
+[17:14:02]i:			 [testUnambiguousPartialLongOption2] Test ignored: org.apache.commons.cli.GnuParserTest.testUnambiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnambiguousPartialLongOption3
+[17:14:02]i:			 [testUnambiguousPartialLongOption3] Test ignored: org.apache.commons.cli.GnuParserTest.testUnambiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnambiguousPartialLongOption4
+[17:14:02]i:			 [testUnambiguousPartialLongOption4] Test ignored: org.apache.commons.cli.GnuParserTest.testUnambiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testDoubleDash2
+[17:14:02]i:			 [testDoubleDash2] Test ignored: org.apache.commons.cli.GnuParserTest.testDoubleDash2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testSimpleLong
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testSimpleShort
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMissingRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testShortWithoutEqual
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testReuseOptionsTwice
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMissingRequiredGroup
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testOptionGroupLong
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMissingRequiredOptions
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOverrideValues
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopAtNonOptionLong
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testNegativeArgument
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopAtUnexpectedArg
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithoutEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionSingularValue
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionMultipleValues
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMissingArg
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionFlags
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMultipleWithLong
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnrecognizedOption
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionUnexpected
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testShortWithEqual
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testWithRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testUnlimitedArgs
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertyOptionRequired
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testOptionAndRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopAtNonOptionShort
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testLongWithEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testMultiple
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testArgumentStartingWithHyphen
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertiesOption1
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testPropertiesOption2
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testDoubleDash1
+[17:14:02]i:		 [org.apache.commons.cli.GnuParserTest] testStopAtExpectedArg
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.HelpFormatterTest
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testUsageWithLongOptSeparator
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextSingleLine
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testIndentedHeaderAndFooter
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintSortedUsageWithNullComparator
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testAccessors
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRtrim
+[17:14:02] :	 [Step 1/1] [INFO] Final Memory: 24M/281M
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintRequiredOptionGroupUsage
+[17:14:02] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testHelpWithLongOptSeparator
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextSingleLinePadded
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextMultiLine
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintUsage
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintSortedUsage
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintHelpWithEmptySyntax
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintOptions
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testAutomaticUsage
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testDefaultArgName
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testHeaderStartingWithLineSeparator
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextWordCut
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testOptionWithoutShortFormat
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextMultiLinePadded
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintOptionGroupUsage
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testPrintOptionWithEmptyArgNameUsage
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testRenderWrappedTextSingleLinePadded2
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testOptionWithoutShortFormat2
+[17:14:02]i:		 [org.apache.commons.cli.HelpFormatterTest] testFindWrapPos
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.OptionBuilderTest
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testBaseOptionStringOpt
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testTwoCompleteOptions
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testBuilderIsResettedAlways
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testCompleteOption
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testCreateIncompleteOption
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testOptionArgNumbers
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testIllegalOptions
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testSpecialOptChars
+[17:14:02]i:		 [org.apache.commons.cli.OptionBuilderTest] testBaseOptionCharOpt
+[17:14:02] :	 [Step 1/1] [Maven Watcher] building report document...
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.OptionGroupTest
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoOptionsFromDifferentGroup
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testNoOptionsExtraArgs
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testGetNames
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoValidOptions
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testSingleOption
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testToString
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoOptionsFromGroup
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoValidLongOptions
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testSingleOptionFromGroup
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoOptionsFromGroupWithProperties
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testTwoLongOptionsFromGroup
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testSingleLongOption
+[17:14:02]i:		 [org.apache.commons.cli.OptionGroupTest] testValidLongOnlyOptions
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.OptionsTest
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testMissingOptionsException
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testGetMatchingOpts
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testLong
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testToString
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testHelpOptions
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testMissingOptionException
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testDuplicateSimple
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testGetOptionsGroups
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testDuplicateLong
+[17:14:02]i:		 [org.apache.commons.cli.OptionsTest] testSimple
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.OptionTest
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testGetValue
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testSubclass
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testClear
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testClone
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testBuilderMethods
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testHasArgs
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testHasArgName
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testHashCode
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testBuilderInsufficientParams1
+[17:14:02]i:		 [org.apache.commons.cli.OptionTest] testBuilderInsufficientParams2
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.PatternOptionBuilderTest
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testSimplePattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testExistingFilePattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testURLPattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testEmptyPattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testClassPattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testExistingFilePatternFileNotExist
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testNumberPattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testUntypedPattern
+[17:14:02]i:		 [org.apache.commons.cli.PatternOptionBuilderTest] testObjectPattern
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.PosixParserTest
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:			 [testAmbiguousLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.PosixParserTest.testAmbiguousLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithoutEqualSingleDash
+[17:14:02]i:			 [testLongWithoutEqualSingleDash] Test ignored: org.apache.commons.cli.PosixParserTest.testLongWithoutEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testAmbiguousPartialLongOption4
+[17:14:02]i:			 [testAmbiguousPartialLongOption4] Test ignored: org.apache.commons.cli.PosixParserTest.testAmbiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testShortWithEqual
+[17:14:02]i:			 [testShortWithEqual] Test ignored: org.apache.commons.cli.PosixParserTest.testShortWithEqual
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testNegativeOption
+[17:14:02]i:			 [testNegativeOption] Test ignored: org.apache.commons.cli.PosixParserTest.testNegativeOption
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithUnexpectedArgument1
+[17:14:02]i:			 [testLongWithUnexpectedArgument1] Test ignored: org.apache.commons.cli.PosixParserTest.testLongWithUnexpectedArgument1
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithEqualSingleDash
+[17:14:02]i:			 [testLongWithEqualSingleDash] Test ignored: org.apache.commons.cli.PosixParserTest.testLongWithEqualSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnambiguousPartialLongOption4
+[17:14:02]i:			 [testUnambiguousPartialLongOption4] Test ignored: org.apache.commons.cli.PosixParserTest.testUnambiguousPartialLongOption4
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testDoubleDash2
+[17:14:02]i:			 [testDoubleDash2] Test ignored: org.apache.commons.cli.PosixParserTest.testDoubleDash2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testSimpleLong
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testSimpleShort
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopBursting2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMissingRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testShortWithoutEqual
+[17:14:02] :	 [Step 1/1] [Maven Watcher] building report document done
+[17:14:02] :	 [Step 1/1] [Maven Watcher] writing report to C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testReuseOptionsTwice
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMissingRequiredGroup
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testOptionGroupLong
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMissingArgWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMissingRequiredOptions
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testShortWithUnexpectedArgument
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOverrideValues
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopAtNonOptionLong
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testNegativeArgument
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopBursting
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopAtUnexpectedArg
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPartialLongOptionSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithoutEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionSingularValue
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionMultipleValues
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMissingArg
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionFlags
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionGroup
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnrecognizedOptionWithBursting
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMultipleWithLong
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnrecognizedOption
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testBursting
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testAmbiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testAmbiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testAmbiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionUnexpected
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testSingleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testWithRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnlimitedArgs
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertyOptionRequired
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testOptionAndRequiredOption
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithEqualDoubleDash
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testLongWithUnexpectedArgument2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopAtNonOptionShort
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnambiguousPartialLongOption1
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnambiguousPartialLongOption2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testUnambiguousPartialLongOption3
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testMultiple
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testArgumentStartingWithHyphen
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertiesOption1
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testPropertiesOption2
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testDoubleDash1
+[17:14:02]i:		 [org.apache.commons.cli.PosixParserTest] testStopAtExpectedArg
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.TypeHandlerTest
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueNumber_Long
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueURL
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueClass
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueFiles
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueNumber_noNumber
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueObject_notInstantiableClass
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueObject_InstantiableClass
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueExistingFile_nonExistingFile
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueExistingFile
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueClass_notFound
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueNumber_Double
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueString
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueObject_unknownClass
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueURL_malformed
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueDate
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueFile
+[17:14:02]i:		 [org.apache.commons.cli.TypeHandlerTest] testCreateValueInteger_failure
+[17:14:02]F:	 [Step 1/1] org.apache.commons.cli.UtilTest
+[17:14:02]i:		 [org.apache.commons.cli.UtilTest] testStripLeadingAndTrailingQuotes
+[17:14:02]F:		 [org.apache.commons.cli.UtilTest] testStripLeadingHyphens
+[17:14:02]F:			 [testStripLeadingHyphens] org.junit.ComparisonFailure: expected:<[]foo> but was:<[-]foo>
+[17:14:02]F:			 [testStripLeadingHyphens] org.junit.ComparisonFailure: expected:<[]foo> but was:<[-]foo>
+	at org.apache.commons.cli.UtilTest.testStripLeadingHyphens(UtilTest.java:31)
+[17:14:02]E:	 [Step 1/1] Failed tests detected
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.ValuesTest
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testTwoArgValues
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testShortArgs
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testCharSeparator
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testExtraArgs
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testShortArgsWithValue
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testComplexValues
+[17:14:02]i:		 [org.apache.commons.cli.ValuesTest] testMultipleArgValues
+[17:14:02] :	 [Step 1/1] [Maven Watcher] done writing report
+[17:14:02]i:	 [Step 1/1] org.apache.commons.cli.ValueTest
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalArgValuesWithOption
+[17:14:02]W:	 [Step 1/1] [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project commons-cli: There are test failures.
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalNArgValuesWithOption
+[17:14:02]W:	 [Step 1/1] [ERROR] 
+[17:14:02]W:	 [Step 1/1] [ERROR] Please refer to C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\surefire-reports for the individual test results.
+[17:14:02]W:	 [Step 1/1] [ERROR] -> [Help 1]
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgValues
+[17:14:02]W:	 [Step 1/1] [ERROR] 
+[17:14:02]W:	 [Step 1/1] [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[17:14:02]W:	 [Step 1/1] [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[17:14:02]W:	 [Step 1/1] [ERROR] 
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgValuesWithOption
+[17:14:02]W:	 [Step 1/1] [ERROR] For more information about the errors and possible solutions, please read the following articles:
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgValueWithOption
+[17:14:02]W:	 [Step 1/1] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalArgValue
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgNoValue
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortNoArgWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongWithArg
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalNArgValuesWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalNArgValues
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortWithArgWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortWithArg
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalArgValueWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalArgValues
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalNArgValues
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongNoArgWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalNoValueWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongNoArg
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortNoArg
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongOptionalNoValue
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgValue
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testShortOptionalArgNoValueWithOption
+[17:14:02]i:		 [org.apache.commons.cli.ValueTest] testLongWithArgWithOption
+[17:14:02]W:	 [Step 1/1] Process exited with code 1
+[17:14:02] :	 [Step 1/1] Publishing artifacts
+[17:14:02] :		 [Publishing artifacts] Collecting files to publish: [C:\TeamCity\buildAgent\temp\buildTmp\.tc-maven-bi\maven-build-info.xml.gz => .teamcity]
+[17:14:02] :		 [Publishing artifacts] Publishing 1 file using [ArtifactsCachePublisher]: C:/TeamCity/buildAgent/temp/buildTmp/.tc-maven-bi/maven-build-info.xml.gz => .teamcity
+[17:14:02] :		 [Publishing artifacts] Publishing 1 file using [WebPublisher]: C:/TeamCity/buildAgent/temp/buildTmp/.tc-maven-bi/maven-build-info.xml.gz => .teamcity
+[17:14:03]E:	 [Step 1/1] Process exited with code 1
+[17:14:02] :	 [Step 1/1] Waiting for 2 service processes to complete
+[17:14:03] :	 [Step 1/1] Surefire report watcher
+[17:14:03] :		 [Surefire report watcher] 28 reports found for paths:
+[17:14:03] :		 [Surefire report watcher] C:\TeamCity\buildAgent\work\121c41e214b5b6a1\target\surefire-reports\TEST-*.xml
+[17:14:03] :		 [Surefire report watcher] Successfully parsed
+[17:14:03] :			 [Successfully parsed] 28 reports
+[17:14:03]E:	 [Step 1/1] Step Maven failed
+[17:14:03] : Publishing internal artifacts
+[17:14:03] :	 [Publishing internal artifacts] Publishing 1 file using [ArtifactsCachePublisher]
+[17:14:03] :	 [Publishing internal artifacts] Publishing 1 file using [WebPublisher]
+[17:14:03]E: 1 failed test detected
+[17:14:03] : Build finished
