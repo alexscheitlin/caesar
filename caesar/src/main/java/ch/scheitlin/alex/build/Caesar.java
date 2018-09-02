@@ -325,7 +325,7 @@ public class Caesar extends CaesarStages {
     // abort
     // -----------------------------------------------------------------------------------------------------------------
 
-    boolean abortImpl() {
+    void abortImpl() {
         // clean download variables
         this.buildServerBuild = null;
         this.buildServerBuildLog = null;
@@ -342,8 +342,6 @@ public class Caesar extends CaesarStages {
         this.previousBranch = null;
         this.stashedChanges = null;
         this.newBranch = null;
-
-        return true;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

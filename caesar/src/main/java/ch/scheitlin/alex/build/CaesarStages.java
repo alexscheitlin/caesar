@@ -144,7 +144,7 @@ public abstract class CaesarStages {
 
     abstract void disconnectImpl() throws Exception;
 
-    public boolean abort() throws Exception {
+    public void abort() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.DOWNLOADED,
                 BuildFixAssistantStage.PROCESSED,
@@ -152,25 +152,21 @@ public abstract class CaesarStages {
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.abortImpl();
         } catch (Exception ex) {
             throw new Exception("Could not abort!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.abortImpl()) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean abortImpl();
+    abstract void abortImpl() throws Exception;
 
     private void stageCheck(BuildFixAssistantStage[] stages) throws Exception {
         if (!Arrays.asList(stages).contains(this.stage)) {
