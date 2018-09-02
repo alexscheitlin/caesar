@@ -284,7 +284,7 @@ public class Caesar extends CaesarStages {
     // finish
     // -----------------------------------------------------------------------------------------------------------------
 
-    boolean finishImpl() {
+    void finishImpl() {
         // let the user go back to the previous branch
         /*
         try {
@@ -307,8 +307,6 @@ public class Caesar extends CaesarStages {
         */
 
         this.abortImpl();
-
-        return true;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

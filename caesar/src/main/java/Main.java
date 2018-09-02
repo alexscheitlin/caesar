@@ -236,13 +236,14 @@ public class Main {
         System.out.println();
         System.out.print("Please press enter after you are finished fixing the code.");
 
-
         if (!AUTO_RUN) {
             try {
                 new Scanner(System.in).nextLine();
             } catch (Exception ex) {
                 System.out.println("\tCould not read your input!");
             }
+        } else {
+            System.out.println();
         }
 
         // finish fixing

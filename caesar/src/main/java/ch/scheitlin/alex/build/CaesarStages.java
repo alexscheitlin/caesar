@@ -99,31 +99,27 @@ public abstract class CaesarStages {
 
     abstract void fixImpl(String pathToLocalGitRepository) throws Exception;
 
-    public boolean finish() throws Exception {
+    public void finish() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.FIXING,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.finishImpl();
         } catch (Exception ex) {
             throw new Exception("Could not finish fixing!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.finishImpl()) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean finishImpl();
+    abstract void finishImpl() throws Exception;
 
     public boolean disconnect() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
