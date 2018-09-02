@@ -11,15 +11,17 @@ public abstract class CaesarStages {
         this.stage = BuildFixAssistantStage.NONE;
     }
 
-    public boolean connect(String host, String username, String password) {
+    public boolean connect(String host, String username, String password) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.NONE,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not connect to build server!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -35,15 +37,17 @@ public abstract class CaesarStages {
 
     abstract boolean connectImpl(String host, String username, String password);
 
-    public boolean download(BuildServerBuild build) {
+    public boolean download(BuildServerBuild build) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.CONNECTED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.DOWNLOADED;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not download build log!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -59,15 +63,17 @@ public abstract class CaesarStages {
 
     abstract boolean downloadImpl(BuildServerBuild build);
 
-    public boolean process() {
+    public boolean process() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.DOWNLOADED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.PROCESSED;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not process build log!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -83,15 +89,17 @@ public abstract class CaesarStages {
 
     abstract boolean processImpl();
 
-    public boolean fix(String pathToLocalGitRepository) {
+    public boolean fix(String pathToLocalGitRepository) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.PROCESSED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.FIXING;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not initiate fixing!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -107,15 +115,17 @@ public abstract class CaesarStages {
 
     abstract boolean fixImpl(String pathToLocalGitRepository);
 
-    public boolean finish() {
+    public boolean finish() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.FIXING,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not finish fixing!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -131,7 +141,7 @@ public abstract class CaesarStages {
 
     abstract boolean finishImpl();
 
-    public boolean disconnect() {
+    public boolean disconnect() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.CONNECTED,
                 BuildFixAssistantStage.FIXING,
@@ -139,8 +149,10 @@ public abstract class CaesarStages {
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.NONE;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not disconnect from build server!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -156,7 +168,7 @@ public abstract class CaesarStages {
 
     abstract boolean disconnectImpl();
 
-    public boolean abort() {
+    public boolean abort() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.DOWNLOADED,
                 BuildFixAssistantStage.PROCESSED,
@@ -165,8 +177,10 @@ public abstract class CaesarStages {
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
         // check whether this helper instance is in the required stage
-        if (!stageCheck(requiredStages)) {
-            return false;
+        try {
+            stageCheck(requiredStages);
+        } catch (Exception ex) {
+            throw new Exception("Could not abort!\n" + ex.getMessage());
         }
 
         // try to enter next stage
@@ -182,7 +196,10 @@ public abstract class CaesarStages {
 
     abstract boolean abortImpl();
 
-    private boolean stageCheck(BuildFixAssistantStage[] stages) {
-        return Arrays.asList(stages).contains(this.stage);
+    private void stageCheck(BuildFixAssistantStage[] stages) throws Exception {
+        if (!Arrays.asList(stages).contains(this.stage)) {
+            throw new Exception("CAESAR is in stage '" + this.stage + "' but needs to be in one of the following " +
+                    "stages: " + Arrays.toString(stages));
+        }
     }
 }

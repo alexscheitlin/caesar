@@ -18,7 +18,7 @@ public class Main {
 
     // to run through the script without interacting with it
     private static final boolean AUTO_RUN = true;
-    private static final int AUTO_RUN_PROJECT_INDEX = 1;
+    private static final int AUTO_RUN_PROJECT_INDEX = 2;
     private static final int AUTO_RUN_BUILD_INDEX = 2;
 
     public static void main(String[] args) {
@@ -28,9 +28,10 @@ public class Main {
         // connect to build server
         System.out.println();
         System.out.println("Connecting to build server...");
-        if (!caesar.connect(HOST, USERNAME, PASSWORD)) {
-            System.out.println("\t failed");
-            exit();
+        try {
+            caesar.connect(HOST, USERNAME, PASSWORD);
+        } catch (Exception ex) {
+            stageFailed(ex);
             return;
         }
         System.out.println("\tconnected");
@@ -132,9 +133,10 @@ public class Main {
         // download build log
         System.out.println();
         System.out.println("Downloading build log...");
-        if (!caesar.download(selectedBuild)) {
-            System.out.println("\t failed");
-            exit();
+        try {
+            caesar.download(selectedBuild);
+        } catch (Exception ex) {
+            stageFailed(ex);
             return;
         }
         System.out.println("\tdownloaded");
@@ -142,9 +144,10 @@ public class Main {
         // process build log
         System.out.println();
         System.out.println("Processing build log...");
-        if (!caesar.process()) {
-            System.out.println("\t failed");
-            exit();
+        try {
+            caesar.process();
+        } catch (Exception ex) {
+            stageFailed(ex);
             return;
         }
         System.out.println("\tprocessed");
@@ -218,9 +221,10 @@ public class Main {
         // check out broken code
         System.out.println();
         System.out.println("Loading broken code...");
-        if (!caesar.fix(PATH_TO_PROJECT)) {
-            System.out.println("\t failed");
-            exit();
+        try {
+            caesar.fix(PATH_TO_PROJECT);
+        } catch (Exception ex) {
+            stageFailed(ex);
             return;
         }
         System.out.println("\tloaded to new branch: " + caesar.getNewBranch());
@@ -243,19 +247,32 @@ public class Main {
 
         // finish fixing
         System.out.println("Finish fixing broken code...");
-        if (!caesar.finish()) {
-            System.out.println("\t failed");
-            exit();
+        try {
+            caesar.finish();
+        } catch (Exception ex) {
+            stageFailed(ex);
             return;
         }
 
         System.out.println("The branch created for fixing may still exist!");
 
         // logout from the build server
-        caesar.disconnect();
+        try {
+            caesar.finish();
+        } catch (Exception ex) {
+            stageFailed(ex);
+            return;
+        }
         System.out.println();
         System.out.println("Status: " + (caesar.isConnected() ? "logged in" : "logged out"));
 
+        exit();
+    }
+
+    private static void stageFailed(Exception ex) {
+        System.out.println("\t failed");
+        System.out.println();
+        System.out.println(ex.getMessage());
         exit();
     }
 
