@@ -1,6 +1,6 @@
 package ch.scheitlin.alex.build;
 
-public enum BuildFixAssistantStage {
+public enum CaesarStage {
     NONE,
     CONNECTED,
     DOWNLOADED,
