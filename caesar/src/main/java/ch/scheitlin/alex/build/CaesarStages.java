@@ -77,31 +77,27 @@ public abstract class CaesarStages {
 
     abstract void processImpl() throws Exception;
 
-    public boolean fix(String pathToLocalGitRepository) throws Exception {
+    public void fix(String pathToLocalGitRepository) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.PROCESSED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.FIXING;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.fixImpl(pathToLocalGitRepository);
         } catch (Exception ex) {
             throw new Exception("Could not initiate fixing!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.fixImpl(pathToLocalGitRepository)) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean fixImpl(String pathToLocalGitRepository);
+    abstract void fixImpl(String pathToLocalGitRepository) throws Exception;
 
     public boolean finish() throws Exception {
         BuildFixAssistantStage[] requiredStages = {

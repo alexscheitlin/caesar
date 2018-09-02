@@ -188,7 +188,7 @@ public class Caesar extends CaesarStages {
     private String stashedChanges;
     private String newBranch;
 
-    boolean fixImpl(String pathToLocalGitRepository) {
+    void fixImpl(String pathToLocalGitRepository) throws Exception {
         String urlToRemoteGitRepository = this.buildServerBuild.getRepository();
         String commitId = this.buildServerBuild.getCommit();
         String buildNumber = this.buildServerBuild.getNumber();
@@ -201,13 +201,13 @@ public class Caesar extends CaesarStages {
             this.previousBranch = this.gitApi.getCurrentBranch();
         } catch (Exception ex) {
             System.out.print(ex.getMessage());
-            return false;
+            throw new Exception("Connection to local git repository failed!");
         }
 
         // get repository urls
         List<Pair<String, String>> remotes = this.gitApi.getRemoteUrls();
         if (remotes == null || remotes.size() == 0) {
-            return false;
+            throw new Exception("No remote repositories defined in local git repository!");
         }
 
         // check whether the local git repository and the one used on the build server have the same remote repository
@@ -217,7 +217,7 @@ public class Caesar extends CaesarStages {
             }
         }
         if (this.gitRepositoryUrl == null) {
-            return false;
+            throw new Exception("Local remote repository does not match the one used by the build server!");
         }
 
         // stash uncommitted changes if there are any
@@ -227,8 +227,7 @@ public class Caesar extends CaesarStages {
                 this.stashedChanges = this.gitApi.stashTrackedAndStagedFiles();
             }
         } catch (Exception ex) {
-            System.out.print(ex.getMessage());
-            return false;
+            throw new Exception("Stashing open changes failed!");
         }
 
         // fetch latest changes from remote repository
@@ -263,12 +262,10 @@ public class Caesar extends CaesarStages {
                 break;
             } catch (Exception e) {
                 if (counter == maxTries) {
-                    return false;
+                    throw new Exception("Creating new branch failed!");
                 }
             }
         }
-
-        return true;
     }
 
     public String getGitRepositoryUrl() {
