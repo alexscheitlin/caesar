@@ -33,31 +33,27 @@ public abstract class CaesarStages {
 
     abstract void connectImpl(String host, String username, String password) throws Exception;
 
-    public boolean download(BuildServerBuild build) throws Exception {
+    public void download(BuildServerBuild build) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.CONNECTED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.DOWNLOADED;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.downloadImpl(build);
         } catch (Exception ex) {
             throw new Exception("Could not download build log!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.downloadImpl(build)) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean downloadImpl(BuildServerBuild build);
+    abstract void downloadImpl(BuildServerBuild build) throws Exception;
 
     public boolean process() throws Exception {
         BuildFixAssistantStage[] requiredStages = {

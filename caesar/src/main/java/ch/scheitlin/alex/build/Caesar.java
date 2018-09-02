@@ -65,20 +65,18 @@ public class Caesar extends CaesarStages {
     // internal and external concern
     private String buildServerBuildLog;
 
-    boolean downloadImpl(BuildServerBuild build) {
+    void downloadImpl(BuildServerBuild build) throws Exception {
         this.buildServerBuild = build;
 
         try {
             this.buildServerBuildLog = this.buildServerApi.downloadBuildLog(this.buildServerBuild.getId());
         } catch (Exception ex) {
-            return false;
+            throw new Exception("Download failed!");
         }
 
         if (this.buildServerBuildLog == null || this.buildServerBuildLog.equals("")) {
-            return false;
+            throw new Exception("Downloaded build log is empty!");
         }
-
-        return true;
     }
 
     public String getBuildServerBuildLog() {
