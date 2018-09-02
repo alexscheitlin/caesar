@@ -32,10 +32,10 @@ public class Caesar extends CaesarStages {
     // internal and external concern
     private BuildServer buildServerModel;
 
-    boolean connectImpl(String host, String username, String password) {
-        // return false if connection test fails
+    void connectImpl(String host, String username, String password) throws Exception {
+        // check connection to build server
         if (!testBuildServerConnection(this.buildServerType, host, username, password)) {
-            return false;
+            throw new Exception("Connection test failed!");
         }
 
         // login to api
@@ -44,8 +44,6 @@ public class Caesar extends CaesarStages {
 
         // get build server model
         this.fetchBuildServerInformation();
-
-        return true;
     }
 
     public BuildServer fetchBuildServerInformation() {

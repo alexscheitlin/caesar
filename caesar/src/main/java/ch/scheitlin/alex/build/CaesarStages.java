@@ -11,31 +11,27 @@ public abstract class CaesarStages {
         this.stage = BuildFixAssistantStage.NONE;
     }
 
-    public boolean connect(String host, String username, String password) throws Exception {
+    public void connect(String host, String username, String password) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.NONE,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.CONNECTED;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.connectImpl(host, username, password);
         } catch (Exception ex) {
             throw new Exception("Could not connect to build server!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.connectImpl(host, username, password)) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean connectImpl(String host, String username, String password);
+    abstract void connectImpl(String host, String username, String password) throws Exception;
 
     public boolean download(BuildServerBuild build) throws Exception {
         BuildFixAssistantStage[] requiredStages = {
