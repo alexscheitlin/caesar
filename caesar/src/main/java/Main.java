@@ -247,6 +247,7 @@ public class Main {
         }
 
         // finish fixing
+        System.out.println();
         System.out.println("Finish fixing broken code...");
         try {
             caesar.finish();
@@ -254,18 +255,21 @@ public class Main {
             stageFailed(ex);
             return;
         }
+        System.out.println("\tfinished");
 
+        System.out.println();
         System.out.println("The branch created for fixing may still exist!");
 
-        // logout from the build server
+        // disconnect from the build server
+        System.out.println();
+        System.out.println("Disconnecting from build server...");
         try {
-            caesar.finish();
+            caesar.disconnect();
         } catch (Exception ex) {
             stageFailed(ex);
             return;
         }
-        System.out.println();
-        System.out.println("Status: " + (caesar.isConnected() ? "logged in" : "logged out"));
+        System.out.println("\tdisconnected");
 
         exit();
     }

@@ -313,14 +313,12 @@ public class Caesar extends CaesarStages {
     // disconnect
     // -----------------------------------------------------------------------------------------------------------------
 
-    boolean disconnectImpl() {
+    void disconnectImpl() {
         // clean connect variables
         this.buildServerApi = null;
         this.buildServerModel = null;
 
         this.abortImpl();
-
-        return true;
     }
 
     // -----------------------------------------------------------------------------------------------------------------

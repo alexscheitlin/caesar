@@ -121,32 +121,28 @@ public abstract class CaesarStages {
 
     abstract void finishImpl() throws Exception;
 
-    public boolean disconnect() throws Exception {
+    public void disconnect() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.CONNECTED,
                 BuildFixAssistantStage.FIXING,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.NONE;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.disconnectImpl();
         } catch (Exception ex) {
             throw new Exception("Could not disconnect from build server!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.disconnectImpl()) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean disconnectImpl();
+    abstract void disconnectImpl() throws Exception;
 
     public boolean abort() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
