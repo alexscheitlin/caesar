@@ -55,31 +55,27 @@ public abstract class CaesarStages {
 
     abstract void downloadImpl(BuildServerBuild build) throws Exception;
 
-    public boolean process() throws Exception {
+    public void process() throws Exception {
         BuildFixAssistantStage[] requiredStages = {
                 BuildFixAssistantStage.DOWNLOADED,
         };
         BuildFixAssistantStage nextStage = BuildFixAssistantStage.PROCESSED;
 
-        // check whether this helper instance is in the required stage
         try {
+            // check whether caesar is in the required stage
             stageCheck(requiredStages);
+
+            // try to enter next stage
+            this.processImpl();
         } catch (Exception ex) {
             throw new Exception("Could not process build log!\n" + ex.getMessage());
         }
 
-        // try to enter next stage
-        if (!this.processImpl()) {
-            return false;
-        }
-
-        // update the stage of this helper instance
+        // update the stage
         this.stage = nextStage;
-
-        return true;
     }
 
-    abstract boolean processImpl();
+    abstract void processImpl() throws Exception;
 
     public boolean fix(String pathToLocalGitRepository) throws Exception {
         BuildFixAssistantStage[] requiredStages = {

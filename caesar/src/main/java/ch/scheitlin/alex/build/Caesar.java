@@ -93,20 +93,20 @@ public class Caesar extends CaesarStages {
     private String failureCategory;
     private List<Error> errors;
 
-    boolean processImpl() {
+    void processImpl() throws Exception {
         // parse build server build log
         Build build = null;
         try {
             BuildServerBuildLogParser buildLogParser = new BuildServerBuildLogParser(this.buildServerType);
             build = buildLogParser.parseBuildLog(this.buildServerBuildLog);
         } catch (Exception ex) {
-            return false;
+            throw new Exception("Parsing of the build server build log failed!");
         }
 
         // extract maven log
         this.mavenBuildLog = build.getMavenLog();
         if (this.mavenBuildLog == null) {
-            return false;
+            throw new Exception("Retrieved maven build log is empty!");
         }
 
         // parse maven log
@@ -121,7 +121,7 @@ public class Caesar extends CaesarStages {
                 Classifier classifier = new Classifier();
                 this.failureCategory = classifier.classify(errorMessage).toString();
             } catch (Exception e) {
-                return false;
+                throw new Exception("Failure classification failed!");
             }
 
             // parse log of error message (from the build summary)
@@ -140,7 +140,7 @@ public class Caesar extends CaesarStages {
                 Classifier classifier = new Classifier();
                 this.failureCategory = classifier.classify(failedGoal).toString();
             } catch (Exception e) {
-                return false;
+                throw new Exception("Failure classification failed!");
             }
 
             // parse log of failed maven goal
@@ -157,8 +157,6 @@ public class Caesar extends CaesarStages {
                     failedGoalLog
             );
         }
-
-        return true;
     }
 
     public String getMavenBuildLog() {
