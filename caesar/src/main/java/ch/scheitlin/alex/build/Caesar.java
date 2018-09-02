@@ -343,28 +343,4 @@ public class Caesar extends CaesarStages {
         this.stashedChanges = null;
         this.newBranch = null;
     }
-
-    // -----------------------------------------------------------------------------------------------------------------
-    // stages
-    // -----------------------------------------------------------------------------------------------------------------
-
-    public boolean isInNoStage() {
-        return super.stage == CaesarStage.NONE;
-    }
-
-    public boolean isConnected() {
-        return super.stage == CaesarStage.CONNECTED;
-    }
-
-    public boolean hasDownloaded() {
-        return super.stage == CaesarStage.DOWNLOADED;
-    }
-
-    public boolean hasProcessed() {
-        return super.stage == CaesarStage.PROCESSED;
-    }
-
-    public boolean isFixing() {
-        return super.stage == CaesarStage.FIXING;
-    }
 }

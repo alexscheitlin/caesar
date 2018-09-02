@@ -5,11 +5,15 @@ import ch.scheitlin.alex.build.model.BuildServerBuild;
 import java.util.Arrays;
 
 public abstract class CaesarStages {
-    protected CaesarStage stage;
+    private CaesarStage stage;
 
     public CaesarStages() {
         this.stage = CaesarStage.NONE;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // connect
+    // -----------------------------------------------------------------------------------------------------------------
 
     public void connect(String host, String username, String password) throws Exception {
         CaesarStage nextStage = CaesarStage.CONNECTED;
@@ -33,6 +37,10 @@ public abstract class CaesarStages {
 
     abstract void connectImpl(String host, String username, String password) throws Exception;
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // download
+    // -----------------------------------------------------------------------------------------------------------------
+
     public void download(BuildServerBuild build) throws Exception {
         CaesarStage nextStage = CaesarStage.DOWNLOADED;
         CaesarStage[] requiredStages = {
@@ -54,6 +62,10 @@ public abstract class CaesarStages {
     }
 
     abstract void downloadImpl(BuildServerBuild build) throws Exception;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // process
+    // -----------------------------------------------------------------------------------------------------------------
 
     public void process() throws Exception {
         CaesarStage nextStage = CaesarStage.PROCESSED;
@@ -77,6 +89,10 @@ public abstract class CaesarStages {
 
     abstract void processImpl() throws Exception;
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // fix
+    // -----------------------------------------------------------------------------------------------------------------
+
     public void fix(String pathToLocalGitRepository) throws Exception {
         CaesarStage nextStage = CaesarStage.FIXING;
         CaesarStage[] requiredStages = {
@@ -99,6 +115,10 @@ public abstract class CaesarStages {
 
     abstract void fixImpl(String pathToLocalGitRepository) throws Exception;
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // finish
+    // -----------------------------------------------------------------------------------------------------------------
+
     public void finish() throws Exception {
         CaesarStage nextStage = CaesarStage.CONNECTED;
         CaesarStage[] requiredStages = {
@@ -120,6 +140,10 @@ public abstract class CaesarStages {
     }
 
     abstract void finishImpl() throws Exception;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // disconnect
+    // -----------------------------------------------------------------------------------------------------------------
 
     public void disconnect() throws Exception {
         CaesarStage nextStage = CaesarStage.NONE;
@@ -144,6 +168,10 @@ public abstract class CaesarStages {
 
     abstract void disconnectImpl() throws Exception;
 
+    // -----------------------------------------------------------------------------------------------------------------
+    // abort
+    // -----------------------------------------------------------------------------------------------------------------
+
     public void abort() throws Exception {
         CaesarStage nextStage = CaesarStage.CONNECTED;
         CaesarStage[] requiredStages = {
@@ -167,6 +195,30 @@ public abstract class CaesarStages {
     }
 
     abstract void abortImpl() throws Exception;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    // stages
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public boolean isInNoStage() {
+        return this.stage == CaesarStage.NONE;
+    }
+
+    public boolean isConnected() {
+        return this.stage == CaesarStage.CONNECTED;
+    }
+
+    public boolean hasDownloaded() {
+        return this.stage == CaesarStage.DOWNLOADED;
+    }
+
+    public boolean hasProcessed() {
+        return this.stage == CaesarStage.PROCESSED;
+    }
+
+    public boolean isFixing() {
+        return this.stage == CaesarStage.FIXING;
+    }
 
     private void stageCheck(CaesarStage[] stages) throws Exception {
         if (!Arrays.asList(stages).contains(this.stage)) {
