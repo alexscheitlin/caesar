@@ -1,0 +1,14 @@
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.594s
+[INFO] Finished at: Sun Sep 02 20:16:25 CEST 2018
+[INFO] Final Memory: 7M/240M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project commons-cli: Could not resolve dependencies for project commons-cli:commons-cli:jar:1.5-SNAPSHOT: Failure to find junit:junit:jar:5.12 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

@@ -11,8 +11,9 @@ import java.util.List;
  */
 public class CouldNotResolveDependencies extends GoalParser {
     private final String ERROR = "^\\[ERROR\\] Failed to execute goal on project .*: (Could not resolve dependencies) for project .*: (.*)$";
-    private final String ERROR_MESSAGE = "^(Could not find artifact) (.*) in .*$";
-    private final String ARTIFACT = "^(.*):(.*):.*:(.*)$";
+    private final String ERROR_MESSAGE_1 = "^(Could not find artifact) (\\w*:\\w*:\\w*:[\\w|.]*) in .*$";
+    private final String ERROR_MESSAGE_2 = "^(Failure to find) (\\w*:\\w*:\\w*:[\\w|.]*) in .*$";
+    private final String ARTIFACT = "^(\\w*):(\\w*):\\w*:([\\w|.]*)$";
 
     public CouldNotResolveDependencies() {
         super( "Could not resolve dependencies");
@@ -22,7 +23,8 @@ public class CouldNotResolveDependencies extends GoalParser {
     public List<Error> parseLog(String log) {
         // prepare matchers for regular expressions
         RegexMatcher errorMatcher = new RegexMatcher(ERROR);
-        RegexMatcher errorMessageMatcher = new RegexMatcher(ERROR_MESSAGE);
+        RegexMatcher errorMessageMatcher1 = new RegexMatcher(ERROR_MESSAGE_1);
+        RegexMatcher errorMessageMatcher2 = new RegexMatcher(ERROR_MESSAGE_2);
         RegexMatcher artifactMatcher = new RegexMatcher(ARTIFACT);
 
         List<Error> errors = new ArrayList<Error>();
@@ -33,12 +35,19 @@ public class CouldNotResolveDependencies extends GoalParser {
 
                 String errorMessage = errorComponents[0];
 
-                // check whether there was an issues with the artifact
-                if (errorMessageMatcher.matches(errorComponents[1])) {
-                    String[] errorMessageComponents = errorMessageMatcher.extractComponentsSilently(errorComponents[1]);
+                // check whether there was an issue with the artifact
+                if (errorMessageMatcher1.matches(errorComponents[1]) ||errorMessageMatcher2.matches(errorComponents[1])) {
+                    String[] errorMessageComponents;
+                    if (errorMessageMatcher1.matches(errorComponents[1])) {
+                        errorMessageComponents = errorMessageMatcher1.extractComponentsSilently(errorComponents[1]);
+                    } else {
+                        errorMessageComponents = errorMessageMatcher2.extractComponentsSilently(errorComponents[1]);
+                    }
 
                     errorMessage = errorMessageComponents[0];
                     String artifact = errorMessageComponents[1];
+
+                    System.out.println(artifact);
 
                     if (artifactMatcher.matches(artifact)) {
                         String[] artifactComponents = artifactMatcher.extractComponentsSilently(artifact);

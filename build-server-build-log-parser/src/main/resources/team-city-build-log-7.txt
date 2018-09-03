@@ -1,0 +1,346 @@
+Build 'commons-cli-test :: Clean Test' #1, default branch 'problem-1'
+Started 2018-09-02 20:16:20 on 'W541' by 'alex'
+Finished 2018-09-02 20:16:26 with status FAILURE 'Exit code 1 (new)'
+VCS revisions: 'commons-cli-test' (Git): a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa (branch 'refs/heads/problem-1')
+TeamCity URL http://localhost/viewLog.html?buildId=117&buildTypeId=CommonsCliTest_CleanTest 
+TeamCity server version is 2017.2.4 (build 51228), server timezone: MESZ (UTC+02:00)
+
+[20:16:20]E: bt17 (5s)
+[20:16:20]i: TeamCity server version is 2017.2.4 (build 51228)
+[20:16:20] : The build is removed from the queue to be prepared for the start
+[20:16:20] : Collecting changes in 1 VCS root
+[20:16:20] :	 [Collecting changes in 1 VCS root] VCS Root details
+[20:16:20] :		 [VCS Root details] "commons-cli-test" {instance id=23, parent internal id=16, parent id=CommonsCliTest_CommonsCliTest, description: "D:\bachelor-thesis\test\evaluation-test\commons-cli#refs/heads/problem-1"}
+[20:16:20]i:	 [Collecting changes in 1 VCS root] Detecting changes in VCS root 'commons-cli-test' (used in 'Clean Test')
+[20:16:20]i:	 [Collecting changes in 1 VCS root] Will collect changes for 'commons-cli-test' starting from revision a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:20] :	 [Collecting changes in 1 VCS root] Compute revision for 'commons-cli-test'
+[20:16:20] :		 [Compute revision for 'commons-cli-test'] Upper limit revision: a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:20]i:		 [Compute revision for 'commons-cli-test'] MaxModId = null
+[20:16:20] :		 [Compute revision for 'commons-cli-test'] Cannot find modification with revision a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:20] :		 [Compute revision for 'commons-cli-test'] No modification from VCS root is attached to build configuration, use upper limit revision
+[20:16:20] :		 [Compute revision for 'commons-cli-test'] Computed revision: a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:20] : Starting the build on the agent W541
+[20:16:20]i: Agent time zone: Europe/Berlin
+[20:16:21]i: Agent is running under JRE: 1.8.0_161-b12
+[20:16:21] : Clearing temporary directory: C:\TeamCity\buildAgent\temp\buildTmp
+[20:16:21] : Publishing internal artifacts (2s)
+[20:16:23] :	 [Publishing internal artifacts] Publishing 1 file using [ArtifactsCachePublisher]
+[20:16:23] :	 [Publishing internal artifacts] Publishing 1 file using [WebPublisher]
+[20:16:21] : Will perform clean checkout. Reason: Checkout directory is empty or doesn't exist
+[20:16:21] : Checkout directory: C:\TeamCity\buildAgent\work\b682813bd0bb023b
+[20:16:21] : Updating sources: auto checkout (on agent) (1s)
+[20:16:21] :	 [Updating sources] Will use agent side checkout
+[20:16:21] :	 [Updating sources] VCS Root: commons-cli-test (1s)
+[20:16:21] :		 [VCS Root: commons-cli-test] revision: a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:21] :		 [VCS Root: commons-cli-test] Git version: 2.16.2.0
+[20:16:21] :		 [VCS Root: commons-cli-test] Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)
+[20:16:21] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)] "C:\Program Files\Git\bin\git.exe" init --bare
+[20:16:21] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)] "C:\Program Files\Git\bin\git.exe" show-ref refs/heads/problem-1
+[20:16:21] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)] "C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Counting objects: 122, done.        
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   0% (1/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   1% (2/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   2% (3/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   3% (4/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   4% (5/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   5% (6/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   6% (7/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   7% (8/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   8% (9/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:   9% (10/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  10% (11/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  11% (12/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  12% (13/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  13% (14/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  14% (15/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  15% (16/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  16% (17/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  17% (18/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  18% (19/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  19% (20/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  20% (21/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  21% (22/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  22% (23/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  23% (24/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  24% (25/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  25% (26/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  26% (28/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  27% (29/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  28% (30/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  29% (31/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  30% (32/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  31% (33/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  32% (34/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  33% (35/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  34% (36/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  35% (37/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  36% (38/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  37% (39/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  38% (40/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  39% (41/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  40% (42/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  41% (43/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  42% (44/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  43% (45/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  44% (46/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  45% (47/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  46% (48/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  47% (49/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  48% (50/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  49% (51/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  50% (52/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  51% (54/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  52% (55/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  53% (56/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  54% (57/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  55% (58/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  56% (59/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  57% (60/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  58% (61/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  59% (62/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  60% (63/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  61% (64/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  62% (65/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  63% (66/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  64% (67/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  65% (68/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  66% (69/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  67% (70/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  68% (71/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  69% (72/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  70% (73/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  71% (74/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  72% (75/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  73% (76/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  74% (77/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  75% (78/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  76% (80/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  77% (81/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  78% (82/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  79% (83/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  80% (84/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  81% (85/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  82% (86/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  83% (87/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  84% (88/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  85% (89/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  86% (90/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  87% (91/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  88% (92/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  89% (93/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  90% (94/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  91% (95/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  92% (96/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  93% (97/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  94% (98/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  95% (99/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  96% (100/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  97% (101/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  98% (102/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects:  99% (103/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects: 100% (104/104)           
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Compressing objects: 100% (104/104), done.        
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   0% (1/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   1% (2/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   2% (3/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   3% (4/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   4% (5/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   5% (7/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   6% (8/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   7% (9/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   8% (10/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:   9% (11/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  10% (13/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  11% (14/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  12% (15/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  13% (16/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  14% (18/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  15% (19/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  16% (20/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  17% (21/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  18% (22/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  19% (24/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  20% (25/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  21% (26/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  22% (27/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  23% (29/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  24% (30/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  25% (31/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  26% (32/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  27% (33/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  28% (35/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  29% (36/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  30% (37/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  31% (38/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  32% (40/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  33% (41/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  34% (42/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  35% (43/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  36% (44/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  37% (46/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  38% (47/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  39% (48/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  40% (49/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  41% (51/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  42% (52/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  43% (53/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  44% (54/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  45% (55/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  46% (57/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  47% (58/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  48% (59/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  49% (60/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  50% (61/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  51% (63/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  52% (64/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  53% (65/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  54% (66/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  55% (68/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  56% (69/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  57% (70/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  58% (71/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  59% (72/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  60% (74/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  61% (75/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  62% (76/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  63% (77/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  64% (79/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  65% (80/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  66% (81/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  67% (82/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  68% (83/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  69% (85/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  70% (86/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  71% (87/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  72% (88/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  73% (90/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  74% (91/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  75% (92/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  76% (93/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  77% (94/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  78% (96/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  79% (97/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  80% (98/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  81% (99/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  82% (101/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  83% (102/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  84% (103/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  85% (104/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  86% (105/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  87% (107/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  88% (108/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  89% (109/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  90% (110/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  91% (112/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  92% (113/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  93% (114/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  94% (115/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  95% (116/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  96% (118/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  97% (119/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  98% (120/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects:  99% (121/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects: 100% (122/122)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Receiving objects: 100% (122/122), 191.44 KiB | 8.70 MiB/s, done.
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] remote: Total 122 (delta 24), reused 54 (delta 4)        
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:   0% (0/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:   4% (1/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:   8% (2/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  12% (3/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  16% (4/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  29% (7/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  41% (10/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  45% (11/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  50% (12/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  54% (13/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  58% (14/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  66% (16/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  75% (18/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  87% (21/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas:  91% (22/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas: 100% (24/24)   
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] Resolving deltas: 100% (24/24), done.
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1] From D:\bachelor-thesis\test\evaluation-test\commons-cli
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1]  * [new branch]      problem-1  -> problem-1
+[20:16:21]i:				 ["C:\Program Files\Git\bin\git.exe" -c credential.helper= fetch --progress origin +refs/heads/problem-1:refs/heads/problem-1]  * [new branch]      problem-1  -> origin/problem-1
+[20:16:21] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)] "C:\Program Files\Git\bin\git.exe" log -n1 --pretty=format:%H%x20%s a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa --
+[20:16:21] :			 [Update git mirror (C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git)] "C:\Program Files\Git\bin\git.exe" pack-refs --all
+[20:16:21] :		 [VCS Root: commons-cli-test] Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b) (1s)
+[20:16:21] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] The .git directory is missing in 'C:\TeamCity\buildAgent\work\b682813bd0bb023b'. Running 'git init'...
+[20:16:21] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" init
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" config lfs.storage C:\TeamCity\buildAgent\system\git\git-40CD0A2F.git\lfs
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" config core.sparseCheckout true
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" show-ref
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" -c credential.helper= ls-remote origin
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" show-ref refs/remotes/origin/problem-1
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" log -n1 --pretty=format:%H%x20%s a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa --
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" branch
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" update-ref refs/heads/problem-1 a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" -c credential.helper= checkout -q -f problem-1
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" branch --set-upstream-to=refs/remotes/origin/problem-1
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] Cleaning commons-cli-test in C:\TeamCity\buildAgent\work\b682813bd0bb023b the file set ALL_UNTRACKED
+[20:16:22] :			 [Update checkout directory (C:\TeamCity\buildAgent\work\b682813bd0bb023b)] "C:\Program Files\Git\bin\git.exe" clean -f -d -x
+[20:16:23] : Build preparation done
+[20:16:23]E: Step 1/1: Maven (3s)
+[20:16:23] :	 [Step 1/1] Initial M2_HOME not set
+[20:16:23] :	 [Step 1/1] Current M2_HOME = C:\TeamCity\buildAgent\tools\maven3
+[20:16:23] :	 [Step 1/1] PATH = C:\TeamCity\buildAgent\tools\maven3\bin;C:\RailsInstaller\Ruby2.3.3\bin;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Ruby22-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files\Java\jre1.8.0_101\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\wamp64\bin\php\php5.6.25;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\TortoiseSVN\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps
+[20:16:23] :	 [Step 1/1] Using watcher: C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher\maven-watcher-agent.jar
+[20:16:23] :	 [Step 1/1] Initial MAVEN_OPTS not set
+[20:16:23] :	 [Step 1/1] Current MAVEN_OPTS not set
+[20:16:23] :	 [Step 1/1] Starting: "C:\Program Files\Java\jdk1.8.0_101\bin\java.exe" -Dagent.home.dir=C:\TeamCity\buildAgent -Dagent.name=W541 -Dagent.ownPort=9090 -Dagent.work.dir=C:\TeamCity\buildAgent\work -Dbuild.number=1 -Dbuild.vcs.number=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dbuild.vcs.number.1=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dbuild.vcs.number.CommonsCliTest_CommonsCliTest=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dclassworlds.conf=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.m2.conf -Dcom.jetbrains.maven.watcher.report.file=C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml -Djava.io.tmpdir=C:\TeamCity\buildAgent\temp\buildTmp -Dmaven.home=C:\TeamCity\buildAgent\tools\maven3 -Dmaven.multiModuleProjectDirectory=C:\TeamCity\buildAgent\work\b682813bd0bb023b -Dmaven.repo.local=C:/WINDOWS/system32/config/systemprofile/.m2/repository -Dteamcity.agent.cpuBenchmark=621 -Dteamcity.agent.dotnet.agent_url=http://localhost:9090/RPC2 -Dteamcity.agent.dotnet.build_id=117 -Dteamcity.auth.password=******* -Dteamcity.auth.userId=TeamCityBuildId=117 -Dteamcity.build.changedFiles.file=C:\TeamCity\buildAgent\temp\buildTmp\changedFiles100560410740123897.txt -Dteamcity.build.checkoutDir=C:\TeamCity\buildAgent\work\b682813bd0bb023b -Dteamcity.build.id=117 -Dteamcity.build.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.build6774142286259538447.properties -Dteamcity.build.tempDir=C:\TeamCity\buildAgent\temp\buildTmp -Dteamcity.build.workingDir=C:\TeamCity\buildAgent\work\b682813bd0bb023b "-Dteamcity.buildConfName=Clean Test" -Dteamcity.buildType.id=CommonsCliTest_CleanTest -Dteamcity.configuration.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.config2575678499630134614.properties -Dteamcity.dotnet.nunitaddin=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.NUnitAddin-NUnit -Dteamcity.dotnet.nunitlauncher=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher.exe -Dteamcity.dotnet.nunitlauncher.msbuild.task=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.MSBuildLoggers.dll -Dteamcity.dotnet.nunitlauncher1.1=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher1.1.exe -Dteamcity.dotnet.nunitlauncher2.0=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.exe -Dteamcity.dotnet.nunitlauncher2.0.vsts=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.VSTS.exe -Dteamcity.dotnet.platform=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.PlatformProcessRunner.1.1.exe -Dteamcity.maven.watcher.home=C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher -Dteamcity.projectName=commons-cli-test -Dteamcity.runner.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.runner7734031408895877167.properties -Dteamcity.tests.recentlyFailedTests.file=C:\TeamCity\buildAgent\temp\buildTmp\testsToRunFirst8734902270751784941.txt "-Dteamcity.version=2017.2.4 (build 51228)" -classpath C:\TeamCity\buildAgent\tools\maven3\boot\plexus-classworlds-2.4.jar; org.codehaus.plexus.classworlds.launcher.Launcher -f C:\TeamCity\buildAgent\work\b682813bd0bb023b\pom.xml -B clean test
+[20:16:23] :	 [Step 1/1] in directory: C:\TeamCity\buildAgent\work\b682813bd0bb023b
+[20:16:24] :	 [Step 1/1] [INFO] Scanning for projects...
+[20:16:24] :	 [Step 1/1] [INFO]                                                                         
+[20:16:24] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[20:16:24] :	 [Step 1/1] [INFO] Building Apache Commons CLI 1.5-SNAPSHOT
+[20:16:24] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[20:16:24] :	 [Step 1/1] [Maven Watcher] project started: commons-cli:commons-cli:jar:1.5-SNAPSHOT
+[20:16:24] :	 [Step 1/1] commons-cli:commons-cli (1s)
+[20:16:24]i:		 [commons-cli:commons-cli] ##teamcity[importData tc:tags='tc:internal' type='surefire' path='C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/surefire-reports/TEST-*.xml' whenNoDataPublished='nothing' logAsInternal='true']
+[20:16:24] :	 [Step 1/1] Importing data from 'C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/surefire-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[20:16:24]i:		 [commons-cli:commons-cli] ##teamcity[importData tc:tags='tc:internal' type='surefire' path='C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/failsafe-reports/TEST-*.xml' whenNoDataPublished='nothing' logAsInternal='true']
+[20:16:24] :	 [Step 1/1] Importing data from 'C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/failsafe-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[20:16:24] :	 [Step 1/1] [Maven Watcher] 
+[20:16:24]i:	 [Step 1/1] ##teamcity[projectStarted tc:tags='tc:internal' projectId='commons-cli:commons-cli:jar:1.5-SNAPSHOT' groupId='commons-cli' artifactId='commons-cli' testReportsDir0='C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/surefire-reports' testReportsDir1='C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/failsafe-reports']
+[20:16:24] :	 [Step 1/1] Surefire report watcher
+[20:16:24] :		 [Surefire report watcher] Watching paths:
+[20:16:24] :		 [Surefire report watcher] C:\TeamCity\buildAgent\work\b682813bd0bb023b\target\surefire-reports\TEST-*.xml
+[20:16:24] :	 [Step 1/1] Surefire report watcher
+[20:16:24] :		 [Surefire report watcher] Watching paths:
+[20:16:24] :		 [Surefire report watcher] C:\TeamCity\buildAgent\work\b682813bd0bb023b\target\failsafe-reports\TEST-*.xml
+[20:16:25]W:	 [Step 1/1] [WARNING] The POM for junit:junit:jar:5.12 is missing, no dependency information available
+[20:16:25] :	 [Step 1/1] [Maven Watcher] 
+[20:16:25]E:	 [Step 1/1] Failed to execute goal on project commons-cli: Could not resolve dependencies for project commons-cli:commons-cli:jar:1.5-SNAPSHOT: Failure to find junit:junit:jar:5.12 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+[20:16:25] :	 [Step 1/1] [Maven Watcher] 
+[20:16:25]i:	 [Step 1/1] ##teamcity[projectFinished tc:tags='tc:internal' projectId='commons-cli:commons-cli:jar:1.5-SNAPSHOT']
+[20:16:25] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[20:16:25] :	 [Step 1/1] [INFO] BUILD FAILURE
+[20:16:25] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[20:16:25] :	 [Step 1/1] [INFO] Total time: 1.594s
+[20:16:25] :	 [Step 1/1] [INFO] Finished at: Sun Sep 02 20:16:25 CEST 2018
+[20:16:25] :	 [Step 1/1] [INFO] Final Memory: 7M/240M
+[20:16:25] :	 [Step 1/1] [INFO] ------------------------------------------------------------------------
+[20:16:25] :	 [Step 1/1] [Maven Watcher] building report document...
+[20:16:25] :	 [Step 1/1] [Maven Watcher] building report document done
+[20:16:25] :	 [Step 1/1] [Maven Watcher] writing report to C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml
+[20:16:25] :	 [Step 1/1] [Maven Watcher] done writing report
+[20:16:25]W:	 [Step 1/1] [ERROR] Failed to execute goal on project commons-cli: Could not resolve dependencies for project commons-cli:commons-cli:jar:1.5-SNAPSHOT: Failure to find junit:junit:jar:5.12 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+[20:16:25]W:	 [Step 1/1] [ERROR] 
+[20:16:25]W:	 [Step 1/1] [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[20:16:25]W:	 [Step 1/1] [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[20:16:25]W:	 [Step 1/1] [ERROR] 
+[20:16:25]W:	 [Step 1/1] [ERROR] For more information about the errors and possible solutions, please read the following articles:
+[20:16:25]W:	 [Step 1/1] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[20:16:25]W:	 [Step 1/1] Process exited with code 1
+[20:16:25] :	 [Step 1/1] Publishing artifacts
+[20:16:25] :		 [Publishing artifacts] Collecting files to publish: [C:\TeamCity\buildAgent\temp\buildTmp\.tc-maven-bi\maven-build-info.xml.gz => .teamcity]
+[20:16:25] :		 [Publishing artifacts] Publishing 1 file using [ArtifactsCachePublisher]: C:/TeamCity/buildAgent/temp/buildTmp/.tc-maven-bi/maven-build-info.xml.gz => .teamcity
+[20:16:25] :		 [Publishing artifacts] Publishing 1 file using [WebPublisher]: C:/TeamCity/buildAgent/temp/buildTmp/.tc-maven-bi/maven-build-info.xml.gz => .teamcity
+[20:16:26]E:	 [Step 1/1] Process exited with code 1
+[20:16:25] :	 [Step 1/1] Waiting for 2 service processes to complete
+[20:16:26]E:	 [Step 1/1] Step Maven failed
+[20:16:26] : Publishing internal artifacts
+[20:16:26] :	 [Publishing internal artifacts] Publishing 1 file using [ArtifactsCachePublisher]
+[20:16:26] :	 [Publishing internal artifacts] Publishing 1 file using [WebPublisher]
+[20:16:26] : Build finished

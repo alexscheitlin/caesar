@@ -73,11 +73,11 @@ public class MavenGoalLogParserTest {
     }
 
     @Test
-    public void parseGoalLog_CouldNotResolveDependencies() {
+    public void parseGoalLog_CouldNotResolveDependencies_1() {
         String errorMessage = "Could not resolve dependencies";
 
         // read goal log from test resources
-        String log = readResourceFile("could-not-resolve-dependencies.txt");
+        String log = readResourceFile("could-not-resolve-dependencies-1.txt");
 
         // define expected errors
         List<Error> expectedErrors = new ArrayList<Error>();
@@ -86,6 +86,33 @@ public class MavenGoalLogParserTest {
         int line = 0;
         int column = 0;
         String message = "Could not find artifact: junit:junit:5.12 (version '5.12' is locally not available)\n" +
+                "Please check why this version can not be found on maven central or in any of the defined repositories in the pom.xml file. Does the <version> really exist?\n" +
+                "Locally, only the following versions are available: 3.8.1, 3.8.2, 4.11, 4.12, 4.8.2\n" +
+                "Check all available versions of this artifact on maven central: https://mvnrepository.com/artifact/junit/junit";
+        Error expectedError1 = new Error(path, file, line, column, message);
+        expectedErrors.add(expectedError1);
+
+        // parse goal log
+        List<Error> actualErrors = MavenGoalLogParser.parseErrorLog(errorMessage, log);
+
+        // assert
+        assertErrors(expectedErrors, actualErrors);
+    }
+
+    @Test
+    public void parseGoalLog_CouldNotResolveDependencies_2() {
+        String errorMessage = "Could not resolve dependencies";
+
+        // read goal log from test resources
+        String log = readResourceFile("could-not-resolve-dependencies-2.txt");
+
+        // define expected errors
+        List<Error> expectedErrors = new ArrayList<Error>();
+        String path = null;
+        String file = "pom.xml";
+        int line = 0;
+        int column = 0;
+        String message = "Failure to find: junit:junit:5.12 (version '5.12' is locally not available)\n" +
                 "Please check why this version can not be found on maven central or in any of the defined repositories in the pom.xml file. Does the <version> really exist?\n" +
                 "Locally, only the following versions are available: 3.8.1, 3.8.2, 4.11, 4.12, 4.8.2\n" +
                 "Check all available versions of this artifact on maven central: https://mvnrepository.com/artifact/junit/junit";

@@ -1,0 +1,36 @@
+Initial M2_HOME not set
+Current M2_HOME = C:\TeamCity\buildAgent\tools\maven3
+PATH = C:\TeamCity\buildAgent\tools\maven3\bin;C:\RailsInstaller\Ruby2.3.3\bin;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Ruby22-x64\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Program Files\Java\jre1.8.0_101\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\wamp64\bin\php\php5.6.25;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\TortoiseSVN\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps
+Using watcher: C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher\maven-watcher-agent.jar
+Initial MAVEN_OPTS not set
+Current MAVEN_OPTS not set
+Starting: "C:\Program Files\Java\jdk1.8.0_101\bin\java.exe" -Dagent.home.dir=C:\TeamCity\buildAgent -Dagent.name=W541 -Dagent.ownPort=9090 -Dagent.work.dir=C:\TeamCity\buildAgent\work -Dbuild.number=1 -Dbuild.vcs.number=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dbuild.vcs.number.1=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dbuild.vcs.number.CommonsCliTest_CommonsCliTest=a3a0ff4999b9fa667c174b5a17eea4fdbc0ecbfa -Dclassworlds.conf=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.m2.conf -Dcom.jetbrains.maven.watcher.report.file=C:\TeamCity\buildAgent\temp\buildTmp\maven-build-info.xml -Djava.io.tmpdir=C:\TeamCity\buildAgent\temp\buildTmp -Dmaven.home=C:\TeamCity\buildAgent\tools\maven3 -Dmaven.multiModuleProjectDirectory=C:\TeamCity\buildAgent\work\b682813bd0bb023b -Dmaven.repo.local=C:/WINDOWS/system32/config/systemprofile/.m2/repository -Dteamcity.agent.cpuBenchmark=621 -Dteamcity.agent.dotnet.agent_url=http://localhost:9090/RPC2 -Dteamcity.agent.dotnet.build_id=117 -Dteamcity.auth.password=******* -Dteamcity.auth.userId=TeamCityBuildId=117 -Dteamcity.build.changedFiles.file=C:\TeamCity\buildAgent\temp\buildTmp\changedFiles100560410740123897.txt -Dteamcity.build.checkoutDir=C:\TeamCity\buildAgent\work\b682813bd0bb023b -Dteamcity.build.id=117 -Dteamcity.build.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.build6774142286259538447.properties -Dteamcity.build.tempDir=C:\TeamCity\buildAgent\temp\buildTmp -Dteamcity.build.workingDir=C:\TeamCity\buildAgent\work\b682813bd0bb023b "-Dteamcity.buildConfName=Clean Test" -Dteamcity.buildType.id=CommonsCliTest_CleanTest -Dteamcity.configuration.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.config2575678499630134614.properties -Dteamcity.dotnet.nunitaddin=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.NUnitAddin-NUnit -Dteamcity.dotnet.nunitlauncher=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher.exe -Dteamcity.dotnet.nunitlauncher.msbuild.task=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.MSBuildLoggers.dll -Dteamcity.dotnet.nunitlauncher1.1=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher1.1.exe -Dteamcity.dotnet.nunitlauncher2.0=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.exe -Dteamcity.dotnet.nunitlauncher2.0.vsts=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.BuildServer.NUnitLauncher2.0.VSTS.exe -Dteamcity.dotnet.platform=C:\TeamCity\buildAgent\plugins\dotnetPlugin\bin\JetBrains.TeamCity.PlatformProcessRunner.1.1.exe -Dteamcity.maven.watcher.home=C:\TeamCity\buildAgent\plugins\mavenPlugin\maven-watcher -Dteamcity.projectName=commons-cli-test -Dteamcity.runner.properties.file=C:\TeamCity\buildAgent\temp\buildTmp\teamcity.runner7734031408895877167.properties -Dteamcity.tests.recentlyFailedTests.file=C:\TeamCity\buildAgent\temp\buildTmp\testsToRunFirst8734902270751784941.txt "-Dteamcity.version=2017.2.4 (build 51228)" -classpath C:\TeamCity\buildAgent\tools\maven3\boot\plexus-classworlds-2.4.jar; org.codehaus.plexus.classworlds.launcher.Launcher -f C:\TeamCity\buildAgent\work\b682813bd0bb023b\pom.xml -B clean test
+in directory: C:\TeamCity\buildAgent\work\b682813bd0bb023b
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons CLI 1.5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+commons-cli:commons-cli (1s)
+Importing data from 'C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/surefire-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+Importing data from 'C:/TeamCity/buildAgent/work/b682813bd0bb023b/target/failsafe-reports/TEST-*.xml' (not existing file) with 'surefire' processor
+[WARNING] The POM for junit:junit:jar:5.12 is missing, no dependency information available
+Failed to execute goal on project commons-cli: Could not resolve dependencies for project commons-cli:commons-cli:jar:1.5-SNAPSHOT: Failure to find junit:junit:jar:5.12 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.594s
+[INFO] Finished at: Sun Sep 02 20:16:25 CEST 2018
+[INFO] Final Memory: 7M/240M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project commons-cli: Could not resolve dependencies for project commons-cli:commons-cli:jar:1.5-SNAPSHOT: Failure to find junit:junit:jar:5.12 in http://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+Process exited with code 1
+Process exited with code 1
+Waiting for 2 service processes to complete
+Step Maven failed
