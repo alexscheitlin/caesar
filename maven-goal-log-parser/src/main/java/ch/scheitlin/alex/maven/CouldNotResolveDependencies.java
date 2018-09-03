@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class CouldNotResolveDependencies extends GoalParser {
     private final String ERROR = "^\\[ERROR\\] Failed to execute goal on project .*: (Could not resolve dependencies) for project .*: (.*)$";
-    private final String ERROR_MESSAGE_1 = "^(Could not find artifact) ([\\w|.]*:\\w*:\\w*:[\\w|.]*) in .*$";
-    private final String ERROR_MESSAGE_2 = "^(Failure to find) ([\\w|.]*:\\w*:\\w*:[\\w|.]*) in .*$";
-    private final String ARTIFACT = "^([\\w|.]*):(\\w*):\\w*:([\\w|.]*)$";
+    private final String ERROR_MESSAGE_1 = "^(Could not find artifact) ([\\w|.]*:[\\w|-]*:\\w*:[\\w|.]*) in .*$";
+    private final String ERROR_MESSAGE_2 = "^(Failure to find) ([\\w|.]*:[\\w|-]*:\\w*:[\\w|.]*) in .*$";
+    private final String ARTIFACT = "^([\\w|.]*):([\\w|-]*):\\w*:([\\w|.]*)$";
 
     public CouldNotResolveDependencies() {
         super( "Could not resolve dependencies");
